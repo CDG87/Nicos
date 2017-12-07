@@ -1,0 +1,71 @@
+.btn-partie {
+    padding: 10px 16px;
+    font-size: 38px;
+    line-height: 5.3333333;
+    border-radius: 6px;
+    width: 500px;
+}
+.btn-acc {
+    padding: 10px 16px;
+    font-size: 38px;
+    line-height: 5.3333333;
+    border-radius: 6px;
+    width: 800px;
+}
+.btn-lg,
+.btn-group-lg > .btn {
+    padding:10px 16px;
+    font-size: 28px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    width: 300px;
+    height: 150px;
+    white-space: normal;
+}
+.btn-obs {
+    padding:10px 16px;
+    font-size: 28px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    width: 1100px;
+    height: 160px;
+    white-space: normal;
+}
+.btn-art {
+    padding: 10px 16px;
+    font-size: 38px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    width: 300px;
+}
+.btn-ret {
+    padding: 10px 16px;
+    font-size: 38px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    width: 200px;
+}
+.btn-preco {
+    padding:10px 16px;
+    font-size: 28px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    width: 1100px;
+    height: 500px;
+    white-space: normal;
+}
+.btn.outline {
+    padding: 12px 22px;
+	border: 10px solid #0a007a;
+	border-style:inset;
+}
+
+.btnsurr{
+	text-align:center;
+}
+
+.btnMenu{
+	float:left;
+	margin:1% 1% 1% 1%;
+	padding:1.2% 2.2% 1.2% 2.3%;
+}

@@ -1,0 +1,41 @@
+<?php
+	include("include/entete.php");
+    if($listeAudit == null){
+        $cachechoi = 'disabled="disabled"';
+    }
+    else{
+        $cachechoi = '';
+    }
+?>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-md-8">
+
+
+<table>
+    <tr>
+        <td class="espart">
+            <form method="post" action="index.php?uc=creation&action=new_audit&act_creation=creer">
+                <button type="submit" class="btn btn-warning btn-partie" name="new_audit">Créer un audit</button>
+            </form>
+        </td>
+        <td class="espart">
+		
+		<form method="post" action="index.php?uc=creation&action=donnees_ancien_audit&act_creation=choix">
+			<button type="submit" class="btn btn-warning btn-partie" name="choix_audit" <?php echo $cachechoi; ?> >Choisir un audit</button>
+		</form>
+        </td>
+    </tr>
+	<tr>
+		<td class="espar btnsurr" colspan="2">
+			<form method="post" action="index.php?uc=creation&action=suppr_audit&act_creation=suppr">
+				<button type="submit" class="btn btn-info btn-lg" name="suppr_audit" <?php echo $cachechoi; ?> >Supprimer un audit</button>
+			</form>
+		</td>
+	</tr>
+</table>	
+
+	</div>
+</div>
+
+		
