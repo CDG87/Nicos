@@ -18,7 +18,7 @@ if($_SESSION['cachemo'] == true){
     <table>
         <tr>
             <th>
-                <textarea class="form-control" rows="18" name='newnomarticle' cols='150' maxlength='10000' required="required" disabled><?php echo $_SESSION['articlecritere']; ?></textarea>
+                <textarea class="form-control" rows="17" name='newnomarticle' cols='150' maxlength='10000' required="required" disabled><?php echo $_SESSION['articlecritere']; ?></textarea>
             </th>
         </tr>
         <tr>

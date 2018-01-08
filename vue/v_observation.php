@@ -143,6 +143,7 @@ else{
             </tr>
         </table>
         <hr/>
+		<?php if($infosaudit['LIBELLE_AUDIT']=="Inspection"){ ?>
         <table>
             <tr>
                 <td>
@@ -169,7 +170,7 @@ else{
                         </label>
 						<div id='SAD'>
 							<label class='lab_con'>
-								<input class='btn_conf' name='conf' type='radio' value='SA' checked>
+								<input class='btn_conf' name='conf' type='radio' value='SA'>
 									<span class='btn_sco' id="SA">Sans avis</span>
 								</input>
 							</label>
@@ -178,6 +179,7 @@ else{
                 </td>
             </tr>
         </table>
+		<?php } ?>
         <hr/>
         <table>
             <tr>

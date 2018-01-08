@@ -28,7 +28,7 @@
 }
 .btns .lab_con:first-child {
   border-left: none;
-  border-radius: 50px 0 0 50px;
+  border-radius: 500px 0 0 50px;
 }
 .btns .lab_con:last-child {
   border-radius: 0 50px 50px 0;
@@ -70,6 +70,7 @@
 }
 .btns .btn_conf:checked + .btn_sco {
   color: #5f6982;
+  font-size: 26px;
   text-shadow: none;
   background-image: -webkit-linear-gradient( bottom , rgba(25, 25, 25, 0) 65%, rgba(25, 25, 25, 0.08));
   background-image: -webkit-linear-gradient(bottom, rgba(25, 25, 25, 0) 65%, rgba(25, 25, 25, 0.08));

@@ -480,6 +480,7 @@ switch($action) {
             break;
         
         case 'observation' :
+		$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 			$couleur=false;
             $_SESSION['idobservation'] = '';
             $_SESSION['cachemo'] = true;
