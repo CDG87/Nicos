@@ -84,7 +84,9 @@
 		<?php
 			}
 		}
-		if($_SESSION['entpied'] == 'batiment') { ?>
+		if($_SESSION['entpied'] == 'batiment') { 
+			if($_SESSION['isAdmin'] == 1) {
+		?>
 		
 			<form method='POST' action='index.php?uc=sursite&action=batiment&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -157,6 +159,7 @@
             </div>
 		
 		<?php
+			}
 		}	
 		if($_SESSION['entpied'] == 'groupelieu') { 
 			if($_SESSION['isAdmin']==1){ ?>
