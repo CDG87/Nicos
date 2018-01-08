@@ -757,7 +757,19 @@ class Pdo_Inspection {
 		$req = "SELECT COUNT(co.NUM_CRITERE) AS nb_critere FROM CRITERE c INNER JOIN CONTROLE_CRITERE co ON c.NUM_CRITERE = co.NUM_CRITERE WHERE NUM_SOUS_THEME = ?";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numSousTheme));
-		$ligne = $rs->fetchAll();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	
+	/** recupere le nombre de critere par theme
+	
+	**/
+	public function get_Nb_Critere_Theme($numTheme){
+		$req = "SELECT COUNT(NUM_CRITERE) AS NBCRITERE FROM CRITERE WHERE NUM_THEME=?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($numTheme));
+		$ligne = $rs->fetch();
 		return $ligne;
 	}
     

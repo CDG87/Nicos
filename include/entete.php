@@ -58,7 +58,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Bienvenue sur l'application Nicos</h1>";
+            echo "<h1>Bienvenue sur l'application INspect</h1>";
             echo "<h2>Application pour le référentiel d'inspection</h2>";
         }
 		if($_SESSION['entpied'] == 'connexion'){
@@ -91,7 +91,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Choix d'une intervention</h1>";
+            echo "<h1>Choix d'une inspection</h1>";
         }
 		if($_SESSION['entpied'] == 'suppr_audit'){
 			?>
@@ -99,7 +99,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Suppression d'une intervention</h1>";
+            echo "<h1>Suppression d'une inspection</h1>";
         }
         if($_SESSION['entpied'] == 'partie'){
 			?>
@@ -114,7 +114,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Modification d'une intervention</h1>";
+            echo "<h1>Modification d'une inspection</h1>";
 		}
         if($_SESSION['entpied'] == 'pole') {
 			?>
