@@ -7,6 +7,7 @@ $action = $_REQUEST['action'];
 switch($action) {
 	
 	case 'generer' :
+		$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 		$statsORG=$pdo->get_nbRougeORG($_SESSION['audit']);
 		$statsSITE=$pdo->get_nbRougeSITE($_SESSION['audit']);
 		$statsFamille=$pdo->get_nbRougeSITE_theme($_SESSION['audit']);
