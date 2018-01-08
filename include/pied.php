@@ -646,7 +646,7 @@
                 <table>
                     <tr>
                         <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=preconisation&nt=non&aj=oui&aft=non&mo=non&sup=non&cho=non'>
-                        <th>Ajouter une préconisation :</th>
+                        <th>Ajouter une proposition :</th>
                     </tr>
                     <tr>
                         <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la préconisation"></textarea></td>
@@ -665,7 +665,7 @@
                                 $dis = 'disabled="disabled"';
                             } 
                         ?>
-                        <th>Modifier une préconisation :</th>
+                        <th>Modifier une proposition :</th>
                         <td><select name = "idpreconisation" size = "1" onchange="submit()" class="form-control">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php

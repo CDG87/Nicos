@@ -1,7 +1,7 @@
 <?php
 include("include/entete.php");
 if($listepreconisation == null){
-    echo '<h1>Aucune Préconisation !!!</h1>';
+    echo '<h1>Aucune Proposition !!!</h1>';
 }
 else{
     for($i = 0;$i < count($_SESSION['tabobsR']);$i++){
@@ -59,7 +59,7 @@ else{
         if($_SESSION['cachevaP'] != 'non'){
         ?>
             <hr/>
-            <h1>Préconisation temporaire</h1>
+            <h1>Proposition temporaire</h1>
             <table>
                 <tr>
                     <td>

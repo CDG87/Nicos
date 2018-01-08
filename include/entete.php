@@ -341,7 +341,7 @@
         }
         if($_SESSION['entpied'] == 'preconisation'){
             ?>
-            <h1>Préconisation</h1>
+            <h1>Proposition</h1>
             <?php
             if($_SESSION['st'] != null){
 				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info '> SOUS-THEME </button></form>";
