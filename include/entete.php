@@ -91,7 +91,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Choix d'un audit</h1>";
+            echo "<h1>Choix d'une intervention</h1>";
         }
 		if($_SESSION['entpied'] == 'suppr_audit'){
 			?>
@@ -99,7 +99,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Suppression d'un audit</h1>";
+            echo "<h1>Suppression d'une intervention</h1>";
         }
         if($_SESSION['entpied'] == 'partie'){
 			?>
@@ -114,7 +114,7 @@
 			<img src="<?php echo $path."logo_cdg.jpg"?>" />
 			</div>
 			<?php
-            echo "<h1>Modification de l'audit</h1>";
+            echo "<h1>Modification d'une intervention</h1>";
 		}
         if($_SESSION['entpied'] == 'pole') {
 			?>
