@@ -4,7 +4,8 @@
         if($_SESSION['entpied'] == 'accueil') {
             echo "<h3>© Copyright 2017 - BTS SIO Lycée Valadon</h3>";
         }
-        if($_SESSION['entpied'] == 'pole') { ?>
+        if($_SESSION['entpied'] == 'pole') { 
+			if($_SESSION['isAdmin']==1){ ?>
 		
 			<form method='POST' action='index.php?uc=sursite&action=pole&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -81,6 +82,7 @@
             </div>
 		
 		<?php
+			}
 		}
 		if($_SESSION['entpied'] == 'batiment') { ?>
 		
@@ -156,7 +158,8 @@
 		
 		<?php
 		}	
-		if($_SESSION['entpied'] == 'groupelieu') { ?>
+		if($_SESSION['entpied'] == 'groupelieu') { 
+			if($_SESSION['isAdmin']==1){ ?>
 		
 			<form method='POST' action='index.php?uc=sursite&action=groupelieu&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -229,8 +232,10 @@
             </div>
 		
 		<?php
+			}
 		}
-		if($_SESSION['entpied'] == 'lieu') { ?>
+		if($_SESSION['entpied'] == 'lieu') { 
+			if($_SESSION['isAdmin']==1){ ?>
 		
 			<form method='POST' action='index.php?uc=sursite&action=lieu&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -303,8 +308,10 @@
             </div>
 		
 		<?php
+			}
 		}
         if($_SESSION['entpied'] == 'theme'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=theme&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -391,8 +398,10 @@
                 </table>
             </div>
     <?php
+			}
         }
         if($_SESSION['entpied'] == 'soustheme'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=soustheme&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -463,8 +472,10 @@
                 </table>
             </div>
     <?php
+			}
         }
         if($_SESSION['entpied'] == 'critere'){
+			if($_SESSION['isAdmin']==1){
     ?>
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=critere&nt=non&aj=oui&aft=non&mo=non&sup=non'>
                 <div class="gauchetab">
@@ -535,8 +546,10 @@
                 </table>
             </div>
     <?php
+			}
         }
         if($_SESSION['entpied'] == 'observation'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <div class="gauchetab">
                 <table>
@@ -628,7 +641,8 @@
                 </table>
             </div>
     <?php
-        }
+			}
+		}
         if($_SESSION['entpied'] == 'article'){
             ?>
             <table>
@@ -641,6 +655,7 @@
             <?php
         }
         if($_SESSION['entpied'] == 'preconisation'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <div class="gauchetab">
                 <table>
@@ -711,6 +726,7 @@
                 </table>
             </div>
     <?php
+			}
         }
     ?>
 </footer>
