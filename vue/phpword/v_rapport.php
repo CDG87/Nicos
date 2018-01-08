@@ -197,14 +197,16 @@ if(isset($_SESSION['choix_creation'])) {
 		}
 
 		$section->addPageBreak(); //saut de page
-
-		//Base réglementaire 
-		$section->addTitle(htmlspecialchars('Base réglementaire '), 3);
-		$section->addText(htmlspecialchars("La mission d’inspection est encadrée par le décret n° 85-603 du 10 juin 1985 modifié à l’article 5"));
-		$section->addText(htmlspecialchars("« Art. 5 - L'autorité territoriale désigne également, après avis du comité mentionné à l'article 39, le ou les agents qui sont chargés d'assurer une fonction d'inspection dans le domaine de l'hygiène et de la sécurité ou peut passer convention à cet effet avec le centre de gestion."));
-		$section->addText(htmlspecialchars("Ces agents contrôlent les conditions d'application des règles d’hygiène et de sécurité et proposent à l'autorité territoriale compétente toute mesure qui leur paraît de nature à améliorer l'hygiène et la sécurité du travail et la prévention des risques professionnels. En cas d'urgence ils proposent à l'autorité territoriale les mesures immédiates qu'ils jugent nécessaires. L'autorité territoriale les informe des suites données à leurs propositions... »"));
 		
-		$section->addTextBreak(9);
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+			//Base réglementaire 
+			$section->addTitle(htmlspecialchars('Base réglementaire '), 3);
+			$section->addText(htmlspecialchars("La mission d’inspection est encadrée par le décret n° 85-603 du 10 juin 1985 modifié à l’article 5"));
+			$section->addText(htmlspecialchars("« Art. 5 - L'autorité territoriale désigne également, après avis du comité mentionné à l'article 39, le ou les agents qui sont chargés d'assurer une fonction d'inspection dans le domaine de l'hygiène et de la sécurité ou peut passer convention à cet effet avec le centre de gestion."));
+			$section->addText(htmlspecialchars("Ces agents contrôlent les conditions d'application des règles d’hygiène et de sécurité et proposent à l'autorité territoriale compétente toute mesure qui leur paraît de nature à améliorer l'hygiène et la sécurité du travail et la prévention des risques professionnels. En cas d'urgence ils proposent à l'autorité territoriale les mesures immédiates qu'ils jugent nécessaires. L'autorité territoriale les informe des suites données à leurs propositions... »"));
+			
+			$section->addTextBreak(9);
+		}
 		
 		//Objectifs visés par le CDG87
 		$section->addTitle(htmlspecialchars('Objectifs visés par le CDG87'), 3);
@@ -321,57 +323,63 @@ if(isset($_SESSION['choix_creation'])) {
 	// $section->addPageBreak(); //saut de page
 
 	/*************************** EXPLICATIONS  *************************************/
-	//Titre partie
-	$section->addText("Lecture du rapport", 'title_partie', 'center');
-	$section->addTextBreak(1);
-	$section->addTitle(htmlspecialchars('La grille de contrôle'), 3);
-	$section->addText(htmlspecialchars("Les observations faites lors du contrôle sont retranscrites dans deux parties distinctes : "));
-	$section->addText(htmlspecialchars("Organisationnelle : Analyse de l’organisation et de la mise en œuvre d’une politique de prévention pouvant s’appuyer sur des déclarations sur l’honneur."));
-	$section->addText(htmlspecialchars("Sur site : Analyse des risques spécifiques et des activités s’appuyant sur des observations terrain."));
-	$section->addTextBreak(1);
-	$section->addTitle(htmlspecialchars('La conformité des contrôles'), 3);
-	$section->addText(htmlspecialchars("L’évaluation est réalisée suivant 4 niveaux de conformité :"));
-	$section->addText(htmlspecialchars("La vérification peut concerner un seul service, un seul lieu, un seul matériel ou une activité spécifique ; elle ne préjuge pas des autres secteurs ou autres matériels non contrôlés."));
-	$section->addTextBreak(1);
-	
-	$table1 = $section->addTable();
-	$table1->addRow();
-	$cell = $table1->addCell(1000);
-	$cell->addImage('images/conforme.png', array('width' => 50));
-	$cell = $table1->addCell(10000);
-	$cell->addText(htmlspecialchars("Le critère contrôlé est « conforme » à la règlementation et/ou aux recommandations"));
-	$section->addTextBreak(1);
-	$table2 = $section->addTable();
-	$table2->addRow();
-	$cell = $table2->addCell(1000);
-	$cell->addImage('images/plutotConforme.png', array('width' => 50));
-	$cell = $table2->addCell(10000);
-	$cell->addText(htmlspecialchars("Le critère contrôlé est en partie « conforme » à la règlementation et/ou aux recommandations "));
-	$section->addTextBreak(1);
-	$table3 = $section->addTable();
-	$table3->addRow();
-	$cell = $table3->addCell(1000);
-	$cell->addImage('images/plutotNonConforme.png', array('width' => 50));
-	$cell = $table3->addCell(10000);
-	$cell->addText(htmlspecialchars("Le critère contrôlé est en partie « non conforme » à la règlementation et/ou aux recommandations"));
-	$section->addTextBreak(1);
-	$table4 = $section->addTable();
-	$table4->addRow();
-	$cell = $table4->addCell(1000);
-	$cell->addImage('images/nonConforme.png', array('width' => 50));
-	$cell = $table4->addCell(10000);
-	$cell->addText(htmlspecialchars("Le critère contrôlé est « non conforme » à la règlementation et/ou aux recommandations"));
-	
-	$section->addTextBreak(1);
-	$section->addText(htmlspecialchars("La règlementation et/ou les recommandations relatives à chaque critère sont à prendre en compte au jour de la visite, les dernières versions règlementaires en vigueur sont disponibles sur le site www.legifrance.gouv.fr ou auprès du service de prévention des risques professionnels du Centre Départemental de Gestion de la Haute-Vienne."));
-	$section->addTextBreak(1);
-	
-	$section->addTitle(htmlspecialchars('Principales remarques et propositions'), 3);
-	$section->addText(htmlspecialchars("Rétrospective des remarques les plus marquantes sur lesquelles des actions doivent être mises en œuvre et pour lesquelles le Comité doit être informé et un retour à l’ACFI doit être effectué."));
-	$section->addTextBreak(1);
-	$section->addTitle(htmlspecialchars('Le bilan des non-conformités'), 3);
-	$section->addText(htmlspecialchars("L'objectif étant de répertorier les non-conformités les plus fréquentes dans la partie organisationnelle, en fonction des bâtiments contrôlés et selon les familles de risques."));
-	$section->addPageBreak(); //saut de page
+	if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+		//Titre partie
+		$section->addText("Lecture du rapport", 'title_partie', 'center');
+		$section->addTextBreak(1);
+		$section->addTitle(htmlspecialchars('La grille de contrôle'), 3);
+		$section->addText(htmlspecialchars("Les observations faites lors du contrôle sont retranscrites dans deux parties distinctes : "));
+		$section->addText(htmlspecialchars("Organisationnelle : Analyse de l’organisation et de la mise en œuvre d’une politique de prévention pouvant s’appuyer sur des déclarations sur l’honneur."));
+		$section->addText(htmlspecialchars("Sur site : Analyse des risques spécifiques et des activités s’appuyant sur des observations terrain."));
+		$section->addTextBreak(1);
+		$section->addTitle(htmlspecialchars('La conformité des contrôles'), 3);
+		$section->addText(htmlspecialchars("L’évaluation est réalisée suivant 4 niveaux de conformité :"));
+		$section->addText(htmlspecialchars("La vérification peut concerner un seul service, un seul lieu, un seul matériel ou une activité spécifique ; elle ne préjuge pas des autres secteurs ou autres matériels non contrôlés."));
+		$section->addTextBreak(1);
+		
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+			$table1 = $section->addTable();
+			$table1->addRow();
+			$cell = $table1->addCell(1000);
+			$cell->addImage('images/conforme.png', array('width' => 50));
+			$cell = $table1->addCell(10000);
+			$cell->addText(htmlspecialchars("Le critère contrôlé est « conforme » à la règlementation et/ou aux recommandations"));
+			$section->addTextBreak(1);
+			$table2 = $section->addTable();
+			$table2->addRow();
+			$cell = $table2->addCell(1000);
+			$cell->addImage('images/plutotConforme.png', array('width' => 50));
+			$cell = $table2->addCell(10000);
+			$cell->addText(htmlspecialchars("Le critère contrôlé est en partie « conforme » à la règlementation et/ou aux recommandations "));
+			$section->addTextBreak(1);
+			$table3 = $section->addTable();
+			$table3->addRow();
+			$cell = $table3->addCell(1000);
+			$cell->addImage('images/plutotNonConforme.png', array('width' => 50));
+			$cell = $table3->addCell(10000);
+			$cell->addText(htmlspecialchars("Le critère contrôlé est en partie « non conforme » à la règlementation et/ou aux recommandations"));
+			$section->addTextBreak(1);
+			$table4 = $section->addTable();
+			$table4->addRow();
+			$cell = $table4->addCell(1000);
+			$cell->addImage('images/nonConforme.png', array('width' => 50));
+			$cell = $table4->addCell(10000);
+			$cell->addText(htmlspecialchars("Le critère contrôlé est « non conforme » à la règlementation et/ou aux recommandations"));
+		}
+		
+		$section->addTextBreak(1);
+		$section->addText(htmlspecialchars("La règlementation et/ou les recommandations relatives à chaque critère sont à prendre en compte au jour de la visite, les dernières versions règlementaires en vigueur sont disponibles sur le site www.legifrance.gouv.fr ou auprès du service de prévention des risques professionnels du Centre Départemental de Gestion de la Haute-Vienne."));
+		$section->addTextBreak(1);
+		
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+			$section->addTitle(htmlspecialchars('Principales remarques et propositions'), 3);
+			$section->addText(htmlspecialchars("Rétrospective des remarques les plus marquantes sur lesquelles des actions doivent être mises en œuvre et pour lesquelles le Comité doit être informé et un retour à l’ACFI doit être effectué."));
+			$section->addTextBreak(1);
+			$section->addTitle(htmlspecialchars('Le bilan des non-conformités'), 3);
+			$section->addText(htmlspecialchars("L'objectif étant de répertorier les non-conformités les plus fréquentes dans la partie organisationnelle, en fonction des bâtiments contrôlés et selon les familles de risques."));
+			$section->addPageBreak(); //saut de page
+		}
+	}
 
 	/*************************** PARTIE ORGANISATIONNEL ***************************/
 
@@ -395,43 +403,43 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
 				}
 				
-				
-				//Valeur critère
-				if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "NC") {
-					$valeur_cr = "Non conforme";
-				}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "<C") {
-					$valeur_cr = "Plutôt non conforme";
-				}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == ">C") {
-					$valeur_cr = "Plutôt conforme";
-				}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "C") {
-					$valeur_cr = "Conforme";
-				}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "SA") {
-					$valeur_cr = "Sans avis";
-				}
-				
-				if($valeur_cr != "Sans avis" and $uneInfoStructure['LIBELLE_AUDIT']!="Visite de locaux"){
-					$table = $section->addTable();
-					$table->addRow();
-					$cell = $table->addCell(100);
-					if($valeur_cr=='Conforme' || $valeur_cr=='Plutôt conforme'){
-						if($valeur_cr=='Conforme'){
-							$cell->addImage('images/conforme.png', array('width' => 20));
+				if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+					//Valeur critère
+					if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "NC") {
+						$valeur_cr = "Non conforme";
+					}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "<C") {
+						$valeur_cr = "Plutôt non conforme";
+					}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == ">C") {
+						$valeur_cr = "Plutôt conforme";
+					}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "C") {
+						$valeur_cr = "Conforme";
+					}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "SA") {
+						$valeur_cr = "Sans avis";
+					}
+					
+					if($valeur_cr != "Sans avis" and $uneInfoStructure['LIBELLE_AUDIT']!="Visite de locaux"){
+						$table = $section->addTable();
+						$table->addRow();
+						$cell = $table->addCell(100);
+						if($valeur_cr=='Conforme' || $valeur_cr=='Plutôt conforme'){
+							if($valeur_cr=='Conforme'){
+								$cell->addImage('images/conforme.png', array('width' => 20));
+							}else{
+								$cell->addImage('images/plutotConforme.png', array('width' => 20));
+							}
+							$cell = $table->addCell(8000);
+							$cell->addText(htmlspecialchars($valeur_cr), $conformite1);
 						}else{
-							$cell->addImage('images/plutotConforme.png', array('width' => 20));
+							if($valeur_cr=="Non conforme"){
+								$cell->addImage('images/nonConforme.png', array('width' => 20));
+							}else{
+								$cell->addImage('images/plutotNonConforme.png', array('width' => 20));
+							}
+							$cell = $table->addCell(8000);
+							$cell->addText(htmlspecialchars($valeur_cr), $conformite2);
 						}
-						$cell = $table->addCell(8000);
-						$cell->addText(htmlspecialchars($valeur_cr), $conformite1);
-					}else{
-						if($valeur_cr=="Non conforme"){
-							$cell->addImage('images/nonConforme.png', array('width' => 20));
-						}else{
-							$cell->addImage('images/plutotNonConforme.png', array('width' => 20));
-						}
-						$cell = $table->addCell(8000);
-						$cell->addText(htmlspecialchars($valeur_cr), $conformite2);
 					}
 				}
-				
 				
 				//Article
 				$section->addText(htmlspecialchars("Réglementation applicable : "), $menu, 'st1');
@@ -515,39 +523,41 @@ if(isset($_SESSION['choix_creation'])) {
 					$section-> addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');					
 				}
 				
-				//Valeur critère
-				if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "NC") {
-					$valeur_cr = "Non conforme";
-				}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "<C") {
-					$valeur_cr = "Plutôt non conforme";
-				}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == ">C") {
-					$valeur_cr = "Plutôt conforme";
-				}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "C") {
-					$valeur_cr = "Conforme";
-				}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "SA") {
-					$valeur_cr = "Sans avis";
-				}
-				
-				if($valeur_cr != "Sans avis" and $uneInfoStructure['LIBELLE_AUDIT']!="Visite de locaux"){
-					$table = $section->addTable();
-					$table->addRow();
-					$cell = $table->addCell(100);
-					if($valeur_cr=='Conforme' || $valeur_cr=='Plutôt conforme'){
-						if($valeur_cr=='Conforme'){
-							$cell->addImage('images/conforme.png', array('width' => 20));
+				if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+					//Valeur critère
+					if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "NC") {
+						$valeur_cr = "Non conforme";
+					}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "<C") {
+						$valeur_cr = "Plutôt non conforme";
+					}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == ">C") {
+						$valeur_cr = "Plutôt conforme";
+					}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "C") {
+						$valeur_cr = "Conforme";
+					}else if($uneInfoCritereCoSite['VALEUR_CRITERE'] == "SA") {
+						$valeur_cr = "Sans avis";
+					}
+					
+					if($valeur_cr != "Sans avis" and $uneInfoStructure['LIBELLE_AUDIT']!="Visite de locaux"){
+						$table = $section->addTable();
+						$table->addRow();
+						$cell = $table->addCell(100);
+						if($valeur_cr=='Conforme' || $valeur_cr=='Plutôt conforme'){
+							if($valeur_cr=='Conforme'){
+								$cell->addImage('images/conforme.png', array('width' => 20));
+							}else{
+								$cell->addImage('images/plutotConforme.png', array('width' => 20));
+							}
+							$cell = $table->addCell(8000);
+							$cell->addText(htmlspecialchars($valeur_cr), $conformite1);
 						}else{
-							$cell->addImage('images/plutotConforme.png', array('width' => 20));
+							if($valeur_cr=="Non conforme"){
+								$cell->addImage('images/nonConforme.png', array('width' => 20));
+							}else{
+								$cell->addImage('images/plutotNonConforme.png', array('width' => 20));
+							}
+							$cell = $table->addCell(8000);
+							$cell->addText(htmlspecialchars($valeur_cr), $conformite2);
 						}
-						$cell = $table->addCell(8000);
-						$cell->addText(htmlspecialchars($valeur_cr), $conformite1);
-					}else{
-						if($valeur_cr=="Non conforme"){
-							$cell->addImage('images/nonConforme.png', array('width' => 20));
-						}else{
-							$cell->addImage('images/plutotNonConforme.png', array('width' => 20));
-						}
-						$cell = $table->addCell(8000);
-						$cell->addText(htmlspecialchars($valeur_cr), $conformite2);
 					}
 				}
 				
@@ -723,71 +733,72 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 		$section->addTextBreak(1);
 		
-		
-		//statistique organisation
-		$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
-		
-		// Add table
-		$tablette1 = $section->addTable('myOwnTableStyle');
-		$tablette1->addRow();
-			$cell = $tablette1->addCell(10000);
-			$cell->addText(htmlspecialchars('Thème'),  'tabFont', 'tabPar');
-			$cell = $tablette1->addCell(100);
-			$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-		foreach($statsORG as $stat){
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+			//statistique organisation
+			$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
+			
+			// Add table
+			$tablette1 = $section->addTable('myOwnTableStyle');
 			$tablette1->addRow();
-			$cell = $tablette1->addCell(10000);
-			$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
-			$cell = $tablette1->addCell(100);
-			$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
-		}
-		$section->addTextBreak(1);
-		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-		$section->addTextBreak(1);
-		
-		
-		
-		//statistique site
-		$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
-		
-		// Add table
-		$tablette2 = $section->addTable('myOwnTableStyle');
-		$tablette2->addRow();
-			$cell = $tablette2->addCell(10000);
-			$cell->addText(htmlspecialchars('Bâtiment'),  'tabFont', 'tabPar');
-			$cell = $tablette2->addCell(100);
-			$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-		foreach($statsSITE as $stat){
+				$cell = $tablette1->addCell(10000);
+				$cell->addText(htmlspecialchars('Thème'),  'tabFont', 'tabPar');
+				$cell = $tablette1->addCell(100);
+				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+			foreach($statsORG as $stat){
+				$tablette1->addRow();
+				$cell = $tablette1->addCell(10000);
+				$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
+				$cell = $tablette1->addCell(100);
+				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+			}
+			$section->addTextBreak(1);
+			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+			$section->addTextBreak(1);
+			
+			
+			
+			//statistique site
+			$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
+			
+			// Add table
+			$tablette2 = $section->addTable('myOwnTableStyle');
 			$tablette2->addRow();
-			$cell = $tablette2->addCell(10000);
-			$cell->addText(htmlspecialchars($stat['NOM_BATIMENT']), 'st1');
-			$cell = $tablette2->addCell(100);
-			$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
-		}
-		$section->addTextBreak(1);
-		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-		$section->addTextBreak(1);
-		
-		
-		
-		//stats par theme
-		$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
-		
-		// Add table
-		$tablette3 = $section->addTable('myOwnTableStyle');
-		$tablette3->addRow();
-			$cell = $tablette3->addCell(10000);
-			$cell->addText(htmlspecialchars('Famille de risques'),  'tabFont', 'tabPar');
-			$cell = $tablette3->addCell(100);
-			$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-		foreach($statsFamille as $stat){
+				$cell = $tablette2->addCell(10000);
+				$cell->addText(htmlspecialchars('Bâtiment'),  'tabFont', 'tabPar');
+				$cell = $tablette2->addCell(100);
+				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+			foreach($statsSITE as $stat){
+				$tablette2->addRow();
+				$cell = $tablette2->addCell(10000);
+				$cell->addText(htmlspecialchars($stat['NOM_BATIMENT']), 'st1');
+				$cell = $tablette2->addCell(100);
+				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+			}
+			$section->addTextBreak(1);
+			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+			$section->addTextBreak(1);
+			
+			
+			
+			//stats par theme
+			$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
+			
+			// Add table
+			$tablette3 = $section->addTable('myOwnTableStyle');
 			$tablette3->addRow();
-			$cell = $tablette3->addCell(10000);
-			$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
-			$cell = $tablette3->addCell(100);
-			$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+				$cell = $tablette3->addCell(10000);
+				$cell->addText(htmlspecialchars('Famille de risques'),  'tabFont', 'tabPar');
+				$cell = $tablette3->addCell(100);
+				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+			foreach($statsFamille as $stat){
+				$tablette3->addRow();
+				$cell = $tablette3->addCell(10000);
+				$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
+				$cell = $tablette3->addCell(100);
+				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+			}
+			$section->addTextBreak(5); //saut de page
 		}
-		$section->addTextBreak(5); //saut de page
 		
 		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion de la Haute-Vienne au :"),'conclu');
 		$section->addText(htmlspecialchars("	- 05.55.30.08.54"),'conclu');
