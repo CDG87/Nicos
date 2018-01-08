@@ -29,7 +29,7 @@ include("include/entete.php");
     </tr>
 </table>
 
-<h1>Ajout d'un batiment manuel</h1>
+<h1>Ajout d'un lieu temporaire</h1>
 		<form method='POST' action='index.php?uc=sursite&action=lieu&nt=oui'>
 		<table>
             <tr>

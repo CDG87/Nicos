@@ -61,7 +61,7 @@ else{
         ?>
         </table>
 		
-		<h1>Ajout d'une observation manuelle</h1>
+		<h1>Ajout d'une observation temporaire</h1>
 		<table>
             <tr>
                 <td>
@@ -83,7 +83,7 @@ else{
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="cdobsmanu" id="cdobs1" value="1">
-                                    Vert
+                                    Verte
                                 </label>
                             </div>
                             <div class="radio">

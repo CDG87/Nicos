@@ -9,7 +9,7 @@
 			<!-- Libellé de l'audit -->
 			<div class="form-group">
 				
-				<label class="col-sm-3" for="libelle_audit">Libellé audit :</label>
+				<label class="col-sm-3" for="libelle_audit">Libellé intervention :</label>
 				<div class="col-sm-4">
 					
 				<input class="form-control" list="libelle_audit" name="libelle_audit" value="<?php echo isset($_POST['lst_type']) || isset($_SESSION['controleur']) ? $_SESSION['libelle_audit'] : ''?>" />
@@ -22,7 +22,7 @@
 			
 			<!-- Type structure -->
 			<div class="form-group">
-				<label class="col-sm-3" for="type">Type :</label>
+				<label class="col-sm-3" for="type">Structure :</label>
 				<div class="col-sm-4">
 				<select class="form-control" name="lst_type" onchange="submit()">
 					<option value="" disabled selected>Choisir...</option>
