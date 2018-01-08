@@ -138,6 +138,9 @@ else{
                     </div>
                 </td>
                 <td>
+                    <h1><i class="fa fa-camera fa-4x" aria-hidden="true"></i></h1>
+                </td>
+				<td>
                     <h1>Ajouter une photo</h1>
                 </td>
             </tr>
@@ -197,8 +200,8 @@ else{
         <hr/>
         <table>
             <tr>
-                <td>
-                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Voulez-vous vraiment sauvegarder ? ')) return false;"; }?>" autofocus> Valider</button>
+                <td> 
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
                 </td>
             </tr>
         </table>
