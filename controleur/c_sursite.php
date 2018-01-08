@@ -371,6 +371,7 @@ switch($action) {
             break;
 			
 		case 'critere' :
+		$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
             $_SESSION['idcritere'] = '';
             $_SESSION['cachemo'] = true;
 			$_SESSION['cacheva'] = true;
@@ -391,7 +392,11 @@ switch($action) {
                 $_SESSION['entpied'] = 'critere';
                 if(isset($_REQUEST['finicritere'])){
                     if($_SESSION['precomanu'] == false){
-                        $_SESSION['conformite'] = $_POST['conf'];
+                        if($infosaudit['LIBELLE_AUDIT']!="Inspection"){
+							$_SESSION['conformite'] = 'SA';
+						}else{
+							$_SESSION['conformite'] = $_POST['conf'];
+						}
                         if(isset($_POST['vaimpo'])){
                             $_SESSION['obsimp'] = 1;
                         }
@@ -582,12 +587,17 @@ switch($action) {
             break;
 			
 		case 'preconisation' :
+		$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 			$_SESSION['idpreconisation'] = '';
             $_SESSION['cachemo'] = true;
             $_SESSION['cachevaP'] = 'oui';
             if($_REQUEST['nt'] == 'oui'){
                 $_SESSION['entpied'] = $_REQUEST['entpied'];
-                $_SESSION['conformite'] = $_POST['conf'];
+               if($infosaudit['LIBELLE_AUDIT']!="Inspection"){
+							$_SESSION['conformite'] = 'SA';
+						}else{
+							$_SESSION['conformite'] = $_POST['conf'];
+						}
                 if(isset($_POST['vaimpo'])){
                     $_SESSION['obsimp'] = 1;
                 }
