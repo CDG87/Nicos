@@ -45,6 +45,7 @@ switch($action){
             }
             //Suppression d'un thème
             if($_REQUEST['nt'] == 'non' && $_REQUEST['sup'] == 'oui'){
+				$nbCrit = $pdo->get_Nb_Critere_Theme($_POST['numtheme']);
 				$listenumcr = $pdo->get_Critere_T($_POST['numtheme']);
 				$listenumst = $pdo->get_Sous_Theme_T($_POST['numtheme']);
 				$listenumob = $pdo->get_Observation_LCR($listenumcr);
@@ -58,8 +59,12 @@ switch($action){
                 $pdo->delete_ContenirPre_Liste($listenumpr);
 				$pdo->delete_Preconisation_Liste($listenumpr);
 				$pdo->delete_ImageCR_Liste($listenumim);
+				if($nbCrit['NBCRITERE'] != 1){
                 $pdo->delete_ControleCR_Liste($listenumcr);
                 $pdo->delete_InscrireCR_Liste($listenumcr);
+				}
+				
+				
 				$pdo->delete_Critere_Theme($_POST['numtheme']);
 				$pdo->delete_Theme($_POST['numtheme']);
                 if($listenumst != null){
@@ -114,6 +119,7 @@ switch($action){
 					echo "<script>alert('Vous ne pouvez pas supprimer ce sous-thème car il n’en reste qu’un ! Si vous voulez le supprimer, il faut supprimer le thème entier !!!');</script>";
 				}
 				else{
+					$nbCrit = $pdo -> get_Nb_Criteres_Controle_Sous_Theme($_POST['numsoustheme']);
 					$listenumcr = $pdo->get_Critere_ST($_POST['numsoustheme']);
 					$listenumob = $pdo->get_Observation_LCR($listenumcr);
 					$listenumpr = $pdo->get_Preconisation_LCR($listenumcr);
@@ -126,8 +132,10 @@ switch($action){
 					$pdo->delete_ContenirPre_Liste($listenumpr);
 					$pdo->delete_Preconisation_Liste($listenumpr);
 					$pdo->delete_ImageCR_Liste($listenumim);
+					if($nbCrit['nb_critere'] != 0){
 					$pdo->delete_ControleCR_Liste($listenumcr);
 					$pdo->delete_InscrireCR_Liste($listenumcr);
+					}
 					$pdo->delete_Critere_SousTheme($_POST['numsoustheme']);
 					$pdo->delete_Sous_Theme($_POST['numsoustheme']);
 					$pdo->delete_ResArticle_Liste($listenumar);
