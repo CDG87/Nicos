@@ -453,6 +453,13 @@ if(isset($_SESSION['choix_creation'])) {
 						}
 					}
 				}else{
+					//Illustration critere
+					foreach($lesImgCrCo as $uneImgCrCo) {
+						if($uneImgCrCo['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
+							$section->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+							
+						}
+					}
 					//Image téléchargée		
 					$section->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center'));
 				}
@@ -565,6 +572,12 @@ if(isset($_SESSION['choix_creation'])) {
 						}
 					}
 				}else{
+					//Illustration critere
+					foreach($lesImgCr as $uneImgCr) {
+						if($uneImgCr['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneImgCr['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $uneImgCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
+							$section->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+						}
+					}
 					//Image téléchargée		
 					$section->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center'));
 				}
