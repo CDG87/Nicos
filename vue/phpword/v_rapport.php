@@ -6,6 +6,9 @@ require_once dirname(__FILE__).'/PHPWord-master/src/PhpWord/Autoloader.php';
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Style\Font;
 
+require_once ('jpgraph/src/jpgraph.php');
+require_once ('jpgraph/src/jpgraph_radar.php');
+
 $document = new PhpWord();
 
 if(isset($_SESSION['choix_creation'])) {
@@ -798,6 +801,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
 			}
 			$section->addTextBreak(5); //saut de page
+			
 		}
 		
 		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion de la Haute-Vienne au :"),'conclu');
@@ -807,6 +811,8 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars("Et accéder au R.U.S.S.T (Registre Unique Santé et Sécurité au Travail) en ligne : "),'conclu');
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
 		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
+		
+
 
 
 
