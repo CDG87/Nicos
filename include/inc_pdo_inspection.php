@@ -943,13 +943,13 @@ class Pdo_Inspection {
 	* CONTROLE CRITERE : organisationnel
 	**/
 	public function get_Infos_Cr_Th_Co_Org($numAudit) {
-		$req = "SELECT c.NUM_CRITERE, LIBELLE_CRITERE, c.NUM_THEME, NOM_THEME, VALEUR_CRITERE, VALEUR_IMPORTANT, PRECONISATION_CRITERE, PHOTO_CRITERE FROM CRITERE c INNER JOIN controle_critere co ON c.NUM_CRITERE = co.NUM_CRITERE INNER JOIN THEME t ON t.NUM_THEME = c.NUM_THEME WHERE NUM_AUDIT = ?";
+		$req = "SELECT c.NUM_CRITERE, LIBELLE_CRITERE, c.NUM_THEME, NOM_THEME, VALEUR_CRITERE, VALEUR_IMPORTANT, PRECONISATION_CRITERE, PHOTO_CRITERE FROM CRITERE c INNER JOIN controle_critere co ON c.NUM_CRITERE = co.NUM_CRITERE INNER JOIN THEME t ON t.NUM_THEME = c.NUM_THEME WHERE NUM_AUDIT = ? ORDER BY NOM_THEME, LIBELLE_CRITERE ASC";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numAudit));
 		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
-	
+
 	/**
 	* Récupère les numéros de thème et les infos des critère pour un audit dans 
 	* INSCRIRE : organisationnel
@@ -961,14 +961,14 @@ class Pdo_Inspection {
 		INNER JOIN THEME t ON t.NUM_THEME = c.NUM_THEME 
 		INNER JOIN LIEU l ON l.NUM_LIEU = i.NUM_LIEU
 		INNER JOIN BATIMENT b ON i.NUM_BATIMENT_C=b.NUM_BATIMENT
-		WHERE NUM_AUDIT = ?";
+		WHERE NUM_AUDIT = ? ORDER BY NOM_BATIMENT, NOM_LIEU ASC";
 		//INNER JOIN SOUS_THEME st ON st.NUM_SOUS_THEME = c.NUM_SOUS_THEME 
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numAudit));
 		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
-	
+
 	/**
 	* Récupère les observations pour un audit COMPRENDRE
 	**/
