@@ -537,6 +537,7 @@
     <?php
         }
         if($_SESSION['entpied'] == 'observation'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <div class="gauchetab">
                 <table>
@@ -628,7 +629,8 @@
                 </table>
             </div>
     <?php
-        }
+			}
+		}
         if($_SESSION['entpied'] == 'article'){
             ?>
             <table>
@@ -641,6 +643,7 @@
             <?php
         }
         if($_SESSION['entpied'] == 'preconisation'){
+			if($_SESSION['isAdmin']==1){ 
     ?>
             <div class="gauchetab">
                 <table>
@@ -711,6 +714,7 @@
                 </table>
             </div>
     <?php
+			}
         }
     ?>
 </footer>

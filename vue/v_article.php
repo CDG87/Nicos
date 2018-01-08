@@ -21,11 +21,13 @@ if($_SESSION['cachemo'] == true){
                 <textarea class="form-control" rows="17" name='newnomarticle' cols='150' maxlength='10000' required="required" disabled><?php echo $_SESSION['articlecritere']; ?></textarea>
             </th>
         </tr>
+		<?php if($_SESSION['isAdmin']==1){ ?>
         <tr>
             <td>
                 <a class="btn btn-default btn-ret" href="index.php?uc=<?php echo $uc_choix; ?>&action=article&nt=non&aft=oui&mo=non" role="button">Modifier</a>
             </td>
         </tr>
+		<?php } ?>
     </table>
 <?php
 }

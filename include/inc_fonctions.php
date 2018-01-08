@@ -13,10 +13,11 @@ function estConnecte() {
 * Stocke dans des variables de session les données du controleur
 * rajouter adresse, cp ????
 **/
-function connecter($idControleur, $nom, $prenom) {
+function connecter($idControleur, $nom, $prenom, $isAdmin) {
 	$_SESSION['idControleur'] = $idControleur;
 	$_SESSION['nom'] = $nom;
 	$_SESSION['prenom'] = $prenom;
+	$_SESSION['isAdmin'] = $isAdmin;
 }
 
 /**

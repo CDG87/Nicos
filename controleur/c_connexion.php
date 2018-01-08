@@ -41,7 +41,8 @@ switch($action) {
 			$idControleur = $controleur['NUM_CONTROLEUR'];
 			$nom = $controleur['NOM_CONTROLEUR'];
 			$prenom = $controleur['PRENOM_CONTROLEUR'];
-			connecter($idControleur, $nom, $prenom);
+			$isAdmin = $controleur['ADMIN_CONTROLEUR'];
+			connecter($idControleur, $nom, $prenom, $isAdmin);
 			$_REQUEST['action'] = "partie_creation";
 			require("controleur/c_creation.php");
 		}
