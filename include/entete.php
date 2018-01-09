@@ -166,6 +166,14 @@
 			</form>
 			<?php
 		}
+		if($_SESSION['entpied'] == 'maj'){
+		?>
+			<div class="logoCdg">
+				<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<h1>Mise à jour</h1>
+		<?php
+		}
         if($_SESSION['entpied'] == 'theme'){
             ?>
             <h1>Choisir un thème</h1>

@@ -27,9 +27,15 @@
         </td>
     </tr>
 	<tr>
-		<td class="espar btnsurr" colspan="2">
+		<td class="espart">
 			<form method="post" action="index.php?uc=creation&action=suppr_audit&act_creation=suppr">
-				<button type="submit" class="btn btn-info btn-lg" name="suppr_audit" <?php echo $cachechoi; ?> >Supprimer inspection</button>
+				<button type="submit" class="btn btn-info btn-partie" name="suppr_audit" <?php echo $cachechoi; ?> >Supprimer inspection</button>
+			</form>
+		</td>
+
+		<td class="espart">
+			<form method="post" action="index.php?uc=creation&action=maj&act_creation=maj">
+				<button type="submit" class="btn btn-danger btn-partie" name="maj" <?php echo $cachechoi; ?> >Mise à jour</button>
 			</form>
 		</td>
 	</tr>

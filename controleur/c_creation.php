@@ -113,5 +113,10 @@ switch($action) {
 			}
 		include("vue/v_suppr_audit.php");
 	break;
+	
+	case 'maj' :
+		$_SESSION['entpied'] = "maj";
+		include("vue/v_maj.php");
+	break;
 }
 ?>
