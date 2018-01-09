@@ -3,11 +3,11 @@ include("include/entete.php");
 ?>
 <form method="post" action="">
 	<label>Partie :</label>
-	<select name="partie">
+	<select name="partie" >
 		<option value="1">Organisationnel</option>
 		<option value="2">Sur site</option>
 	</select>
-	
+	</br></br>
 	<label>Theme :</label>
 	<select name="theme">
 	<?php
@@ -17,7 +17,7 @@ include("include/entete.php");
 	}
 	?>
 	</select>
-	
+	</br></br>
 	<label>Sous theme :</label>
 	<select name="st">
 	<option value="0">aucun sous theme</option>
@@ -28,7 +28,7 @@ include("include/entete.php");
 	}
 	?>
 	</select>
-	
+	</br></br>
 	<label>critere :</label>
 	<select name="critere">
 	<?php
@@ -38,6 +38,6 @@ include("include/entete.php");
 	}
 	?>
 	</select>
-	
+	</br></br>
 	<button type="submit" name="selection"> Selectionner</button>
 </form>
