@@ -134,7 +134,7 @@ else{
             <tr>
                 <td>
                     <div class="container_obs">
-                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default">
+                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default"  autofocus >
                     </div>
                 </td>
                 <td>
@@ -173,7 +173,7 @@ else{
                         </label>
 						<div id='SAD'>
 							<label class='lab_con'>
-								<input class='btn_conf' name='conf' type='radio' value='SA'>
+								<input class='btn_conf' name='conf' type='radio' value='SA' >
 									<span class='btn_sco' id="SA">Sans avis</span>
 								</input>
 							</label>
@@ -201,7 +201,7 @@ else{
         <table>
             <tr>
                 <td> 
-                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>"> Valider</button>
                 </td>
             </tr>
         </table>
