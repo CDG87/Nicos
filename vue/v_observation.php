@@ -5,12 +5,12 @@ if($listeObservation == null){
 }
 else{
 ?>
-	</br></br></br></br></br></br></br></br>
+	 </br></br></br></br></br></br></br></br></br></br></br>
     <table>
         <tr>
             <td>
                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=article&nt=oui&aft=non&mo=non&entpied=article'>
-                    <button type="submit" class="btn btn-primary btn-art" name="article">Articles</button>
+                    <button type="submit" class="btn btn-primary btn-art btn-article" name="article">Articles</button>
                 </form>
             </td>
         </tr>
