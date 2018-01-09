@@ -8,16 +8,24 @@
 			
 			<!-- Libellé de l'audit -->
 			<div class="form-group">
-				
-				<label class="col-sm-3" for="libelle_audit">Libellé intervention :</label>
-				<div class="col-sm-4">
-					
-				<input class="form-control" list="libelle_audit" name="libelle_audit" value="<?php echo isset($_POST['lst_type']) || isset($_SESSION['controleur']) ? $_SESSION['libelle_audit'] : ''?>" />
-					<datalist id="libelle_audit">
-						<option value="Inspection">Inspection</option>
-						<option value="Visite de locaux">Visite de locaux</option>
-					</datalist>
-				</div>
+				<?php if($_SESSION['isAdmin']==1){ ?>
+					<label class="col-sm-3" for="libelle_audit">Libellé intervention :</label>
+					<div class="col-sm-4">
+						
+					<input class="form-control" list="libelle_audit" name="libelle_audit" value="<?php echo isset($_POST['lst_type']) || isset($_SESSION['controleur']) ? $_SESSION['libelle_audit'] : ''?>" />
+						<datalist id="libelle_audit">
+							<option value="Inspection">Inspection</option>
+							<option value="Visite de locaux">Visite de locaux</option>
+						</datalist>
+					</div>
+				<?php }else{ ?>
+					<label class="col-sm-3" for="libelle_audit">Libellé intervention :</label>
+					<div class="col-sm-4">
+						
+					<input class="form-control" list="libelle_audit" name="libelle_audit" value="Inspection" disabled/>
+
+					</div>
+				<?php } ?>
 			</div>
 			
 			<!-- Type structure -->
