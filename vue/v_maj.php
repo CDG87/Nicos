@@ -10,7 +10,7 @@
 			<?php if($_SESSION['isAdmin']==1){ ?>
 				<tr>
 					<td class="espar btnsurr" colspan="3">
-						<form method="post" action="index.php?uc=c_maj&action=selectionner_critere">
+						<form method="post" action="index.php?uc=maj&action=selectionner_critere">
 							<button type="submit" class="btn btn-warning btn-lg" name="select_critere">Sélection du critère</button>
 						</form>
 					</td>
