@@ -120,54 +120,50 @@
 			?>
             <h1>Choisir un pôle</h1>
 			<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-				<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 			</form>
-            <br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
             <?php
 		}
         if($_SESSION['entpied'] == 'batiment') {
 			?>
             <h1>Choisir un bâtiment</h1>
 			<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-				<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
             </form>
 			<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">POLE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 			</form>
-            <br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
             <?php
 		}
         if($_SESSION['entpied'] == 'groupelieu') {
 			?>
 			<h1>Choisir un groupe de lieux</h1>
 			<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-				<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 			</form>
 			<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">POLE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 			</form>
 			<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">BATIMENT</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 			</form>
-			<br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
 			<?php
 		}
         if($_SESSION['entpied'] == 'lieu') {
 			?>
 			<h1>Choisir un lieu</h1>
 			<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-				<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 			</form>
 			<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">POLE</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 			</form>
 			<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">BATIMENT</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 			</form>
 			<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button class="btn btnMenu btn-info " type="submit">GROUPE DE LIEUX</button>
+				<button class="btn btnMenu btn-info btnPartie " type="submit"><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 			</form>
-			<br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
 			<?php
 		}
         if($_SESSION['entpied'] == 'theme'){
@@ -177,31 +173,30 @@
             if($_SESSION['codepartie'] == 1) { 
             ?>	
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b> </br><?php echo $_SESSION['partie']; ?></button>
 				</form>
             <?php
 			}
             else { 
             ?>	
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+					<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button class="btn btnMenu btn-info " type="submit">POLE</button>
+					<button class="btn btnMenu btn-info btnPartie " type="submit"><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">BATIMENT</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">GROUPE DE LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=lieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>LIEU</b></br><?php echo $_SESSION['lieu']; ?></button>
 				</form>
             <?php
 			}
             ?>
-            <br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
             <?php
         }
         if($_SESSION['entpied'] == 'soustheme'){
@@ -210,34 +205,33 @@
             <?php
             if($_SESSION['codepartie'] == 1) { ?>
 					<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-						<button type="submit" class="btn btnMenu btn-info ">PARTIE </button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?> </button>
 					</form>
 					<form method="POST" action="index.php?uc=organisationnel&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info "> THEME </button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "> <b>THEME</b></br><?php echo $_SESSION['theme']; ?> </button>
 					</form>
 				<?php	
 				}else { ?>
 					<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-						<button class="btn btnMenu btn-info " type="submit">PARTIE</button>
+						<button class="btn btnMenu btn-info btnPartie " type="submit"><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 					</form>
 					<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info ">POLE</button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 					</form>
 					<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info ">BATIMENT</button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 					</form>
 					<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info ">GROUPE DE LIEUX</button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 					</form>
 					<form method="POST" action="index.php?uc=sursite&action=lieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info ">LIEUX</button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>LIEU</b></br><?php echo $_SESSION['lieu']; ?></button>
 					</form>
 					<form method="POST" action="index.php?uc=sursite&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-						<button type="submit" class="btn btnMenu btn-info ">THEME</button>
+						<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br><?php echo $_SESSION['theme']; ?></button>
 					</form>
 				<?php
 				}?>
-            <br/><br/></br><br/><p><?php echo $_SESSION['chem']; ?></p>
             <?php
         }
         if($_SESSION['entpied'] == 'critere'){
@@ -245,94 +239,92 @@
             <h1>Choisir un critère</h1>
             <?php
 			if($_SESSION['st'] != null){
-				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info '> SOUS-THEME </button></form>";
+				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info btnPartie '><b>SOUS THEME</b></br>".$_SESSION['st']."</button></form>";
 			}
 			else{
 				$ct = '';
 			}
 			if($_SESSION['codepartie'] == 1) {?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?> </button>
 				</form>
 				<form method="POST" action="index.php?uc=organisationnel&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> THEME </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br> <?php echo $_SESSION['theme']; ?> </button>
 				</form>
 				<?php
 				echo $ct;
 			}else { ?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button class="btn btnMenu btn-info " type="submit">POLE</button>
+					<button class="btn btnMenu btn-info btnPartie " type="submit"><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">BATIMENT</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">GROUPE DE LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=lieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>LIEU</b></br><?php echo $_SESSION['lieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">THEME</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br><?php echo $_SESSION['theme']; ?></button>
 					</form>
 				<?php echo $ct;
 			}		
-			echo '<br/><br/></br><br/><p>'.$_SESSION['chem'].'</p>';
         }
         if($_SESSION['entpied'] == 'observation'){
             ?>
             <h1>Observations</h1>
             <?php
 			if($_SESSION['st'] != null){
-				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info '> SOUS-THEME </button></form>";
+				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info btnPartie '><b>SOUS THEME</b></br>".$_SESSION['st']."</button></form>";
 			}
 			else{
 				$ct = '';
 			}
 			if($_SESSION['codepartie'] == 1) {?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?> </button>
 				</form>
 				<form method="POST" action="index.php?uc=organisationnel&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> THEME </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br> <?php echo $_SESSION['theme']; ?> </button>
 				</form>
 				<?php
 				echo $ct;
 				?>
 				<form method="POST" action="index.php?uc=organisationnel&action=critere&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> CRITERE </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>CRITERE</b></br> <?php echo $_SESSION['critere']; ?> </button>
 				</form>
 				<?php
 			}else { ?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">POLE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">BATIMENT</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">GROUPE DE LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=lieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>LIEU</b></br><?php echo $_SESSION['lieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">THEME</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br><?php echo $_SESSION['theme']; ?></button>
 				</form>
 				<?php echo $ct;
 				?>
 				<form method="POST" action="index.php?uc=sursite&action=critere&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> CRITERE </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>CRITERE</b></br><?php echo $_SESSION['critere']; ?></button>
 				</form>
 				<?php
 			}		
-            echo '<br/><br/></br><br/><p>'.$_SESSION['chem'].'</p>';
         }
         if($_SESSION['entpied'] == 'article'){
             ?>
@@ -344,52 +336,51 @@
             <h1>Proposition</h1>
             <?php
             if($_SESSION['st'] != null){
-				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info '> SOUS-THEME </button></form>";
+				$ct = "<form method='POST' action='index.php?uc=".$uc_choix."&action=soustheme&nt=non&aj=non&aft=non&mo=non&sup=non'><button type='submit' class='btn btnMenu btn-info btnPartie '><b>SOUS THEME</b></br>".$_SESSION['st']."</button></form>";
 			}
 			else{
 				$ct = '';
 			}
 			if($_SESSION['codepartie'] == 1) {?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-				<button type="submit" class="btn btnMenu btn-info ">PARTIE </button>
+				<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?> </button>
 				</form>
 				<form method="POST" action="index.php?uc=organisationnel&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> THEME </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "> <b>THEME</b></br><?php echo $_SESSION['theme']; ?> </button>
 				</form>
 				<?php
 				echo $ct;
 				?>
 				<form method="POST" action="index.php?uc=organisationnel&action=critere&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info "> CRITERE </button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>CRITERE</b></br> <?php echo $_SESSION['critere']; ?> </button>
 				</form>
 				<?php
 			}else { ?>
 				<form method="POST" action="index.php?uc=audit&action=partie&nt=non">
-					<button type="submit" class="btn btnMenu btn-info ">PARTIE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>PARTIE</b></br><?php echo $_SESSION['partie']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=pole&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">POLE</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>POLE</b></br><?php echo $_SESSION['pole']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=batiment&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">BATIMENT</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>BATIMENT</b></br><?php echo $_SESSION['batiment']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=groupelieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">GROUPE DE LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>GROUPE DE LIEU</b></br><?php echo $_SESSION['groupelieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=lieu&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">LIEUX</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>LIEU</b></br><?php echo $_SESSION['lieu']; ?></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info ">THEME</button>
+					<button type="submit" class="btn btnMenu btn-info btnPartie "><b>THEME</b></br><?php echo $_SESSION['theme']; ?></button>
 				</form>
 				<?php echo $ct;
 				?>
 				<form method="POST" action="index.php?uc=sursite&action=critere&nt=non&aj=non&aft=non&mo=non&sup=non">
-				<button type="submit" class="btn btnMenu btn-info "> CRITERE </button>
+				<button type="submit" class="btn btnMenu btn-info btnPartie "> <b>CRITERE</b></br><?php echo $_SESSION['critere']; ?> </button>
 				</form>
             <?php
             }
-            echo "<div class='chemin'><br/><br/></br><br/><p>".$_SESSION['chem']."</p></div>";
         }
     ?>
     <hr/>

@@ -445,7 +445,8 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addText(htmlspecialchars("Réglementation applicable : "), $menu, 'st1');
 				foreach($lesArticlesCrCoOrg as $unArticleCrCoOrg) {
 					if($unArticleCrCoOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-						$section->addText(htmlspecialchars($unArticleCrCoOrg['DESCRIPTION_RESUME_ARTICLE']), $textBase);
+						$unArticleCrCoOrgDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoOrg['DESCRIPTION_RESUME_ARTICLE']);
+						$section->addText($unArticleCrCoOrgDescriptionResume, $textBase);
 					}
 				}				
 				
@@ -563,10 +564,12 @@ if(isset($_SESSION['choix_creation'])) {
 				
 				
 				//Article
+				
 				$section->addText(htmlspecialchars("Réglementation applicable : "), $menu, 'st1');
 				foreach($lesArticlesCrCoSite as $unArticleCrCoSite) {
 					if($unArticleCrCoSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $unArticleCrCoSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $unArticleCrCoSite['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-						$section->addText(htmlspecialchars($unArticleCrCoSite['DESCRIPTION_RESUME_ARTICLE']), $textBase);
+						$unArticleCrCoSiteDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoSite['DESCRIPTION_RESUME_ARTICLE']);
+						$section->addText($unArticleCrCoSiteDescriptionResume, $textBase);
 					}
 				}	
 				

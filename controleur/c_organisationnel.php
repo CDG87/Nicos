@@ -8,7 +8,7 @@ switch($action){
             
             $_SESSION['cachemo'] = true;
             $_SESSION['idtheme'] = '';
-            $_SESSION['chem'] = "Organisationnel";
+            $_SESSION['partie'] = "Organisationnel";
             if($_REQUEST['nt'] == 'oui'){
                 $_SESSION['codepartie'] = $_POST['codepartie'];
                 $_SESSION['entpied'] = $_REQUEST['entpied'];
@@ -86,11 +86,9 @@ switch($action){
             $_SESSION['cachemo'] = true;
             if($_REQUEST['nt'] == 'oui'){
                 $_SESSION['numtheme'] = $_POST['numtheme'];
-                $_SESSION['chem'] = $_SESSION['chem'].' > '.$_POST['nomtheme'];
-                $_SESSION['chemA'] = $_SESSION['chem'];
+                $_SESSION['theme'] = $_POST['nomtheme'];
             }
             else{
-                $_SESSION['chem'] = $_SESSION['chemA'];
                 $_SESSION['entpied'] = 'soustheme';
             }
 			//Ajout d'un sous-thème
@@ -167,18 +165,10 @@ switch($action){
 			$_SESSION['cacheva'] = true;
             if($_REQUEST['nt'] == 'oui'){
                 $_SESSION['numsoustheme'] = $_POST['numsoustheme'];
-                $_SESSION['st'] = ' > '.$_POST['libsoustheme'];
-                $_SESSION['chem'] = $_SESSION['chem'].$_SESSION['st'];
-                $_SESSION['chemB'] = $_SESSION['chem'];
+                $_SESSION['st'] = $_POST['libsoustheme'];
+                $_SESSION['st'] = $_SESSION['st'];
                 $_SESSION['entpied'] = $_REQUEST['entpied'];
             }
-            else{
-				if($_SESSION['numsoustheme'] == null){
-					$_SESSION['chem'] = $_SESSION['chemA'];
-				}
-				else{
-					$_SESSION['chem'] = $_SESSION['chemB'];
-				}
                 $_SESSION['entpied'] = 'critere';
                 if(isset($_REQUEST['finicritere'])){
                     if($_SESSION['precomanu'] == false){
@@ -214,7 +204,6 @@ switch($action){
                     }
                     $pdo->add_Controle_Critere($_SESSION['numcritere'], $_SESSION['audit'], $_SESSION['conformite'], $_SESSION['obsimp'], $_SESSION['precoCR'], $_SESSION['photoCR']);
                 }
-            }
             //Ajout d'un critere
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aj'] == 'oui'){
                 $pdo->add_Critere($_POST['newnomcritere'], $_SESSION['numtheme'], $_SESSION['numsoustheme']);
@@ -283,13 +272,11 @@ switch($action){
                 $_SESSION['numcritere'] = $_POST['numcritere'];
                 $_SESSION['libcritere'] = $_POST['libcritere'];
                 $_SESSION['entpied'] = $_REQUEST['entpied'];
-                $_SESSION['chem'] = $_SESSION['chem'].' > '.$_POST['libcritere'];
-				$_SESSION['chemC'] = $_SESSION['chem'];
+                $_SESSION['critere'] = $_POST['libcritere'];
                 $_SESSION['tabobs'] = array();
                 $_SESSION['tabobsR'] = array();
             }
 			else{
-                $_SESSION['chem'] = $_SESSION['chemC'];
                 $_SESSION['entpied'] = 'observation';
             }
 			//Ajout d'une observation
@@ -349,8 +336,6 @@ switch($action){
             }
 			//Suppression d'une observation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['sup'] == 'oui'){
-				//$pdo->delete_ComprendreObs_Liste($listenumob);
-				//$pdo->delete_PossederObs_Liste($listenumob);
                 $pdo->delete_Observation($_POST['numobs']);
             }
             $listeObservation = $pdo->get_Observation_Critere($_SESSION['numcritere'],$_SESSION['audit']);
