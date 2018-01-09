@@ -24,7 +24,7 @@
 					</form>
 				</td>
 				<td class="espart">
-					<form method="post" action="">
+					<form method="post" action="index.php?uc=maj&action=coordonees_inspecteur">
 						<button type="submit" class="btn btn-warning btn-lg" name="coord_inspect">Coordonnées inspecteur</button>
 					</form>
 				</td>

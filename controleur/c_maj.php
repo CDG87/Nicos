@@ -14,6 +14,8 @@ switch($action) {
 	case 'coordonees_structures' :
 		break;
 	case 'coordonees_inspecteur' : 
+		$_SESSION['entpied'] = "coordonees_inspecteur";
+		include("vue/v_coordonees_inspecteur.php");
 		break;
 	case 'logo_adresse' : 
 		break;

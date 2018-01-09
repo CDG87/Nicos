@@ -34,7 +34,7 @@
 		</td>
 
 		<td class="espart">
-			<form method="post" action="index.php?uc=creation&action=maj&act_creation=maj">
+			<form method="post" action="index.php?uc=creation&action=maj">
 				<button type="submit" class="btn btn-danger btn-partie" name="maj" <?php echo $cachechoi; ?> >Mise à jour</button>
 			</form>
 		</td>
