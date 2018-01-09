@@ -66,7 +66,7 @@ else{
 		<table>
             <tr>
                 <td>
-                    <textarea class="form-control" rows="10" name='obsmanu' cols='150' maxlength='1000'></textarea>
+                    <textarea rows="5" name='obsmanu' cols='50' maxlength='1000'></textarea>
                 </td>
             </tr>
             <tr>

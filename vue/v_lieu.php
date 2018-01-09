@@ -34,7 +34,7 @@ include("include/entete.php");
 		<table>
             <tr>
                 <td>
-                    <textarea class="form-control" rows="10" name='lieumanu' cols='150' maxlength='60'></textarea>
+                    <textarea rows="5" name='lieumanu' cols='50' maxlength='60'></textarea>
                 </td>
             </tr>
             <tr>
