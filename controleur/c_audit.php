@@ -16,7 +16,11 @@
             $_SESSION['nom_structure'] = '';
             $numTypeStructureSelection = $_POST['lst_type'];
             $_SESSION['type_structure'] = $numTypeStructureSelection; //numéro type structure
+			if($_SESSION['isAdmin']==1){
             $_SESSION['libelle_audit'] = $_POST['libelle_audit']; //libelle audit 
+			}else{
+				$_SESSION['libelle_audit'] = "Inspection";
+			}
             include("vue/v_identification_structure.php");
             if(isset($_POST['generer_adr'])) {
                 $_SESSION['nom_structure'] = $_POST['nom_structure'];

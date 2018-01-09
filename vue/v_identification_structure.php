@@ -22,8 +22,7 @@
 					<label class="col-sm-3" for="libelle_audit">Libellé intervention :</label>
 					<div class="col-sm-4">
 						
-					<input class="form-control" list="libelle_audit" name="libelle_audit" value="Inspection" disabled/>
-
+					<input class="form-control" list="libelle_audit" name="libelle_audit" value="Inspection" disabled />
 					</div>
 				<?php } ?>
 			</div>
