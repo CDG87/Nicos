@@ -196,7 +196,7 @@ else{
                     </div>
                 </td>
                 <td>
-                    <h1>Observation importante</h1>
+                    <h1>Mesure Urgente</h1>
                 </td>
             </tr>
         </table>
