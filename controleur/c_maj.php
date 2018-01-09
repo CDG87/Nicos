@@ -5,7 +5,11 @@ $_SESSION['entpied'] = "";
 
 
 switch($action) {	
-	case 'selectionner_critere' : 
+	case 'selectionner_critere' :
+		$lstTheme=get_Theme_Partie($_POST['partie']);
+		$lstSt=get_Sous_Theme_Num($_POST['theme'];
+		$lstCrit=get_Critere_Theme($_POST['theme'],$_POST['st']);
+		include("vue/v_selection_critere.php");
 		break;
 	case 'coordonees_structures' :
 		break;
