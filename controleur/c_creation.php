@@ -117,6 +117,8 @@ switch($action) {
 	case 'maj' :
 		$_SESSION['entpied'] = "maj";
 		include("vue/v_maj.php");
+		require("controleur/c_maj.php");
+
 	break;
 }
 ?>

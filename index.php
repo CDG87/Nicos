@@ -20,7 +20,9 @@
         case 'creation' : //création ou choix d'un audit
 			include("controleur/c_creation.php");
             break;
-            
+        case 'maj': //mise a jour
+			include("controleur/c_maj.php");
+            break;
         case 'identification' : //saisies infos audit
             include("controleur/c_audit.php");
             break;
