@@ -218,6 +218,9 @@ else{
 
                     <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
 
+
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
+
                 </td>
             </tr>
         </table>
