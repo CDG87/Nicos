@@ -19,7 +19,7 @@ $i = 0;
         if($_SESSION['codepartie'] == 1){
             foreach ($tab_st_eff as $tse){
                 if($tse['NUM_SOUS_THEME'] == $numsoustheme){
-                    $choef = 'disabled="disabled"';
+                    //$choef = 'disabled="disabled"';
                     $cou = 'btn-default';
                 }
             }

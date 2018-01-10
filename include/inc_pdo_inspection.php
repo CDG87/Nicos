@@ -1435,8 +1435,12 @@ class Pdo_Inspection {
     /**
 	* Ajout d'un lien entre audit et observation
 	**/
-	public function add_Comprendre_Obs($numaudit, $numobs) {
-		
+	public function add_Comprendre_Obs($numaudit, $numobs, $numcritere) {
+		$req1 = "DELETE FROM COMPRENDRE WHERE NUM_OBSERVATION IN(SELECT NUM_OBSERVATION FROM OBSERVATION WHERE NUM_CRITERE=:numcritere)";
+		$rs1 = $this->monPdoInspection->prepare($req1);
+		$rs1->execute(array(
+            'numcritere' => $numcritere
+        ));
 		$req = "INSERT INTO COMPRENDRE (NUM_AUDIT, NUM_OBSERVATION) VALUES(:numaudit, :numobs)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1449,8 +1453,12 @@ class Pdo_Inspection {
     /**
 	* Ajout d'un lien entre audit et preconisation
 	**/
-	public function add_Disposer_Preco($numaudit, $numpreco) {
-		
+	public function add_Disposer_Preco($numaudit, $numpreco, $numcritere) {
+		$req1 = "DELETE FROM DISPOSER WHERE NUM_PRECONISATION IN(SELECT NUM_PRECONISATION FROM PRECONISATION WHERE NUM_CRITERE=:numcritere)";
+		$rs1 = $this->monPdoInspection->prepare($req1);
+		$rs1->execute(array(
+            'numcritere' => $numcritere
+        ));
 		$req = "INSERT INTO DISPOSER (NUM_AUDIT, NUM_PRECONISATION) VALUES(:numaudit, :numpreco)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1464,7 +1472,12 @@ class Pdo_Inspection {
 	* Ajout d'un nouveau controle critere sur inscrire pour sursite
 	**/
 	public function add_ControleCR_Inscrire($numaudit, $numpole, $numBatiment, $numgrplieu, $numlieu, $numtheme, $numcritere, $valeurCR, $valeurIM, $precoCR, $phoCR) {
-		
+		// $req1 = "DELETE FROM INSCRIRE WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE=:numcritere";
+		// $rs1 = $rs = $this->monPdoInspection->prepare($req1);
+		// $rs1->execute(array(
+            // 'numaudit' => $numaudit,
+			// 'numcritere' => $numCritere
+		// ));
 		$req = "INSERT INTO INSCRIRE (NUM_AUDIT, NUM_POLE_C, NUM_BATIMENT_C, NUM_GROUPE_LIEU_C, NUM_LIEU, NUM_THEME_C, NUM_CRITERE, VALEUR_CRITERE, VALEUR_IMPORTANT, PRECONISATION_CRITERE, PHOTO_CRITERE) VALUES(:numaudit, :numpole, :numBatiment, :numgrplieu, :numlieu, :numtheme,  :numcritere, :valeurCR, :valeurIM, :precoCR, :phoCR)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1487,7 +1500,12 @@ class Pdo_Inspection {
 	* Ajout d'un lien entre audit, lieu et observation
 	**/
 	public function add_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
-		
+		$req1 = "DELETE FROM POSSEDER WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
+		$rs1 = $rs = $this->monPdoInspection->prepare($req1);
+		$rs1->execute(array(
+            'numaudit' => $numaudit,
+			'numcritere' => $numCritere
+		));
 		$req = "INSERT INTO POSSEDER (NUM_AUDIT, NUM_POLE_C, NUM_BATIMENT_C, NUM_GROUPE_LIEU_C, NUM_LIEU, NUM_THEME_C, NUM_CRITERE_C, NUM_OBSERVATION) VALUES(:numaudit, :numPole, :numBatiment, :numGrpLieu, :numlieu, :numTheme, :numCritere, :numobs)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1507,7 +1525,12 @@ class Pdo_Inspection {
 	* Ajout d'un lien entre audit, lieu et preconisation
 	**/
 	public function add_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere, $numpreco) {
-		
+		$req1 = "DELETE FROM CONTENIR WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
+		$rs1 = $this->monPdoInspection->prepare($req1);
+		$rs1->execute(array(
+            'numaudit' => $numaudit,
+			'numcritere' => $numCritere
+		));
 		$req = "INSERT INTO CONTENIR (NUM_AUDIT, NUM_BATIMENT_C, NUM_LIEU, NUM_CRITERE_C, NUM_PRECONISATION) VALUES(:numaudit, :numbatiment, :numlieu, :numcritere, :numpreco)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(

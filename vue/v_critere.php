@@ -14,7 +14,7 @@ $i = 0;
         if($_SESSION['codepartie'] == 1){
             foreach ($listecritereeff as $lcf){
                 if($lcf['NUM_CRITERE'] == $numcritere){
-                    $choef = 'disabled="disabled"';
+                    //$choef = 'disabled="disabled"';
                     $cou = 'btn-default';
                 }
             }
@@ -22,7 +22,7 @@ $i = 0;
         else{
             foreach ($listecritereeff as $lcf){
                 if($lcf['NUM_BATIMENT_C'] == $_SESSION['idbatiment'] && $lcf['NUM_GROUPE_LIEU_C'] == $_SESSION['idgroupelieu'] && $lcf['NUM_THEME_C'] == $_SESSION['numtheme'] && $lcf['NUM_LIEU'] == $_SESSION['idlieu'] && $lcf['NUM_CRITERE'] == $numcritere ){
-                    $choef = 'disabled="disabled"';
+                    //$choef = 'disabled="disabled"';
                     $cou = 'btn-default';
                 }
             }
