@@ -29,7 +29,7 @@ else{
             if($_SESSION['codepartie'] == 1){
                 foreach ($tab_t_eff as $te){
                     if($te['NUM_THEME'] == $numtheme){
-                        $choef = 'disabled="disabled"';
+                        //$choef = 'disabled="disabled"';
                         $cou = 'btn-default';
                     }
                 }

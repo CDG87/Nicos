@@ -196,11 +196,11 @@ switch($action){
                     }
                     else{
                         for($j = 0;$j < count($_SESSION['tabpreco']);$j++){
-                            $pdo->add_Disposer_Preco($_SESSION['audit'], $_SESSION['tabpreco'][$j]);
+                            $pdo->add_Disposer_Preco($_SESSION['audit'], $_SESSION['tabpreco'][$j], $_SESSION['numcritere']);
                         }
                     }
                     for($i = 0;$i < count($_SESSION['tabobs']);$i++){
-                        $pdo->add_Comprendre_Obs($_SESSION['audit'], $_SESSION['tabobs'][$i]);
+                        $pdo->add_Comprendre_Obs($_SESSION['audit'], $_SESSION['tabobs'][$i], $_SESSION['numcritere']);
                     }
                     $pdo->add_Controle_Critere($_SESSION['numcritere'], $_SESSION['audit'], $_SESSION['conformite'], $_SESSION['obsimp'], $_SESSION['precoCR'], $_SESSION['photoCR']);
                 }
