@@ -239,8 +239,9 @@ if(isset($_SESSION['choix_creation'])) {
 	}else if($_SESSION['choix_creation'] == "creer") {
 		
 		foreach($lesInfosStructure as $uneInfoStructure) {};
-		
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addText(htmlspecialchars($_SESSION['libelle_audit']), 'title_partie', 'center'); //titre du rapport
+		}
 		$section->addTextBreak(3);
 		
 		/*************************** IDENTIFICATION AUDIT ***************************/
