@@ -1,5 +1,8 @@
 <?php
 include("include/entete.php");
+?>
+</br></br></br></br></br></br></br></br></br></br></br></br>
+<?php
 if($listepreconisation == null){
     echo '<h1>Aucune Proposition !!!</h1>';
 }

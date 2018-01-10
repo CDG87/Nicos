@@ -45,6 +45,9 @@
 	<br>
 	<?php } ?>
     <?php
+		 if($uc !='connexion' && $uc!='creation'){ 
+	$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
+		}
         if($_SESSION['codepartie'] == 1){
             $uc_choix = 'organisationnel';
         }
@@ -324,7 +327,7 @@
 					<button type="submit" class="btn btnMenu btn-primary btnPartie btn-rapport "><b><u>LIEU</u></br><?php echo $_SESSION['lieu']; ?></b></button>
 				</form>
 				<form method="POST" action="index.php?uc=sursite&action=theme&nt=non&aj=non&aft=non&mo=non&sup=non">
-					<button type="submit" class="btn btnMenu btn-info btnPartie "><b><u>THEME</u></br><?php echo $_SESSION['theme']; ?></b></button>
+					<button type="submit" class="btn btnMenu btn-primary btnPartie "><b><u>THEME</u></br><?php echo $_SESSION['theme']; ?></b></button>
 				</form>
 				<?php echo $ct;
 				?>
@@ -392,5 +395,4 @@
         }
     ?>
     <hr/>
-	</br></br></br></br></br></br></br></br></br></br>
 </header>

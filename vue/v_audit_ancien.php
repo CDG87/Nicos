@@ -17,6 +17,7 @@
 				<?php
 				$i =0;
 				foreach($lesAudits as $unAudit) {
+					if($_SESSION['isAdmin']==1){
 					if($numAuditSelection == $unAudit['NUM_AUDIT']) { ?>
 						<option selected="selected" value="<?php echo $unAudit['NUM_AUDIT'];?>"><?php echo $unAudit['LIBELLE_AUDIT'] . ' à ' . $mesStructures[$i]; ?></option>
 					<?php	
@@ -26,6 +27,19 @@
 					}
 
 				$i = $i+1;
+					}else{
+						if($unAudit['LIBELLE_AUDIT']=='Inspection'){
+						if($numAuditSelection == $unAudit['NUM_AUDIT']) { ?>
+						<option selected="selected" value="<?php echo $unAudit['NUM_AUDIT'];?>"><?php echo $unAudit['LIBELLE_AUDIT'] . ' à ' . $mesStructures[$i]; ?></option>
+					<?php	
+					}else { ?>
+						<option value="<?php echo $unAudit['NUM_AUDIT'];?>"><?php echo $unAudit['LIBELLE_AUDIT'] . ' à ' . $mesStructures[$i]; ?></option>
+					<?php
+					}
+
+				$i = $i+1;
+						}
+					}
 				}
 				?>
 			

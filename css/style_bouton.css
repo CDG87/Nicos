@@ -80,8 +80,13 @@
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	height:100px;
 	cursor:pointer;
+	margin-right:11px;
 }
 
 .btn-rapport{
 	background-color:red;
+}
+
+#mesureUrg{
+	width:101%;
 }

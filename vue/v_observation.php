@@ -5,12 +5,12 @@ if($listeObservation == null){
 }
 else{
 ?>
-	 </br></br>
+	 </br></br></br></br></br></br></br></br></br></br></br>
     <table>
         <tr>
             <td>
                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=article&nt=oui&aft=non&mo=non&entpied=article'>
-                    <button type="submit" class="btn btn-primary btn-art btn-article" name="article">Articles</button>
+                    <button type="submit" class="btn btn-primary btn-art btn-article" name="article" >Articles</button>
                 </form>
             </td>
         </tr>
@@ -54,7 +54,7 @@ else{
         ?>
             <tr>
                 <td>
-                    <button name="btnobs" type="submit" class="btn <?php echo $cou.' '.$choef; ?> btn-obs" value="<?php echo $numobs; ?>" <?php echo $choaut; ?>><?php echo $libobs; ?></button>
+                    <button name="btnobs" type="submit" class="btn <?php echo $cou.' '.$choef; ?> btn-obs" value="<?php echo $numobs; ?>" <?php echo $choaut; ?> ><?php echo $libobs; ?></button>
                 </td>
             </tr>            
         <?php
@@ -135,7 +135,7 @@ else{
             <tr>
                 <td>
                     <div class="container_obs">
-                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default"  autofocus >
+                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default" >
                     </div>
                 </td>
                 <td>
@@ -187,6 +187,7 @@ else{
         </table>
 		<?php } ?>
         <hr/>
+		<?php if($infosaudit['LIBELLE_AUDIT']=="Inspection"){ ?>
         <table>
             <tr>
                 <td>
@@ -200,11 +201,23 @@ else{
                 </td>
             </tr>
         </table>
+		<?php } ?>
         <hr/>
         <table>
             <tr>
                 <td> 
-                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>"> Valider</button>
+
+
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Vous ne pourrez plus ajouter de photo par la suite.')) return false;"; }?>"> Valider</button>
+
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
+
+
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
+
+
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
+
                 </td>
             </tr>
         </table>

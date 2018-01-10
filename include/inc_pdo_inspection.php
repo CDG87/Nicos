@@ -1473,7 +1473,7 @@ class Pdo_Inspection {
 	**/
 	public function add_ControleCR_Inscrire($numaudit, $numpole, $numBatiment, $numgrplieu, $numlieu, $numtheme, $numcritere, $valeurCR, $valeurIM, $precoCR, $phoCR) {
 		// $req1 = "DELETE FROM INSCRIRE WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE=:numcritere";
-		// $rs1 = $rs = $this->monPdoInspection->prepare($req1);
+		// $rs1 = $this->monPdoInspection->prepare($req1);
 		// $rs1->execute(array(
             // 'numaudit' => $numaudit,
 			// 'numcritere' => $numCritere
@@ -1501,8 +1501,14 @@ class Pdo_Inspection {
 	**/
 	public function add_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
 		$req1 = "DELETE FROM POSSEDER WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
-		$rs1 = $rs = $this->monPdoInspection->prepare($req1);
+		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
+            'numaudit' => $numaudit,
+			'numcritere' => $numCritere
+		));
+		$req2 = "DELETE FROM CONTROLE_CRITERE WHERE NUM_CRITERE=:numcritere AND NUM_AUDIT=:numaudit";
+		$rs2 = $this->monPdoInspection->prepare($req2);
+		$rs2->execute(array(
             'numaudit' => $numaudit,
 			'numcritere' => $numCritere
 		));
@@ -1529,7 +1535,7 @@ class Pdo_Inspection {
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numaudit' => $numaudit,
-			'numcritere' => $numCritere
+			'numcritere' => $numcritere
 		));
 		$req = "INSERT INTO CONTENIR (NUM_AUDIT, NUM_BATIMENT_C, NUM_LIEU, NUM_CRITERE_C, NUM_PRECONISATION) VALUES(:numaudit, :numbatiment, :numlieu, :numcritere, :numpreco)";
 		$rs = $this->monPdoInspection->prepare($req);
