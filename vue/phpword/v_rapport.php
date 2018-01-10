@@ -86,15 +86,21 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 	
 	$section->addTextBreak(5);
+	if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 	$section->addText("Rapport", 'title_p_garde', 'center'); //titre page de garde
+	}else{
+		$section->addText("Rapport", 'title_p_garde', 'center'); //titre page de garde
+		$section->addText("De visite", 'title_p_garde', 'center'); //titre page de garde
+	}
 	$section->addTextBreak(1);
 	//Nature de la mission
+	if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 	$section->addText("De contrôle des conditions d'application des règles définies en matière d'hygiène et de sécurité du travail dans la fonction publique territoriale.",  'introFstyle', 'introPstyle');
 	$section->addTextBreak(1);
 	
 	//Référentiel
 	$section->addText("Décret n° 85-603 du 10 juin 1985 modifié, partie IV du Code du Travail et les décrets pris pour application.",  'introFstyle', 'introPstyle');
-	
+	}
 	$section->addImage('images/page_garde.jpg', array('width' => 300, 'align' => 'center'));
 	$section->addTextBreak(3);
 	foreach($lesInfosStructure as $uneInfoStructure) {
@@ -115,11 +121,16 @@ if(isset($_SESSION['choix_creation'])) {
 			
 			
 			/*************************** IDENTIFICATION AUDIT ***************************/
-			
+			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addTitle(htmlspecialchars('Informations contrôleur'), 3);
+			}else{
+				$section->addTitle(htmlspecialchars('conseiller en prevention'), 3);
+			}
 			foreach($lesInfosControleur as $uneInfoControleur) {
 				$section->addText(htmlspecialchars($uneInfoControleur['PRENOM_CONTROLEUR'] . ' ' . $uneInfoControleur['NOM_CONTROLEUR']),'coord_audit');
+				if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 				$section->addText(htmlspecialchars($uneInfoControleur['FONCTION_CONTROLEUR']),'coord_audit');
+				}
 				$section->addText(htmlspecialchars($uneInfoControleur['AFFECTATION_CONTROLEUR']),'coord_audit');
 				$section->addText(htmlspecialchars("Tél fixe : " . $uneInfoControleur['TEL_FIXE_CONTROLEUR']),'coord_audit');
 				$section->addText(htmlspecialchars("Tél mobile : " . $uneInfoControleur['TEL_MOBILE_CONTROLEUR']),'coord_audit');
@@ -133,20 +144,18 @@ if(isset($_SESSION['choix_creation'])) {
 			$section->addText(htmlspecialchars($uneInfoStructure['ADRESSE_STRUCTURE']), 'coord_audit');
 			$section->addText(htmlspecialchars($uneInfoStructure['CP_STRUCTURE']), 'coord_audit');
 			$section->addText(htmlspecialchars($uneInfoStructure['VILLE_STRUCTURE']), 'coord_audit');
-			// if($uneInfoStructure['TELEPHONE_STRUCTURE'] == "" || $uneInfoStructure['EMAIL_STRUCTURE']) {
-				// $section->addText(htmlspecialchars("Tél : "));
-				// $section->addText(htmlspecialchars("Email : "));
-			// }else {
-				// $section->addText(htmlspecialchars("Tél : " . $uneInfoStructure['TELEPHONE_STRUCTURE']));
-				// $section->addText(htmlspecialchars("Email : " . $uneInfoStructure['EMAIL_STRUCTURE']));
-			// }
 			
 			$section->addTextBreak(1);
 		}
 		
 		
 		//Date du controle
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addTitle(htmlspecialchars('Date du contrôle'), 3);
+		
+		}else{
+			$section->addTitle(htmlspecialchars('Date de la visite'), 3);
+		}
 		foreach($datesAudit as $uneDate) {
 			
 			$section->addText(htmlspecialchars(dateAnglaisVersFrancais($uneDate['DATE_AUDIT'])), 'coord_audit');
@@ -181,7 +190,12 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		//Batiments controlés
 		if($lesBatimentsControles != array()){
+			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addTitle(htmlspecialchars('Bâtiments contrôlés'), 3);
+			
+			}else{
+				$section->addTitle(htmlspecialchars('Bâtiments visités'), 3);
+			}
 			foreach($lesBatimentsControles as $unBatimentControle) {
 				$section->addText(htmlspecialchars($unBatimentControle['NOM_BATIMENT']), 'coord_audit');
 			}
@@ -230,10 +244,16 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addTextBreak(3);
 		
 		/*************************** IDENTIFICATION AUDIT ***************************/
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addTitle(htmlspecialchars('Infos contrôleur'), 3);
+		}else{
+			$section->addTitle(htmlspecialchars('Infos conseiller en prévention'), 3);
+		}
 		foreach($lesInfosControleur as $uneInfoControleur) {
 			$section->addText(htmlspecialchars($uneInfoControleur['PRENOM_CONTROLEUR'] . ' ' . $uneInfoControleur['NOM_CONTROLEUR']),'coord_audit');
+			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addText(htmlspecialchars($uneInfoControleur['FONCTION_CONTROLEUR']),'coord_audit');
+			}
 			$section->addText(htmlspecialchars($uneInfoControleur['AFFECTATION_CONTROLEUR']),'coord_audit');
 			$section->addText(htmlspecialchars("Tél fixe : " . $uneInfoControleur['TEL_FIXE_CONTROLEUR']),'coord_audit');
 			$section->addText(htmlspecialchars("Tél mobile : " . $uneInfoControleur['TEL_MOBILE_CONTROLEUR']),'coord_audit');
@@ -258,7 +278,11 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addTextBreak(2);
 
 		//Date du controle
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addTitle(htmlspecialchars('Date du contrôle'), 3);
+		}else{
+			$section->addTitle(htmlspecialchars('Date de la visite'), 3);
+		}
 		
 		foreach($datesAudit as $uneDate) {
 			
@@ -292,7 +316,11 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addTextBreak(2);
 		//Batiments controlés
 		if($lesBatimentsControles != array()){
+			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addTitle(htmlspecialchars('Bâtiments contrôlés'), 3);
+			}else{
+				$section->addTitle(htmlspecialchars('Bâtiments visités'), 3);
+			}
 			foreach($lesBatimentsControles as $unBatimentControle) {
 				$section->addText(htmlspecialchars($unBatimentControle['NOM_BATIMENT']));
 			}
@@ -626,183 +654,184 @@ if(isset($_SESSION['choix_creation'])) {
 	 
 		/*************************** CONCLUSION ***************************/
 		//Titre conclusion
-		$section->addText(htmlspecialchars('Principales remarques et propositions'), 'title_partie', 'center');
-		$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions",  'introFstyle', 'introPstyle');
-		$section->addTextBreak(2);
-		$section->addText(htmlspecialchars("Organisationnel"),'subtitle_p_garde');
-		foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
-			
-			if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-			$sstheme='';
-				foreach($lesSTCr as $unSTCr) {
-					
-					if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-						//Theme - Sous-thème
-						
-						$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
-					}
-					
-				}
-				if($sstheme!=''){
-					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
-					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
-				}else{
-					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']), $menu2, 'st1');
-					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
-					
-				}
-
-				
-				//Observations
-				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
-				foreach($lesObservationsOrg as $uneObservationOrg) {
-					
-					if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-						if($uneObservationOrg['CODE_COULEUR_OBSERVATION'] == 1) { //vert
-							$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_v');
-						}else { //rouge
-							$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_r');
-						}
-					}
-				}
-				
-				//Préconisations
-				$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
-				foreach($lesPreconisationsOrg as $unePreconisationOrg) {
-					if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-						$section->addText(htmlspecialchars($unePreconisationOrg['LIBELLE_PRECONISATION']));
-					}
-					
-				}
-				$section->addText(htmlspecialchars($uneInfoCritereCoOrg['PRECONISATION_CRITERE']));
-			}
-			$section->addTextBreak(2);
-		}
-		
-		
-		$section->addPageBreak();
-
-		$section->addText(htmlspecialchars("Sur site"),'subtitle_p_garde');
-		foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
-			
-			if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {
-				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-			$sstheme='';
-				//batiment - lieu
-				foreach($lesSTCr as $unSTCr) {
-					if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-						//Sous-thème
-						$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
-					}
-				}
-				if($sstheme!=''){
-					$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-					$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
-					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
-				}else{
-					$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-					$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']), $menu2, 'st1');
-					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
-				}
-				
-				//Observations
-				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
-				foreach($lesObservationsSite as $uneObservationSite) {
-					
-					if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
-						if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
-							$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
-						}else { //rouge
-							$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_r');
-						}
-					}
-				}
-				
-				//Préconisations
-				$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
-					foreach($lesPreconisationsSite as $unePreconisationSite) {
-						if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							$section->addText(htmlspecialchars($unePreconisationSite['LIBELLE_PRECONISATION']));
-						}	
-					}
-			}
-				$section->addTextBreak(2);
-		}
-		
-		$section->addPageBreak(); //saut de page
-		
-		$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
-		$section->addTextBreak(1);
-		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-		$section->addTextBreak(1);
-		
 		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
-			//statistique organisation
-			$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
+			$section->addText(htmlspecialchars('Principales remarques et propositions'), 'title_partie', 'center');
+			$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions",  'introFstyle', 'introPstyle');
+			$section->addTextBreak(2);
+			$section->addText(htmlspecialchars("Organisationnel"),'subtitle_p_garde');
+			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
+				
+				if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+				$sstheme='';
+					foreach($lesSTCr as $unSTCr) {
+						
+						if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
+							//Theme - Sous-thème
+							
+							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
+						}
+						
+					}
+					if($sstheme!=''){
+						$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
+						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
+					}else{
+						$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']), $menu2, 'st1');
+						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
+						
+					}
+
+					
+					//Observations
+					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+					foreach($lesObservationsOrg as $uneObservationOrg) {
+						
+						if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
+							if($uneObservationOrg['CODE_COULEUR_OBSERVATION'] == 1) { //vert
+								$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_v');
+							}else { //rouge
+								$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_r');
+							}
+						}
+					}
+					
+					//Préconisations
+					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
+					foreach($lesPreconisationsOrg as $unePreconisationOrg) {
+						if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
+							$section->addText(htmlspecialchars($unePreconisationOrg['LIBELLE_PRECONISATION']));
+						}
+						
+					}
+					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['PRECONISATION_CRITERE']));
+				}
+				$section->addTextBreak(2);
+			}
 			
-			// Add table
-			$tablette1 = $section->addTable('myOwnTableStyle');
-			$tablette1->addRow();
-				$cell = $tablette1->addCell(10000);
-				$cell->addText(htmlspecialchars('Thème'),  'tabFont', 'tabPar');
-				$cell = $tablette1->addCell(100);
-				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-			foreach($statsORG as $stat){
+			
+			$section->addPageBreak();
+
+			$section->addText(htmlspecialchars("Sur site"),'subtitle_p_garde');
+			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
+				
+				if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {
+					$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+				$sstheme='';
+					//batiment - lieu
+					foreach($lesSTCr as $unSTCr) {
+						if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
+							//Sous-thème
+							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
+						}
+					}
+					if($sstheme!=''){
+						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
+						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
+						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
+					}else{
+						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
+						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']), $menu2, 'st1');
+						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
+					}
+					
+					//Observations
+					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+					foreach($lesObservationsSite as $uneObservationSite) {
+						
+						if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
+							if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
+								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
+							}else { //rouge
+								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_r');
+							}
+						}
+					}
+					
+					//Préconisations
+					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
+						foreach($lesPreconisationsSite as $unePreconisationSite) {
+							if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
+								$section->addText(htmlspecialchars($unePreconisationSite['LIBELLE_PRECONISATION']));
+							}	
+						}
+				}
+					$section->addTextBreak(2);
+			}
+			
+			$section->addPageBreak(); //saut de page
+			
+			$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
+			$section->addTextBreak(1);
+			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+			$section->addTextBreak(1);
+			
+			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
+				//statistique organisation
+				$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
+				
+				// Add table
+				$tablette1 = $section->addTable('myOwnTableStyle');
 				$tablette1->addRow();
-				$cell = $tablette1->addCell(10000);
-				$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
-				$cell = $tablette1->addCell(100);
-				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
-			}
-			$section->addTextBreak(1);
-			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-			$section->addTextBreak(1);
-			
-			
-			
-			//statistique site
-			$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
-			
-			// Add table
-			$tablette2 = $section->addTable('myOwnTableStyle');
-			$tablette2->addRow();
-				$cell = $tablette2->addCell(10000);
-				$cell->addText(htmlspecialchars('Bâtiment'),  'tabFont', 'tabPar');
-				$cell = $tablette2->addCell(100);
-				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-			foreach($statsSITE as $stat){
+					$cell = $tablette1->addCell(10000);
+					$cell->addText(htmlspecialchars('Thème'),  'tabFont', 'tabPar');
+					$cell = $tablette1->addCell(100);
+					$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+				foreach($statsORG as $stat){
+					$tablette1->addRow();
+					$cell = $tablette1->addCell(10000);
+					$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
+					$cell = $tablette1->addCell(100);
+					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+				}
+				$section->addTextBreak(1);
+				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+				$section->addTextBreak(1);
+				
+				
+				
+				//statistique site
+				$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
+				
+				// Add table
+				$tablette2 = $section->addTable('myOwnTableStyle');
 				$tablette2->addRow();
-				$cell = $tablette2->addCell(10000);
-				$cell->addText(htmlspecialchars($stat['NOM_BATIMENT']), 'st1');
-				$cell = $tablette2->addCell(100);
-				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
-			}
-			$section->addTextBreak(1);
-			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-			$section->addTextBreak(1);
-			
-			
-			
-			//stats par theme
-			$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
-			
-			// Add table
-			$tablette3 = $section->addTable('myOwnTableStyle');
-			$tablette3->addRow();
-				$cell = $tablette3->addCell(10000);
-				$cell->addText(htmlspecialchars('Famille de risques'),  'tabFont', 'tabPar');
-				$cell = $tablette3->addCell(100);
-				$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
-			foreach($statsFamille as $stat){
+					$cell = $tablette2->addCell(10000);
+					$cell->addText(htmlspecialchars('Bâtiment'),  'tabFont', 'tabPar');
+					$cell = $tablette2->addCell(100);
+					$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+				foreach($statsSITE as $stat){
+					$tablette2->addRow();
+					$cell = $tablette2->addCell(10000);
+					$cell->addText(htmlspecialchars($stat['NOM_BATIMENT']), 'st1');
+					$cell = $tablette2->addCell(100);
+					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+				}
+				$section->addTextBreak(1);
+				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
+				$section->addTextBreak(1);
+				
+				
+				
+				//stats par theme
+				$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
+				
+				// Add table
+				$tablette3 = $section->addTable('myOwnTableStyle');
 				$tablette3->addRow();
-				$cell = $tablette3->addCell(10000);
-				$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
-				$cell = $tablette3->addCell(100);
-				$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+					$cell = $tablette3->addCell(10000);
+					$cell->addText(htmlspecialchars('Famille de risques'),  'tabFont', 'tabPar');
+					$cell = $tablette3->addCell(100);
+					$cell->addText(htmlspecialchars('non-conformités'),  'tabFont', 'tabPar');
+				foreach($statsFamille as $stat){
+					$tablette3->addRow();
+					$cell = $tablette3->addCell(10000);
+					$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
+					$cell = $tablette3->addCell(100);
+					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+				}
+				$section->addTextBreak(5); //saut de page
 			}
-			$section->addTextBreak(5); //saut de page
 		}
-		
 		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion de la Haute-Vienne au :"),'conclu');
 		$section->addText(htmlspecialchars("	- 05.55.30.08.54"),'conclu');
 		$section->addText(htmlspecialchars("	- 05.55.30.08.69"),'conclu');

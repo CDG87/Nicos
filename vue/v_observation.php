@@ -5,7 +5,7 @@ if($listeObservation == null){
 }
 else{
 ?>
-	 </br></br>
+	 </br></br></br></br></br></br></br></br></br></br></br>
     <table>
         <tr>
             <td>
@@ -135,7 +135,7 @@ else{
             <tr>
                 <td>
                     <div class="container_obs">
-                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default"  autofocus >
+                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default" >
                     </div>
                 </td>
                 <td>
@@ -187,6 +187,7 @@ else{
         </table>
 		<?php } ?>
         <hr/>
+		<?php if($infosaudit['LIBELLE_AUDIT']=="Inspection"){ ?>
         <table>
             <tr>
                 <td>
@@ -200,11 +201,12 @@ else{
                 </td>
             </tr>
         </table>
+		<?php } ?>
         <hr/>
         <table>
             <tr>
                 <td> 
-                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>"> Valider</button>
+                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Souhaitez vous ajouter/modifier une photo ? ')) return false;"; }?>" autofocus> Valider</button>
                 </td>
             </tr>
         </table>

@@ -651,7 +651,9 @@
             <table>
                 <tr>
                     <td>
-                        <a class="btn btn-default btn-ret" href="index.php?uc=<?php echo $uc_choix; ?>&action=observation&nt=non&aj=non&aft=non&mo=non&sup=non&cho=non" role="button">Retour</a>
+					<form method="POST" action="index.php?uc=<?php echo $uc_choix; ?>&action=observation&nt=non&aj=non&aft=non&mo=non&sup=non&cho=non">
+                        <button type="submit" class="btn btn-default btn-ret" autofocus>Retour</button>
+					</form>
                     </td>
                 </tr>
             </table>
