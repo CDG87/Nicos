@@ -11,6 +11,11 @@ $i = 0;
         $cou = 'btn-warning';
         $numcritere = $lc['NUM_CRITERE'];
         $libcritere = $lc['LIBELLE_CRITERE'];
+		if($lc['PICTOS'] != NULL){
+				$pictos = 'fa '.$lc['PICTOS'];
+			}else{
+				$pictos = '';
+			}
         if($_SESSION['codepartie'] == 1){
             foreach ($listecritereeff as $lcf){
                 if($lcf['NUM_CRITERE'] == $numcritere){
@@ -38,7 +43,7 @@ $i = 0;
         <td class="esrest">
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=observation&nt=oui&entpied=observation'>
                 <input type='hidden' name='libcritere' value='<?php echo $libcritere; ?>'/>
-                <button type="submit" class="btn <?php echo $cou; ?> btn-lg" name="numcritere" value="<?php echo $numcritere; ?>" <?php echo $choef; ?>><?php echo $libcritere; ?></button>
+                <button type="submit" class="btn <?php echo $cou; ?> btn-lg <?php echo $pictos; ?>" name="numcritere" value="<?php echo $numcritere; ?>" <?php echo $choef; ?>> <?php echo $libcritere; ?></button>
             </form>
         </td>
 <?php

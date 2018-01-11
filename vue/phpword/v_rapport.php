@@ -919,14 +919,14 @@ if(isset($_SESSION['choix_creation'])) {
 
 
 
-	$today = date("d.m.y à H:i"); //date et heure du jour
+	$today = date("d.m.y"); //date et heure du jour
 	
 	//Guardando document
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
-	$objWriter->save('Rapport '.$uneInfoStructure['VILLE_STRUCTURE'].'.docx');
+	$objWriter->save('Rapport '.$uneInfoStructure['NOM_STRUCTURE'].' '.$today.'.docx');
 
-	header("Content-Disposition: attachment; filename='Rapport ".$uneInfoStructure['VILLE_STRUCTURE'].".docx'");
-	echo file_get_contents('Rapport '.$uneInfoStructure['VILLE_STRUCTURE'].'.docx');
+	header("Content-Disposition: attachment; filename='Rapport ".$uneInfoStructure['NOM_STRUCTURE'].' '.$today.".docx'");
+	echo file_get_contents('Rapport '.$uneInfoStructure['NOM_STRUCTURE'].' '.$today.'.docx');
 	
 	// $objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.'.docx');
 

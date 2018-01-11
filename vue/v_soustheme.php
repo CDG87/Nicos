@@ -16,6 +16,11 @@ $i = 0;
         $cou = 'btn-success';
         $numsoustheme = $lstn['NUM_SOUS_THEME'];
         $libsoustheme = $lstn['LIBELLE_SOUS_THEME'];
+		if($lstn['PICTOS'] != NULL){
+				$pictos = 'fa '.$lstn['PICTOS'];
+			}else{
+				$pictos = '';
+			}
         if($_SESSION['codepartie'] == 1){
             foreach ($tab_st_eff as $tse){
                 if($tse['NUM_SOUS_THEME'] == $numsoustheme){
@@ -47,7 +52,7 @@ $i = 0;
         <td class="esrest">
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=critere&nt=oui&entpied=critere'>
                 <input type='hidden' name='libsoustheme' value='<?php echo $libsoustheme; ?>'/>
-                <button type="submit" class="btn <?php echo $cou; ?> btn-lg" name="numsoustheme" value="<?php echo $numsoustheme; ?>" <?php echo $choef; ?>><?php echo $libsoustheme; ?></button>
+                <button type="submit" class="btn <?php echo $cou; ?> btn-lg <?php echo $pictos; ?>" name="numsoustheme" value="<?php echo $numsoustheme; ?>" <?php echo $choef; ?>> <?php echo $libsoustheme; ?></button>
             </form>
         </td>
 <?php

@@ -8,6 +8,11 @@ include("include/entete.php");
     foreach ($lesLieux as $unLieu){
         $numLieu = $unLieu['NUM_LIEU'];
         $nomLieu = $unLieu['NOM_LIEU'];
+		if($unLieu['PICTOS'] != NULL){
+				$pictos = 'fa '.$unLieu['PICTOS'];
+			}else{
+				$pictos = '';
+			}
         if($i == 3){
             ?>
             </tr>
@@ -19,7 +24,7 @@ include("include/entete.php");
         <td class="esrest">
             <form method='POST' action='index.php?uc=sursite&action=theme&nt=oui&entpied=theme'>
                 <input type='hidden' name='nomlieu' value='<?php echo $nomLieu; ?>'/>
-                <button type="submit" class="btn btn-success btn-lg" name="numlieu" value="<?php echo $numLieu; ?>"><?php echo $nomLieu; ?></button>
+                <button type="submit" class="btn btn-success btn-lg <?php echo $pictos; ?>" name="numlieu" value="<?php echo $numLieu; ?>"> <?php echo $nomLieu; ?></button>
             </form>
         </td>
 <?php

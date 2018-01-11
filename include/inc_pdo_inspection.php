@@ -216,7 +216,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Sous_Theme_Num($numtheme) {
 		
-		$req = "SELECT DISTINCT ST.NUM_SOUS_THEME, LIBELLE_SOUS_THEME FROM SOUS_THEME ST INNER JOIN CRITERE C ON ST.NUM_SOUS_THEME = C.NUM_SOUS_THEME WHERE NUM_THEME = :numtheme";
+		$req = "SELECT DISTINCT ST.NUM_SOUS_THEME, LIBELLE_SOUS_THEME, PICTOS FROM SOUS_THEME ST INNER JOIN CRITERE C ON ST.NUM_SOUS_THEME = C.NUM_SOUS_THEME WHERE NUM_THEME = :numtheme";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numtheme' => $numtheme
@@ -231,7 +231,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Critere_Theme($numtheme, $numsoustheme) {
 		
-		$req = "SELECT NUM_CRITERE, LIBELLE_CRITERE FROM CRITERE WHERE NUM_THEME = :numtheme AND NUM_SOUS_THEME = :numsoustheme";
+		$req = "SELECT NUM_CRITERE, LIBELLE_CRITERE, PICTOS FROM CRITERE WHERE NUM_THEME = :numtheme AND NUM_SOUS_THEME = :numsoustheme";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numtheme' => $numtheme,
@@ -247,7 +247,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Critere_NTheme($numtheme) {
 		
-		$req = "SELECT NUM_CRITERE, LIBELLE_CRITERE FROM CRITERE WHERE NUM_THEME = :numtheme ";
+		$req = "SELECT NUM_CRITERE, LIBELLE_CRITERE, PICTOS FROM CRITERE WHERE NUM_THEME = :numtheme ";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numtheme' => $numtheme
@@ -779,7 +779,7 @@ class Pdo_Inspection {
 	* Récupère tous les poles
 	**/
 	public function get_Poles() {
-		$req = "SELECT CODE_POLE, LIBELLE_POLE FROM POLE";
+		$req = "SELECT CODE_POLE, LIBELLE_POLE,PICTOS FROM POLE";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
 		$ligne = $rs->fetchAll();
@@ -790,7 +790,7 @@ class Pdo_Inspection {
 	* Récupère tous les batiments d'un pole
 	**/
 	public function get_Batiments_Pole($numPole, $num) {
-		$req = "SELECT NUM_BATIMENT, CODE_POLE, NOM_BATIMENT FROM BATIMENT WHERE CODE_POLE = ? and (CODE_BATIMENT=? OR CODE_BATIMENT IS NULL)";
+		$req = "SELECT NUM_BATIMENT, CODE_POLE, NOM_BATIMENT, PICTOS FROM BATIMENT WHERE CODE_POLE = ? and (CODE_BATIMENT=? OR CODE_BATIMENT IS NULL)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numPole, $num));
 		$ligne = $rs->fetchAll();
@@ -801,7 +801,7 @@ class Pdo_Inspection {
 	* Récupère tous les groupes lieu
 	**/
 	public function get_Groupe_Lieu() {
-		$req = "SELECT NUM_GROUPE_LIEU, LIBELLE_GROUPE_LIEU FROM GROUPE_LIEU";
+		$req = "SELECT NUM_GROUPE_LIEU, LIBELLE_GROUPE_LIEU, PICTOS FROM GROUPE_LIEU";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
 		$ligne = $rs->fetchAll();
@@ -812,7 +812,7 @@ class Pdo_Inspection {
 	* Récupère tous les lieux pour un groupe lieu 
 	**/
 	public function get_Lieux($numGroupeLieu, $num) {
-		$req = "SELECT NUM_LIEU, NOM_LIEU FROM LIEU WHERE NUM_GROUPE_LIEU = ? AND (code_lieu=? OR code_Lieu IS NULL)";
+		$req = "SELECT NUM_LIEU, NOM_LIEU, PICTOS FROM LIEU WHERE NUM_GROUPE_LIEU = ? AND (code_lieu=? OR code_Lieu IS NULL)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numGroupeLieu, $num));
 		$ligne = $rs->fetchAll();
