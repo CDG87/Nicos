@@ -858,7 +858,7 @@ if(isset($_SESSION['choix_creation'])) {
 				
 				$section->addTextBreak(5); //saut de page
 			}
-		}
+		
 		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion de la Haute-Vienne au :"),'conclu');
 		$section->addText(htmlspecialchars("	- 05.55.30.08.54"),'conclu');
 		$section->addText(htmlspecialchars("	- 05.55.30.08.69"),'conclu');
