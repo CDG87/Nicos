@@ -2560,6 +2560,19 @@ class Pdo_Inspection {
 	/**
 	* Récupère le nombre de participant
 	**/
+	public function get_NbSous_Theme($theme) {
+		$req = "SELECT count(NUM_SOUS_THEME)
+		FROM CRITERE
+		WHERE NUM_THEME = ? AND NUM_SOUS_THEME !=0 ";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($theme));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Récupère le nombre de participant
+	**/
 	public function get_NbParticipant_En_Cours($numAudit) {
 		$req = "SELECT count(NUM_PARTICIPANT)
 		FROM PARTICIPER

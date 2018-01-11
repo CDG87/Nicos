@@ -45,7 +45,7 @@
 	<br>
 	<?php } ?>
     <?php
-		 if($uc !='connexion' && $uc!='creation' && $uc!='identification'){ 
+		 if($uc !='connexion' && $uc!='creation' && $uc!='identification' && $uc!='maj'){ 
 			$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 		}
         if($_SESSION['codepartie'] == 1){
@@ -79,6 +79,14 @@
 			</div>
 			<?php
             echo "<h1>Identification</h1>";
+        }
+		if($_SESSION['entpied'] == 'majCritere'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>Selection du critere</h1>";
         }
 		if($_SESSION['entpied'] == 'creation'){
 			?>
