@@ -88,9 +88,8 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText("Releve", 'title_p_garde', 'center'); //titre page de garde
 		$section->addText("De mesures urgentes", 'title_p_garde', 'center'); //titre page de garde
 		
-		$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions",  'introFstyle', 'introPstyle');
+		$section->addText("Art-5: En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
 			$section->addTextBreak(2);
-			$section->addText(htmlspecialchars("Organisationnel"),'subtitle_p_garde');
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
 				
 				if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
@@ -140,10 +139,6 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addTextBreak(2);
 			}
 			
-			
-			$section->addPageBreak();
-
-			$section->addText(htmlspecialchars("Sur site"),'subtitle_p_garde');
 			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
 				
 				if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {

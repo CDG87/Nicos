@@ -241,15 +241,16 @@ if(isset($_SESSION['choix_creation'])) {
 	}else if($_SESSION['choix_creation'] == "creer") {
 		
 		foreach($lesInfosStructure as $uneInfoStructure) {};
-		
+		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addText(htmlspecialchars($_SESSION['libelle_audit']), 'title_partie', 'center'); //titre du rapport
+		}
 		$section->addTextBreak(3);
 		
 		/*************************** IDENTIFICATION AUDIT ***************************/
 		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 		$section->addTitle(htmlspecialchars('Infos contrôleur'), 3);
 		}else{
-			$section->addTitle(htmlspecialchars('Infos conseiller en prévention'), 3);
+			$section->addTitle(htmlspecialchars('conseiller en prévention'), 3);
 		}
 		foreach($lesInfosControleur as $uneInfoControleur) {
 			$section->addText(htmlspecialchars($uneInfoControleur['PRENOM_CONTROLEUR'] . ' ' . $uneInfoControleur['NOM_CONTROLEUR']),'coord_audit');
@@ -655,112 +656,6 @@ if(isset($_SESSION['choix_creation'])) {
 			$section->addPageBreak();
 	 
 		/*************************** CONCLUSION ***************************/
-		//Titre conclusion
-		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
-			$section->addText(htmlspecialchars('Principales remarques et propositions'), 'title_partie', 'center');
-			$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions",  'introFstyle', 'introPstyle');
-			$section->addTextBreak(2);
-			$section->addText(htmlspecialchars("Organisationnel"),'subtitle_p_garde');
-			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
-				
-				if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-				$sstheme='';
-					foreach($lesSTCr as $unSTCr) {
-						
-						if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							//Theme - Sous-thème
-							
-							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
-						}
-						
-					}
-					if($sstheme!=''){
-						$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
-					}else{
-						$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
-						
-					}
-
-					
-					//Observations
-					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
-					foreach($lesObservationsOrg as $uneObservationOrg) {
-						
-						if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							if($uneObservationOrg['CODE_COULEUR_OBSERVATION'] == 1) { //vert
-								$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_v');
-							}else { //rouge
-								$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_r');
-							}
-						}
-					}
-					
-					//Préconisations
-					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
-					foreach($lesPreconisationsOrg as $unePreconisationOrg) {
-						if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							$section->addText(htmlspecialchars($unePreconisationOrg['LIBELLE_PRECONISATION']));
-						}
-						
-					}
-					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['PRECONISATION_CRITERE']));
-				}
-				$section->addTextBreak(2);
-			}
-			
-			
-			$section->addPageBreak();
-
-			$section->addText(htmlspecialchars("Sur site"),'subtitle_p_garde');
-			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
-				
-				if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {
-					$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-				$sstheme='';
-					//batiment - lieu
-					foreach($lesSTCr as $unSTCr) {
-						if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							//Sous-thème
-							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
-						}
-					}
-					if($sstheme!=''){
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
-					}else{
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
-					}
-					
-					//Observations
-					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
-					foreach($lesObservationsSite as $uneObservationSite) {
-						
-						if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
-							if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
-								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
-							}else { //rouge
-								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_r');
-							}
-						}
-					}
-					
-					//Préconisations
-					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
-						foreach($lesPreconisationsSite as $unePreconisationSite) {
-							if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-								$section->addText(htmlspecialchars($unePreconisationSite['LIBELLE_PRECONISATION']));
-							}	
-						}
-				}
-					$section->addTextBreak(2);
-			}
-			
-			$section->addPageBreak(); //saut de page
 			
 			$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
 			$section->addTextBreak(1);
