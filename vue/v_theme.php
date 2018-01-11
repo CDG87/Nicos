@@ -39,7 +39,7 @@ else{
                     if($lcf['NUM_LIEU'] == $_SESSION['idlieu']){
                         foreach ($tab_t_eff as $te){
                             if($te['NUM_THEME'] == $numtheme){
-                                $choef = 'disabled="disabled"';
+                                //$choef = 'disabled="disabled"';
                                 $cou = 'btn-default';
                             }
                         }

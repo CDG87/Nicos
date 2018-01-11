@@ -2,6 +2,8 @@
 
 require_once dirname(__FILE__).'/PHPWord-master/src/PhpWord/Autoloader.php';
 \PhpOffice\PhpWord\Autoloader::register();
+require_once ('jpgraph-4.1.1/jpgraph-4.1.1/src/jpgraph.php');
+require_once ('jpgraph-4.1.1/jpgraph-4.1.1/src/jpgraph_radar.php');
 
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Style\Font;
@@ -769,6 +771,10 @@ if(isset($_SESSION['choix_creation'])) {
 				//statistique organisation
 				$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
 				
+				$titles=array(); //legende des sommets
+				$data=array(); //valeur du graph
+				$nbTheme =0;
+				
 				// Add table
 				$tablette1 = $section->addTable('myOwnTableStyle');
 				$tablette1->addRow();
@@ -782,15 +788,58 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
 					$cell = $tablette1->addCell(100);
 					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+					
+					array_push($titles, $stat['NOM_THEME']); //ajout d'un nouveau sommets legende
+					array_push($data, $stat['NBROUGE']); //ajout d'une nouvelle valeur dans le graph
+					$nbTheme = $nbTheme+1;
 				}
+				if($nbTheme>=3){
+					$graph = new RadarGraph (1000,500); //taille du graph
+					
+					$max = max($data);
+					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
+	 
+					$graph->SetTitles($titles);
+					$graph->SetCenter(0.5,0.55);
+					$graph->HideTickMarks();
+					$graph->SetColor('white'); // couleur de fond
+					$graph->axis->SetColor('darkgray'); // couleur des lignes
+					$graph->grid->SetColor('darkgray');
+					$graph->grid->Show();
+					 
+					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
+					$graph->axis->title->SetMargin(5);
+					$graph->SetGridDepth(DEPTH_BACK);
+					$graph->SetSize(0.6);
+					 
+					$plot = new RadarPlot($data);
+					$plot->SetColor('red@0.2');
+					$plot->SetLineWeight(1);
+					$plot->SetFillColor('red@0.7');
+					 
+					$plot->mark->SetType(MARK_IMG_SBALL,'red');
+					 
+					$graph->Add($plot);
+					$today = date("d.m.y - H i"); 
+					
+					$graphX = $graph->Stroke('graph/graph1'.$today.'.png');
+					$section->addTextBreak(1);
+					$section->addImage('graph/graph1'.$today.'.png', array('height' => 300,'align' => 'center'));
+				}
+
+
 				$section->addTextBreak(1);
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
 				
-				
+				//------------------------------------------------------------------
 				
 				//statistique site
 				$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
+				
+				$titles=array(); //legende des sommets
+				$data=array(); //valeur du graph
+				$nbBatiment = 0;
 				
 				// Add table
 				$tablette2 = $section->addTable('myOwnTableStyle');
@@ -805,15 +854,58 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell->addText(htmlspecialchars($stat['NOM_BATIMENT']), 'st1');
 					$cell = $tablette2->addCell(100);
 					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+					
+					array_push($titles, $stat['NOM_BATIMENT']); //ajout d'un nouveau sommets legende
+					array_push($data, $stat['NBROUGE']); //ajout d'une nouvelle valeur dans le graph
+					$nbBatiment = $nbBatiment +1;
 				}
+				if($nbBatiment >= 3){
+					$graph = new RadarGraph (1000,500); //taille du graph
+					$max = max($data);
+					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
+	 
+					$graph->SetTitles($titles);
+					$graph->SetCenter(0.5,0.55);
+					$graph->HideTickMarks();
+					$graph->SetColor('white'); // couleur de fond
+					$graph->axis->SetColor('darkgray'); // couleur des lignes
+					$graph->grid->SetColor('darkgray');
+					$graph->grid->Show();
+					 
+					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
+					$graph->axis->title->SetMargin(5);
+					$graph->SetGridDepth(DEPTH_BACK);
+					$graph->SetSize(0.6);
+					 
+					$plot = new RadarPlot($data);
+					$plot->SetColor('red@0.2');
+					$plot->SetLineWeight(1);
+					$plot->SetFillColor('red@0.7');
+					 
+					$plot->mark->SetType(MARK_IMG_SBALL,'red');
+					 
+					$graph->Add($plot);
+					$today = date("d.m.y - H i"); 
+					
+					$graphX = $graph->Stroke('graph/graph2'.$today.'.png');
+					$section->addTextBreak(1);
+					$section->addImage('graph/graph2'.$today.'.png', array('height' => 300,'align' => 'center'));
+				}
+					
+				
+				
 				$section->addTextBreak(1);
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
 				
-				
+				//------------------------------------------------------------------
 				
 				//stats par theme
 				$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
+				
+				$titles=array(); //legende des sommets
+				$data=array(); //valeur du graph
+				$nbFamille = 0;
 				
 				// Add table
 				$tablette3 = $section->addTable('myOwnTableStyle');
@@ -828,7 +920,47 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell->addText(htmlspecialchars($stat['NOM_THEME']), 'st1');
 					$cell = $tablette3->addCell(100);
 					$cell->addText(htmlspecialchars($stat['NBROUGE']), 'st1');
+					
+				
+					array_push($titles, $stat['NOM_THEME']); //ajout d'un nouveau sommets legende
+					array_push($data, $stat['NBROUGE']); //ajout d'une nouvelle valeur dans le graph
+					$nbFamille = $nbFamille + 1 ;
 				}
+				if($nbFamille >=3 ){
+					$graph = new RadarGraph (1000,500); //taille du graph
+					$max = max($data);
+					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
+	 
+					$graph->SetTitles($titles);
+					$graph->SetCenter(0.5,0.55);
+					$graph->HideTickMarks();
+					$graph->SetColor('white'); // couleur de fond
+					$graph->axis->SetColor('darkgray'); // couleur des lignes
+					$graph->grid->SetColor('darkgray');
+					$graph->grid->Show();
+					 
+					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
+					$graph->axis->title->SetMargin(5);
+					$graph->SetGridDepth(DEPTH_BACK);
+					$graph->SetSize(0.6);
+					 
+					$plot = new RadarPlot($data);
+					$plot->SetColor('red@0.2');
+					$plot->SetLineWeight(1);
+					$plot->SetFillColor('red@0.7');
+					 
+					$plot->mark->SetType(MARK_IMG_SBALL,'red');
+					 
+					$graph->Add($plot);
+					$today = date("d.m.y - H i"); 
+					
+					$graphX = $graph->Stroke('graph/graph3'.$today.'.png');
+					$section->addTextBreak(1);
+					$section->addImage('graph/graph3'.$today.'.png', array('height' => 300,'align' => 'center'));
+				}
+				
+				
+				
 				$section->addTextBreak(5); //saut de page
 			}
 		}
@@ -840,6 +972,46 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
 		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
 
+		
+
+
+
+
+
+// $titles=array('Planning','Quality','Time','RR','CR','DR'); //legende des sommets
+// $data=array(18, 100, 70, 90, 42,66); //valeur du graph
+ 
+// $graph = new RadarGraph (400,400); //taille du graph
+ 
+// $graph->title->Set('Radar with marks');
+// $graph->title->SetFont(FF_VERDANA,FS_NORMAL,12);
+ 
+// $graph->SetScale('lin',0,100); // min et max sur l'echelle
+ 
+// $graph->SetTitles($titles);
+// $graph->SetCenter(0.5,0.55);
+// $graph->HideTickMarks();
+// $graph->SetColor('white'); // couleur de fond
+// $graph->axis->SetColor('darkgray'); // couleur des lignes
+// $graph->grid->SetColor('darkgray');
+// $graph->grid->Show();
+ 
+// $graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
+// $graph->axis->title->SetMargin(5);
+// $graph->SetGridDepth(DEPTH_BACK);
+// $graph->SetSize(0.6);
+ 
+// $plot = new RadarPlot($data);
+// $plot->SetColor('red@0.2');
+// $plot->SetLineWeight(1);
+// $plot->SetFillColor('red@0.7');
+ 
+// $plot->mark->SetType(MARK_IMG_SBALL,'red');
+ 
+// $graph->Add($plot);
+// $graphX = $graph->Stroke('graph/graph.png');
+
+// $section->addImage('graph/graph.png', array('height' => 300,'align' => 'center'));
 
 
 	/*************************** FOOTER ***************************/
@@ -852,13 +1024,19 @@ if(isset($_SESSION['choix_creation'])) {
 
 
 
-
+	$today = date("d.m.y à H:i"); //date et heure du jour
+	
 	//Guardando document
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
 	$objWriter->save('Rapport '.$uneInfoStructure['VILLE_STRUCTURE'].'.docx');
 
 	header("Content-Disposition: attachment; filename='Rapport ".$uneInfoStructure['VILLE_STRUCTURE'].".docx'");
 	echo file_get_contents('Rapport '.$uneInfoStructure['VILLE_STRUCTURE'].'.docx');
+	
+	// $objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.'.docx');
+
+	// header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.".docx'");
+	// echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.'.docx');
 }
 
 ?>
