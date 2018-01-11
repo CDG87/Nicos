@@ -31,7 +31,7 @@
 		<form method="POST" action="index.php?uc=connexion&action=retour_menu">
 			<button type="submit" class="btn btn-default btnMenu glyphicon glyphicon-home"> HOME</button>
 		</form>
-		<?php if($uc!='creation' && $uc!='identification'){ ?>
+		<?php if($uc!='creation' && $uc!='identification' && $uc!='maj'){ ?>
 		<form method="POST" action="index.php?uc=identification&action=modif_audit&nt=non&aj=non&aft=non&mo=non&sup=non">
 			<button type="submit" class="btn btn-default btnMenu glyphicon glyphicon-pencil"> MODIF</button>
 		</form>

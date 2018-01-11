@@ -8,6 +8,11 @@ include("include/entete.php");
     foreach ($lesBatiments as $unBatiment){
         $numBatiment = $unBatiment['NUM_BATIMENT'];
         $nomBatiment = $unBatiment['NOM_BATIMENT'];
+		if($unBatiment['PICTOS'] != NULL){
+				$pictos = 'fa '.$unBatiment['PICTOS'];
+			}else{
+				$pictos = '';
+			}
         if($i == 3){
             ?>
             </tr>
@@ -19,7 +24,7 @@ include("include/entete.php");
         <td class="esrest">
             <form method='POST' action='index.php?uc=sursite&action=groupelieu&nt=oui&entpied=groupelieu'>
                 <input type='hidden' name='nombatiment' value='<?php echo $nomBatiment; ?>'/>
-                <button type="submit" class="btn btn-success btn-lg" name="numbatiment" value="<?php echo $numBatiment; ?>"><?php echo $nomBatiment; ?></button>
+                <button type="submit" class="btn btn-success btn-lg <?php echo $pictos; ?>" name="numbatiment" value="<?php echo $numBatiment; ?>"> <?php echo $nomBatiment; ?></button>
             </form>
         </td>
 <?php
