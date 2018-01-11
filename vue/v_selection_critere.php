@@ -1,18 +1,23 @@
 <?php
 include("include/entete.php");
 ?>
+</br></br></br></br></br></br>
 <form method="post" action="">
 	<label>Partie :</label>
 	<select name="partie" >
+		<option value="" disabled selected>Choisir...</option>
 		<option value="1">Organisationnel</option>
 		<option value="2">Sur site</option>
 	</select>
 	</br></br>
+	
+	
 	<label>Theme :</label>
 	<select name="theme">
 	<?php
 	foreach($lstTheme as $theme){ ?>
 		<option value="<?php echo $theme['NUM_THEME']; ?>"><?php echo $theme['NOM_THEME'] ?></option>
+		<button></button
 	<?php
 	}
 	?>

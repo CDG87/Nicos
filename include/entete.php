@@ -45,8 +45,8 @@
 	<br>
 	<?php } ?>
     <?php
-		 if($uc !='connexion' && $uc!='creation'){ 
-	$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
+		 if($uc !='connexion' && $uc!='creation' && $uc!='identification'){ 
+			$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 		}
         if($_SESSION['codepartie'] == 1){
             $uc_choix = 'organisationnel';
