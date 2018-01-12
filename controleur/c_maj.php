@@ -1,16 +1,74 @@
 <?php
 
 $action = $_REQUEST['action'];
-$_SESSION['entpied'] = "";
 
 
-switch($action) {	
+switch($action) {
 	case 'selectionner_critere' :
-		// $lstTheme=get_Theme_Partie($_POST['partie']);
-		// $lstSt=get_Sous_Theme_Num($_POST['theme']);
-		// $lstCrit=get_Critere_Theme($_POST['theme'],$_POST['st']);
+		$_SESSION['entpied']="majCritere";
+		$_SESSION['majpartie']="";
+		$_SESSION['majtheme']="";
+		$_SESSION['majst']="";
+		$_SESSION['majcritere']="";
 		include("vue/v_selection_critere.php");
-		break;
+	break;
+		
+	case 'choixActionCritere':
+		$verif=false;
+		
+		if(isset($_POST['partie'])){
+			if($_POST['partie']!=$_SESSION['majpartie']){
+				$verif=true;
+				$_SESSION['majtheme']="";
+				$_SESSION['majst']="";
+				$_SESSION['majcritere']="";
+				$_SESSION['majpartie']=$_POST['partie'];
+			}
+			
+			$lstTheme=$pdo->get_Theme_Partie($_SESSION['majpartie']);
+		}
+		
+		if(isset($_POST['theme'])){
+			if($_POST['theme']!=$_SESSION['majtheme'] && $verif!=true){
+				$verif=true;
+				$_SESSION['majst']="";
+				$_SESSION['majcritere']="";
+				$_SESSION['majtheme']=$_POST['theme'];
+			}
+			$lstSt=$pdo->get_Sous_Theme_Num($_SESSION['majtheme']);
+			if($_SESSION['majst']==""){
+				$lstCrit=$pdo->get_Critere_NTheme($_SESSION['majtheme']);
+			}else{
+				$lstCrit=$pdo->get_Critere_Theme($_SESSION['majtheme'],$_SESSION['majst']);
+			}
+		}
+		
+		if(isset($_POST['st'])){
+			if($_POST['st']!=$_SESSION['majst'] && $verif!=true){
+				$verif=true;
+				$_SESSION['majcritere']="";
+				$_SESSION['majst']=$_POST['st'];
+			}
+			if($_SESSION['majst']==""){
+				$lstCrit=$pdo->get_Critere_NTheme($_SESSION['majtheme']);
+			}else{
+				$lstCrit=$pdo->get_Critere_Theme($_SESSION['majtheme'],$_SESSION['majst']);
+			}
+		}
+		
+		if(isset($_POST['critere'])){
+			if($_POST['critere']!=$_SESSION['majcritere'] && $verif!=true){
+				$_SESSION['majcritere']=$_POST['critere'];
+			}
+		}
+		
+		
+		
+		include("vue/v_selection_critere.php");
+	break;
+		
+		
+		
 	case 'coordonees_structures' :
 		break;
 	case 'coordonees_inspecteur' : 
