@@ -104,6 +104,14 @@
 			<?php
             echo "<h1>Suppression d'une inspection</h1>";
         }
+		if($_SESSION['entpied'] == "coordonees_inspecteur"){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>Inspecteur</h1>";
+		}
         if($_SESSION['entpied'] == 'partie'){
 			?>
 			<div class="logoCdg">
