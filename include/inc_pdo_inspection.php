@@ -171,6 +171,12 @@ class Pdo_Inspection {
 		return $ligne;
 	}
 	
+	public function enregistrer_Controleur($nom, $prenom, $fonction, $affectation, $centre, $adresse, $telFixe, $telPortable, $fax, $email){
+		$req = "INSERT INTO CONTROLEUR (NOM_CONTROLEUR, PRENOM_CONTROLEUR, FONCTION_CONTROLEUR, AFFECTATION_CONTROLEUR, CENTRE_CONTROLEUR, ADRESSE_CONTROLEUR, TEL_FIXE_CONTROLEUR, TEL_MOBILE_CONTROLEUR, FAX_CONTROLEUR, EMAIL_CONTROLEUR) VALUES (?,?,?,?,?,?,?,?,?,?) ";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($nom, $prenom, $fonction, $affectation, $centre, $adresse, $telFixe, $telPortable, $fax, $email));
+	}
+	
     
     /************************************** ORGANISATIONNEL *******************************/
     
