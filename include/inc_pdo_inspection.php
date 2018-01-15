@@ -231,7 +231,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Sous_Theme_Num($numtheme) {
 		
-		$req = "SELECT DISTINCT ST.NUM_SOUS_THEME, LIBELLE_SOUS_THEME, PICTOS FROM SOUS_THEME ST INNER JOIN CRITERE C ON ST.NUM_SOUS_THEME = C.NUM_SOUS_THEME WHERE NUM_THEME = :numtheme";
+		$req = "SELECT DISTINCT ST.NUM_SOUS_THEME, LIBELLE_SOUS_THEME, ST.PICTOS FROM SOUS_THEME ST INNER JOIN CRITERE C ON ST.NUM_SOUS_THEME = C.NUM_SOUS_THEME WHERE NUM_THEME = :numtheme";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numtheme' => $numtheme
@@ -2573,12 +2573,12 @@ class Pdo_Inspection {
 	}
 	
 	/**
-	* Récupère le nombre de participant
+	* Récupère le nombre de sous theme
 	**/
 	public function get_NbSous_Theme($theme) {
-		$req = "SELECT count(NUM_SOUS_THEME)
+		$req = "SELECT DISTINCT count(NUM_SOUS_THEME) AS NB
 		FROM CRITERE
-		WHERE NUM_THEME = ? AND NUM_SOUS_THEME !=0 ";
+		WHERE NUM_THEME = ? ";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($theme));
 		$ligne = $rs->fetch();
