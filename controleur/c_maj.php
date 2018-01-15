@@ -1,7 +1,7 @@
 <?php
 
 $action = $_REQUEST['action'];
-
+$lesControleurs = $pdo->get_Controleur();
 
 switch($action) {
 	case 'selectionner_critere' :
@@ -97,6 +97,13 @@ switch($action) {
 	case 'coordonees_inspecteur' :
 		$_SESSION['entpied'] = "coordonees_inspecteur";
 		include("vue/v_coordonees_inspecteur.php");
+		if(isset($_POST['enregistrer_inspecteur'])){
+			$pdo->enregistrer_Controleur($_POST['nom_inspecteur'], $_POST['prenom_inspecteur'], $_POST['fonction_inspecteur'], $_POST['affectation_inspecteur'], $_POST['centre_inspecteur'], $_POST['adresse_inspecteur'], $_POST['tel_fixe_inspecteur'], $_POST['tel_portable_inspecteur'], $_POST['fax_inspecteur'], $_POST['email_inspecteur'] );
+			header('Location:index.php?uc=maj&action=coordonees_inspecteur');
+		}
+		if(isset($_POST['choix_inspecteur'])){
+			$dispo="";
+		}
 		break;
 	case 'logo_adresse' : 
 		break;
