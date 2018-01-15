@@ -104,6 +104,43 @@
 			<?php
             echo "<h1>Choix d'une inspection</h1>";
         }
+		
+		if($_SESSION['entpied']=='modifArticle'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>modification article</h1>";
+        }
+		
+		if($_SESSION['entpied']=='modifOservation'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>modification des observations</h1>";
+        }
+		
+		if($_SESSION['entpied']=='modifProposition'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>modification des Propositions</h1>";
+        }
+		
+		if($_SESSION['entpied']=='modifImage'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path."logo_cdg.jpg"?>" />
+			</div>
+			<?php
+            echo "<h1>modification de l'image</h1>";
+        }
+		
 		if($_SESSION['entpied'] == 'suppr_audit'){
 			?>
 			<div class="logoCdg">

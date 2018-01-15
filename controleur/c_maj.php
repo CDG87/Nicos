@@ -67,18 +67,25 @@ switch($action) {
 	break;
 		
 		case 'pageMenuCrit':
+		$_SESSION['entpied']="majCritere";
 		if(isset($_POST['article'])){
-			$listearticle = $pdo->get_ResArticle_Critere($_SESSION['majcritere']);
+			$_SESSION['entpied']='modifArticle';
+			$_SESSION['listearticle'] = $pdo->get_ResArticle_Critere($_SESSION['majcritere']);
 			include("vue/v_modifArticle.php");
 		}else{
 			if(isset($_POST['observation'])){
-				include("vue/v_.php");
+				$_SESSION['entpied']='modifOservation';
+				$listeObservation=$pdo->get_Observation_CritereModif($_SESSION['majcritere']);
+				include("vue/v_modifObservation.php");
 			}else{
 				if(isset($_POST['proposition'])){
-					include("vue/v_.php");
+					$_SESSION['entpied']='modifProposition';
+				$listeProposition=$pdo->get_Preconisation_CritereMaj($_SESSION['majcritere']);
+					include("vue/v_modifProposition.php");
 				}else{
 					if(isset($_POST['image'])){
-						include("vue/v_.php");
+						$_SESSION['entpied']='modifImage';
+						include("vue/v_modifImage.php");
 					}else{
 						include("vue/v_menu_crit_modif.php");
 					}
@@ -87,9 +94,52 @@ switch($action) {
 		}
 		break;
 		
-		case 'modifAdminCrit':
-		
+		case 'modifImage':
+			$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
+			if($nbImage['NB']==0){
+                    $pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+                }else{
+					$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+				}
+				include("vue/v_menu_crit_modif.php");
 		break;
+		
+		case 'modifAdminObservation':
+			if(isset($_POST['ajouter'])){
+				$pdo->add_Observation($_POST['newnomobservation'], $_SESSION['majcritere'], $_POST['cdobs']);
+			}
+			
+			if(isset($_POST['modifier'])){
+				 $pdo->update_Observation($_POST['idobservation'], $_POST['nomobs']);
+			}
+			
+			if(isset($_POST['supprimer'])){
+				$pdo->delete_Observation($_POST['idobservation']);
+			}
+			include("vue/v_menu_crit_modif.php");
+		break;
+		
+		case 'modifAdminProposition':
+			if(isset($_POST['ajouter'])){
+				$pdo->add_Preconisation($_POST['newnomproposition'], $_SESSION['majcritere']);
+			}
+			
+			if(isset($_POST['modifier'])){
+				$pdo->update_Preconisation($_POST['idproposition'], $_POST['nomprop']);
+			}
+			
+			if(isset($_POST['supprimer'])){
+				$pdo->delete_Preconisation($_POST['idproposition']);
+			}
+			include("vue/v_menu_crit_modif.php");
+		break;
+		
+		case 'modifAdminCrit':
+			$pdo->update_Article($_SESSION['listearticle']['NUM_RESUME_ARTICLE'],$_POST['newnomarticle']);
+			include("vue/v_menu_crit_modif.php");
+		break;
+		
+		
 		
 		
 	case 'coordonees_structures' :

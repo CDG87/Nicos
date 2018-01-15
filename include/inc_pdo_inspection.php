@@ -520,7 +520,7 @@ class Pdo_Inspection {
 	}
     
     /**
-	* Récupère toutes les observations à partir du numéro de critère
+	* Récupère toutes les observations à partir du numéro de critère et de l'audit
 	**/
 	public function get_Observation_Critere($numcritere,$num) {
 		
@@ -529,6 +529,21 @@ class Pdo_Inspection {
 		$rs->execute(array(
 			'numcritere' => $numcritere,
 			'numAudit' => $num
+		));
+		$ligne = $rs->fetchAll();
+		return $ligne;
+    
+	}
+	
+	/**
+	* Récupère toutes les observations à partir du numéro de critère
+	**/
+	public function get_Observation_CritereModif($numcritere) {
+		
+		$req = "SELECT NUM_OBSERVATION, LIBELLE_OBSERVATION, CODE_COULEUR_OBSERVATION FROM OBSERVATION WHERE NUM_CRITERE = :numcritere ORDER BY CODE_COULEUR_OBSERVATION";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array(
+			'numcritere' => $numcritere
 		));
 		$ligne = $rs->fetchAll();
 		return $ligne;
@@ -566,7 +581,7 @@ class Pdo_Inspection {
 	}
     
     /**
-	* Récupère toutes les Préconisations à partir du numéro de critère
+	* Récupère toutes les Préconisations à partir du numéro de critère et d'audit
 	**/
 	public function get_Preconisation_Critere($numcritere,$num) {
 		
@@ -575,6 +590,21 @@ class Pdo_Inspection {
 		$rs->execute(array(
 			'numcritere' => $numcritere,
 			'numAudit' =>$num
+		));
+		$ligne = $rs->fetchAll();
+		return $ligne;
+    
+	}
+	
+	/**
+	* Récupère toutes les Préconisations à partir du numéro de critère
+	**/
+	public function get_Preconisation_CritereMaj($numcritere) {
+		
+		$req = "SELECT NUM_PRECONISATION, LIBELLE_PRECONISATION FROM PRECONISATION WHERE NUM_CRITERE = :numcritere";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array(
+			'numcritere' => $numcritere
 		));
 		$ligne = $rs->fetchAll();
 		return $ligne;
@@ -1577,6 +1607,20 @@ class Pdo_Inspection {
         ));
 		
 	}
+	
+	/**
+	* Ajout d'une image pour un critere
+	**/
+	public function add_Image_Critere($critere, $libelle) {
+		
+		$req = "INSERT INTO IMAGE_CRITERE (NUM_CRITERE, LIBELLE_IMAGE_CRITERE) VALUES(?, ?)";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($critere,$libelle,
+        ));
+		
+	}
+	
+
     
     /****************** SUR SITE **************************/
     
@@ -1650,6 +1694,7 @@ class Pdo_Inspection {
     /**
 	* Modifie l'adresse de la structure 
 	**/
+	
 	public function update_Adresse_Structure($numStructure, $adresseStructure, $villeStructure, $cpStructure) {
 		
 		$req = "UPDATE STRUCTURE SET ADRESSE_STRUCTURE = :adresse, VILLE_STRUCTURE = :ville, CP_STRUCTURE = :code_postal WHERE NUM_STRUCTURE = :numero";
@@ -1660,6 +1705,19 @@ class Pdo_Inspection {
 			'ville' => $villeStructure,
 			'code_postal' => $cpStructure
 		));
+	}
+	
+	
+		/**
+	* Modif de l'image pour un critere
+	**/
+	public function update_Image_Critere($critere, $libelle) {
+		
+		$req = "UPDATE IMAGE_CRITERE SET LIBELLE_IMAGE_CRITERE =? WHERE NUM_CRITERE=?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($libelle,$critere
+        ));
+		
 	}
 	
 	/**
@@ -2581,6 +2639,19 @@ class Pdo_Inspection {
 		WHERE NUM_THEME = ? ";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($theme));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Verifie si l'image du critere existe
+	**/
+	public function get_NbImage_Critere($critere) {
+		$req = "SELECT DISTINCT count(NUM_CRITERE) AS NB
+		FROM IMAGE_CRITERE
+		WHERE NUM_CRITERE = ? ";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($critere));
 		$ligne = $rs->fetch();
 		return $ligne;
 	}

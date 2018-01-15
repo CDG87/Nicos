@@ -35,7 +35,7 @@
 
 		<td class="espart">
 			<form method="post" action="index.php?uc=creation&action=maj">
-				<button type="submit" class="btn btn-danger btn-partie" name="maj" <?php echo $cachechoi; ?> autofocus>Mise à jour</button>
+				<button type="submit" class="btn btn-danger btn-partie" name="maj" autofocus>Mise à jour</button>
 			</form>
 		</td>
 	</tr>

@@ -70,7 +70,7 @@ include("include/entete.php");
 		<div class="col-sm-4">
 			<select name="critere" class="form-control" onchange="submit()" required>
 			<?php if($_SESSION['majcritere']==""){ ?>
-				<option value="" selected >Choisir...</option>
+				<option value="" selected disabled >Choisir...</option>
 				<?php } ?>
 			<?php foreach($lstCrit as $lcrit) { 
 					if($lcrit['NUM_CRITERE'] == $_SESSION['majcritere']) { ?>
