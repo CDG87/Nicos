@@ -13,6 +13,7 @@ switch($action) {
 	break;
 	
 	case 'new_audit' : //création d'un audit
+		$_SESSION['controleur'] = "";
 		$_REQUEST['action'] = "identification";
 		$_SESSION['entpied'] = "identification";
         if(isset($_REQUEST['act_creation'])){

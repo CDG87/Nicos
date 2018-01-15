@@ -50,6 +50,7 @@
                 $numControleurSelection = $_POST['lst_controleur'];
                 $_SESSION['controleur'] = $numControleurSelection;
             }
+			
             $nomStructure = $_SESSION['nom_structure'];
             $adresseStructure = $pdo->get_Adresse_Structure($_SESSION['num_structure']);
             $numTypeStructureSelection = $_SESSION['type_structure'];

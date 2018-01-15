@@ -87,15 +87,16 @@
 
 <?php if(isset($_POST['modif_suppr_inspec'])){ 
 	$choix=0; 
-	$dispo = "disabled"; ?>
-	<form method="post" name="choix_modif_suppr_inspecteur" action="index.php?uc=maj&action=coordonees_inspecteur">
+	 ?>
+	<form method="post" name="choix_modif_suppr_inspecteur" action="index.php?uc=maj&action=modif_inspecteur">
 		
 		<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-8">
 		<div class="form-group">
 			<label class="col-sm-3" for="lst_controleur">Contrôleur : </label>
 			<div class="col-sm-4">
-				<select class="form-control" name="lst_controleur"  onchange="submit()" autofocus>
+				<select class="form-control" name="lst_controleur" autofocus>
+					<option value="" disabled selected>Choisir...</option>
 					<?php 
 					foreach($lesControleurs as $unControleur) {
 						if($infoscontrolnum['NUM_CONTROLEUR']==$unControleur['NUM_CONTROLEUR']){ ?>
@@ -186,6 +187,7 @@
 	</form>
 	</td></tr></table>
 <?php } ?>
+
 
 
 <?php if($choix==1){ ?>
