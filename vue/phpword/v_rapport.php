@@ -881,14 +881,10 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		$section->addPageBreak();
 
-<<<<<<< HEAD
+
 		$section->addTitle(htmlspecialchars('Sur site'), 3);
 
-<<<<<<< HEAD
-=======
->>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
-=======
->>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
+
 	/*************************** FOOTER ***************************/
 
 
@@ -909,9 +905,9 @@ if(isset($_SESSION['choix_creation'])) {
     $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
     $objWriter->save($h2d_file_uri);
 	
-	$objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' '.$today.'.docx');
-	header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' '.$today.".docx'");
-	echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' '.$today.'.docx');
+	$objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
+	header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.".docx'");
+	echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 	ob_clean();
     flush();
     $status = readfile($h2d_file_uri);
