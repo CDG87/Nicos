@@ -5,7 +5,6 @@
 	<div class="col-xs-12 col-sm-6 col-md-8">
 			
 			<form class="form-horizontal" method="post" action="index.php?uc=identification&action=choix_structure">
-			
 			<!-- Libellé de l'audit -->
 			<div class="form-group">
 				<?php if($_SESSION['isAdmin']==1){ ?>

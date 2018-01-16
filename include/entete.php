@@ -73,6 +73,14 @@
 			<?php
             echo "<h1>Connexion</h1>";
         }
+		if($_SESSION['entpied'] == 'identification'){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			</div>
+			<?php
+            echo "<h1>Identification</h1>";
+        }
 		if($_SESSION['entpied'] == 'majCoordInspec'){
 			?>
 			<div class="logoCdg">
@@ -88,14 +96,6 @@
 			</div>
 			<?php
             echo "<h1>Modification des infos du Centre</h1>";
-        }
-		if($_SESSION['entpied'] == 'connexion'){
-			?>
-			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
-			</div>
-			<?php
-            echo "<h1>Connexion</h1>";
         }
         if($_SESSION['entpied'] == 'majCoordStruc'){
 			?>

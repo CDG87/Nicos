@@ -14,6 +14,7 @@ switch($action) {
 	
 	case 'new_audit' : //création d'un audit
 		$_SESSION['controleur'] = "";
+		$_SESSION['libelle_audit']="";
 		$_REQUEST['action'] = "identification";
 		$_SESSION['entpied'] = "identification";
         if(isset($_REQUEST['act_creation'])){
