@@ -11,9 +11,17 @@ switch($action) {
 		$_SESSION['majcritere']="";
 		include("vue/v_selection_critere.php");
 	break;
+	
+	case 'charge_version' :
+		$version=$pdo->get_version();
+		include("vue/v_maj_version.php");
+		break;
 		
 	case 'version' :
-		
+		if(isset($_POST['modifier'])){
+			$pdo->update_version($_POST['version']);
+		}
+		include("vue/v_maj.php");
 		break;
 		
 	case 'choixActionCritere':

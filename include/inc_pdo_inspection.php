@@ -37,7 +37,13 @@ class Pdo_Inspection {
 	/************ GET ******************/
 	/***********************************/
 	
-	
+	public function get_version(){
+		$req = "SELECT VALEUR_VERSION FROM VERSION WHERE NUM_VERSION = 1";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
 	/**
 	* Récupère le numéro, le login et le mot de passe du controleur
 	* pour s'authentifier à l'application
@@ -1707,6 +1713,11 @@ class Pdo_Inspection {
 		));
 	}
 	
+	public function update_version($version){
+		$req = "UPDATE VERSION SET VALEUR_VERSION = :version";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array('version' => $version));
+	}
 	
 		/**
 	* Modif de l'image pour un critere

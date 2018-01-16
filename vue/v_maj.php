@@ -10,7 +10,7 @@
 			<?php if($_SESSION['isAdmin']==1){ ?>
 				<tr>
 					<td class="espart">
-						<form method="post" action="index.php?uc=maj&action=version">
+						<form method="post" action="index.php?uc=maj&action=charge_version">
 							<button type="submit" class="btn btn-warning btn-lg" name="maj_version">Changer le numéro de la version</button>
 						</form>
 					</td>
