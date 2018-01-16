@@ -19,16 +19,19 @@ include("include/entete.php");
                        
 						</br></br></br></br>
                         <th>Modifier une Proposition :</th>
-                        <td><select name = "idproposition" size = "1" class="form-control">
+                        <td><select name = "idproposition" size = "1" class="form-control" onchange="submit()">
                                 <option selected disabled>Choisir</option>
                                 <?php
                                     foreach ($listeProposition as $prop){
                                         $numprop = $prop['NUM_PRECONISATION'];
                                         $libprop = $prop['LIBELLE_PRECONISATION'];
-                                        $selected = '';
+										if($numprop == $_SESSION['numPropo']){
                                 ?>
-                                <option <?php echo $selected; ?> value="<?php echo $numprop; ?>"><?php echo $libprop; ?></option>
+								<option value="<?php echo $numprop; ?>" selected><?php echo $libprop; ?>  </option>
+										<?php }else{ ?>
+                                <option value="<?php echo $numprop; ?>"><?php echo $libprop; ?></option>
                                 <?php
+										}
                                     }
                                 ?>
                             </select></td>
@@ -39,7 +42,7 @@ include("include/entete.php");
                     <tr>
                                     <th>Nouveau nom :</th>
                                     <td>
-                                        <textarea class="form-control" rows="5" name='nomprop' cols='150' maxlength='500' autofocus></textarea>
+                                        <textarea class="form-control" rows="5" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
 									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>

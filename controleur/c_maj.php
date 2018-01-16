@@ -73,12 +73,16 @@ switch($action) {
 			include("vue/v_modifArticle.php");
 		}else{
 			if(isset($_POST['observation'])){
+				$_SESSION['textObs']="";
+				$_SESSION['numObs']="";
 				$_SESSION['entpied']='modifOservation';
 				$listeObservation=$pdo->get_Observation_CritereModif($_SESSION['majcritere']);
 				include("vue/v_modifObservation.php");
 			}else{
 				if(isset($_POST['proposition'])){
+					$_SESSION['textPropo']="";
 					$_SESSION['entpied']='modifProposition';
+					$_SESSION['numPropo']="";
 				$listeProposition=$pdo->get_Preconisation_CritereMaj($_SESSION['majcritere']);
 					include("vue/v_modifProposition.php");
 				}else{
@@ -121,39 +125,64 @@ switch($action) {
 		break;
 		
 		case 'modifAdminObservation':
+		$listeObservation=$pdo->get_Observation_CritereModif($_SESSION['majcritere']);
 		if(isset($_POST['retour'])){
 			$_SESSION['entpied']="majCritere2";
+			include("vue/v_menu_crit_modif.php");
 		}
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Observation($_POST['newnomobservation'], $_SESSION['majcritere'], $_POST['cdobs']);
+				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['modifier'])){
 				 $pdo->update_Observation($_POST['idobservation'], $_POST['nomobs']);
+				 include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Observation($_POST['idobservation']);
+				include("vue/v_menu_crit_modif.php");
 			}
-			include("vue/v_menu_crit_modif.php");
+			if(isset($_POST['idobservation'])){
+				$libelle=$pdo->get_Observ_par_num($_POST['idobservation']);
+				$_SESSION['textObs']=$libelle['LIBELLE_OBSERVATION'];
+				$_SESSION['numObs']=$libelle['NUM_OBSERVATION'];
+				if(!isset($_POST['modifier']) && !isset($_POST['supprimer']) && !isset($_POST['ajouter']) && !isset($_POST['retour'])){
+					include("vue/v_modifObservation.php");
+				}
+			}
+			
 		break;
 		
 		case 'modifAdminProposition':
+			$listeProposition=$pdo->get_Preconisation_CritereMaj($_SESSION['majcritere']);
 			if(isset($_POST['retour'])){
 				$_SESSION['entpied']="majCritere2";
+				include("vue/v_menu_crit_modif.php");
 			}
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Preconisation($_POST['newnomproposition'], $_SESSION['majcritere']);
+				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['modifier'])){
 				$pdo->update_Preconisation($_POST['idproposition'], $_POST['nomprop']);
+				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Preconisation($_POST['idproposition']);
+				include("vue/v_menu_crit_modif.php");
 			}
-			include("vue/v_menu_crit_modif.php");
+			if(isset($_POST['idproposition'])){
+				$libelle=$pdo->get_Preco_par_num($_POST['idproposition']);
+				$_SESSION['textPropo']=$libelle['LIBELLE_PRECONISATION'];
+				$_SESSION['numPropo']=$libelle['NUM_PRECONISATION'];
+				if(!isset($_POST['modifier']) && !isset($_POST['supprimer']) && !isset($_POST['ajouter']) && !isset($_POST['retour'])){
+					include("vue/v_modifProposition.php");
+				}
+			}
 		break;
 		
 		case 'modifAdminCrit':
@@ -175,7 +204,7 @@ switch($action) {
 		
 		
 	case 'coordonees_inspecteur' :
-	
+	$_SESSION['entpied']="majCoordInspec";
 	if(isset($_POST['creer_inspect'])){
 		include("vue/v_creer_coordonees_inspecteur.php");
 	}else{
@@ -226,6 +255,7 @@ switch($action) {
 		break;
 
 	case 'logoAdresse' : 
+	$_SESSION['entpied']="majLogo";
 	$infoCentre = $pdo->get_Info_Centre();
 	include("vue/v_logo.php");
 		break;
@@ -236,5 +266,59 @@ switch($action) {
 		}
 		include('vue/v_maj.php');
 	break;
+	
+	case 'coord_struct':
+		$_SESSION['entpied']="majCoordStruc";
+		
+		if(isset($_POST['creer_struct'])){
+			$lesStructures = $pdo->get_Type_Structure();
+		include("vue/v_creer_coordonees_structure.php");
+		
+	}else{
+		if(isset($_POST['modif_suppr_struct'])){
+			$lesTypesStructures = $pdo->get_Type_Structure();
+			$_SESSION['modifStructure']="";
+			$dispo="disabled";
+			include("vue/v_modif_coordonees_structure.php");
+		}else{
+			include("vue/v_coordonees_structure.php");
+		}
+	}
+		
+		$_SESSION['entpied'] = "coordonees_inspecteur";
+		
+		
+	break;
+	
+	case 'creer_coordonees_structure':
+	if(isset($_POST['enregistrer_structure'])){
+		$maxi=$pdo->get_Max_Num_Structure();
+		$maxi=$maxi['maxi']+1;
+		$pdo->add_structure($maxi,$_POST['lst_structure'],$_POST['nom'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mail']);
+		header('Location:index.php?uc=maj&action=coord_struct');
+	}
+	break;
+	
+	case 'modif_coordonees_structure':
+	$lesTypesStructures = $pdo->get_Type_Structure();
+	if(isset($_POST['choix'])){
+		$num=$pdo->get_Adresse_StructureParNom($_POST['nom_structure']);
+		$_SESSION['nomStructure']=$_POST['nom_structure'];
+		$_SESSION['modifStructure']=$num['NUM_STRUCTURE'];
+		$maStructure=$pdo->get_Adresse_Structure($_SESSION['modifStructure']);
+	}
+	if($_SESSION['modifStructure']!=""){
+		$dispo="";
+	}
+	if(isset($_POST['supprimer_structure'])){
+		$pdo->delete_Structure($_SESSION['modifStructure']);
+	}
+	
+	if(isset($_POST['modifier_structure'])){
+		$pdo->update_Structure($_POST['lst_structure'],$_POST['nom'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mail'],$_SESSION['modifStructure']);
+	}
+	include("vue/v_modif_coordonees_structure.php");
+	break;
+	
 }
 ?>
