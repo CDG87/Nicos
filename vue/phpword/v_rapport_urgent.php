@@ -89,6 +89,10 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText("De mesures urgentes", 'title_p_garde', 'center'); //titre page de garde
 		
 		$section->addText("Art-5: En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
+		
+		foreach($lesInfosStructure as $uneInfoStructure) {
+			$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
+		}
 			$section->addTextBreak(2);
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
 				
@@ -219,10 +223,10 @@ if(isset($_SESSION['choix_creation'])) {
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
 	$objWriter->save($h2d_file_uri);
 	
-	$objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['VILLE_STRUCTURE']).' - '.$today.'.docx');
+	$objWriter->save('Rapport urgent '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 
-	header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['VILLE_STRUCTURE']).' - '.$today.".docx'");
-	echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['VILLE_STRUCTURE']).' - '.$today.'.docx');
+	header("Content-Disposition: attachment; filename='Rapport urgent ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.".docx'");
+	echo file_get_contents('Rapport urgent '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 	ob_clean();
     flush();
     $status = readfile($h2d_file_uri);
