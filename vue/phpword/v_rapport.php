@@ -481,14 +481,17 @@ if(isset($_SESSION['choix_creation'])) {
 					}
 				}				
 				
+				
+				
 				//Observations
 				$nb=0;
 				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+				$textrun = $section->addTextRun('center');
 				if($uneInfoCritereCoOrg['PHOTO_CRITERE'] == NULL){
 					//Illustration critere
 					foreach($lesImgCrCo as $uneImgCrCo) {
 						if($uneImgCrCo['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							$section->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+							$textrun->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 							
 						}
 					}
@@ -496,12 +499,12 @@ if(isset($_SESSION['choix_creation'])) {
 					//Illustration critere
 					foreach($lesImgCrCo as $uneImgCrCo) {
 						if($uneImgCrCo['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							$section->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+							$textrun->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center',  'wrappingStyle' => 'infront'));
 							
 						}
 					}
 					//Image téléchargée		
-					$section->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center'));
+					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
 				foreach($lesObservationsOrg as $uneObservationOrg) {
 					
@@ -608,22 +611,23 @@ if(isset($_SESSION['choix_creation'])) {
 				//Observations
 				$nb=0;
 				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+				$textrun = $section->addTextRun('center');
 				if($uneInfoCritereCoSite['PHOTO_CRITERE'] == NULL){
 					//Illustration critere
 					foreach($lesImgCr as $uneImgCr) {
 						if($uneImgCr['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneImgCr['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $uneImgCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							$section->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+							$textrun->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 						}
 					}
 				}else{
 					//Illustration critere
 					foreach($lesImgCr as $uneImgCr) {
 						if($uneImgCr['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneImgCr['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $uneImgCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							$section->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center'));
+							$textrun->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 						}
 					}
 					//Image téléchargée		
-					$section->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center'));
+					$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
 				
 				foreach($lesObservationsSite as $uneObservationSite) {
@@ -871,42 +875,6 @@ if(isset($_SESSION['choix_creation'])) {
 
 
 
-
-
-// $titles=array('Planning','Quality','Time','RR','CR','DR'); //legende des sommets
-// $data=array(18, 100, 70, 90, 42,66); //valeur du graph
- 
-// $graph = new RadarGraph (400,400); //taille du graph
- 
-// $graph->title->Set('Radar with marks');
-// $graph->title->SetFont(FF_VERDANA,FS_NORMAL,12);
- 
-// $graph->SetScale('lin',0,100); // min et max sur l'echelle
- 
-// $graph->SetTitles($titles);
-// $graph->SetCenter(0.5,0.55);
-// $graph->HideTickMarks();
-// $graph->SetColor('white'); // couleur de fond
-// $graph->axis->SetColor('darkgray'); // couleur des lignes
-// $graph->grid->SetColor('darkgray');
-// $graph->grid->Show();
- 
-// $graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
-// $graph->axis->title->SetMargin(5);
-// $graph->SetGridDepth(DEPTH_BACK);
-// $graph->SetSize(0.6);
- 
-// $plot = new RadarPlot($data);
-// $plot->SetColor('red@0.2');
-// $plot->SetLineWeight(1);
-// $plot->SetFillColor('red@0.7');
- 
-// $plot->mark->SetType(MARK_IMG_SBALL,'red');
- 
-// $graph->Add($plot);
-// $graphX = $graph->Stroke('graph/graph.png');
-
-// $section->addImage('graph/graph.png', array('height' => 300,'align' => 'center'));
 
 
 	/*************************** FOOTER ***************************/
