@@ -17,7 +17,7 @@
             $numTypeStructureSelection = $_POST['lst_type'];
             $_SESSION['type_structure'] = $numTypeStructureSelection; //numéro type structure
 			if($_SESSION['isAdmin']==1){
-            $_SESSION['libelle_audit'] = $_POST['libelle_audit']; //libelle audit 
+				$_SESSION['libelle_audit'] = $_POST['libelle_audit']; //libelle audit 
 			}else{
 				$_SESSION['libelle_audit'] = "Inspection";
 			}
