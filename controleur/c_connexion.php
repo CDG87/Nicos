@@ -19,7 +19,6 @@ switch($action) {
 	case 'retour_menu' :
 		$listeAudit = $pdo->get_NumAudit();
 		$_SESSION['entpied'] = 'creation';
-		$_SESSION['libelle_audit']="";
 		include("vue/v_action_audit.php");
 		require("controleur/c_creation.php");
 		break;	

@@ -38,7 +38,7 @@
 				<table>
 					<tr>
 						<td class="espart">
-							<button type="submit" class="btn btn-primary" name="suppr_audit" onclick="if(!confirm('Voulez-vous vraiment le supprimer ? ')) return false;">Supprimer l'audit</button>
+							<button type="submit" class="btn btn-primary" name="suppr_audit" onclick="if(!confirm('Voulez-vous vraiment le supprimer ? ')) return false;">Supprimer l'inspection</button>
 						</td>
 					</tr>
 				</table>
