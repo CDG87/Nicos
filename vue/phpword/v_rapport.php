@@ -81,7 +81,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$textrun->addTextBreak(1);
 	$textrun->addText("Service Prévention des Risques Professionnels");
 	$table->addCell(4500)->addImage(
-		'images/logo_cdg.jpg',
+		'images/'.$infoCentre['LOGO'],
 		array('width' => 180, 'align' => 'right')
 	);
 
@@ -109,9 +109,9 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 	}
 	$section->addTextBreak(10);
-	$section->addText("Centre de Gestion de la Fonction Publique Territoriale de la Haute-Vienne", 'coord_contr', 'center');
-		$section->addText("55 rue de l'AENI - BP 339 - 87009 LIMOGES Cedex", 'coord_contr','center');
-		$section->addText("Tel : 05 55 30 08 54 - Fax : 05 55 30 08 64 - Site internet : cdg87.fr",'coord_contr','center');
+	$section->addText(htmlspecialchars($infoCentre['NOM']), 'coord_contr', 'center');
+		$section->addText(htmlspecialchars($infoCentre['ADRESSE']." - ".$infoCentre['CP']." ".$infoCentre['VILLE']." Cedex"), 'coord_contr','center');
+		$section->addText(htmlspecialchars("Tel : ".$infoCentre['TEL']." - Fax : ".$infoCentre['FAX']." - Site internet : ".$infoCentre['SITE']),'coord_contr','center');
 		
 	$section->addPageBreak(); //saut de page
 
@@ -871,12 +871,24 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
 		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
 
+
+		$section->addPageBreak();
 		
+		$section->addText("Suites donnees aux propositions", 'title_partie', 'center');
+		$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions.",  'introFstyle', 'introPstyle');
+		
+		$section->addTitle(htmlspecialchars('Organisation'), 3);
+		
+		$section->addPageBreak();
 
+<<<<<<< HEAD
+		$section->addTitle(htmlspecialchars('Sur site'), 3);
 
-
-
-
+<<<<<<< HEAD
+=======
+>>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
+=======
+>>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
 	/*************************** FOOTER ***************************/
 
 

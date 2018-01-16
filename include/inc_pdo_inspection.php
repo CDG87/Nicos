@@ -555,7 +555,7 @@ class Pdo_Inspection {
 	**/
 	public function get_ResArticle_Critere($numcritere) {
 		
-		$req = "SELECT R.NUM_RESUME_ARTICLE, DESCRIPTION_RESUME_ARTICLE FROM RESUME_ARTICLE R INNER JOIN CRITERE C ON R.NUM_RESUME_ARTICLE = C.NUM_RESUME_ARTICLE WHERE C.NUM_CRITERE = :numcritere";
+		$req = "SELECT R.NUM_RESUME_ARTICLE, DESCRIPTION_RESUME_ARTICLE, LIBELLE_CRITERE FROM RESUME_ARTICLE R INNER JOIN CRITERE C ON R.NUM_RESUME_ARTICLE = C.NUM_RESUME_ARTICLE WHERE C.NUM_CRITERE = :numcritere";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numcritere' => $numcritere
@@ -1048,7 +1048,7 @@ class Pdo_Inspection {
 		$rs->execute(array(
 			'numcr' => $numcr
 		));
-		$ligne = $rs->fetchAll();
+		$ligne = $rs->fetch();
 		return $ligne;
 	}
     
@@ -2107,6 +2107,17 @@ class Pdo_Inspection {
 	}
 	
 	/**
+	* Supprimer un controleur
+	**/
+	public function delete_Controleur($num){
+            $req = "DELETE FROM CONTROLEUR WHERE NUM_CONTROLEUR = :numcr";
+            $rs = $this->monPdoInspection->prepare($req);
+            $rs -> execute(array(
+                'numcr' => $num
+            ));
+	}
+	
+	/**
 	* Supprimer toutes les critères controlés sur site dans la table inscrire à partir d'une liste de numéro de critère
 	**/
 	public function delete_InscrireCR_Liste($num){
@@ -2657,6 +2668,18 @@ class Pdo_Inspection {
 	}
 	
 	/**
+	* Récupère les info centre
+	**/
+	public function get_Info_Centre() {
+		$req = "SELECT *
+		FROM CENTRE";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
 	* Récupère le nombre de participant
 	**/
 	public function get_NbParticipant_En_Cours($numAudit) {
@@ -2695,6 +2718,25 @@ class Pdo_Inspection {
         WHERE NUM_AUDIT = ?";
 		$rs = $this->monPdoInspection->prepare($req);
         $rs->execute(array($libelAudit, $numAudit));
+	}
+	
+	/**
+	* change les infos du centre
+	**/
+	public function update_Centre($logo,$nom, $adresse, $cp, $ville,$tel, $fax,$site) {
+		$req = "UPDATE centre SET LOGO = ?, NOM= ?, ADRESSE =?, CP=?, VILLE =?, TEL =?, FAX =?,SITE=?";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($logo,$nom, $adresse, $cp, $ville,$tel, $fax,$site));
+	}
+	
+	/**
+	* change les infos controleur
+	**/
+	public function update_ModifControleur($nom, $prenom,$fonction,$affectation,$centre,$adresse,$fixe,$mobile,$fax,$email,$num) {
+		$req = "UPDATE controleur SET NOM_CONTROLEUR = ?,PRENOM_CONTROLEUR=?, FONCTION_CONTROLEUR=?,AFFECTATION_CONTROLEUR=?,CENTRE_CONTROLEUR=?,ADRESSE_CONTROLEUR=?,TEL_FIXE_CONTROLEUR=?,TEL_MOBILE_CONTROLEUR=?,FAX_CONTROLEUR=?,EMAIL_CONTROLEUR=? 
+        WHERE NUM_CONTROLEUR = ?";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($nom, $prenom,$fonction,$affectation,$centre,$adresse,$fixe,$mobile,$fax,$email,$num));
 	}
 	
 	/**

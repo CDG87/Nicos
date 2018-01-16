@@ -35,7 +35,7 @@
 					</form>
 				</td>
 				<td class="espart">
-					<form method="post" action="">
+					<form method="post" action="index.php?uc=maj&action=logoAdresse">
 						<button type="submit" class="btn btn-warning btn-lg" name="logo_adr">Logo et adresse</button>
 					</form>
 				</td>

@@ -37,11 +37,6 @@ include("include/entete.php");
             <div class="gauchetab">
                 <table>
                     <tr>
-                        <?php 
-                            $dis = '';
-                            if($_SESSION['idobservation'] != null){
-                                $dis = 'disabled="disabled"';
-                            } ?>
 						</br></br></br></br>
                         <th>Modifier une observation :</th>
                         <td><select name = "idobservation" size = "1" class="form-control">
@@ -51,10 +46,7 @@ include("include/entete.php");
                                         $numobs = $loc['NUM_OBSERVATION'];
                                         $libobs = $loc['LIBELLE_OBSERVATION'];
                                         $selected = '';
-                                        if($numobs == $_SESSION['idobservation']){
-                                            $selected = 'selected="selected"';
-                                            $_SESSION['libobd'] = $libobs;
-                                        }
+                                        
                                 ?>
                                 <option <?php echo $selected; ?> value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
                                 <?php
@@ -62,7 +54,6 @@ include("include/entete.php");
                                 ?>
                             </select></td>
                                     <td>
-                                        <input type="hidden" name="numobs" value="<?php echo $_SESSION['idobservation']; ?>"/>
                                         <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
                                     </td>
                     </tr>
@@ -72,7 +63,9 @@ include("include/entete.php");
                                         <textarea class="form-control" rows="5" name='nomobs' cols='150' maxlength='500' autofocus></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
+									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>
                                 </form>
                     </tr>
                 </table>
             </div>
+			

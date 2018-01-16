@@ -42,7 +42,9 @@ include("include/entete.php");
                                         <textarea class="form-control" rows="5" name='nomprop' cols='150' maxlength='500' autofocus></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
+									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>
                                 </form>
                     </tr>
                 </table>
             </div>
+			
