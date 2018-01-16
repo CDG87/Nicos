@@ -39,17 +39,21 @@ include("include/entete.php");
                     <tr>
 						</br></br></br></br>
                         <th>Modifier une observation :</th>
-                        <td><select name = "idobservation" size = "1" class="form-control">
+                        <td><select name = "idobservation" size = "1" class="form-control" onchange="submit()">
                                 <option selected disabled>Choisir</option>
                                 <?php
                                     foreach ($listeObservation as $loc){
                                         $numobs = $loc['NUM_OBSERVATION'];
                                         $libobs = $loc['LIBELLE_OBSERVATION'];
                                         $selected = '';
-                                        
+                                        if($numobs == $_SESSION['numObs']){
                                 ?>
-                                <option <?php echo $selected; ?> value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
+								
+								 <option selected value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
+										<?php }else{ ?>
+                                <option value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
                                 <?php
+										}
                                     }
                                 ?>
                             </select></td>
@@ -60,7 +64,7 @@ include("include/entete.php");
                     <tr>
                                     <th>Nouveau nom :</th>
                                     <td>
-                                        <textarea class="form-control" rows="5" name='nomobs' cols='150' maxlength='500' autofocus></textarea>
+                                        <textarea class="form-control" rows="5" name='nomobs' cols='150' maxlength='500' autofocus> <?php echo $_SESSION['textObs'] ?></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
 									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>

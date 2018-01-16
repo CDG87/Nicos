@@ -100,6 +100,25 @@ class Pdo_Inspection {
 	}
 	
 	/**
+	* Récupère toute les structures
+	**/
+	public function get_Structures_total() {
+		
+		$req = "SELECT NUM_STRUCTURE, NOM_STRUCTURE FROM STRUCTURE";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		
+		while($row = $rs->fetch(PDO::FETCH_OBJ)) {
+			$num = $row->NUM_STRUCTURE;
+			$nom = $row->NOM_STRUCTURE;
+			$liste[] = $nom;
+			
+		}
+		
+		return $liste;
+	}
+	
+	/**
 	* Autocomplétion nom structure
 	* @param : $input = le champ de saisie
 	* 		   $numTypeStructure = numero type structure
@@ -156,10 +175,23 @@ class Pdo_Inspection {
 	* Récupère l'adresse de la structure à partir du numéro
 	**/
 	public function get_Adresse_Structure($numStructure) {
-		$req = "SELECT ADRESSE_STRUCTURE, VILLE_STRUCTURE, CP_STRUCTURE, NOM_STRUCTURE FROM STRUCTURE WHERE NUM_STRUCTURE = :num_structure";
+		$req = "SELECT * FROM STRUCTURE WHERE NUM_STRUCTURE = :num_structure";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'num_structure' => $numStructure
+		));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Récupère l'adresse de la structure à partir du numéro
+	**/
+	public function get_Adresse_StructureParNom($nomStructure) {
+		$req = "SELECT * FROM STRUCTURE WHERE NOM_STRUCTURE = :nom_structure";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array(
+			'nom_structure' => $nomStructure
 		));
 		$ligne = $rs->fetch();
 		return $ligne;
@@ -214,6 +246,17 @@ class Pdo_Inspection {
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
 		$ligne = $rs->fetchAll();
+		return $ligne;
+	}
+	
+	/**
+	* Récupère le dernier numero de structure
+	**/
+	public function get_Max_Num_Structure() {
+		$req = "SELECT MAX(NUM_STRUCTURE) AS maxi FROM structure";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
 		return $ligne;
 	}
     
@@ -1042,6 +1085,28 @@ class Pdo_Inspection {
 		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
+	
+	/**
+	* Récupère la préconisation par son num
+	**/
+	public function get_Preco_par_num($numpreco) {
+		$req = "SELECT NUM_PRECONISATION, LIBELLE_PRECONISATION FROM PRECONISATION WHERE NUM_PRECONISATION = ?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($numpreco));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Récupère l'observation par son num
+	**/
+	public function get_Observ_par_num($numobserv) {
+		$req = "SELECT NUM_OBSERVATION, LIBELLE_OBSERVATION FROM OBSERVATION WHERE NUM_OBSERVATION = ?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($numobserv));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
     
 	
 	/**
@@ -1281,6 +1346,18 @@ class Pdo_Inspection {
 		$rs->execute(array(
             'nomtheme' => $nomtheme,
             'codepartie' => $codepartie
+        ));
+		
+	}
+	
+	 /**
+	* Ajout d'une structure
+	**/
+	public function add_structure($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email) {
+		
+		$req = "INSERT INTO STRUCTURE (NUM_STRUCTURE,NUM_TYPE_STRUCTURE,NOM_STRUCTURE, ADRESSE_STRUCTURE, VILLE_STRUCTURE, CP_STRUCTURE, TELEPHONE_STRUCTURE, EMAIL_STRUCTURE) VALUES(?,?,?,?,?,?,?,?)";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email
         ));
 		
 	}
@@ -1891,6 +1968,17 @@ class Pdo_Inspection {
         $rs = $this->monPdoInspection->prepare($req);
         $rs -> execute(array(
             'numtheme' => $numtheme
+        ));
+    }
+	
+	/**
+	* Supprimer une structure
+	**/
+	public function delete_Structure($num){
+        $req = "DELETE FROM Structure WHERE NUM_STRUCTURE = :num";
+        $rs = $this->monPdoInspection->prepare($req);
+        $rs -> execute(array(
+            'num' => $num
         ));
     }
     
@@ -2730,6 +2818,17 @@ class Pdo_Inspection {
 		$rs = $this->monPdoInspection->prepare($req);
         $rs->execute(array($libelAudit, $numAudit));
 	}
+	
+	/**
+	* change une structure
+	**/
+	public function update_Structure($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email) {
+		$req = "UPDATE structure SET NUM_TYPE_STRUCTURE=?,NOM_STRUCTURE=?, ADRESSE_STRUCTURE=?, VILLE_STRUCTURE=?, CP_STRUCTURE=?, TELEPHONE_STRUCTURE=?, EMAIL_STRUCTURE=?
+        WHERE NUM_STRUCTURE = ?";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email, $num));
+	}
+
 	
 	/**
 	* change les infos du centre

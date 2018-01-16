@@ -25,7 +25,7 @@
 			
 			<tr>
 				<td class="espart">
-					<form method="post" action="">
+					<form method="post" action="index.php?uc=maj&action=coord_struct">
 						<button type="submit" class="btn btn-warning btn-lg" name="coord_struct">Coordonnées structures</button>
 					</form>
 				</td>
