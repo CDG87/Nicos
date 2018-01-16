@@ -13,6 +13,10 @@ switch($action) {
 		include("vue/v_selection_critere.php");
 	break;
 		
+	case 'version' :
+		
+		break;
+		
 	case 'choixActionCritere':
 		$verif=false;
 		
