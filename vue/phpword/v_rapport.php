@@ -881,14 +881,10 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		$section->addPageBreak();
 
-<<<<<<< HEAD
+
 		$section->addTitle(htmlspecialchars('Sur site'), 3);
 
-<<<<<<< HEAD
-=======
->>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
-=======
->>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
+
 	/*************************** FOOTER ***************************/
 
 
@@ -900,14 +896,23 @@ if(isset($_SESSION['choix_creation'])) {
 
 
 	$today = date("d.m.y"); //date et heure du jour
-	
-	//Guardando document
-	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
-	$objWriter->save('Rapport '.$uneInfoStructure['NOM_STRUCTURE'].' '.$today.'.docx');
 
-	header("Content-Disposition: attachment; filename='Rapport ".$uneInfoStructure['NOM_STRUCTURE'].' '.$today.".docx'");
-	echo file_get_contents('Rapport '.$uneInfoStructure['NOM_STRUCTURE'].' '.$today.'.docx');
+	//Guardando document
 	
+	
+	$h2d_file_uri = tempnam('', 'htd');
+    //exit($h2d_file_uri);
+    $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
+    $objWriter->save($h2d_file_uri);
+	
+	$objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
+	header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.".docx'");
+	echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
+	ob_clean();
+    flush();
+    $status = readfile($h2d_file_uri);
+    unlink($h2d_file_uri);
+    exit;
 	// $objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.'.docx');
 
 	// header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE'])." le ".$today.".docx'");

@@ -9,11 +9,17 @@
 		<table>
 			<?php if($_SESSION['isAdmin']==1){ ?>
 				<tr>
-					<td class="espar btnsurr" colspan="3">
+					<td class="espart">
+						<form method="post" action="index.php?uc=maj&action=charge_version">
+							<button type="submit" class="btn btn-warning btn-lg" name="maj_version">Changer le numéro de la version</button>
+						</form>
+					</td>
+					<td class="espart">
 						<form method="post" action="index.php?uc=maj&action=selectionner_critere">
 							<button type="submit" class="btn btn-warning btn-lg" name="select_critere">Sélection du critère</button>
 						</form>
 					</td>
+					
 				</tr>
 			<?php } ?>
 			
