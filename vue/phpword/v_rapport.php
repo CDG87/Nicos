@@ -884,6 +884,9 @@ if(isset($_SESSION['choix_creation'])) {
 <<<<<<< HEAD
 		$section->addTitle(htmlspecialchars('Sur site'), 3);
 
+<<<<<<< HEAD
+=======
+>>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
 =======
 >>>>>>> a8f6a1b58097bf49dfbda0d804f64242db117cef
 	/*************************** FOOTER ***************************/
