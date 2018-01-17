@@ -66,8 +66,8 @@ include("include/entete.php");
                                     <td>
                                         <textarea class="form-control" rows="5" name='nomobs' cols='150' maxlength='500' autofocus> <?php echo $_SESSION['textObs'] ?></textarea>
                                     </td>
-                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
-									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>
+                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette observation ?"));'/></td>
+									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
                                 </form>
                     </tr>
                 </table>

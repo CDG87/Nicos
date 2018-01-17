@@ -14,14 +14,19 @@ switch($action) {
 	
 	case 'charge_version' :
 		$version=$pdo->get_version();
+		$_SESSION['entpied']="majVersion";
 		include("vue/v_maj_version.php");
+		
+		
 		break;
 		
 	case 'version' :
 		if(isset($_POST['modifier'])){
 			$pdo->update_version($_POST['version']);
 		}
+		$_SESSION['entpied'] = 'maj';
 		include("vue/v_maj.php");
+		
 		break;
 		
 	case 'choixActionCritere':
@@ -110,8 +115,10 @@ switch($action) {
 						include("vue/v_modifImage.php");
 					}else{
 						if(isset($_POST['retour'])){
+							$_SESSION['entpied']="maj";
 							include('vue/v_maj.php');
 						}else{
+							
 							include("vue/v_menu_crit_modif.php");
 						}
 					}
@@ -123,7 +130,7 @@ switch($action) {
 		
 		case 'modifImage':
 			if(isset($_POST['retour'])){
-				$_SESSION['entpied']="majCritere2";
+				
 			}else{
 				$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
 			if($nbImage['NB']==0){
@@ -132,7 +139,7 @@ switch($action) {
 					$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
 				}
 			}
-			
+				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 		break;
 		
@@ -144,16 +151,19 @@ switch($action) {
 		}
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Observation($_POST['newnomobservation'], $_SESSION['majcritere'], $_POST['cdobs']);
+				$_SESSION['entpied'] = 'majCritere2';
 				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['modifier'])){
 				 $pdo->update_Observation($_POST['idobservation'], $_POST['nomobs']);
+				 $_SESSION['entpied'] = 'majCritere2';
 				 include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Observation($_POST['idobservation']);
+				$_SESSION['entpied'] = 'majCritere2';
 				include("vue/v_menu_crit_modif.php");
 			}
 			if(isset($_POST['idobservation'])){
@@ -165,6 +175,7 @@ switch($action) {
 				}
 			}
 			
+			
 		break;
 		
 		case 'modifAdminProposition':
@@ -175,16 +186,19 @@ switch($action) {
 			}
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Preconisation($_POST['newnomproposition'], $_SESSION['majcritere']);
+				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['modifier'])){
 				$pdo->update_Preconisation($_POST['idproposition'], $_POST['nomprop']);
+				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
 			
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Preconisation($_POST['idproposition']);
+				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
 			if(isset($_POST['idproposition'])){
@@ -243,15 +257,17 @@ switch($action) {
 		break;
 		
 		case 'modif_coordonees_inspecteur':
-			
+			$_SESSION['entpied']="majCoordInspec";
 			if(isset($_POST['supprimer_inspecteur'])){
 				$pdo->delete_Controleur($_SESSION['modifInspect']);
 				$_SESSION['modifInspect']="";
+				include("vue/v_coordonees_inspecteur.php");
 			}else{
 				$_SESSION['modifInspect']=$_POST['lst_controleur'];
 			}
 			if(isset($_POST['modifier_inspecteur'])){
 				$pdo->update_ModifControleur($_POST['nom_inspecteur'], $_POST['prenom_inspecteur'], $_POST['fonction_inspecteur'], $_POST['affectation_inspecteur'], $_POST['centre_inspecteur'], $_POST['adresse_inspecteur'], $_POST['tel_fixe_inspecteur'], $_POST['tel_portable_inspecteur'], $_POST['fax_inspecteur'], $_POST['email_inspecteur'],$_SESSION['modifInspect']);
+				include("vue/v_coordonees_inspecteur.php");
 			}
 			
 			$lesControleurs = $pdo->get_Controleur();
@@ -259,7 +275,10 @@ switch($action) {
 			if(isset($_POST['lst_controleur'])){
 				$dispo="";
 				$controleur=$pdo->get_Controleur_by_NumControleur($_SESSION['modifInspect']);
-				include("vue/v_modif_coordonees_inspecteur.php");
+				if(!isset($_POST['modifier_inspecteur']) && !isset($_POST['supprimer_inspecteur'])){
+					include("vue/v_modif_coordonees_inspecteur.php");
+				}
+				
 			}
 			
 			
@@ -276,6 +295,7 @@ switch($action) {
 		if(isset($_POST["modifier"])){
 			$pdo->update_Centre($_POST['logo'],$_POST['nom'],$_POST['adresse'],$_POST['cp'],$_POST['ville'],$_POST['tel'],$_POST['fax'],$_POST['site']);
 		}
+		$_SESSION['entpied']="maj";
 		include('vue/v_maj.php');
 	break;
 	

@@ -75,6 +75,6 @@
 	</form>
 	<td>
 	<form method="POST" action="index.php?uc=maj&action=coordonees_inspecteur">
-		<button type="submit" class="btn btn-default" autofocus>Retour</button>
+		<button type="submit" class="btn btn-default" >Retour</button>
 	</form>
 	</td></tr></table>

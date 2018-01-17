@@ -88,8 +88,8 @@
 
 					<br/><br/> <br/><br/>
 					<table><tr><td>
-					<input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="modifier_inspecteur" value="Modifier" /></td>
-					<td><input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="supprimer_inspecteur" value="Supprimer" /></td>
+					<input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="modifier_inspecteur" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier cet inspecteur ?"));' /></td>
+					<td><input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="supprimer_inspecteur" value="Supprimer" onclick='return(confirm("Voulez-vous vraiment supprimer cet inspecteur ?"));' /></td>
 				</div>
 			</div>
 		</div>

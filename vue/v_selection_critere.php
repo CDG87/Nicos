@@ -86,8 +86,8 @@ include("include/entete.php");
 	</br></br>
 </form>
 <form action="index.php?uc=maj&action=pageMenuCrit" method="POST">
-	<button type="submit" class="btn btn-primary" name="selection"> Selectionner</button>
-	<button type="submit" class="btn btn-primary" name="retour">Retour</button>
+	<button type="submit" class="btn btn-default" name="selection"> Selectionner</button>
+	<button type="submit" class="btn btn-default" name="retour">Retour</button>
 </form>
 
 </div>

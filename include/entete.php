@@ -73,6 +73,14 @@
 			<?php
             echo "<h1>Connexion</h1>";
         }
+		if($_SESSION['entpied']=="majVersion"){
+			?>
+			<div class="logoCdg">
+			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			</div>
+			<?php
+            echo "<h1>Version</h1>";
+        }
 		if($_SESSION['entpied'] == 'identification'){
 			?>
 			<div class="logoCdg">
@@ -87,7 +95,7 @@
 			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
 			</div>
 			<?php
-            echo "<h1>Modification des Coordonnées des structures</h1>";
+            echo "<h1>Modification des coordonnées des inspecteurs</h1>";
         }
 		if($_SESSION['entpied'] == 'majLogo'){
 			?>
@@ -103,7 +111,7 @@
 			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
 			</div>
 			<?php
-            echo "<h1>Modification des coordonnées des inspecteurs</h1>";
+            echo "<h1>Modification des Coordonnées des structures</h1>";
         }
 		
 		 if($_SESSION['entpied'] == 'majCritere'){

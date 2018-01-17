@@ -43,6 +43,6 @@
 						<input  class="form-control" name="site" value="<?php  echo $infoCentre['SITE']; ?>"  />
 					</div>
 					<br/><br/>
-					<input class="btn btn-default" type="submit" name="modifier" value="Modifier" /></td>
+					<input class="btn btn-default" type="submit" name="modifier" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier les informations du centre ?"));' /></td>
 					<button type="submit" class="btn btn-default" >Retour</button>
 	</form>
