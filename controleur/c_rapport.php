@@ -12,6 +12,10 @@ switch($action) {
 		$statsORG=$pdo->get_nbRougeORG($_SESSION['audit']);
 		$statsSITE=$pdo->get_nbRougeSITE($_SESSION['audit']);
 		$statsFamille=$pdo->get_nbRougeSITE_theme($_SESSION['audit']);
+		$criteresRougesOrg=$pdo->get_critereRouge_theme_Org();
+		$criteresRougesSite=$pdo->get_critereRouge_theme_Site();
+		$NBcritereRougeOrg=$pdo->get_NBcritereRouge_theme_Org();
+		$NBcritereRougeSite=$pdo->get_NBcritereRouge_theme_Site();
 		$nbParticipant = $pdo->count_participant($_SESSION['audit']);
 		$conformite1 = array('Color' => '469D46', '_bold' => true, 'Size'=> 13);
 		$conformite2 = array('Color' => 'CF433F', '_bold' => true, 'Size'=> 13);

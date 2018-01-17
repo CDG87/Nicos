@@ -3019,6 +3019,66 @@ class Pdo_Inspection {
 	}
 	
 	/**
+	* Recupere les criteres (et theme) controler rouges en fonction d'un theme ORGANISATIONNEL
+	*/
+	public function get_critereRouge_theme_Org(){
+		$req = "SELECT c.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM CONTROLE_CRITERE cc 
+		INNER JOIN CRITERE c ON cc.NUM_CRITERE=c.NUM_CRITERE
+		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
+		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
+		ORDER BY NOM_THEME";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetchAll();
+		return $ligne;
+	}
+	
+	/**
+	* Recupere les criteres (et theme) controler rouges en fonction d'un theme SUR SITE
+	*/
+	public function get_critereRouge_theme_Site(){
+		$req = "SELECT i.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM INSCRIRE i 
+		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
+		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
+		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
+		ORDER BY NOM_THEME";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetchAll();
+		return $ligne;
+	}
+	
+	/**
+	* Recupere les criteres (et theme) controler rouges en fonction d'un theme ORGANISATIONNEL
+	*/
+	public function get_NBcritereRouge_theme_Org(){
+		$req = "SELECT COUNT(c.NUM_CRITERE) AS NBCRITEREROUGEORG, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM CONTROLE_CRITERE cc 
+		INNER JOIN CRITERE c ON cc.NUM_CRITERE=c.NUM_CRITERE
+		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
+		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
+		ORDER BY NOM_THEME";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Recupere les criteres (et theme) controler rouges en fonction d'un theme SUR SITE
+	*/
+	public function get_NBcritereRouge_theme_Site(){
+		$req = "SELECT COUNT(i.NUM_CRITERE) AS NBCRITEREROUGESITE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM INSCRIRE i 
+		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
+		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
+		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
+		ORDER BY NOM_THEME";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
 	* Ajout d'un batiment manuel
 	**/
 	public function add_Batiment_manu($numPole, $nomBatiment, $num) {

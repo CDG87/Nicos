@@ -871,19 +871,60 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
 		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
 
+		if($NBcritereRougeOrg['NBCRITEREROUGEORG']>0 || $NBcritereRougeSite['NBCRITEREROUGESITE']>0){
+			$section->addPageBreak();
+			
+			$section->addText("Suites donnees aux propositions", 'title_partie', 'center');
+			$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions.",  'introFstyle', 'introPstyle');
+			
+			if($NBcritereRougeOrg['NBCRITEREROUGEORG']>0){
+				$section->addTitle(htmlspecialchars('Organisation'), 3);
+			
+				// Add table
+				$tabletteSuiteOrg = $section->addTable('myOwnTableStyle');
+				$tabletteSuiteOrg->addRow();
+					$cell = $tabletteSuiteOrg->addCell(2500);
+					$cell->addText(htmlspecialchars('Thème/Critère'),  'tabFont', 'tabPar');
+					$cell = $tabletteSuiteOrg->addCell(5500);
+					$cell->addText(htmlspecialchars('Suites données aux propositions'),  'tabFont', 'tabPar');
+					$cell = $tabletteSuiteOrg->addCell(1500);
+					$cell->addText(htmlspecialchars('Délai'),  'tabFont', 'tabPar');
+				foreach($criteresRougesOrg as $critereRougeOrg){
+					$tabletteSuiteOrg->addRow();
+					$cell = $tabletteSuiteOrg->addCell(2500);
+					$cell->addText(htmlspecialchars($critereRougeOrg['NOM_THEME']), 'st1');
+					$cell->addTextBreak(0);
+					$cell->addText(htmlspecialchars(' ► '.$critereRougeOrg['LIBELLE_CRITERE']), 'st1');
+					$cell = $tabletteSuiteOrg->addCell(5500);
+					$cell = $tabletteSuiteOrg->addCell(1500);
+				}
+			}
+			
 
-		$section->addPageBreak();
-		
-		$section->addText("Suites donnees aux propositions", 'title_partie', 'center');
-		$section->addText("Art-5: L'ACFI est informé par l'Autorité Territoriale des suites données à ses propositions.",  'introFstyle', 'introPstyle');
-		
-		$section->addTitle(htmlspecialchars('Organisation'), 3);
-		
-		$section->addPageBreak();
+			if($NBcritereRougeSite['NBCRITEREROUGESITE']>0){
+				$section->addPageBreak();
+				$section->addTitle(htmlspecialchars('Sur site'), 3);
 
-
-		$section->addTitle(htmlspecialchars('Sur site'), 3);
-
+				// Add table
+				$tabletteSuiteSite = $section->addTable('myOwnTableStyle');
+				$tabletteSuiteSite->addRow();
+					$cell = $tabletteSuiteSite->addCell(2500);
+					$cell->addText(htmlspecialchars('Thème/Critère'),  'tabFont', 'tabPar');
+					$cell = $tabletteSuiteSite->addCell(5500);
+					$cell->addText(htmlspecialchars('Suites données aux propositions'),  'tabFont', 'tabPar');
+					$cell = $tabletteSuiteSite->addCell(1500);
+					$cell->addText(htmlspecialchars('Délai'),  'tabFont', 'tabPar');
+				foreach($criteresRougesSite as $critereRougeSite){
+					$tabletteSuiteSite->addRow();
+					$cell = $tabletteSuiteSite->addCell(2500);
+					$cell->addText(htmlspecialchars($critereRougeSite['NOM_THEME']), 'st1');
+					$cell->addTextBreak(0);
+					$cell->addText(htmlspecialchars(' ► '.$critereRougeSite['LIBELLE_CRITERE']), 'st1');
+					$cell = $tabletteSuiteSite->addCell(5500);
+					$cell = $tabletteSuiteSite->addCell(1500);
+				}
+			}
+		}
 
 	/*************************** FOOTER ***************************/
 
