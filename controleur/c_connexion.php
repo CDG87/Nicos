@@ -39,11 +39,11 @@ switch($action) {
 			include("vue/v_erreurs.php");
 			include("vue/v_connexion.php");
 		}else {
-			$idControleur = $controleur['NUM_CONTROLEUR'];
-			$nom = $controleur['NOM_CONTROLEUR'];
-			$prenom = $controleur['PRENOM_CONTROLEUR'];
-			$isAdmin = $controleur['ADMIN_CONTROLEUR'];
-			connecter($idControleur, $nom, $prenom, $isAdmin);
+			$idControleur = 1;
+			$nom = "";
+			$prenom = "";
+			$isAdmin = $controleur['admin'];
+			connecter($idControleur,$nom,$prenom,$isAdmin);
 			$_REQUEST['action'] = "partie_creation";
 			require("controleur/c_creation.php");
 		}

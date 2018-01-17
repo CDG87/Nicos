@@ -50,7 +50,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Auth($login, $mdp) {
 		
-		$req = "SELECT NUM_CONTROLEUR, NOM_CONTROLEUR, PRENOM_CONTROLEUR, ADMIN_CONTROLEUR FROM CONTROLEUR WHERE LOGIN_CONTROLEUR = :login AND MDP_CONTROLEUR = :mdp";
+		$req = "SELECT * FROM IDENTIFIANT WHERE LOGIN = :login AND MDP = :mdp";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'login' => $login,

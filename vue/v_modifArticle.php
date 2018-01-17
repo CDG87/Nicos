@@ -11,7 +11,7 @@ include("include/entete.php");
         </tr>
         <tr>
             <td>
-                <button type="submit" class="btn btn-default btn-ret">Modifier</button>
+                <button type="submit" class="btn btn-default btn-ret" onclick='return(confirm("Voulez-vous vraiment modifier cet article ?"));'>Modifier</button>
                 <button type="submit" class="btn btn-default btn-ret" name="retour">Retour</button>
             </td>
         </tr>

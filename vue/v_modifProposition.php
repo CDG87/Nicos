@@ -36,7 +36,7 @@ include("include/entete.php");
                                 ?>
                             </select></td>
                                     <td>
-                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
+                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette proposition ?"));'/>
                                     </td>
                     </tr>
                     <tr>
@@ -44,8 +44,8 @@ include("include/entete.php");
                                     <td>
                                         <textarea class="form-control" rows="5" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
                                     </td>
-                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
-									<td><button type="submit" class="btn btn-primary" name="retour">Retour</button></td>
+                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette proposition ?"));'/></td>
+									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
                                 </form>
                     </tr>
                 </table>
