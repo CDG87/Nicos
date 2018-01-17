@@ -53,8 +53,8 @@
 								}
 								
 							?>
-							<td><input class="form-control" type="text" name="nom[<?php echo $i ?>]" value="<?php echo isset($_POST['btn_enregistrer']) ? $_POST['nom'][$i] : ''?>" autofocus/></td>
-							<td><input class="form-control"type="text" name="prenom[<?php echo $i ?>]" value="<?php echo isset($_POST['btn_enregistrer']) ? $_POST['prenom'][$i] : ''?>" /></td>
+							<td><input required class="form-control" type="text" name="nom[<?php echo $i ?>]" value="<?php echo isset($_POST['btn_enregistrer']) ? $_POST['nom'][$i] : ''?>" autofocus/></td>
+							<td><input required class="form-control"type="text" name="prenom[<?php echo $i ?>]" value="<?php echo isset($_POST['btn_enregistrer']) ? $_POST['prenom'][$i] : ''?>" /></td>
 							<td>
 								<input class="form-control" list="fonctions" name="fonction[<?php echo $i ?>]" value="<?php echo isset($_POST['btn_enregistrer']) ? $_POST['fonction'][$i] : ''?>" />
 								<datalist id="fonctions">

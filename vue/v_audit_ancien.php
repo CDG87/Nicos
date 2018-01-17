@@ -80,7 +80,7 @@
 						</div>
 					
 						<div class="col-sm-4">
-							<button type="submit" class="btn btn-default" name="revenir_inspecter">Revenir à l'inspection</button>
+							<button type="submit" class="btn btn-default" name="revenir_inspecter" onclick="<?php echo "if(!confirm('etes vous sûre de vouloir ajouter cette date?')) return false;"; ?>" >Valider</button>
 						</div>
 				</div>
 			</form>

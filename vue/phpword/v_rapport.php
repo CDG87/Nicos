@@ -897,12 +897,12 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell->addText(htmlspecialchars(' ► '.$critereRougeOrg['LIBELLE_CRITERE']), 'st1');
 					$cell = $tabletteSuiteOrg->addCell(5500);
 					$cell = $tabletteSuiteOrg->addCell(1500);
-				}
+				}$section->addPageBreak();
 			}
 			
 
 			if($NBcritereRougeSite['NBCRITEREROUGESITE']>0){
-				$section->addPageBreak();
+				
 				$section->addTitle(htmlspecialchars('Sur site'), 3);
 
 				// Add table

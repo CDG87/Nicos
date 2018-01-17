@@ -4,7 +4,7 @@
 		<!-- ADRESSE_STRUCTURE -->
 		<label class="col-sm-3" for="adresse_structure">Adresse structure :</label>
 		<div class="col-sm-4">
-			<input class="form-control" required="required" type="text" name="adresse_structure" id="adresse_structure" value="<?php echo $adresseStructure['ADRESSE_STRUCTURE'];?>" />
+			<input required class="form-control" required="required" type="text" name="adresse_structure" id="adresse_structure" value="<?php echo $adresseStructure['ADRESSE_STRUCTURE'];?>" />
 		</div>
 	</div>
 
@@ -13,7 +13,7 @@
 		<!-- VILLE_STRUCTURE -->
 		<label class="col-sm-3" for="ville_structure">Ville structure :</label>
 		<div class="col-sm-4">
-			<input class="form-control" required="required" type="text" name="ville_structure" id="ville_structure" value="<?php echo $adresseStructure['VILLE_STRUCTURE'];?>" />
+			<input required class="form-control" required="required" type="text" name="ville_structure" id="ville_structure" value="<?php echo $adresseStructure['VILLE_STRUCTURE'];?>" />
 		</div>
 	</div>
 
@@ -21,7 +21,7 @@
 		<!-- CP_STRUCTURE -->
 		<label class="col-sm-3" for="cp_structure">Code postal structure :</label>
 		<div class="col-sm-4">
-			<input class="form-control" required="required" type="text" name="cp_structure" id="cp_structure" value="<?php echo $adresseStructure['CP_STRUCTURE'];?>" />
+			<input required class="form-control" required="required" type="text" name="cp_structure" id="cp_structure" value="<?php echo $adresseStructure['CP_STRUCTURE'];?>" />
 			
 		</div>
 		

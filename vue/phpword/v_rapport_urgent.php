@@ -80,7 +80,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$textrun->addTextBreak(1);
 	$textrun->addText("Service Prévention des Risques Professionnels");
 	$table->addCell(4500)->addImage(
-		'images/logo_cdg.jpg',
+		'images/'.$infoCentre['LOGO'],
 		array('width' => 180, 'align' => 'right')
 	);
 	
@@ -188,8 +188,6 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 					$section->addTextBreak(2);
 			}
-			
-			$section->addPageBreak(); //saut de page
 			
 			$tablette = $section->addTable('myOwnTableStyle');
 				$tablette->addRow();

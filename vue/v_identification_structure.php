@@ -67,7 +67,7 @@
 					<!-- Nom structure -->			
 					<label class="col-sm-3" for="nom_structure">Nom :</label>
 					<div class="col-sm-4">
-                        <input class="form-control" required="required" type="text" id="nom_structure" name="nom_structure" value="<?php if(isset($_POST['generer_adr'])){ echo $_POST['nom_structure'];}else{ echo $_SESSION['nom_structure'];} ?>" /> 
+                        <input required class="form-control" required="required" type="text" id="nom_structure" name="nom_structure" value="<?php if(isset($_POST['generer_adr'])){ echo $_POST['nom_structure'];}else{ echo $_SESSION['nom_structure'];} ?>" /> 
 					</div>
 					<?php
 						$liste = $pdo->autocompletion_Nom_Structure("nom_structure", $numTypeStructureSelection);

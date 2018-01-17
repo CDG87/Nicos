@@ -1119,7 +1119,7 @@ class Pdo_Inspection {
 		$rs->execute(array(
 			'numcr' => $numcr
 		));
-		$ligne = $rs->fetch();
+		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
     
