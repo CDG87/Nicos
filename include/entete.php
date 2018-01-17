@@ -35,6 +35,7 @@
 		<form method="POST" action="index.php?uc=identification&action=modif_audit&nt=non&aj=non&aft=non&mo=non&sup=non">
 			<button type="submit" class="btn btn-default btnMenu glyphicon glyphicon-pencil"> MODIF</button>
 		</form>
+		<br/>
 		<?php } ?>
 		<?php if($action=='modif_audit'){ ?>
 		<form method="POST" action="index.php?uc=identification&action=participant">
