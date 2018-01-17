@@ -60,52 +60,50 @@
 					
 					<label class="col-sm-3" >Nom : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>" />
+						<input class="form-control" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Adresse : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
+						<input class="form-control" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Ville : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="villeStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
+						<input class="form-control" name="villeStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >CP : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
+						<input class="form-control" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3">Tel : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
+						<input class="form-control" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Email : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
+						<input class="form-control" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 		
 
 					<br/><br/> <br/><br/>
 					<table><tr><td>
-					<input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="modifier_structure" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier cette structure ?"));' /></td>
-					<td><input <?php echo $dispo; ?> class="btn btn-default" type="submit" name="supprimer_structure" value="Supprimer" onclick='return(confirm("Voulez-vous vraiment supprimer cette structure ?"));' /></td>
+					<input class="btn btn-default" type="submit" name="modifier_structure" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier cette structure ?"));' /></td>
+					<td><input class="btn btn-default" type="submit" name="supprimer_structure" value="Supprimer" onclick='return(confirm("Voulez-vous vraiment supprimer cette structure ?"));' /></td>
 				</div>
 			</div>
 		</div>
 	</form>
 	<td>
 			<?php } ?>
-	<form method="POST" action="index.php?uc=maj&action=coordonees_structures">
-		<button type="submit" class="btn btn-default" >Retour</button>
-	</form>
+		<button type="submit" name="retour" class="btn btn-default" >Retour</button>
 	</td></tr></table>

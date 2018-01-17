@@ -1355,7 +1355,7 @@ class Pdo_Inspection {
 	**/
 	public function add_structure($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email) {
 		
-		$req = "INSERT INTO STRUCTURE (NUM_STRUCTURE,NUM_TYPE_STRUCTURE,NOM_STRUCTURE, ADRESSE_STRUCTURE, VILLE_STRUCTURE, CP_STRUCTURE, TELEPHONE_STRUCTURE, EMAIL_STRUCTURE) VALUES(?,?,?,?,?,?,?,?)";
+		$req = "INSERT INTO `structure` (`NUM_STRUCTURE`, `NUM_TYPE_STRUCTURE`, `NOM_STRUCTURE`, `ADRESSE_STRUCTURE`, `VILLE_STRUCTURE`, `CP_STRUCTURE`, `TELEPHONE_STRUCTURE`, `EMAIL_STRUCTURE`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email
         ));

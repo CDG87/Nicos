@@ -226,6 +226,7 @@ switch($action) {
 		
 		
 	case 'coordonees_structures' :
+		include("vue/v_coordonees_structure.php");
 		break;
 		
 		
@@ -316,8 +317,7 @@ switch($action) {
 			include("vue/v_coordonees_structure.php");
 		}
 	}
-		
-		$_SESSION['entpied'] = "coordonees_inspecteur";
+
 		
 		
 	break;
@@ -327,29 +327,31 @@ switch($action) {
 		$maxi=$pdo->get_Max_Num_Structure();
 		$maxi=$maxi['maxi']+1;
 		$pdo->add_structure($maxi,$_POST['lst_structure'],$_POST['nom'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mail']);
-		header('Location:index.php?uc=maj&action=coord_struct');
+		include("vue/v_coordonees_structure.php");
 	}
 	break;
 	
 	case 'modif_coordonees_structure':
 	$lesTypesStructures = $pdo->get_Type_Structure();
-	if(isset($_POST['choix'])){
+	if(isset($_POST['choix']) && !isset($_POST['retour'])){
 		$num=$pdo->get_Adresse_StructureParNom($_POST['nom_structure']);
 		$_SESSION['nomStructure']=$_POST['nom_structure'];
 		$_SESSION['modifStructure']=$num['NUM_STRUCTURE'];
 		$maStructure=$pdo->get_Adresse_Structure($_SESSION['modifStructure']);
-	}
-	if($_SESSION['modifStructure']!=""){
-		$dispo="";
+		include("vue/v_modif_coordonees_structure.php");
 	}
 	if(isset($_POST['supprimer_structure'])){
 		$pdo->delete_Structure($_SESSION['modifStructure']);
+		include("vue/v_coordonees_structure.php");
 	}
 	
 	if(isset($_POST['modifier_structure'])){
 		$pdo->update_Structure($_POST['lst_structure'],$_POST['nom'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mail'],$_SESSION['modifStructure']);
+		include("vue/v_coordonees_structure.php");
 	}
-	include("vue/v_modif_coordonees_structure.php");
+	if(isset($_POST['retour'])){
+		include("vue/v_coordonees_structure.php");
+	}
 	break;
 	
 }
