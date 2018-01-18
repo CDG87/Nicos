@@ -2822,7 +2822,7 @@ class Pdo_Inspection {
 	/**
 	* change une structure
 	**/
-	public function update_Structure($num,$numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email) {
+	public function update_Structure($numtype, $nom_Structure, $adresse,$ville,$cp,$tel,$email,$num) {
 		$req = "UPDATE structure SET NUM_TYPE_STRUCTURE=?,NOM_STRUCTURE=?, ADRESSE_STRUCTURE=?, VILLE_STRUCTURE=?, CP_STRUCTURE=?, TELEPHONE_STRUCTURE=?, EMAIL_STRUCTURE=?
         WHERE NUM_STRUCTURE = ?";
 		$rs = $this->monPdoInspection->prepare($req);
