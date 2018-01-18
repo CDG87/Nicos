@@ -107,3 +107,6 @@
 textarea{
 	font-size : 40px;
 }
+.logo{
+	max-height:100px; width:auto;
+}

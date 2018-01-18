@@ -60,7 +60,7 @@
         if($_SESSION['entpied'] == 'accueil'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
             echo "<h1>Bienvenue sur l'application INspect</h1>";
@@ -69,7 +69,7 @@
 		if($_SESSION['entpied'] == 'connexion'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
             echo "<h1>Connexion</h1>";
@@ -77,7 +77,7 @@
 		if($_SESSION['entpied']=="majVersion"){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Version</h1>";
@@ -85,7 +85,7 @@
 		if($_SESSION['entpied'] == 'identification'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
             echo "<h1>Identification</h1>";
@@ -93,7 +93,7 @@
 		if($_SESSION['entpied'] == 'majCoordInspec'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Modification des coordonnées des inspecteurs</h1>";
@@ -101,7 +101,7 @@
 		if($_SESSION['entpied'] == 'majLogo'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Modification des infos du Centre</h1>";
@@ -109,7 +109,7 @@
         if($_SESSION['entpied'] == 'majCoordStruc'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Modification des Coordonnées des structures</h1>";
@@ -118,7 +118,7 @@
 		 if($_SESSION['entpied'] == 'majCritere'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Selection critere</h1>";
@@ -127,7 +127,7 @@
 		if($_SESSION['entpied'] == 'majCritere2'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
 			$libelleCrit=$pdo->get_ResArticle_Critere($_SESSION['majcritere']);
@@ -136,7 +136,7 @@
 		if($_SESSION['entpied'] == 'creation'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
             echo "<h1>Création</h1>";
@@ -144,7 +144,7 @@
 		if($_SESSION['entpied'] == 'choix_audit'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Choix d'une inspection</h1>";
@@ -153,7 +153,7 @@
 		if($_SESSION['entpied']=='modifArticle'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
             echo "<h1>modification article</h1>";
@@ -162,7 +162,7 @@
 		if($_SESSION['entpied']=='modifOservation'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>modification des observations</h1>";
@@ -171,7 +171,7 @@
 		if($_SESSION['entpied']=='modifProposition'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>modification des Propositions</h1>";
@@ -180,7 +180,7 @@
 		if($_SESSION['entpied']=='modifImage'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>modification de l'image</h1>";
@@ -189,7 +189,7 @@
 		if($_SESSION['entpied'] == 'suppr_audit'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Suppression d'une inspection</h1>";
@@ -197,7 +197,7 @@
 		if($_SESSION['entpied'] == "coordonees_inspecteur"){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Inspecteur</h1>";
@@ -205,14 +205,14 @@
         if($_SESSION['entpied'] == 'partie'){
 			?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Choisir une partie</h1>";
         }
 		if($_SESSION['entpied'] == 'modif'){ ?>
 			<div class="logoCdg">
-			<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
             echo "<h1>Modification d'une inspection</h1>";
@@ -270,7 +270,7 @@
 		if($_SESSION['entpied'] == 'maj'){
 		?>
 			<div class="logoCdg">
-				<img src="<?php echo $path.$infoCentre['LOGO'];?>" />
+				<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<h1>Mise à jour</h1>
 		<?php
