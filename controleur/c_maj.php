@@ -344,7 +344,7 @@ switch($action) {
 	}
 	
 	if(isset($_POST['modifier_structure'])){
-		$pdo->update_Structure($_POST['lst_structure'],$_POST['nom'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mail'],$_SESSION['modifStructure']);
+		$pdo->update_Structure($_POST['lst_structure'],$_POST['nomStructure'],$_POST['adresseStructure'],$_POST['villeStructure'],$_POST['cpStructure'],$_POST['telStructure'],$_POST['mailStructure'],$_SESSION['modifStructure']);
 		include("vue/v_coordonees_structure.php");
 	}
 	if(isset($_POST['retour'])){
