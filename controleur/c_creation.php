@@ -29,7 +29,7 @@ switch($action) {
 		$mesStructures = array();
 		foreach($lesAudits as $unAudit) {
 			$structure = $pdo->get_Adresse_Structure($unAudit['NUM_STRUCTURE']);
-			$maStructure = $structure[3];
+			$maStructure = $structure['NOM_STRUCTURE'];
 			array_push($mesStructures, $maStructure);
 		}
 		include("vue/v_audit_ancien.php");
@@ -45,7 +45,7 @@ switch($action) {
 		$mesStructures = array();
 		foreach($lesAudits as $unAudit) {
 			$structure = $pdo->get_Adresse_Structure($unAudit['NUM_STRUCTURE']);
-			$maStructure = $structure[3];
+			$maStructure = $structure['NOM_STRUCTURE'];
 			array_push($mesStructures, $maStructure);
 		}
 		
@@ -65,7 +65,7 @@ switch($action) {
 		$mesStructures = array();
 		foreach($lesAudits as $unAudit) {
 			$structure = $pdo->get_Adresse_Structure($unAudit['NUM_STRUCTURE']);
-			$maStructure = $structure[3];
+			$maStructure = $structure['NOM_STRUCTURE'];
 			array_push($mesStructures, $maStructure);
 		}
 		include("vue/v_suppr_audit.php");
@@ -83,7 +83,7 @@ switch($action) {
 		$mesStructures = array();
 		foreach($lesAudits as $unAudit) {
 			$structure = $pdo->get_Adresse_Structure($unAudit['NUM_STRUCTURE']);
-			$maStructure = $structure[3];
+			$maStructure = $structure['NOM_STRUCTURE'];
 			array_push($mesStructures, $maStructure);
 		}
 		

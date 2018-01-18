@@ -1,19 +1,8 @@
 <?php
 include("include/entete.php");
 ?>
-<div class="gauchetab">
 <form method="POST" action="index.php?uc=maj&action=modifAdminProposition">
-    <table>
-        <tr>
-                <th>Ajouter une proposition :</th>
-        </tr>
-        <tr>
-			<td><textarea class="form-control" rows="7" name='newnomproposition' cols='150' maxlength='370' placeholder="Nom de la proposition"></textarea></td>
-			<td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
-        </tr>
-    </table>
-</div>
-            <div class="gauchetab">
+<div class="gauchetab">
                 <table>
                     <tr>
                        
@@ -42,12 +31,26 @@ include("include/entete.php");
                     <tr>
                                     <th>Nouveau nom :</th>
                                     <td>
-                                        <textarea class="form-control" rows="5" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
+                                        <textarea class="form-control" rows="7" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette proposition ?"));'/></td>
 									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
-                                </form>
+                                
                     </tr>
                 </table>
             </div>
+<div class="gauchetab">
+
+    <table>
+        <tr>
+                <th>Ajouter une proposition :</th>
+        </tr>
+        <tr>
+			<td><textarea class="form-control" rows="7" name='newnomproposition' cols='150' maxlength='370' placeholder="Nom de la proposition"></textarea></td>
+			<td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
+        </tr>
+    </table>
+</div>
+</form>
+            
 			

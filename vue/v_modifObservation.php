@@ -1,8 +1,46 @@
 <?php
 include("include/entete.php");
 ?>
-<div class="gauchetab">
 <form method="POST" action="index.php?uc=maj&action=modifAdminObservation">
+<div class="gauchetab">
+                <table>
+                    <tr>
+						</br></br></br></br>
+                        <th>Modifier une observation :</th>
+                        <td><select name = "idobservation" size = "1" class="form-control" onchange="submit()">
+                                <option selected disabled>Choisir</option>
+                                <?php
+                                    foreach ($listeObservation as $loc){
+                                        $numobs = $loc['NUM_OBSERVATION'];
+                                        $libobs = $loc['LIBELLE_OBSERVATION'];
+                                        $selected = '';
+                                        if($numobs == $_SESSION['numObs']){
+                                ?>
+								
+								 <option selected value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
+										<?php }else{ ?>
+                                <option value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
+                                <?php
+										}
+                                    }
+                                ?>
+                            </select></td>
+                                    <td>
+                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
+                                    </td>
+                    </tr>
+                    <tr>
+                                    <th>Nouveau nom :</th>
+                                    <td>
+                                        <textarea class="form-control" rows="7" name='nomobs' cols='150' maxlength='500' autofocus><?php echo $_SESSION['textObs'] ?></textarea>
+                                    </td>
+                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette observation ?"));'/></td>
+									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
+                    </tr>
+                </table>
+            </div>
+<div class="gauchetab">
+
     <table>
         <tr>
                 <th>Ajouter une observation :</th>
@@ -34,42 +72,5 @@ include("include/entete.php");
                     </tr>
                 </table>
             </div>
-            <div class="gauchetab">
-                <table>
-                    <tr>
-						</br></br></br></br>
-                        <th>Modifier une observation :</th>
-                        <td><select name = "idobservation" size = "1" class="form-control" onchange="submit()">
-                                <option selected disabled>Choisir</option>
-                                <?php
-                                    foreach ($listeObservation as $loc){
-                                        $numobs = $loc['NUM_OBSERVATION'];
-                                        $libobs = $loc['LIBELLE_OBSERVATION'];
-                                        $selected = '';
-                                        if($numobs == $_SESSION['numObs']){
-                                ?>
-								
-								 <option selected value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
-										<?php }else{ ?>
-                                <option value="<?php echo $numobs; ?>"><?php echo $libobs; ?></option>
-                                <?php
-										}
-                                    }
-                                ?>
-                            </select></td>
-                                    <td>
-                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
-                                    </td>
-                    </tr>
-                    <tr>
-                                    <th>Nouveau nom :</th>
-                                    <td>
-                                        <textarea class="form-control" rows="5" name='nomobs' cols='150' maxlength='500' autofocus> <?php echo $_SESSION['textObs'] ?></textarea>
-                                    </td>
-                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette observation ?"));'/></td>
-									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
-                                </form>
-                    </tr>
-                </table>
-            </div>
+            </form>
 			
