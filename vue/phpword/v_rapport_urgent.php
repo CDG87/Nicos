@@ -138,7 +138,8 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
 					foreach($lesPreconisationsOrg as $unePreconisationOrg) {
 						if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							$section->addText(htmlspecialchars($unePreconisationOrg['LIBELLE_PRECONISATION']));
+							$unePreconisationOrgLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationOrg['LIBELLE_PRECONISATION']);
+							$section->addText($unePreconisationOrgLibellePreconisation, $textBase);
 						}
 						
 					}
@@ -189,7 +190,8 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
 						foreach($lesPreconisationsSite as $unePreconisationSite) {
 							if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-								$section->addText(htmlspecialchars($unePreconisationSite['LIBELLE_PRECONISATION']));
+								$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationSite['LIBELLE_PRECONISATION']);
+								$section->addText($unePreconisationSiteLibellePreconisation, $textBase);
 							}	
 						}
 				}
