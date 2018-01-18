@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 18 Janvier 2018 à 13:53
+-- Généré le: Jeu 18 Janvier 2018 à 14:14
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -40,23 +40,16 @@ CREATE TABLE IF NOT EXISTS `audit` (
   `LIBELLE_AUDIT` varchar(50) DEFAULT NULL,
   `DATE_CONTROLE_AUDIT` date DEFAULT NULL,
   PRIMARY KEY (`NUM_AUDIT`),
-  KEY `I_FK_AUDIT_CONTROLEUR` (`NUM_CONTROLEUR`),
-  KEY `I_FK_AUDIT_STRUCURE` (`NUM_STRUCTURE`)
+  KEY `fk_num_structure` (`NUM_STRUCTURE`),
+  KEY `fk_num_controleur` (`NUM_CONTROLEUR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déclencheurs `audit`
+-- Contenu de la table `audit`
 --
-DROP TRIGGER IF EXISTS `incre_audit`;
-DELIMITER //
-CREATE TRIGGER `incre_audit` BEFORE INSERT ON `audit`
- FOR EACH ROW BEGIN
-	DECLARE increaudit INTEGER;
-	SET increaudit = (SELECT COALESCE(MAX(NUM_AUDIT), 0) + 1 FROM audit);
-	SET NEW.NUM_AUDIT = increaudit;
-END
-//
-DELIMITER ;
+
+INSERT INTO `audit` (`NUM_AUDIT`, `NUM_CONTROLEUR`, `NUM_STRUCTURE`, `DATE_AUDIT`, `DATE_AUDIT_2`, `DATE_AUDIT_3`, `DATE_AUDIT_4`, `DATE_AUDIT_5`, `LIBELLE_AUDIT`, `DATE_CONTROLE_AUDIT`) VALUES
+(0, 2, 41, '1651-05-16', NULL, NULL, NULL, NULL, 'Inspection', '1651-05-16');
 
 -- --------------------------------------------------------
 
@@ -2733,7 +2726,7 @@ CREATE TABLE IF NOT EXISTS `structure` (
   `NOM_STRUCTURE` varchar(100) DEFAULT NULL,
   `ADRESSE_STRUCTURE` varchar(100) DEFAULT NULL,
   `VILLE_STRUCTURE` varchar(100) NOT NULL,
-  `CP` int(5) NOT NULL,
+  `CP_STRUCTURE` int(5) NOT NULL,
   `TELEPHONE_STRUCTURE` varchar(10) DEFAULT NULL,
   `EMAIL_STRUCTURE` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`NUM_STRUCTURE`),
@@ -2744,7 +2737,7 @@ CREATE TABLE IF NOT EXISTS `structure` (
 -- Contenu de la table `structure`
 --
 
-INSERT INTO `structure` (`NUM_STRUCTURE`, `NUM_TYPE_STRUCTURE`, `NOM_STRUCTURE`, `ADRESSE_STRUCTURE`, `VILLE_STRUCTURE`, `CP`, `TELEPHONE_STRUCTURE`, `EMAIL_STRUCTURE`) VALUES
+INSERT INTO `structure` (`NUM_STRUCTURE`, `NUM_TYPE_STRUCTURE`, `NOM_STRUCTURE`, `ADRESSE_STRUCTURE`, `VILLE_STRUCTURE`, `CP_STRUCTURE`, `TELEPHONE_STRUCTURE`, `EMAIL_STRUCTURE`) VALUES
 (1, 2, 'CAISSE DES ECOLES de PANAZOL', 'Mairie Rue Jean Monnet', 'LIMOGES', 87000, '', ''),
 (2, 2, 'CCAS de BELLAC', '14 place de la République', 'BELLAC', 8730, '', 'ccasbellac@wanadoo.fr'),
 (3, 2, 'CCAS de CHATEAUPONSAC', '22 avenue du 08 mai 1945', 'CHATEAUPONSAC', 87290, '', 'ehpad.chateauponsac@wanadoo.fr'),
@@ -3135,8 +3128,8 @@ INSERT INTO `version` (`NUM_VERSION`, `VALEUR_VERSION`) VALUES
 -- Contraintes pour la table `audit`
 --
 ALTER TABLE `audit`
-  ADD CONSTRAINT `audit_ibfk_1` FOREIGN KEY (`NUM_CONTROLEUR`) REFERENCES `controleur` (`NUM_CONTROLEUR`),
-  ADD CONSTRAINT `audit_ibfk_2` FOREIGN KEY (`NUM_STRUCTURE`) REFERENCES `test`.`strucure` (`NUM_STRUCTURE`);
+  ADD CONSTRAINT `fk_num_controleur` FOREIGN KEY (`NUM_CONTROLEUR`) REFERENCES `controleur` (`NUM_CONTROLEUR`),
+  ADD CONSTRAINT `fk_num_structure` FOREIGN KEY (`NUM_STRUCTURE`) REFERENCES `structure` (`NUM_STRUCTURE`);
 
 --
 -- Contraintes pour la table `batiment`
@@ -3148,14 +3141,14 @@ ALTER TABLE `batiment`
 -- Contraintes pour la table `comprendre`
 --
 ALTER TABLE `comprendre`
-  ADD CONSTRAINT `comprendre_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`),
+  ADD CONSTRAINT `comprendre_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`),
   ADD CONSTRAINT `comprendre_ibfk_2` FOREIGN KEY (`NUM_OBSERVATION`) REFERENCES `observation` (`NUM_OBSERVATION`);
 
 --
 -- Contraintes pour la table `contenir`
 --
 ALTER TABLE `contenir`
-  ADD CONSTRAINT `contenir_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`),
+  ADD CONSTRAINT `contenir_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`),
   ADD CONSTRAINT `contenir_ibfk_2` FOREIGN KEY (`NUM_LIEU`) REFERENCES `lieu` (`NUM_LIEU`),
   ADD CONSTRAINT `contenir_ibfk_3` FOREIGN KEY (`NUM_PRECONISATION`) REFERENCES `preconisation` (`NUM_PRECONISATION`);
 
@@ -3164,13 +3157,13 @@ ALTER TABLE `contenir`
 --
 ALTER TABLE `controler`
   ADD CONSTRAINT `controler_ibfk_1` FOREIGN KEY (`NUM_BATIMENT`) REFERENCES `batiment` (`NUM_BATIMENT`),
-  ADD CONSTRAINT `controler_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`);
+  ADD CONSTRAINT `controler_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`);
 
 --
 -- Contraintes pour la table `controle_critere`
 --
 ALTER TABLE `controle_critere`
-  ADD CONSTRAINT `controle_critere_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`),
+  ADD CONSTRAINT `controle_critere_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`),
   ADD CONSTRAINT `controle_critere_ibfk_3` FOREIGN KEY (`NUM_CRITERE`) REFERENCES `critere` (`NUM_CRITERE`);
 
 --
@@ -3184,7 +3177,7 @@ ALTER TABLE `critere`
 -- Contraintes pour la table `disposer`
 --
 ALTER TABLE `disposer`
-  ADD CONSTRAINT `disposer_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`),
+  ADD CONSTRAINT `disposer_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`),
   ADD CONSTRAINT `disposer_ibfk_2` FOREIGN KEY (`NUM_PRECONISATION`) REFERENCES `preconisation` (`NUM_PRECONISATION`);
 
 --
@@ -3197,7 +3190,7 @@ ALTER TABLE `image_critere`
 -- Contraintes pour la table `inscrire`
 --
 ALTER TABLE `inscrire`
-  ADD CONSTRAINT `inscrire_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`),
+  ADD CONSTRAINT `inscrire_ibfk_1` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`),
   ADD CONSTRAINT `inscrire_ibfk_2` FOREIGN KEY (`NUM_LIEU`) REFERENCES `lieu` (`NUM_LIEU`),
   ADD CONSTRAINT `inscrire_ibfk_3` FOREIGN KEY (`NUM_CRITERE`) REFERENCES `critere` (`NUM_CRITERE`);
 
@@ -3224,7 +3217,7 @@ ALTER TABLE `participant`
 --
 ALTER TABLE `participer`
   ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`NUM_PARTICIPANT`) REFERENCES `participant` (`NUM_PARTICIPANT`),
-  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `audit` (`NUM_AUDIT`);
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`NUM_AUDIT`) REFERENCES `test`.`audit` (`NUM_AUDIT`);
 
 --
 -- Contraintes pour la table `preconisation`
