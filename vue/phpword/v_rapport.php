@@ -414,6 +414,9 @@ if(isset($_SESSION['choix_creation'])) {
 
 	/*************************** PARTIE ORGANISATIONNEL ***************************/
 
+	
+		if(sizeof($lesInfosCriteresCoOrg)>0){
+		
 			//Titre partie
 			$section->addText('Organisationnel', 'title_partie', 'center');
 			
@@ -533,9 +536,10 @@ if(isset($_SESSION['choix_creation'])) {
 			}
 			$section->addPageBreak(); //saut de page	
 			
-
+		}
 			/*************************** PARTIE SUR SITE ***************************/
 			
+			if(sizeof($lesInfosCriteresCoSite)>0){
 			//Titre partie
 			$section->addText('Sur site', 'title_partie', 'center');
 
@@ -658,16 +662,17 @@ if(isset($_SESSION['choix_creation'])) {
 				
 			}
 			$section->addPageBreak();
-	 
+			}
 		/*************************** CONCLUSION ***************************/
-			
+			if(sizeof($statsORG)>0 || sizeof($statsSITE)>0 || sizeof($statsFamille)>0){
 			$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
 			$section->addTextBreak(1);
 			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 			$section->addTextBreak(1);
-			
+			}
 			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 				//statistique organisation
+				if(sizeof($statsORG)>0){
 				$section->addText(htmlspecialchars("Nombre de non-conformités organisationnel "), $menu1,'st1');
 				
 				$titles=array(); //legende des sommets
@@ -730,9 +735,9 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addTextBreak(1);
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
-				
+				}
 				//------------------------------------------------------------------
-				
+				if(sizeof($statsSITE)>0){
 				//statistique site
 				$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
 				
@@ -796,9 +801,9 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addTextBreak(1);
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
-				
+				}
 				//------------------------------------------------------------------
-				
+				if(sizeof($statsFamille)>0){
 				//stats par theme
 				$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
 				
@@ -859,7 +864,7 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 				
 				
-				
+				}
 				$section->addTextBreak(5); //saut de page
 			}
 		
