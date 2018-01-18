@@ -222,14 +222,6 @@ switch($action) {
 			
 		break;
 		
-		
-		
-		
-	case 'coordonees_structures' :
-		include("vue/v_coordonees_structure.php");
-		break;
-		
-		
 	case 'coordonees_inspecteur' :
 	$_SESSION['entpied']="majCoordInspec";
 	if(isset($_POST['creer_inspect'])){
@@ -299,6 +291,12 @@ switch($action) {
 		$_SESSION['entpied']="maj";
 		include('vue/v_maj.php');
 	break;
+	
+	
+	
+	case 'coordonees_structures' :
+		include("vue/v_coordonees_structure.php");
+		break;
 	
 	case 'coord_struct':
 		$_SESSION['entpied']="majCoordStruc";
