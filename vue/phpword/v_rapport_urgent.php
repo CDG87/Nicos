@@ -119,6 +119,10 @@ if(isset($_SESSION['choix_creation'])) {
 					
 					//Observations
 					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+									$textrun = $section->addTextRun('center');
+				if($uneInfoCritereCoOrg['PHOTO_CRITERE'] != NULL){
+					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
+				}
 					foreach($lesObservationsOrg as $uneObservationOrg) {
 						
 						if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
@@ -143,7 +147,7 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 				$section->addTextBreak(2);
 			}
-			
+			/**     -------------------------------------------------**/
 			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
 				
 				if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {
@@ -168,6 +172,9 @@ if(isset($_SESSION['choix_creation'])) {
 					
 					//Observations
 					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+					if($uneInfoCritereCoSite['PHOTO_CRITERE'] != NULL){
+						$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
+					}
 					foreach($lesObservationsSite as $uneObservationSite) {
 						
 						if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
