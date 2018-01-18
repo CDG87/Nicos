@@ -82,7 +82,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$textrun->addText("Service Prévention des Risques Professionnels");
 	$table->addCell(4500)->addImage(
 		'images/'.$infoCentre['LOGO'],
-		array('width' => 180, 'align' => 'right')
+		array('height' => 100, 'align' => 'right')
 	);
 
 		$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
