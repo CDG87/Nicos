@@ -87,6 +87,7 @@ switch($action) {
 	
 	
 	case 'genererMesure':
+	$infoCentre=$pdo->get_Info_Centre();
 		$infosaudit = $pdo->get_Audit_En_Cours($_SESSION['audit']);
 		$statsORG=$pdo->get_nbRougeORG($_SESSION['audit']);
 		$statsSITE=$pdo->get_nbRougeSITE($_SESSION['audit']);
