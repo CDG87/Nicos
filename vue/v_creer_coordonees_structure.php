@@ -43,7 +43,7 @@
 					
 					<label class="col-sm-3" >CP : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="cp" required />
+						<input type="number" class="form-control" name="cp" required />
 					</div>
 					<br/><br/>
 					

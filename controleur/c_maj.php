@@ -107,7 +107,7 @@ switch($action) {
 						$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
 						if($nbImage['NB']!=0){
 							$image=$pdo->get_Liste_IMGCR($_SESSION['majcritere']);	
-							$image=$image['LIBELLE_IMAGE_CRITERE'];
+							//$image=$image['LIBELLE_IMAGE_CRITERE'];
 						}else{
 							$image=-1;
 						}

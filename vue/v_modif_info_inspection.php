@@ -68,7 +68,7 @@
 		<!-- CP_STRUCTURE -->
 		<label class="col-sm-3" for="cp_structure">Code postal structure:</label>
 		<div class="col-sm-4">
-			<input class="form-control" required="required" type="text" name="cp_structure" id="cp_structure" value="<?php echo $infosstructcp['CP_STRUCTURE'];?>" />
+			<input class="form-control" required="required" type="number" name="cp_structure" id="cp_structure" value="<?php echo $infosstructcp['CP_STRUCTURE'];?>" />
 			
 		</div>
 	</div><br/><br/>

@@ -78,7 +78,7 @@
 					
 					<label class="col-sm-3" >CP : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
+						<input type="number" class="form-control" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					

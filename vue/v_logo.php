@@ -20,7 +20,7 @@
 					<br/><br/>
 					<label class="col-sm-3" for="nom_inspecteur">CP : * </label>
 					<div class="col-sm-4">
-						<input  class="form-control" name="cp" value="<?php  echo $infoCentre['CP']; ?>"  />
+						<input type="number"  class="form-control" name="cp" value="<?php  echo $infoCentre['CP']; ?>"  />
 					</div>
 					<br/><br/>
 					<label class="col-sm-3" for="nom_inspecteur">Ville : * </label>

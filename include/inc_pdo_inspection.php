@@ -1113,13 +1113,12 @@ class Pdo_Inspection {
 	* Récupère les images d'un critère à partir d'un critere
 	**/
 	public function get_Liste_IMGCR($numcr) {
-		
 		$req = "SELECT NUM_IMAGE_CRITERE, LIBELLE_IMAGE_CRITERE FROM IMAGE_CRITERE WHERE NUM_CRITERE = :numcr";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numcr' => $numcr
 		));
-		$ligne = $rs->fetchAll();
+		$ligne = $rs->fetch();
 		return $ligne;
 	}
     
