@@ -225,20 +225,29 @@ switch($action) {
 	case 'coordonees_inspecteur' :
 	$_SESSION['entpied']="majCoordInspec";
 	if(isset($_POST['creer_inspect'])){
+		$_SESSION['entpied'] = "coordonees_inspecteur";
 		include("vue/v_creer_coordonees_inspecteur.php");
+		
 	}else{
 		if(isset($_POST['modif_suppr_inspec'])){
 			$lesControleurs = $pdo->get_Controleur();
 			$_SESSION['modifInspect']="";
 			$dispo="disabled";
+			$_SESSION['entpied'] = "coordonees_inspecteur";
 			include("vue/v_modif_coordonees_inspecteur.php");
+			
 		}else{
-			include("vue/v_coordonees_inspecteur.php");
+			if(isset($_POST['retour'])){
+				$_SESSION['entpied'] = "maj";
+				include('vue/v_maj.php');
+				
+			}else{
+				$_SESSION['entpied'] = "coordonees_inspecteur";
+				include("vue/v_coordonees_inspecteur.php");
+				
+			}
 		}
 	}
-		
-		$_SESSION['entpied'] = "coordonees_inspecteur";
-		
 		
 		break;
 		
@@ -299,10 +308,11 @@ switch($action) {
 		break;
 	
 	case 'coord_struct':
-		$_SESSION['entpied']="majCoordStruc";
+		
 		
 		if(isset($_POST['creer_struct'])){
 			$lesStructures = $pdo->get_Type_Structure();
+			$_SESSION['entpied']="majCoordStruc";
 		include("vue/v_creer_coordonees_structure.php");
 		
 	}else{
@@ -310,8 +320,14 @@ switch($action) {
 			$lesTypesStructures = $pdo->get_Type_Structure();
 			$_SESSION['modifStructure']="";
 			$dispo="disabled";
+			$_SESSION['entpied']="majCoordStruc";
 			include("vue/v_modif_coordonees_structure.php");
 		}else{
+			if(isset($_POST['retour'])){
+				$_SESSION['entpied']="maj";
+				include('vue/v_maj.php');
+			}
+			$_SESSION['entpied']="majCoordStruc";
 			include("vue/v_coordonees_structure.php");
 		}
 	}
