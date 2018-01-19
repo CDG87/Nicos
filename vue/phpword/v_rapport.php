@@ -248,7 +248,7 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		/*************************** IDENTIFICATION AUDIT ***************************/
 		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
-		$section->addTitle(htmlspecialchars('Infos contrôleur'), 3);
+		$section->addTitle(htmlspecialchars('Informations contrôleur'), 3);
 		}else{
 			$section->addTitle(htmlspecialchars('conseiller en prévention'), 3);
 		}

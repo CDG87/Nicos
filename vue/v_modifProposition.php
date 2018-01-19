@@ -4,10 +4,12 @@ include("include/entete.php");
 <form method="POST" action="index.php?uc=maj&action=modifAdminProposition">
 <div class="gauchetab">
                 <table>
-                    <tr>
+                    
                        
-						</br></br></br></br>
+						</br></br><tr>
                         <th>Modifier une Proposition :</th>
+						</tr>
+						<tr>
                         <td><select name = "idproposition" size = "1" class="form-control" onchange="submit()">
                                 <option selected disabled>Choisir</option>
                                 <?php
@@ -30,6 +32,8 @@ include("include/entete.php");
                     </tr>
                     <tr>
                                     <th>Nouveau nom :</th>
+									</tr>
+									<tr>
                                     <td>
                                         <textarea class="form-control" rows="7" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
                                     </td>

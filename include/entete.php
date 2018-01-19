@@ -156,7 +156,7 @@
 			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
-            echo "<h1>modification article</h1>";
+            echo "<h1>Article</h1>";
         }
 		
 		if($_SESSION['entpied']=='modifOservation'){
@@ -165,7 +165,7 @@
 			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
-            echo "<h1>modification des observations</h1>";
+            echo "<h1>Modification des observations</h1>";
         }
 		
 		if($_SESSION['entpied']=='modifProposition'){
@@ -174,7 +174,7 @@
 			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
-            echo "<h1>modification des Propositions</h1>";
+            echo "<h1>Modification des Propositions</h1>";
         }
 		
 		if($_SESSION['entpied']=='modifImage'){
@@ -183,7 +183,7 @@
 			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
 			</div>
 			<?php
-            echo "<h1>modification de l'image</h1>";
+            echo "<h1>Modification de l'image</h1>";
         }
 		
 		if($_SESSION['entpied'] == 'suppr_audit'){

@@ -669,7 +669,7 @@
                         <th>Ajouter une proposition :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la préconisation"></textarea></td>
+                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </form>
                     </tr>
@@ -710,7 +710,7 @@
                                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=preconisation&nt=non&aj=non&aft=non&mo=non&sup=oui&cho=non'>
                                     <td>
                                         <input type="hidden" name="numpreco" value="<?php echo $_SESSION['idpreconisation']; ?>"/>
-                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette préconisation ?"));'/>
+                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette proposition ?"));'/>
                                     </td>
                                 </form> 
                     </tr>
