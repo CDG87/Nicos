@@ -126,7 +126,7 @@ if(isset($_SESSION['choix_creation'])) {
 			if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addTitle(htmlspecialchars('Informations contrôleur'), 3);
 			}else{
-				$section->addTitle(htmlspecialchars('conseiller en prevention'), 3);
+				$section->addTitle(htmlspecialchars('conseiller en prévention'), 3);
 			}
 			foreach($lesInfosControleur as $uneInfoControleur) {
 				$section->addText(htmlspecialchars($uneInfoControleur['PRENOM_CONTROLEUR'] . ' ' . $uneInfoControleur['NOM_CONTROLEUR']),'coord_audit');

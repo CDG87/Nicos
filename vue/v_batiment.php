@@ -34,7 +34,7 @@ include("include/entete.php");
     </tr>
 </table>	
 		
-		<h1>Ajout d'un batiment manuel</h1>
+		<h1>Ajout d'un bâtiment temporaire</h1>
 		<form method='POST' action='index.php?uc=sursite&action=batiment&nt=oui'>
 		<table>
             <tr>
