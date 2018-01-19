@@ -10,6 +10,7 @@ else{
     for($i = 0;$i < count($_SESSION['tabobsR']);$i++){
         ?>
             <button type="button" class="btn btn-danger btn-obs" disabled="disabled"><?php echo $_SESSION['tabobsR'][$i]; ?></button>
+			</br></br>
         <?php
     }
     ?>
@@ -53,7 +54,8 @@ else{
                 <td>
                     <button name="btnpreco" type="submit" class="btn btn-default <?php echo $choef; ?> btn-preco" value="<?php echo $numpreco; ?>" <?php echo $choaut.' '.$codePreco; ?>><?php echo $libpreco; ?></button>
                 </td>
-            </tr>            
+            </tr>
+
         <?php
             }
         ?>

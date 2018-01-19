@@ -172,15 +172,7 @@ else{
                             <span class='btn_sco last'>Conforme</span>
                             </input>
                         </label>
-						<?php if($_SESSION['isAdmin']==1){ ?>
-							<div id='SAD'>
-								<label class='lab_con'>
-									<input class='btn_conf' name='conf' type='radio' value='SA' >
-										<span class='btn_sco' id="SA">Sans avis</span>
-									</input>
-								</label>
-							</div>
-						<?php } ?>
+						
                     </div>
                 </td>
             </tr>
