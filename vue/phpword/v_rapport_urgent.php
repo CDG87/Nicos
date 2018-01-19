@@ -197,7 +197,7 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 					$section->addTextBreak(2);
 			}
-			
+			$section->addPageBreak();
 			$tablette = $section->addTable('myOwnTableStyle');
 				$tablette->addRow();
 					$cell = $tablette->addCell(5000);

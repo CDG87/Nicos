@@ -15,4 +15,11 @@
 			</form>
 			</td>
 		</tr>
+		<tr>
+		<td>
+			<form method="POST" action="index.php?uc=maj&action=coord_struct">
+				<button type="submit" class="btn btn-art btn-primary" name="retour">Retour</button>
+			</form>
+			</td>
+		</tr>
 	</table>
