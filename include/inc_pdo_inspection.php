@@ -1121,6 +1121,19 @@ class Pdo_Inspection {
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
+	
+	/**
+	* Récupère les images d'un critère à partir d'un critere
+	**/
+	public function get_Liste_IMGCR2($numcr) {
+		$req = "SELECT NUM_IMAGE_CRITERE, LIBELLE_IMAGE_CRITERE FROM IMAGE_CRITERE WHERE NUM_CRITERE = :numcr";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array(
+			'numcr' => $numcr
+		));
+		$ligne = $rs->fetchAll();
+		return $ligne;
+	}
     
     /**
 	* Récupère les observations à partir d'un tableau de numéros
@@ -1795,7 +1808,7 @@ class Pdo_Inspection {
 		$rs->execute(array('version' => $version));
 	}
 	
-		/**
+	/**
 	* Modif de l'image pour un critere
 	**/
 	public function update_Image_Critere($critere, $libelle) {
@@ -1804,7 +1817,17 @@ class Pdo_Inspection {
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($libelle,$critere
         ));
+	}
+	
+	/**
+	* supprime l'image pour un critere
+	**/
+	public function suppr_Image_Critere($critere) {
 		
+		$req = "DELETE FROM IMAGE_CRITERE WHERE NUM_CRITERE=?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($critere
+        ));
 	}
 	
 	/**

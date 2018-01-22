@@ -148,55 +148,68 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addTextBreak(2);
 			}
 			/**     -------------------------------------------------**/
-			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
 				
+			foreach($lesInfosCriteresCoSite as $uneInfoCritereCoSite) {
 				if($uneInfoCritereCoSite['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoSite['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoSite['VALEUR_CRITERE'] == '<C')) {
 					$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-				$sstheme='';
-					//batiment - lieu
+					$sstheme='';
 					foreach($lesSTCr as $unSTCr) {
 						if($unSTCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							//Sous-thème
 							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
 						}
 					}
 					if($sstheme!=''){
 						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
+						$section-> addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
+						$section-> addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
 					}else{
 						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_BATIMENT']." - ".$uneInfoCritereCoSite['NOM_LIEU']),$menu1,'st1');
-						$section->addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']), $menu2, 'st1');
-						$section->addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');
+						$section-> addText(htmlspecialchars($uneInfoCritereCoSite['NOM_THEME']), $menu2, 'st1');
+						$section-> addText(htmlspecialchars("► ".$uneInfoCritereCoSite['LIBELLE_CRITERE']), $menu2, 'st1');					
 					}
 					
-					//Observations
-					$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
-					if($uneInfoCritereCoSite['PHOTO_CRITERE'] != NULL){
-						$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
-					}
-					foreach($lesObservationsSite as $uneObservationSite) {
-						
-						if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
-							if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
-								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
-							}else { //rouge
-								$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_r');
-							}
-						}
-					}
-					
-					//Préconisations
-					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
-						foreach($lesPreconisationsSite as $unePreconisationSite) {
-							if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-								$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationSite['LIBELLE_PRECONISATION']);
-								$section->addText($unePreconisationSiteLibellePreconisation, $textBase);
-							}	
-						}
+
+				//Observations
+				$nb=0;
+				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
+				$textrun = $section->addTextRun('center');
+				if($uneInfoCritereCoSite['PHOTO_CRITERE'] != NULL){
+					//Image téléchargée		
+					$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
-					$section->addTextBreak(2);
+				
+				foreach($lesObservationsSite as $uneObservationSite) {
+					
+					if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
+						if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
+							$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
+						}else { //rouge
+							$nb=$nb+1;
+							$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_r');
+						}
+					}
+				}
+				
+				//Préconisations
+				if($nb!=0){
+					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
+					foreach($lesPreconisationsSite as $unePreconisationSite) {
+						if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
+							$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationSite['LIBELLE_PRECONISATION']);
+							$section->addText($unePreconisationSiteLibellePreconisation, $textBase);
+						}
+						
+					}
+				}
+				$section->addText(htmlspecialchars($uneInfoCritereCoSite['PRECONISATION_CRITERE']), $textBase);
+				
+				$section->addTextBreak(2);
+				
 			}
+			}
+			
+			
+			
 			$section->addPageBreak();
 			$tablette = $section->addTable('myOwnTableStyle');
 				$tablette->addRow();

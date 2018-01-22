@@ -557,7 +557,7 @@ switch($action) {
 			$listearticle = $pdo->get_ResArticle_Critere($_SESSION['numcritere']);
 			$_SESSION['numarticle'] = $listearticle['NUM_RESUME_ARTICLE'];
 			$_SESSION['articlecritere'] = $listearticle['DESCRIPTION_RESUME_ARTICLE'];
-			$listeimgcr = $pdo->get_Liste_IMGCR($_SESSION['numcritere']);
+			$listeimgcr = $pdo->get_Liste_IMGCR2($_SESSION['numcritere']);
             include("vue/v_article.php");
             break;
 			

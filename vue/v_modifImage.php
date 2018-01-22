@@ -20,5 +20,6 @@ include("include/entete.php");
         </tr>
 	</table>
 	<input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette image ?"));'/>
+	<input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette image ?"));'/>
 	<button type="submit" class="btn btn-default" name="retour">Retour</button>
 </form>

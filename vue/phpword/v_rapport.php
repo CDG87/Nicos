@@ -228,8 +228,8 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addTitle(htmlspecialchars('Objectifs visés par le CDG87'), 3);
 		$section->addText(htmlspecialchars("Il s'agit d'un diagnostic permettant d'apporter une appréciation extérieure et objective des difficultés rencontrées. Il n'a cependant pas pour objectif de recenser tous les risques de façon exhaustive, l'ensemble des activités ne pouvant être observé."));
 		$section->addText(htmlspecialchars("Ce rapport vise à constituer un véritable outil d'aide à la décision permettant de planifier les investissements matériels et les ajustements organisationnels à réaliser."));
-		$section->addText(htmlspecialchars("En effet, au-delà de l’aspect de conformité réglementaire ou de non-conformité, l’ensemble des points analysés est complété de diverses recommandations et de pistes de réflexion destinées aux acteurs de la prévention au sein de la structure."));
-		$section->addText(htmlspecialchars("La mission d’inspection n’est pas une mission de conseil stricto sensu. Cependant, elle vise à aller au-delà d’un simple audit réglementaire afin de proposer à la collectivité un véritable outil d’aide à la décision grâce au rapport."));
+		$section->addText(htmlspecialchars("En effet, au-delà de l’aspect de conformité réglementaire ou de non-conformité, l’ensemble des points analysés est complété de diverses propositions et de pistes de réflexion destinées aux acteurs de la prévention au sein de la structure."));
+		$section->addText(htmlspecialchars("La mission d’inspection n’est pas une mission de conseil stricto sensu. Cependant, elle vise à aller au-delà d’un simple contrôle réglementaire afin de proposer à la collectivité un véritable outil d’aide à la décision grâce au rapport."));
 		
 		$section->addTextBreak(9);
 		//Composition du rapport 
@@ -266,7 +266,7 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		//Adresse structure
 		$section->addTitle(htmlspecialchars('Coordonnées de la structure'), 3);
-		$section->addText(htmlspecialchars("Nom : " . $_SESSION['nom_structure']));
+		$section->addText(htmlspecialchars($_SESSION['nom_structure']));
 		$section->addText(htmlspecialchars($adresseStructure['ADRESSE_STRUCTURE']));
 		$section->addText(htmlspecialchars($adresseStructure['CP_STRUCTURE']));
 		$section->addText(htmlspecialchars($adresseStructure['VILLE_STRUCTURE']));
@@ -399,15 +399,18 @@ if(isset($_SESSION['choix_creation'])) {
 		}
 		
 		$section->addTextBreak(1);
-		$section->addText(htmlspecialchars("La règlementation et/ou les recommandations relatives à chaque critère sont à prendre en compte au jour de la visite, les dernières versions règlementaires en vigueur sont disponibles sur le site www.legifrance.gouv.fr ou auprès du service de prévention des risques professionnels du Centre Départemental de Gestion de la Haute-Vienne."));
+		$section->addText(htmlspecialchars("La règlementation et/ou les propositions relatives à chaque critère sont à prendre en compte au jour de la visite, les dernières versions règlementaires en vigueur sont disponibles sur le site www.legifrance.gouv.fr ou auprès du service de prévention des risques professionnels du Centre Départemental de Gestion de la Haute-Vienne."));
 		$section->addTextBreak(1);
 		
 		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
-			$section->addTitle(htmlspecialchars('Principales remarques et propositions'), 3);
-			$section->addText(htmlspecialchars("Rétrospective des remarques les plus marquantes sur lesquelles des actions doivent être mises en œuvre et pour lesquelles le Comité doit être informé et un retour à l’ACFI doit être effectué."));
+			$section->addTitle(htmlspecialchars('Le relevé des mesures urgentes'), 3);
+			$section->addText(htmlspecialchars("Rétrospective des non conformités nécessitant la mise en oeuvre de mesures immédiates (un document sera envoyé à l'autorité territoriale à l'issue de l'inspection)."));
 			$section->addTextBreak(1);
 			$section->addTitle(htmlspecialchars('Le bilan des non-conformités'), 3);
 			$section->addText(htmlspecialchars("L'objectif étant de répertorier les non-conformités les plus fréquentes dans la partie organisationnelle, en fonction des bâtiments contrôlés et selon les familles de risques."));
+			$section->addTextBreak(1);
+			$section->addTitle(htmlspecialchars('Les suites données aux propositions'), 3);
+			$section->addText(htmlspecialchars("Tableau récapitulatif des non conformités sur lesquelles des actions doivent être mises en oeuvre et pour lesquelles le Comité doit être informé et un retour à l'ACFI doit être effectué."));
 			$section->addPageBreak(); //saut de page
 		}
 	}
@@ -495,7 +498,6 @@ if(isset($_SESSION['choix_creation'])) {
 					foreach($lesImgCrCo as $uneImgCrCo) {
 						if($uneImgCrCo['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
 							$textrun->addImage('images/' . $uneImgCrCo['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
-							
 						}
 					}
 				}else{
@@ -510,7 +512,6 @@ if(isset($_SESSION['choix_creation'])) {
 					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
 				foreach($lesObservationsOrg as $uneObservationOrg) {
-					
 					if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
 						if($uneObservationOrg['CODE_COULEUR_OBSERVATION'] == 1) { //vert
 							$section->addText(htmlspecialchars($uneObservationOrg['LIBELLE_OBSERVATION']), 'obs_color_v');
@@ -670,6 +671,7 @@ if(isset($_SESSION['choix_creation'])) {
 			if(sizeof($statsORG)>0 || sizeof($statsSITE)>0 || sizeof($statsFamille)>0){
 			$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
 			$section->addTextBreak(1);
+			$section->addText("Art-5: L'ACFI contrôle les conditions d'application des règles d'hygiène et de sécurité.",  'introFstyle', 'introPstyle');
 			$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 			$section->addTextBreak(1);
 			}

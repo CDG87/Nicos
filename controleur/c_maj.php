@@ -132,11 +132,17 @@ switch($action) {
 			if(isset($_POST['retour'])){
 				
 			}else{
-				$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
-			if($nbImage['NB']==0){
-                    $pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
-                }else{
-					$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+				if(isset($_POST['modifier'])){
+					$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
+					if($nbImage['NB']==0){
+						$pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+					}else{
+						$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+					}
+				}else{
+					if(isset($_POST['supprimer'])){
+						$pdo->suppr_Image_Critere($_SESSION['majcritere']);
+					}
 				}
 			}
 				$_SESSION['entpied']="majCritere2";
