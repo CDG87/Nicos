@@ -76,7 +76,9 @@ if(isset($_SESSION['choix_creation'])) {
 	$table->addRow();
 	$cell = $table->addCell(4500);
 	$textrun = $cell->addTextRun();
-	$textrun->addText($infoCentre['ENTETE'], 'pole');
+	$textrun->addText("Pôle Santé et Sécurité au Travail", 'pole');
+	$textrun->addTextBreak(1);
+	$textrun->addText("Service Prévention des Risques Professionnels");
 	$table->addCell(4500)->addImage(
 		$infoCentre['LOGO'],
 		array('height' => 100, 'align' => 'right')
@@ -241,7 +243,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
 	$objWriter->save($h2d_file_uri);
 	
-	$objWriter->save('Rapport urgent '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
+	// $objWriter->save('Rapport urgent '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 
 	header("Content-Disposition: attachment; filename='Rapport urgent ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.".docx'");
 	echo file_get_contents('Rapport urgent '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
