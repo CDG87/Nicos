@@ -960,7 +960,7 @@ if($file->isFile() && !$file->isDot() && (time() - $file->getMTime() > 86400))
     $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($document, 'Word2007');
     $objWriter->save($h2d_file_uri);
 	
-	$objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
+	// $objWriter->save('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 	header("Content-Disposition: attachment; filename='Rapport ".htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.".docx'");
 	echo file_get_contents('Rapport '.htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']).' - '.$today.'.docx');
 	ob_clean();
