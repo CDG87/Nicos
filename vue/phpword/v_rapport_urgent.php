@@ -221,7 +221,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$tablette2->addRow();
 					$cell = $tablette2->addCell(4400);
 					$cell->addText(htmlspecialchars(" "));
-					
+
 					$cell = $tablette2->addCell(4600);
 					$cell->addText(htmlspecialchars(" "));	
 }
