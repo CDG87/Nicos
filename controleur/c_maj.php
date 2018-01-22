@@ -31,7 +31,6 @@ switch($action) {
 		
 	case 'choixActionCritere':
 		$verif=false;
-		
 		if(isset($_POST['partie'])){
 			if($_POST['partie']!=$_SESSION['majpartie']){
 				$verif=true;
@@ -118,8 +117,7 @@ switch($action) {
 							$_SESSION['entpied']="maj";
 							include('vue/v_maj.php');
 						}else{
-							
-							include("vue/v_menu_crit_modif.php");
+								include("vue/v_menu_crit_modif.php");
 						}
 					}
 				}
@@ -301,7 +299,7 @@ switch($action) {
 	
 	case 'modif_logo':
 		if(isset($_POST["modifier"])){
-			$pdo->update_Centre($_POST['logo'],$_POST['nom'],$_POST['adresse'],$_POST['cp'],$_POST['ville'],$_POST['tel'],$_POST['fax'],$_POST['site']);
+			$pdo->update_Centre($_POST['logo'], $_POST['entete'], $_POST['nom'],$_POST['adresse'],$_POST['cp'],$_POST['ville'],$_POST['tel'],$_POST['fax'],$_POST['site']);
 		}
 		$_SESSION['entpied']="maj";
 		include('vue/v_maj.php');

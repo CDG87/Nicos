@@ -11,7 +11,7 @@
 				<tr>
 					<td class="espart">
 						<form method="post" action="index.php?uc=maj&action=charge_version">
-							<button type="submit" class="btn btn-warning btn-lg" name="maj_version">Changer le numéro de la version</button>
+							<button type="submit" class="btn btn-warning btn-lg" name="maj_version">Version</button>
 						</form>
 					</td>
 					<td class="espart">
@@ -26,17 +26,17 @@
 			<tr>
 				<td class="espart">
 					<form method="post" action="index.php?uc=maj&action=coord_struct">
-						<button type="submit" class="btn btn-warning btn-lg" name="coord_struct">Coordonnées structures</button>
+						<button type="submit" class="btn btn-primary btn-lg" name="coord_struct">Coordonnées structures</button>
 					</form>
 				</td>
 				<td class="espart">
 					<form method="post" action="index.php?uc=maj&action=coordonees_inspecteur">
-						<button type="submit" class="btn btn-warning btn-lg" name="coord_inspect">Coordonnées inspecteur</button>
+						<button type="submit" class="btn btn-primary btn-lg" name="coord_inspect">Coordonnées inspecteur</button>
 					</form>
 				</td>
 				<td class="espart">
 					<form method="post" action="index.php?uc=maj&action=logoAdresse">
-						<button type="submit" class="btn btn-warning btn-lg" name="logo_adr">Logo et adresse</button>
+						<button type="submit" class="btn btn-primary btn-lg" name="logo_adr">Logo et adresse</button>
 					</form>
 				</td>
 			</tr>

@@ -16,8 +16,10 @@
 			</td>
 		</tr>
 		<tr>
-			<form method="POST" action="index.php?uc=maj&action=coordonees_inspecteur">
-				<button type="submit" class="btn btn-art btn-primary" name="retour">Retour</button>
-			</form>
+			<td>
+				<form method="POST" action="index.php?uc=maj&action=coordonees_inspecteur">
+					<button type="submit" class="btn btn-art btn-primary" name="retour">Retour</button>
+				</form>
+			</td>
 		</tr>
 	</table>

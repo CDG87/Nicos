@@ -76,9 +76,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$table->addRow();
 	$cell = $table->addCell(4500);
 	$textrun = $cell->addTextRun();
-	$textrun->addText("Pôle Santé et Sécurité au Travail", 'pole');
-	$textrun->addTextBreak(1);
-	$textrun->addText("Service Prévention des Risques Professionnels");
+	$textrun->addText($infoCentre['ENTETE'], 'pole');
 	$table->addCell(4500)->addImage(
 		$infoCentre['LOGO'],
 		array('height' => 100, 'align' => 'right')

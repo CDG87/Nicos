@@ -2860,10 +2860,10 @@ class Pdo_Inspection {
 	/**
 	* change les infos du centre
 	**/
-	public function update_Centre($logo,$nom, $adresse, $cp, $ville,$tel, $fax,$site) {
-		$req = "UPDATE centre SET LOGO = ?, NOM= ?, ADRESSE =?, CP=?, VILLE =?, TEL =?, FAX =?,SITE=?";
+	public function update_Centre($logo, $entete, $nom, $adresse, $cp, $ville,$tel, $fax,$site) {
+		$req = "UPDATE centre SET LOGO = ?, ENTETE=?, NOM= ?, ADRESSE =?, CP=?, VILLE =?, TEL =?, FAX =?,SITE=?";
 		$rs = $this->monPdoInspection->prepare($req);
-        $rs->execute(array($logo,$nom, $adresse, $cp, $ville,$tel, $fax,$site));
+        $rs->execute(array($logo, $entete, $nom, $adresse, $cp, $ville,$tel, $fax,$site));
 	}
 	
 	/**
@@ -3083,7 +3083,8 @@ class Pdo_Inspection {
 		INNER JOIN CRITERE c ON cc.NUM_CRITERE=c.NUM_CRITERE
 		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
 		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
-		ORDER BY NOM_THEME";
+        GROUP BY c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME
+        ORDER BY t.NOM_THEME";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
 		$ligne = $rs->fetch();
@@ -3098,6 +3099,7 @@ class Pdo_Inspection {
 		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
 		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
 		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
+		GROUP BY c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME
 		ORDER BY NOM_THEME";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();

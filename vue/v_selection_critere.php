@@ -2,7 +2,6 @@
 include("include/entete.php");
 ?>
 </br></br></br></br></br></br>
-
 <div class="row">
 <div class="col-xs-12 col-sm-6 col-md-8">
 <form method="post" action="index.php?uc=maj&action=choixActionCritere">
