@@ -1545,7 +1545,12 @@ class Pdo_Inspection {
 	* Ajout d'un nouveau controle_critere
 	**/
 	public function add_Controle_Critere($numcritere, $numaudit, $valeurCR, $valeurIM, $precoCR, $phoCR) {
-		
+		$req1 = "DELETE FROM CONTROLE_CRITERE WHERE NUM_CRITERE = :numcritere AND NUM_AUDIT = :numaudit";
+		$rs1 = $this->monPdoInspection->prepare($req1);
+		$rs1->execute(array(
+            'numcritere' => $numcritere,
+			'numaudit' => $numaudit
+        ));
 		$req = "INSERT INTO CONTROLE_CRITERE (NUM_CRITERE, NUM_AUDIT, VALEUR_CRITERE, VALEUR_IMPORTANT, PRECONISATION_CRITERE, PHOTO_CRITERE) VALUES(:numcritere, :numaudit, :valeurCR, :valeurIM, :precoCR, :phoCR)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
