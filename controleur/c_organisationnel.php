@@ -206,11 +206,13 @@ switch($action){
                 }
             //Ajout d'un critere
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aj'] == 'oui'){
+				
                 $pdo->add_Critere($_POST['newnomcritere'], $_SESSION['numtheme'], $_SESSION['numsoustheme']);
 				$numcritere = $pdo->get_Critere_cree();
                 $pdo->add_Observation_Defaut($numcritere['MAX(NUM_CRITERE)']);
                 $pdo->add_ResumeArticle_Defaut($numcritere['MAX(NUM_CRITERE)']);
                 $pdo->add_Preconisation_Defaut($numcritere['MAX(NUM_CRITERE)']);
+				$pdo->add_Date_Maj($numcritere['MAX(NUM_CRITERE)']);
             }
 			//Choix d'un critère
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aft'] == 'oui'){
@@ -248,6 +250,7 @@ switch($action){
 					$pdo->delete_InscrireCR_Liste($_POST['numcritere']);
 					$pdo->delete_Critere($_POST['numcritere']);
 					$pdo->delete_ResArticle_NUM($numart['NUM_RESUME_ARTICLE']);
+					$pdo->delete_Date_Maj($_POST['numcritere']);
 				}
             }
             $listeSousThemeNum = $pdo->get_Sous_Theme_Num($_SESSION['numtheme']);
@@ -282,6 +285,7 @@ switch($action){
 			//Ajout d'une observation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aj'] == 'oui'){
                 $pdo->add_Observation($_POST['newnomobservation'], $_SESSION['numcritere'], $_POST['cdobs']);
+				$pdo->update_Date_Observation($_SESSION['numcritere']);
             }
 			
 			
@@ -333,10 +337,12 @@ switch($action){
 			//Modification d'une observation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['mo'] == 'oui'){
                 $pdo->update_Observation($_POST['numobs'], $_POST['nomobs']);
+				$pdo->update_Date_Observation($_SESSION['numcritere']);
             }
 			//Suppression d'une observation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['sup'] == 'oui'){
                 $pdo->delete_Observation($_POST['numobs']);
+				$pdo->update_Date_Observation($_SESSION['numcritere']);
             }
             $listeObservation = $pdo->get_Observation_Critere($_SESSION['numcritere'],$_SESSION['audit']);
             include("vue/v_observation.php");
@@ -391,6 +397,7 @@ switch($action){
             //Ajout d'une préconisation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aj'] == 'oui'){
                 $pdo->add_Preconisation($_POST['newnompreco'], $_SESSION['numcritere']);
+				$pdo->update_Date_Proposition($_SESSION['numcritere']);
             }
 			
 			//ajout preco_manuel
@@ -431,10 +438,12 @@ switch($action){
 			//Modification d'une préconisation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['mo'] == 'oui'){
                 $pdo->update_Preconisation($_POST['numpreco'], $_POST['nompreco']);
+				$pdo->update_Date_Proposition($_SESSION['numcritere']);
             }
 			//Suppression d'une préconisation
             if($_REQUEST['nt'] == 'non' && $_REQUEST['sup'] == 'oui'){
                 $pdo->delete_Preconisation($_POST['numpreco']);
+				$pdo->update_Date_Proposition($_SESSION['numcritere']);
             }
             $listepreconisation = $pdo->get_Preconisation_Critere($_SESSION['numcritere'],$_SESSION['audit']);
             include("vue/v_preconisation.php");

@@ -604,7 +604,7 @@ class Pdo_Inspection {
 	**/
 	public function get_ResArticle_Critere($numcritere) {
 		
-		$req = "SELECT R.NUM_RESUME_ARTICLE, DESCRIPTION_RESUME_ARTICLE, LIBELLE_CRITERE FROM RESUME_ARTICLE R INNER JOIN CRITERE C ON R.NUM_RESUME_ARTICLE = C.NUM_RESUME_ARTICLE WHERE C.NUM_CRITERE = :numcritere";
+		$req = "SELECT R.NUM_RESUME_ARTICLE, DESCRIPTION_RESUME_ARTICLE, LIBELLE_CRITERE, DATE_ARTICLE FROM RESUME_ARTICLE R INNER JOIN CRITERE C ON R.NUM_RESUME_ARTICLE = C.NUM_RESUME_ARTICLE WHERE C.NUM_CRITERE = :numcritere";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numcritere' => $numcritere
@@ -1910,7 +1910,7 @@ class Pdo_Inspection {
 	* Modifier le contenu d'un résumé d'article
 	**/
     public function update_Article($numart, $libart){
-		$req = "UPDATE RESUME_ARTICLE SET DESCRIPTION_RESUME_ARTICLE = :libart
+		$req = "UPDATE RESUME_ARTICLE SET DESCRIPTION_RESUME_ARTICLE = :libart, DATE_ARTICLE = DATE( NOW() ) 
         WHERE NUM_RESUME_ARTICLE = :numart";
 		$rs = $this->monPdoInspection->prepare($req);
         $rs -> execute(array(
@@ -1919,6 +1919,7 @@ class Pdo_Inspection {
         ));
         
 	}
+
     
     /**
 	* Modifier le nom d'une préconisaton
@@ -2876,6 +2877,8 @@ class Pdo_Inspection {
         $rs->execute(array($nom, $prenom,$fonction,$affectation,$centre,$adresse,$fixe,$mobile,$fax,$email,$num));
 	}
 	
+	
+	
 	/**
 	* Changer l'adresse de la structure
 	**/
@@ -3148,6 +3151,71 @@ class Pdo_Inspection {
 		$req="DELETE FROM LIEU WHERE CODE_LIEU=?";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($num));
+	}
+	
+	
+	/*************************************************************/
+	
+	/**
+	* Ajout d'une date de critere
+	**/
+	public function add_Date_Maj($num) {
+		$req = "INSERT INTO DATE_MAJ (NUM_CRITERE, DATE_OBSERVATION,DATE_PROPOSITION_DATE_IMAGE) VALUES (?,null,null,null)";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array(
+			$num
+		));
+	}
+	
+	/**
+	* Changer la date de l'observation
+	**/
+	public function update_Date_Observation($num){
+		$req="UPDATE DATE_MAJ SET DATE_OBSERVATION= DATE(NOW())
+		WHERE NUM_CRITERE = ? ";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($num));
+	}
+	
+	/**
+	* Changer la date de la proposition
+	**/
+	public function update_Date_Proposition($num){
+		$req="UPDATE DATE_MAJ SET DATE_PROPOSITION= DATE(NOW())
+		WHERE NUM_CRITERE = ? ";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($num));
+	}
+	
+	/**
+	* Changer la date de l'image
+	**/
+	public function update_Date_Image($num){
+		$req="UPDATE DATE_MAJ SET DATE_IMAGE= DATE(NOW())
+		WHERE NUM_CRITERE = ? ";
+		$rs = $this->monPdoInspection->prepare($req);
+        $rs->execute(array($num));
+	}
+	
+	/**
+	* supprimer les lieux manuel
+	**/
+	public function delete_Date_Maj($num){
+		$req="DELETE FROM DATE_MAJ WHERE NUM_CRITERE=?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($num));
+	}
+	
+	/**
+	* Récupère l'adresse de la structure à partir du numéro
+	**/
+	public function get_Date_Maj($num) {
+		$req = "SELECT * FROM DATE_MAJ WHERE NUM_CRITERE = ?";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($num
+		));
+		$ligne = $rs->fetch();
+		return $ligne;
 	}
 	
 }

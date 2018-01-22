@@ -413,6 +413,7 @@ switch($action) {
                 $pdo->add_Observation_Defaut($numcritere['MAX(NUM_CRITERE)']);
                 $pdo->add_ResumeArticle_Defaut($numcritere['MAX(NUM_CRITERE)']);
                 $pdo->add_Preconisation_Defaut($numcritere['MAX(NUM_CRITERE)']);
+				$pdo->add_Date_Maj($numcritere['MAX(NUM_CRITERE)']);
             }
 			//Choix d'un critère
             if($_REQUEST['nt'] == 'non' && $_REQUEST['aft'] == 'oui'){
@@ -450,6 +451,7 @@ switch($action) {
 					$pdo->delete_InscrireCR_Liste($_POST['numcritere']);
 					$pdo->delete_Critere($_POST['numcritere']);
 					$pdo->delete_ResArticle_NUM($numart['NUM_RESUME_ARTICLE']);
+					$pdo->delete_Date_Maj($_POST['numcritere']);
 				}
             }
             $listeSousThemeNum = $pdo->get_Sous_Theme_Num($_SESSION['numtheme']);
