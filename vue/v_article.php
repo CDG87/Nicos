@@ -6,7 +6,7 @@ foreach($listeimgcr as $li){
             <table>
                 <tr>
                     <th>
-                        <img src="<?php echo $path.$_SESSION['articlecritere']?>" />
+                        <img src="<?php echo $pathancien.$_SESSION['articlecritere']?>" />
                     </th>
                 </tr>
             </table>

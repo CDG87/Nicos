@@ -56,7 +56,8 @@
         else{
             $uc_choix = 'sursite';
         }
-        $path="./images/";
+        $path="./";
+		$pathancien="./images/";
         if($_SESSION['entpied'] == 'accueil'){
 			?>
 			<div class="logoCdg">
