@@ -81,7 +81,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$textrun->addTextBreak(1);
 	$textrun->addText("Service Prévention des Risques Professionnels");
 	$table->addCell(4500)->addImage(
-		'images/'.$infoCentre['LOGO'],
+		$infoCentre['LOGO'],
 		array('height' => 100, 'align' => 'right')
 	);
 
@@ -508,6 +508,7 @@ if(isset($_SESSION['choix_creation'])) {
 							
 						}
 					}
+					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 					//Image téléchargée		
 					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
@@ -944,6 +945,10 @@ if(isset($_SESSION['choix_creation'])) {
 
 	$footer->addPreserveText(htmlspecialchars('Page {PAGE}/{NUMPAGES}'), array('align' => 'right'));
 
+$folder = new DirectoryIterator('./graph/');
+foreach($folder as $file)
+if($file->isFile() && !$file->isDot() && (time() - $file->getMTime() > 86400))
+	unlink($file->getPathname());
 
 
 	$today = date("d.m.y"); //date et heure du jour
