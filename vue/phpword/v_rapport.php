@@ -632,6 +632,7 @@ if(isset($_SESSION['choix_creation'])) {
 							$textrun->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 						}
 					}
+					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 					//Image téléchargée		
 					$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
