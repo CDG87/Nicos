@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 18 Janvier 2018 à 14:33
+-- Généré le :  Lun 22 Janvier 2018 à 12:52
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -44,7 +44,7 @@ CREATE TABLE `audit` (
 --
 
 INSERT INTO `audit` (`NUM_AUDIT`, `NUM_CONTROLEUR`, `NUM_STRUCTURE`, `DATE_AUDIT`, `DATE_AUDIT_2`, `DATE_AUDIT_3`, `DATE_AUDIT_4`, `DATE_AUDIT_5`, `LIBELLE_AUDIT`, `DATE_CONTROLE_AUDIT`) VALUES
-(1, 3, 49, '2000-01-01', NULL, NULL, NULL, NULL, 'Inspection', '2000-01-01');
+(1, 2, 44, '2000-01-01', NULL, NULL, NULL, NULL, 'Inspection', '2000-01-01');
 
 --
 -- Déclencheurs `audit`
@@ -137,6 +137,7 @@ DELIMITER ;
 CREATE TABLE `centre` (
   `NUM_CENTRE` int(11) NOT NULL,
   `LOGO` varchar(32) DEFAULT NULL,
+  `ENTETE` varchar(200) DEFAULT NULL,
   `NOM` varchar(100) DEFAULT NULL,
   `ADRESSE` varchar(60) DEFAULT NULL,
   `CP` int(11) NOT NULL,
@@ -150,8 +151,8 @@ CREATE TABLE `centre` (
 -- Contenu de la table `centre`
 --
 
-INSERT INTO `centre` (`NUM_CENTRE`, `LOGO`, `NOM`, `ADRESSE`, `CP`, `VILLE`, `TEL`, `FAX`, `SITE`) VALUES
-(1, 'logo_cdg.jpg', 'Centre de Gestion de la Fonction Publique Territoriale de la Haute-Vienne', '55 rue de l\'AENI', 87009, 'LIMOGES', '0555300854', '0555300864', 'cdg87.fr');
+INSERT INTO `centre` (`NUM_CENTRE`, `LOGO`, `ENTETE`, `NOM`, `ADRESSE`, `CP`, `VILLE`, `TEL`, `FAX`, `SITE`) VALUES
+(1, 'logo_cdg.jpg', 'Pôle Santé et Sécurité au Travail, Service Prévention des Risques Professionnels', 'Centre de Gestion de la Fonction Publique Territoriale de la Haute-Vienne', '55 rue de l\'AENI', 87009, 'LIMOGES', '0555300854', '0555300864', 'cdg87.fr');
 
 -- --------------------------------------------------------
 
@@ -163,6 +164,13 @@ CREATE TABLE `comprendre` (
   `NUM_AUDIT` smallint(6) NOT NULL,
   `NUM_OBSERVATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `comprendre`
+--
+
+INSERT INTO `comprendre` (`NUM_AUDIT`, `NUM_OBSERVATION`) VALUES
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -244,6 +252,13 @@ CREATE TABLE `controle_critere` (
   `PRECONISATION_CRITERE` varchar(1000) DEFAULT NULL,
   `PHOTO_CRITERE` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `controle_critere`
+--
+
+INSERT INTO `controle_critere` (`NUM_CRITERE`, `NUM_AUDIT`, `VALEUR_CRITERE`, `VALEUR_IMPORTANT`, `PRECONISATION_CRITERE`, `PHOTO_CRITERE`) VALUES
+(1, 1, 'NC', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -539,6 +554,13 @@ CREATE TABLE `disposer` (
   `NUM_AUDIT` smallint(6) NOT NULL,
   `NUM_PRECONISATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `disposer`
+--
+
+INSERT INTO `disposer` (`NUM_AUDIT`, `NUM_PRECONISATION`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -2286,7 +2308,7 @@ CREATE TABLE `resume_article` (
 --
 
 INSERT INTO `resume_article` (`NUM_RESUME_ARTICLE`, `DESCRIPTION_RESUME_ARTICLE`) VALUES
-(1, ''),
+(1, 'abd'),
 (2, NULL),
 (3, 'Art.4 du Décret du 10 juin 1985  modifié:\r\nL’autorité territoriale adresse aux agents mentionnés au premier alinéa une lettre de cadrage qui définit les moyens mis à leur disposition pour l’exercice de leurs missions. Une copie de cette lettre est communiquée au comité, mentionné à l’article 37, dans le champ duquel l’agent est placé.'),
 (4, 'Arrêté du 29 janvier 2015 relatif à la formation obligatoire des assistants de prévention, des conseillers de prévention et des agents chargés des fonctions d\'inspection dans le domaine de la santé et de la sécurité:\r\nLes assistants de prévention n\'ayant pas suivi la formation préalable prévue par l\'arrêté du 3 mai 2002 cité à l\'article 10 ainsi que les conseillers de prévention, désignés en application des dispositions de l\'article 4 du décret du 10 juin 1985 susvisé, reçoivent une formation préalable à leur prise de fonction d\'une durée de :\r\n- cinq jours pour les assistants de prévention ;\r\n- sept jours pour les conseillers de prévention.\r\nLa formation prévue à l\'article précédent porte notamment :\r\nPour les assistants de prévention, sur l\'acquisition des bases et repères nécessaires au premier exercice de la fonction et la capacité d\'intervenir dans le cadre d\'une démarche de prévention des risques professionnels ;\r\nPour les conseillers de prévention, sur l\'acquisition d\'une bonne compréhension de son rôle et de ses missions de conseiller de prévention et la capacité à animer une démarche de prévention des risques professionnels.\r\nLa formation doit aussi faciliter le transfert des acquis en situation professionnelle par la définition, par chaque participant, d\'un plan d\'action opérationnel adapté à son contexte d\'intervention.\r\nLa durée de la formation continue au profit des assistants de prévention et des conseillers de prévention est fixée à deux journées l\'année suivant leur prise de fonctions et au minimum à un module de formation les années suivantes.\r\nCette formation a pour but notamment de permettre aux intéressés de parfaire leurs compétences et d\'actualiser leurs connaissances en matière de santé et de sécurité.'),
