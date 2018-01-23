@@ -916,7 +916,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$tabletteSuiteSite = $section->addTable('myOwnTableStyle');
 				$tabletteSuiteSite->addRow();
 					$cell = $tabletteSuiteSite->addCell(2500);
-					$cell->addText(htmlspecialchars('Thème/Critère'),  'tabFont', 'tabPar');
+					$cell->addText(htmlspecialchars('Bâtiment/Thème/Critère'),  'tabFont', 'tabPar');
 					$cell = $tabletteSuiteSite->addCell(5500);
 					$cell->addText(htmlspecialchars('Suites données aux propositions'),  'tabFont', 'tabPar');
 					$cell = $tabletteSuiteSite->addCell(1500);
@@ -924,6 +924,8 @@ if(isset($_SESSION['choix_creation'])) {
 				foreach($criteresRougesSite as $critereRougeSite){
 					$tabletteSuiteSite->addRow();
 					$cell = $tabletteSuiteSite->addCell(2500);
+					$cell->addText(htmlspecialchars($critereRougeSite['NOM_BATIMENT'].' - '.$critereRougeSite['NOM_LIEU']), 'st1');
+					$cell->addTextBreak(0);
 					$cell->addText(htmlspecialchars($critereRougeSite['NOM_THEME']), 'st1');
 					$cell->addTextBreak(0);
 					$cell->addText(htmlspecialchars(' ► '.$critereRougeSite['LIBELLE_CRITERE']), 'st1');

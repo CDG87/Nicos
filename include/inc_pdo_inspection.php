@@ -3067,9 +3067,11 @@ class Pdo_Inspection {
 	* Recupere les criteres (et theme) controler rouges en fonction d'un theme SUR SITE
 	*/
 	public function get_critereRouge_theme_Site(){
-		$req = "SELECT i.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM INSCRIRE i 
+		$req = "SELECT i.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME, b.NOM_BATIMENT, l.NOM_LIEU FROM INSCRIRE i 
 		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
-		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
+		INNER JOIN BATIMENT b ON b.NUM_BATIMENT=i.NUM_BATIMENT_C
+		INNER JOIN LIEU l ON l.NUM_LIEU=i.NUM_LIEU
+		INNER JOIN THEME t ON t.NUM_THEME=i.NUM_THEME_C
 		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
 		ORDER BY NOM_THEME";
 		$rs = $this->monPdoInspection->prepare($req);
