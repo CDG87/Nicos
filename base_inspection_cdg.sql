@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 22 Janvier 2018 à 15:15
+-- Généré le :  Mar 23 Janvier 2018 à 09:27
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -44,8 +44,7 @@ CREATE TABLE `audit` (
 --
 
 INSERT INTO `audit` (`NUM_AUDIT`, `NUM_CONTROLEUR`, `NUM_STRUCTURE`, `DATE_AUDIT`, `DATE_AUDIT_2`, `DATE_AUDIT_3`, `DATE_AUDIT_4`, `DATE_AUDIT_5`, `LIBELLE_AUDIT`, `DATE_CONTROLE_AUDIT`) VALUES
-(1, 2, 44, '2000-01-01', NULL, NULL, NULL, NULL, 'Inspection', '2000-01-01'),
-(2, 1, 74, '2018-01-12', NULL, NULL, NULL, NULL, 'Inspection', '2018-01-12');
+(1, 1, 231, '2018-01-24', NULL, NULL, NULL, NULL, 'Inspection', '2018-01-24');
 
 --
 -- Déclencheurs `audit`
@@ -166,13 +165,6 @@ CREATE TABLE `comprendre` (
   `NUM_OBSERVATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `comprendre`
---
-
-INSERT INTO `comprendre` (`NUM_AUDIT`, `NUM_OBSERVATION`) VALUES
-(2, 850);
-
 -- --------------------------------------------------------
 
 --
@@ -253,14 +245,6 @@ CREATE TABLE `controle_critere` (
   `PRECONISATION_CRITERE` varchar(1000) DEFAULT NULL,
   `PHOTO_CRITERE` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `controle_critere`
---
-
-INSERT INTO `controle_critere` (`NUM_CRITERE`, `NUM_AUDIT`, `VALEUR_CRITERE`, `VALEUR_IMPORTANT`, `PRECONISATION_CRITERE`, `PHOTO_CRITERE`) VALUES
-(1, 1, 'NC', 0, NULL, NULL),
-(1, 2, 'NC', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -594,7 +578,7 @@ INSERT INTO `date_maj` (`NUM_CRITERE`, `DATE_OBSERVATION`, `DATE_PROPOSITION`, `
 (28, NULL, NULL, NULL),
 (29, NULL, NULL, NULL),
 (30, NULL, NULL, NULL),
-(31, NULL, NULL, NULL),
+(31, '2018-01-22', NULL, NULL),
 (32, NULL, NULL, NULL),
 (33, NULL, NULL, NULL),
 (34, NULL, NULL, NULL),
@@ -824,13 +808,6 @@ CREATE TABLE `disposer` (
   `NUM_PRECONISATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `disposer`
---
-
-INSERT INTO `disposer` (`NUM_AUDIT`, `NUM_PRECONISATION`) VALUES
-(2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -848,16 +825,16 @@ CREATE TABLE `groupe_lieu` (
 --
 
 INSERT INTO `groupe_lieu` (`NUM_GROUPE_LIEU`, `LIBELLE_GROUPE_LIEU`, `PICTOS`) VALUES
-(1, 'Atelier / Service (voirie...)', NULL),
-(2, 'Locaux sociaux / circulation', NULL),
-(3, 'Structure / Annexes (Mezz...)', NULL),
-(4, 'Local / Armoire', NULL),
-(5, 'Salle', NULL),
-(6, 'Administratif (bureau...)', NULL),
-(7, 'Eau / Assainissement / Déchets', NULL),
-(8, 'Engins / Véhicules (tracteur...)', NULL),
-(9, '# Structure globale #', NULL),
-(10, 'Restauration', NULL);
+(1, 'Atelier / Service (voirie...)', 'fa-industry'),
+(2, 'Locaux sociaux / circulation', 'fa-users'),
+(3, 'Structure / Annexes (Mezz...)', 'fa-bed'),
+(4, 'Local / Armoire', 'fa-columns'),
+(5, 'Salle', 'fa-arrows-alt'),
+(6, 'Administratif (bureau...)', 'fa-desktop'),
+(7, 'Eau / Assainissement / Déchets', 'fa-trash'),
+(8, 'Engins / Véhicules (tracteur...)', 'fa-truck'),
+(9, '# Structure globale #', 'fa-university'),
+(10, 'Restauration', 'fa-cutlery');
 
 --
 -- Déclencheurs `groupe_lieu`
@@ -1246,7 +1223,7 @@ INSERT INTO `observation` (`NUM_OBSERVATION`, `NUM_CRITERE`, `LIBELLE_OBSERVATIO
 (84, 29, 'L\'ACFI n\'a pas effectué un contrôle des conditions d\'application des règles d\'hygiène et de sécurité.', 2, NULL),
 (85, 30, 'L\'autorité territoriale a informé l\'ACFI des suites données à ses propositions.', 1, NULL),
 (86, 30, 'L\'autorité territoriale n\'a pas informé l\'ACFI des suites données à ses propositions.', 2, NULL),
-(88, 31, 'Le document unique d\'évaluation des risques à été réalisé.', 1, NULL),
+(88, 31, 'Le document unique d\'évaluation des risques professionnels a été réalisé.', 1, NULL),
 (89, 31, 'Le document unique d\'évaluation des risques n\'a pas été réalisé.', 2, NULL),
 (90, 31, 'Il a été indiqué que le document unique d\'évaluation des risques (DU-EvRP) est en cours de réalisation.', 2, NULL),
 (92, 32, 'Le document est mis à jour chaque fois que nécessaire et au moins tous les ans.', 1, NULL),
@@ -2095,7 +2072,11 @@ CREATE TABLE `participant` (
 INSERT INTO `participant` (`NUM_PARTICIPANT`, `NUM_STRUCTURE`, `NOM_PARTICIPANT`, `PRENOM_PARTICIPANT`, `CODE_CIVILITE_PARTICIPANT`, `NOM_FONCTION_PARTICIPANT`) VALUES
 (4, 93, 'HUBERT', 'Frédéric', 0, 'Deuxième adjoint'),
 (10, 153, 'PARAUD', 'Pierre', 0, 'élu-adjoint au Maire'),
-(11, 153, 'MUHLEBACH', 'Aude', 1, 'Assistant de prévention');
+(11, 153, 'MUHLEBACH', 'Aude', 1, 'Assistant de prévention'),
+(12, 231, 'LAMANT', 'Didier', 0, 'Conseiller de prévention'),
+(13, 231, 'bla', 'v', 0, ''),
+(14, 231, 'bla', 'v', 0, ''),
+(15, 231, 'bla', 'v', 0, '');
 
 --
 -- Déclencheurs `participant`
@@ -2120,6 +2101,16 @@ CREATE TABLE `participer` (
   `NUM_AUDIT` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `participer`
+--
+
+INSERT INTO `participer` (`NUM_PARTICIPANT`, `NUM_AUDIT`) VALUES
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -2137,12 +2128,12 @@ CREATE TABLE `pole` (
 --
 
 INSERT INTO `pole` (`CODE_POLE`, `LIBELLE_POLE`, `PICTOS`) VALUES
-(1, 'Administratif', NULL),
-(2, 'Technique', NULL),
+(1, 'Administratif', 'fa-at'),
+(2, 'Technique', 'fa-gavel'),
 (4, 'Enfance', 'fa-smile-o'),
 (5, 'Culture / Animation / Sport', 'fa-futbol-o'),
-(6, 'Santé / Social', NULL),
-(7, 'Police / Secours', NULL);
+(6, 'Santé / Social', 'fa-heartbeat'),
+(7, 'Police / Secours', 'fa-ambulance');
 
 --
 -- Déclencheurs `pole`
@@ -2578,7 +2569,7 @@ CREATE TABLE `resume_article` (
 --
 
 INSERT INTO `resume_article` (`NUM_RESUME_ARTICLE`, `DESCRIPTION_RESUME_ARTICLE`, `DATE_ARTICLE`) VALUES
-(1, 'Art 108-3 de la Loi 84-53 du 26 janvier 1984 Art.4 du Décret 85-603 modifié (circulaire du 12 octobre 2012 pour application) ...des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions.  \r\nLes agents mentionnés au premier alinéa peuvent être mis à disposition, pour tout ou partie de leur temps par une commune, l’établissement public de coopération intercommunale dont est membre la commune, ou le centre de gestion, dans les conditions prévues à l’article 108-3 de la loi du 26 janvier 1984 susvisée.', NULL),
+(1, 'Art 108-3 de la Loi 84-53 du 26 janvier 1984 Art.4 du Décret 85-603 modifié (circulaire du 12 octobre 2012 pour application) ...des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions.  \r\nLes agents mentionnés au premier alinéa peuvent être mis à disposition, pour tout ou partie de leur temps par une commune, l’établissement public de coopération intercommunale dont est membre la commune, ou le centre de gestion, dans les conditions prévues à l’article 108-3 de la loi du 26 janvier 1984 susvisée.', '2018-01-22'),
 (2, 'Art.4 du Décret 85-603 modifié du 10 juin 1985:   "Dans le champ de compétence du comité mentionné à l’article 37, des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions....."', NULL),
 (3, 'Art.4 du Décret du 10 juin 1985  modifié:\r\nL’autorité territoriale adresse aux agents mentionnés au premier alinéa une lettre de cadrage qui définit les moyens mis à leur disposition pour l’exercice de leurs missions. Une copie de cette lettre est communiquée au comité, mentionné à l’article 37, dans le champ duquel l’agent est placé.', NULL),
 (4, 'Arrêté du 29 janvier 2015 relatif à la formation obligatoire des assistants de prévention, des conseillers de prévention et des agents chargés des fonctions d\'inspection dans le domaine de la santé et de la sécurité:\r\nLes assistants de prévention n\'ayant pas suivi la formation préalable prévue par l\'arrêté du 3 mai 2002 cité à l\'article 10 ainsi que les conseillers de prévention, désignés en application des dispositions de l\'article 4 du décret du 10 juin 1985 susvisé, reçoivent une formation préalable à leur prise de fonction d\'une durée de :\r\n- cinq jours pour les assistants de prévention ;\r\n- sept jours pour les conseillers de prévention.\r\nLa formation prévue à l\'article précédent porte notamment :\r\nPour les assistants de prévention, sur l\'acquisition des bases et repères nécessaires au premier exercice de la fonction et la capacité d\'intervenir dans le cadre d\'une démarche de prévention des risques professionnels ;\r\nPour les conseillers de prévention, sur l\'acquisition d\'une bonne compréhension de son rôle et de ses missions de conseiller de prévention et la capacité à animer une démarche de prévention des risques professionnels.\r\nLa formation doit aussi faciliter le transfert des acquis en situation professionnelle par la définition, par chaque participant, d\'un plan d\'action opérationnel adapté à son contexte d\'intervention.\r\nLa durée de la formation continue au profit des assistants de prévention et des conseillers de prévention est fixée à deux journées l\'année suivant leur prise de fonctions et au minimum à un module de formation les années suivantes.\r\nCette formation a pour but notamment de permettre aux intéressés de parfaire leurs compétences et d\'actualiser leurs connaissances en matière de santé et de sécurité.', NULL),
