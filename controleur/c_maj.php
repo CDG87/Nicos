@@ -129,6 +129,7 @@ switch($action) {
 		break;
 		
 		case 'modifImage':
+			$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 			if(isset($_POST['retour'])){
 				
 			}else{
@@ -137,14 +138,17 @@ switch($action) {
 					if($nbImage['NB']==0){
 						$pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
 						$pdo->update_Date_Image($_SESSION['majcritere']);
+						$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 					}else{
 						$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
 						$pdo->update_Date_Image($_SESSION['majcritere']);
+						$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 					}
 				}else{
 					if(isset($_POST['supprimer'])){
 						$pdo->suppr_Image_Critere($_SESSION['majcritere']);
 						$pdo->update_Date_Image($_SESSION['majcritere']);
+						$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 					}
 				}
 			}
@@ -164,6 +168,7 @@ switch($action) {
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Observation($_POST['newnomobservation'], $_SESSION['majcritere'], $_POST['cdobs']);
 				$pdo->update_Date_Observation($_SESSION['majcritere']);
+				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['entpied'] = 'majCritere2';
 				include("vue/v_menu_crit_modif.php");
 			}
@@ -171,6 +176,7 @@ switch($action) {
 			if(isset($_POST['modifier'])){
 				 $pdo->update_Observation($_POST['idobservation'], $_POST['nomobs']);
 				 $pdo->update_Date_Observation($_SESSION['majcritere']);
+				 $_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				 $_SESSION['entpied'] = 'majCritere2';
 				 include("vue/v_menu_crit_modif.php");
 			}
@@ -178,6 +184,7 @@ switch($action) {
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Observation($_POST['idobservation']);
 				$pdo->update_Date_Observation($_SESSION['majcritere']);
+				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['entpied'] = 'majCritere2';
 				include("vue/v_menu_crit_modif.php");
 			}
@@ -203,6 +210,7 @@ switch($action) {
 			if(isset($_POST['ajouter'])){
 				$pdo->add_Preconisation($_POST['newnomproposition'], $_SESSION['majcritere']);
 				$pdo->update_Date_Proposition($_SESSION['majcritere']);
+				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
@@ -210,6 +218,7 @@ switch($action) {
 			if(isset($_POST['modifier'])){
 				$pdo->update_Preconisation($_POST['idproposition'], $_POST['nomprop']);
 				$pdo->update_Date_Proposition($_SESSION['majcritere']);
+				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
@@ -217,6 +226,7 @@ switch($action) {
 			if(isset($_POST['supprimer'])){
 				$pdo->delete_Preconisation($_POST['idproposition']);
 				$pdo->update_Date_Proposition($_SESSION['majcritere']);
+				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['entpied']="majCritere2";
 				include("vue/v_menu_crit_modif.php");
 			}
