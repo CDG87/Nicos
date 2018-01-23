@@ -13,7 +13,7 @@ include("include/entete.php");
 				<?php if($image==-1){
 					echo '<h1><i class="fa fa-camera fa-4x" aria-hidden="true"></i></h1>';
 				}else{ ?>
-					<img src="<?php echo "./images/".$image['LIBELLE_IMAGE_CRITERE']?>" />
+					<img id="miniature" src="<?php echo "./images/".$image['LIBELLE_IMAGE_CRITERE']?>" />
 			<?php	}
                 ?>
             </td>

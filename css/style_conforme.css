@@ -118,3 +118,7 @@ textarea{
 .btn_date{
 	font-size : 10px;
 }
+#miniature{
+	max-height: 400px;
+	max-width: 400px;
+}
