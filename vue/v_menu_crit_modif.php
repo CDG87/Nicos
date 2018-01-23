@@ -5,7 +5,7 @@ include("include/entete.php");
 	<table>
 		<tr>
 			<td>
-				<button type="submit" name="article" class="btn btn-primary btn-lg">Article </br> <?php echo $_SESSION['listearticle']['DATE_ARTICLE']; ?></button>
+				<button type="submit" name="article" class="btn btn-primary btn-lg">Article </br> <?php echo $_SESSION['listearticle']['Annee']; ?></button>
 			</td>
 			<td>
 				<button type="submit" name="observation" class="btn btn-primary btn-lg">Observations </br> <?php echo $_SESSION['dateMaj']['DATE_OBSERVATION'];?></button>
