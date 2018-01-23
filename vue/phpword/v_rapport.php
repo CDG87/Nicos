@@ -401,9 +401,6 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addTextBreak(1);
 		
 		if($infosaudit['LIBELLE_AUDIT']=="Inspection"){
-			$section->addTitle(htmlspecialchars('Le relevé des mesures urgentes'), 3);
-			$section->addText(htmlspecialchars("Rétrospective des non conformités nécessitant la mise en oeuvre de mesures immédiates (un document sera envoyé à l'autorité territoriale à l'issue de l'inspection)."));
-			$section->addTextBreak(1);
 			$section->addTitle(htmlspecialchars('Le bilan des non-conformités'), 3);
 			$section->addText(htmlspecialchars("L'objectif étant de répertorier les non-conformités les plus fréquentes dans la partie organisationnelle, en fonction des bâtiments contrôlés et selon les familles de risques."));
 			$section->addTextBreak(1);
