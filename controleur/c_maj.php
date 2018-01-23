@@ -155,6 +155,7 @@ switch($action) {
 		break;
 		
 		case 'modifAdminObservation':
+		$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 		$listeObservation=$pdo->get_Observation_CritereModif($_SESSION['majcritere']);
 		if(isset($_POST['retour'])){
 			$_SESSION['entpied']="majCritere2";
@@ -188,7 +189,7 @@ switch($action) {
 					include("vue/v_modifObservation.php");
 				}
 			}
-			$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
+			
 			
 			
 		break;
@@ -346,9 +347,12 @@ switch($action) {
 			if(isset($_POST['retour'])){
 				$_SESSION['entpied']="maj";
 				include('vue/v_maj.php');
+			}else{
+				
+				$_SESSION['entpied']="majCoordStruc";
+				include("vue/v_coordonees_structure.php");
 			}
-			$_SESSION['entpied']="majCoordStruc";
-			include("vue/v_coordonees_structure.php");
+			
 		}
 	}
 

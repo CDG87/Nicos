@@ -8,7 +8,7 @@ include("include/entete.php");
 	<div class="form-group">
 		<label class="col-sm-3">Partie :</label>
 		<div class="col-sm-4">
-			<select name="partie" class="form-control" onchange="submit()" required>
+			<select name="partie" class="form-control form-control2" onchange="submit()" required>
 				<?php if($_SESSION['majpartie']==""){ ?>
 					<option value="" disabled selected >Choisir...</option>
 				<?php } ?>
@@ -29,7 +29,7 @@ include("include/entete.php");
 	<div class="form-group">
 		<label class="col-sm-3">Theme :</label>
 		<div class="col-sm-4">
-			<select name="theme" class="form-control" onchange="submit()" required >
+			<select name="theme" class="form-control form-control2" onchange="submit()" required >
 			<?php if($_SESSION['majtheme']==""){ ?>
 				<option value="" disabled selected >Choisir...</option>
 				<?php } ?>
@@ -48,7 +48,7 @@ include("include/entete.php");
 	<div class="form-group">
 		<label class="col-sm-3">Sous theme :</label>
 		<div class="col-sm-4">
-			<select name="st" class="form-control" onchange="submit()">
+			<select name="st" class="form-control form-control2" onchange="submit()">
 			<?php if($_SESSION['majst']==""){ ?>
 				<option value="" disabled selected >Choisir...</option>
 				<?php } ?>
@@ -67,7 +67,7 @@ include("include/entete.php");
 	<div class="form-group">
 		<label class="col-sm-3">critere :</label>
 		<div class="col-sm-4">
-			<select name="critere" class="form-control" onchange="submit()" required>
+			<select name="critere" class="form-control form-control2" onchange="submit()" required>
 			<?php if($_SESSION['majcritere']==""){ ?>
 				<option value="" selected disabled >Choisir...</option>
 				<?php } ?>

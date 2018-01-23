@@ -878,7 +878,7 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
 		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
 
-		if($NBcritereRougeOrg['NBCRITEREROUGEORG']>0 || $NBcritereRougeSite['NBCRITEREROUGESITE']>0){
+		if(($NBcritereRougeOrg['NBCRITEREROUGEORG']>0 || $NBcritereRougeSite['NBCRITEREROUGESITE']>0 ) && $infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addPageBreak();
 			
 			$section->addText("Suites donnees aux propositions", 'title_partie', 'center');
@@ -932,7 +932,6 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 			}
 		}
-
 	/*************************** FOOTER ***************************/
 
 

@@ -8,7 +8,7 @@
 			<label class="col-sm-3" >Structure : </label>
 			<div class="col-sm-4">
 				
-                        <input class="form-control" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
+                        <input class="form-control form-control2" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
 					<?php
 						$liste = $pdo->get_Structures_total();
 					?>
@@ -37,7 +37,7 @@
 					
 					<label class="col-sm-3" >Type : * </label>
 					<div class="col-sm-4">
-						<select class="form-control" name="lst_structure" autofocus required>
+						<select class="form-control form-control2" name="lst_structure" autofocus required>
 							<?php 
 							foreach($lesTypesStructures as $unTypeStructure) {
 								if($unTypeStructure['NUM_TYPE_STRUCTURE']==$maStructure['NUM_TYPE_STRUCTURE']){ ?>
@@ -60,37 +60,37 @@
 					
 					<label class="col-sm-3" >Nom : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>" />
+						<input class="form-control form-control2" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Adresse : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
+						<input class="form-control form-control2" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Ville : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="villeStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
+						<input class="form-control form-control2" name="villeStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >CP : </label>
 					<div class="col-sm-4">
-						<input type="number" class="form-control" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
+						<input type="number" class="form-control form-control2" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3">Tel : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
+						<input class="form-control form-control2" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Email : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
+						<input class="form-control form-control2" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 		

@@ -8,7 +8,7 @@
 		<div class="form-group">
 			<label class="col-sm-3" for="lst_controleur">Contrôleur : </label>
 			<div class="col-sm-4">
-				<select class="form-control" name="lst_controleur" autofocus onchange="submit()">
+				<select class="form-control form-control2 form-control form-control22" name="lst_controleur" autofocus onchange="submit()">
 					<option value="" disabled selected>Choisir...</option>
 					<?php 
 					foreach($lesControleurs as $unControleur) {
@@ -29,61 +29,61 @@
 					<h3>Coordonnées inspecteur</h3><br/>
 					<label class="col-sm-3" for="nom_inspecteur">Nom : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="nom_inspecteur" value="<?php  if(isset($_POST['lst_controleur'])){echo $controleur['NOM_CONTROLEUR'];} ?>" required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="nom_inspecteur" value="<?php  if(isset($_POST['lst_controleur'])){echo $controleur['NOM_CONTROLEUR'];} ?>" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="prenom_inspecteur">Prénom : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="prenom_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['PRENOM_CONTROLEUR'];} ?>"required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="prenom_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['PRENOM_CONTROLEUR'];} ?>"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fonction_inspecteur">Fonction : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="fonction_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FONCTION_CONTROLEUR'];} ?>"required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="fonction_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FONCTION_CONTROLEUR'];} ?>"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="affectation_inspecteur">Affectation : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="affectation_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['AFFECTATION_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="affectation_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['AFFECTATION_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="centre_inspecteur">Centre : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="centre_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['CENTRE_CONTROLEUR'];} ?>" required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="centre_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['CENTRE_CONTROLEUR'];} ?>" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="adresse_inspecteur">Adresse du centre : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="adresse_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['ADRESSE_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="adresse_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['ADRESSE_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_fixe_inspecteur">Téléphone fixe : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="tel_fixe_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_FIXE_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="tel_fixe_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_FIXE_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_portable_inspecteur">Téléphone portable : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="tel_portable_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_MOBILE_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="tel_portable_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_MOBILE_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fax_inspecteur">Fax : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="fax_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FAX_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="fax_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FAX_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="email_inspecteur">E-mail : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control" name="email_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['EMAIL_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" name="email_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['EMAIL_CONTROLEUR'];} ?>" />
 					</div>
 
 					<br/><br/> <br/><br/>
