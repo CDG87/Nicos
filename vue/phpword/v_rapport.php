@@ -942,6 +942,10 @@ if(isset($_SESSION['choix_creation'])) {
 
 	$footer->addPreserveText(htmlspecialchars('Page {PAGE}/{NUMPAGES}'), array('align' => 'right'));
 
+$folder = new DirectoryIterator('./graph/');
+foreach($folder as $file)
+if($file->isFile() && !$file->isDot() && (time() - $file->getMTime() > 86400))
+	unlink($file->getPathname());
 
 
 	$today = date("d.m.y"); //date et heure du jour
