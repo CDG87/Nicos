@@ -330,8 +330,6 @@ switch($action) {
 		break;
 	
 	case 'coord_struct':
-		
-		
 		if(isset($_POST['creer_struct'])){
 			$lesStructures = $pdo->get_Type_Structure();
 			$_SESSION['entpied']="majCoordStruc";
