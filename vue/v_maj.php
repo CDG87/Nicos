@@ -11,7 +11,7 @@
 				<tr>
 					<td class="espart">
 						<form method="post" action="index.php?uc=maj&action=charge_version">
-							<button type="submit" class="btn btn-warning btn-lg" name="maj_version">Version</button>
+							<button type="submit" class="btn btn-warning btn-lg-rond" name="maj_version">Version</button>
 						</form>
 					</td>
 					<td class="espart">
