@@ -3210,7 +3210,7 @@ class Pdo_Inspection {
 	* Récupère l'adresse de la structure à partir du numéro
 	**/
 	public function get_Date_Maj($num) {
-		$req = "SELECT * FROM DATE_MAJ WHERE NUM_CRITERE = ?";
+		$req = "SELECT NUM_CRITERE, YEAR(DATE_OBSERVATION) AS AnneeObs, MONTH(DATE_OBSERVATION) AS MoisObs, DAY(DATE_OBSERVATION) AS JourObs, YEAR(DATE_PROPOSITION) AS AnneeProp, MONTH(DATE_PROPOSITION) AS MoisProp, DAY(DATE_PROPOSITION) AS JourProp, YEAR(DATE_IMAGE) AS AnneeImg, MONTH(DATE_IMAGE) AS MoisImg, DAY(DATE_IMAGE) AS JourImg FROM DATE_MAJ WHERE NUM_CRITERE = ?";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($num
 		));
