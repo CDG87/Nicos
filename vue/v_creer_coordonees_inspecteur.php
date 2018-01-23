@@ -9,61 +9,61 @@
 					<h3>Coordonnées inspecteur</h3><br/>
 					<label class="col-sm-3" for="nom_inspecteur">Nom : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="nom_inspecteur"required />
+						<input class="form-control form-control2" name="nom_inspecteur"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="prenom_inspecteur">Prénom : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="prenom_inspecteur"required />
+						<input class="form-control form-control2" name="prenom_inspecteur"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fonction_inspecteur">Fonction : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="fonction_inspecteur"required />
+						<input class="form-control form-control2" name="fonction_inspecteur"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="affectation_inspecteur">Affectation : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="affectation_inspecteur" />
+						<input class="form-control form-control2" name="affectation_inspecteur" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="centre_inspecteur">Centre : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="centre_inspecteur" required />
+						<input class="form-control form-control2" name="centre_inspecteur" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="adresse_inspecteur">Adresse du centre : * </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="adresse_inspecteur" required />
+						<input class="form-control form-control2" name="adresse_inspecteur" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_fixe_inspecteur">Téléphone fixe : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="tel_fixe_inspecteur" />
+						<input class="form-control form-control2" name="tel_fixe_inspecteur" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_portable_inspecteur">Téléphone portable : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="tel_portable_inspecteur" />
+						<input class="form-control form-control2" name="tel_portable_inspecteur" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fax_inspecteur">Fax : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="fax_inspecteur" />
+						<input class="form-control form-control2" name="fax_inspecteur" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="email_inspecteur">E-mail : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="email_inspecteur" />
+						<input class="form-control form-control2" name="email_inspecteur" />
 					</div>
 
 					<br/><br/> <br/><br/>

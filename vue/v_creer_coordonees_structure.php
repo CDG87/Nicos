@@ -9,7 +9,7 @@
 					<h3>Coordonnées Structure</h3><br/>
 					<label class="col-sm-3" >Type : * </label>
 					<div class="col-sm-4">
-						<select class="form-control" name="lst_structure" autofocus required>
+						<select class="form-control form-control2" name="lst_structure" autofocus required>
 							<option value="" disabled selected>Choisir...</option>
 							<?php 
 							foreach($lesStructures as $uneStructure) {
@@ -25,37 +25,37 @@
 					
 					<label class="col-sm-3" >Nom : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="nom" />
+						<input class="form-control form-control2" name="nom" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Adresse : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="adresse" />
+						<input class="form-control form-control2" name="adresse" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Ville : *</label>
 					<div class="col-sm-4">
-						<input class="form-control" name="ville" required />
+						<input class="form-control form-control2" name="ville" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >CP : * </label>
 					<div class="col-sm-4">
-						<input type="number" class="form-control" name="cp" required />
+						<input type="number" class="form-control form-control2" name="cp" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Tel : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="tel" />
+						<input class="form-control form-control2" name="tel" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Email : </label>
 					<div class="col-sm-4">
-						<input class="form-control" name="mail" />
+						<input class="form-control form-control2" name="mail" />
 					</div>
 					<br/><br/>
 					
@@ -69,6 +69,6 @@
 	</form>
 	<td>
 	<form method="POST" action="index.php?uc=maj&action=coord_struct">
-		<button type="submit" name="retour" class="btn btn-default" autofocus>Retour</button>
+		<button type="submit" name="retour2" class="btn btn-default" autofocus>Retour</button>
 	</form>
 	</td></tr></table>
