@@ -27,7 +27,7 @@ include("include/entete.php");
                                 ?>
                             </select></td>
                                     <td>
-                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette proposition ?"));'/>
+                                        <input type='submit' value='Supprimer' name='supprimer' <?php echo $verou; ?> class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette proposition ?"));'/>
                                     </td>
                     </tr>
                     <tr>

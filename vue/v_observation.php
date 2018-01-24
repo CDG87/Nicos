@@ -131,22 +131,6 @@ else{
     if($_SESSION['cacheva'] == false){
     ?>
         <hr/>
-        <table>
-            <tr>
-                <td>
-                    <div class="container_obs">
-                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default" >
-                    </div>
-                </td>
-                <td>
-                    <h1><i class="fa fa-camera fa-4x" aria-hidden="true"></i></h1>
-                </td>
-				<td>
-                    <h1>Ajouter une photo</h1>
-                </td>
-            </tr>
-        </table>
-        <hr/>
 		<?php if($infosaudit['LIBELLE_AUDIT']=="Inspection"){ ?>
         <table>
             <tr>
@@ -177,8 +161,9 @@ else{
                 </td>
             </tr>
         </table>
+		<hr/>
 		<?php } ?>
-        <hr/>
+        
 		<?php if($infosaudit['LIBELLE_AUDIT']=="Inspection"){ ?>
         <table>
             <tr>
@@ -193,15 +178,38 @@ else{
                 </td>
             </tr>
         </table>
+		<hr/>
 		<?php } ?>
-        <hr/>
+        
         <table>
             <tr>
+				<td>
+					<script>
+	// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+
+</script>
+		
+		
+<div class="input-file-container">
+  <input class="input-file" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
+  <label for="my-file"  class=" input-file-trigger fa fa-camera btn-primary" tabindex="0"> Valider avec une photo</label>
+</div>
+<p class="file-return"></p>
+				</td>
                 <td> 
-
-
                     <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Vous ne pourrez plus ajouter de photo par la suite.')) return false;"; }?>" autofocus> Valider</button>
-
                 </td>
             </tr>
         </table>
