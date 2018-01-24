@@ -29,7 +29,7 @@ include("include/entete.php");
                                 ?>
                             </select></td>
                                     <td>
-                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
+                                        <input type='submit' value='Supprimer' name='supprimer' class="btn btn-default" <?php echo $verou; ?> onclick='return(confirm("Voulez-vous vraiment supprimer cette observation ?"));'/>
                                     </td>
                     </tr>
                     <tr>

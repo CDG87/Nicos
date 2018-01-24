@@ -135,7 +135,7 @@ else{
             <tr>
                 <td>
                     <div class="container_obs">
-                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default" >
+                        <input type="file" name="photoprise" id="photoprise" class="btn btn-default btn-primary" >
                     </div>
                 </td>
                 <td>

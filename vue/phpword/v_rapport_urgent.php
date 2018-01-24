@@ -93,7 +93,7 @@ if(isset($_SESSION['choix_creation'])) {
 		foreach($lesInfosStructure as $uneInfoStructure) {
 			$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 		}
-			$section->addTextBreak(2);
+			$section->addTextBreak(1);
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
 				
 				if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
@@ -145,7 +145,7 @@ if(isset($_SESSION['choix_creation'])) {
 					}
 					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['PRECONISATION_CRITERE']));
 				}
-				$section->addTextBreak(2);
+				$section->addTextBreak(1);
 			}
 			/**     -------------------------------------------------**/
 				

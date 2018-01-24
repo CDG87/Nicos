@@ -57,5 +57,12 @@ include("include/entete.php");
 				</button>
 			</td>
 		</tr>
+		</form>
+		<form method="POST" action="index.php?uc=maj&action=selectionner_critere">
+		<tr>
+			<td>
+				<button type="submit" class="btn btn-default btn-primary" name="retour2">Retour</button>
+			</td>
+		</tr>
+		</form>
 	</table>
-</form>

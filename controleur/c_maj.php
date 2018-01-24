@@ -6,6 +6,7 @@ switch($action) {
 	case 'selectionner_critere' :
 		$_SESSION['entpied']="majCritere";
 		$_SESSION['majpartie']="";
+		$verou='disabled';
 		$_SESSION['majtheme']="";
 		$_SESSION['majst']="";
 		$_SESSION['majcritere']="";
@@ -34,6 +35,7 @@ switch($action) {
 		if(isset($_POST['partie'])){
 			if($_POST['partie']!=$_SESSION['majpartie']){
 				$verif=true;
+				$verou='disabled';
 				$_SESSION['majtheme']="";
 				$_SESSION['majst']="";
 				$_SESSION['majcritere']="";
@@ -46,6 +48,7 @@ switch($action) {
 		if(isset($_POST['theme'])){
 			if($_POST['theme']!=$_SESSION['majtheme'] && $verif!=true){
 				$verif=true;
+				$verou='disabled';
 				$_SESSION['majst']="";
 				$_SESSION['majcritere']="";
 				$_SESSION['majtheme']=$_POST['theme'];
@@ -62,6 +65,7 @@ switch($action) {
 		if(isset($_POST['st'])){
 			if($_POST['st']!=$_SESSION['majst'] && $verif!=true){
 				$verif=true;
+				$verou='disabled';
 				$_SESSION['majcritere']="";
 				$_SESSION['majst']=$_POST['st'];
 			}
@@ -77,6 +81,7 @@ switch($action) {
 				$_SESSION['majcritere']=$_POST['critere'];
 				$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
 				$_SESSION['listearticle'] = $pdo->get_ResArticle_Critere($_SESSION['majcritere']);
+				$verou='';
 			}
 		}
 		
@@ -91,6 +96,7 @@ switch($action) {
 			include("vue/v_modifArticle.php");
 		}else{
 			if(isset($_POST['observation'])){
+				$verou='disabled';
 				$_SESSION['textObs']="";
 				$_SESSION['numObs']="";
 				$_SESSION['entpied']='modifOservation';
@@ -98,6 +104,7 @@ switch($action) {
 				include("vue/v_modifObservation.php");
 			}else{
 				if(isset($_POST['proposition'])){
+					$verou='disabled';
 					$_SESSION['textPropo']="";
 					$_SESSION['entpied']='modifProposition';
 					$_SESSION['numPropo']="";
@@ -135,14 +142,16 @@ switch($action) {
 			}else{
 				if(isset($_POST['modifier'])){
 					$nbImage=$pdo->get_NbImage_Critere($_SESSION['majcritere']);
-					if($nbImage['NB']==0){
-						$pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
-						$pdo->update_Date_Image($_SESSION['majcritere']);
-						$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
-					}else{
-						$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
-						$pdo->update_Date_Image($_SESSION['majcritere']);
-						$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
+					if($_POST['image']!=""){
+						if($nbImage['NB']==0){
+							$pdo->add_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+							$pdo->update_Date_Image($_SESSION['majcritere']);
+							$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
+						}else{
+							$pdo->update_Image_Critere($_SESSION['majcritere'],$_POST['image']);
+							$pdo->update_Date_Image($_SESSION['majcritere']);
+							$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
+						}
 					}
 				}else{
 					if(isset($_POST['supprimer'])){
@@ -160,6 +169,7 @@ switch($action) {
 		
 		case 'modifAdminObservation':
 		$_SESSION['dateMaj']=$pdo->get_Date_Maj($_SESSION['majcritere']);
+		$verou='disabled';
 		$listeObservation=$pdo->get_Observation_CritereModif($_SESSION['majcritere']);
 		if(isset($_POST['retour'])){
 			$_SESSION['entpied']="majCritere2";
@@ -190,6 +200,7 @@ switch($action) {
 			}
 			if(isset($_POST['idobservation'])){
 				$libelle=$pdo->get_Observ_par_num($_POST['idobservation']);
+				$verou='';
 				$_SESSION['textObs']=$libelle['LIBELLE_OBSERVATION'];
 				$_SESSION['numObs']=$libelle['NUM_OBSERVATION'];
 				if(!isset($_POST['modifier']) && !isset($_POST['supprimer']) && !isset($_POST['ajouter']) && !isset($_POST['retour'])){
@@ -202,6 +213,7 @@ switch($action) {
 		break;
 		
 		case 'modifAdminProposition':
+			
 			$listeProposition=$pdo->get_Preconisation_CritereMaj($_SESSION['majcritere']);
 			if(isset($_POST['retour'])){
 				$_SESSION['entpied']="majCritere2";
@@ -231,6 +243,7 @@ switch($action) {
 				include("vue/v_menu_crit_modif.php");
 			}
 			if(isset($_POST['idproposition'])){
+				$verou='';
 				$libelle=$pdo->get_Preco_par_num($_POST['idproposition']);
 				$_SESSION['textPropo']=$libelle['LIBELLE_PRECONISATION'];
 				$_SESSION['numPropo']=$libelle['NUM_PRECONISATION'];
