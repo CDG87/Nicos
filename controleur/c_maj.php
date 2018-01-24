@@ -24,7 +24,7 @@ switch($action) {
 		if(isset($_POST['modifier'])){
 			$pdo->update_version($_POST['version']);
 		}
-		$_SESSION['entpied'] = 'maj';
+		$_SESSION['entpied'] = 'maj';		
 		include("vue/v_maj.php");
 		
 		break;
