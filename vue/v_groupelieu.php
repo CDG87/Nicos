@@ -24,7 +24,7 @@ include("include/entete.php");
         <td class="esrest">
             <form method='POST' action='index.php?uc=sursite&action=lieu&nt=oui&entpied=lieu'>
                 <input type='hidden' name='nomgroupelieu' value='<?php echo $nomGL; ?>'/>
-                <button type="submit" class="btn btn-lg <?php echo $pictos; ?>" name="numgroupelieu" value="<?php echo $numGL; ?>"> <?php echo $nomGL; ?></button>
+                <button type="submit" class="btn btn-lg btn-danger <?php echo $pictos; ?>" name="numgroupelieu" value="<?php echo $numGL; ?>"> <?php echo $nomGL; ?></button>
             </form>
         </td>
 <?php
