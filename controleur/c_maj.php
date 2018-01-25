@@ -415,5 +415,15 @@ switch($action) {
 	}
 	break;
 	
+	case 'majBd':
+		if(isset($_POST['majBd'])){
+			$_SESSION['entpied']="majBD";
+			include('vue/v_maj_bd.php');
+		}
+		if(isset($_POST['retour'])){
+			$_SESSION['entpied']="maj";
+			include('vue/v_maj.php');
+		}
+	break;
 }
 ?>
