@@ -17,8 +17,6 @@ switch($action) {
 		$version=$pdo->get_version();
 		$_SESSION['entpied']="majVersion";
 		include("vue/v_maj_version.php");
-		
-		
 		break;
 		
 	case 'version' :
@@ -27,7 +25,6 @@ switch($action) {
 		}
 		$_SESSION['entpied'] = 'maj';		
 		include("vue/v_maj.php");
-		
 		break;
 		
 	case 'choixActionCritere':
