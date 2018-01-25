@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 23 Janvier 2018 à 09:27
+-- Généré le :  Jeu 25 Janvier 2018 à 08:33
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -44,7 +44,7 @@ CREATE TABLE `audit` (
 --
 
 INSERT INTO `audit` (`NUM_AUDIT`, `NUM_CONTROLEUR`, `NUM_STRUCTURE`, `DATE_AUDIT`, `DATE_AUDIT_2`, `DATE_AUDIT_3`, `DATE_AUDIT_4`, `DATE_AUDIT_5`, `LIBELLE_AUDIT`, `DATE_CONTROLE_AUDIT`) VALUES
-(1, 1, 231, '2018-01-24', NULL, NULL, NULL, NULL, 'Inspection', '2018-01-24');
+(1, 1, 45, '2000-01-01', NULL, NULL, NULL, NULL, 'Inspection', '2000-01-01');
 
 --
 -- Déclencheurs `audit`
@@ -165,6 +165,15 @@ CREATE TABLE `comprendre` (
   `NUM_OBSERVATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `comprendre`
+--
+
+INSERT INTO `comprendre` (`NUM_AUDIT`, `NUM_OBSERVATION`) VALUES
+(1, 23),
+(1, 25),
+(1, 850);
+
 -- --------------------------------------------------------
 
 --
@@ -245,6 +254,15 @@ CREATE TABLE `controle_critere` (
   `PRECONISATION_CRITERE` varchar(1000) DEFAULT NULL,
   `PHOTO_CRITERE` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `controle_critere`
+--
+
+INSERT INTO `controle_critere` (`NUM_CRITERE`, `NUM_AUDIT`, `VALEUR_CRITERE`, `VALEUR_IMPORTANT`, `PRECONISATION_CRITERE`, `PHOTO_CRITERE`) VALUES
+(1, 1, 'NC', 0, NULL, NULL),
+(6, 1, 'NC', 0, NULL, 'lieu de stage.PNG'),
+(7, 1, 'C', 0, NULL, 'affiche secours 1.png');
 
 -- --------------------------------------------------------
 
@@ -548,10 +566,10 @@ CREATE TABLE `date_maj` (
 --
 
 INSERT INTO `date_maj` (`NUM_CRITERE`, `DATE_OBSERVATION`, `DATE_PROPOSITION`, `DATE_IMAGE`) VALUES
-(1, '2018-01-22', '2018-01-22', '2018-01-22'),
+(1, '2018-01-24', '2018-01-24', '2018-01-24'),
 (2, '2018-01-22', '2018-01-22', '2018-01-22'),
 (3, '2018-01-22', NULL, NULL),
-(4, NULL, NULL, NULL),
+(4, '2018-01-23', NULL, '2018-01-23'),
 (5, NULL, NULL, NULL),
 (6, NULL, NULL, NULL),
 (7, NULL, NULL, NULL),
@@ -578,7 +596,7 @@ INSERT INTO `date_maj` (`NUM_CRITERE`, `DATE_OBSERVATION`, `DATE_PROPOSITION`, `
 (28, NULL, NULL, NULL),
 (29, NULL, NULL, NULL),
 (30, NULL, NULL, NULL),
-(31, '2018-01-22', NULL, NULL),
+(31, NULL, NULL, NULL),
 (32, NULL, NULL, NULL),
 (33, NULL, NULL, NULL),
 (34, NULL, NULL, NULL),
@@ -624,7 +642,7 @@ INSERT INTO `date_maj` (`NUM_CRITERE`, `DATE_OBSERVATION`, `DATE_PROPOSITION`, `
 (74, NULL, NULL, NULL),
 (75, NULL, NULL, NULL),
 (76, NULL, NULL, NULL),
-(77, NULL, NULL, NULL),
+(77, NULL, '2018-01-23', NULL),
 (78, NULL, NULL, NULL),
 (79, NULL, NULL, NULL),
 (80, NULL, NULL, NULL),
@@ -808,6 +826,14 @@ CREATE TABLE `disposer` (
   `NUM_PRECONISATION` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `disposer`
+--
+
+INSERT INTO `disposer` (`NUM_AUDIT`, `NUM_PRECONISATION`) VALUES
+(1, 1),
+(1, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -825,16 +851,16 @@ CREATE TABLE `groupe_lieu` (
 --
 
 INSERT INTO `groupe_lieu` (`NUM_GROUPE_LIEU`, `LIBELLE_GROUPE_LIEU`, `PICTOS`) VALUES
-(1, 'Atelier / Service (voirie...)', 'fa-industry'),
-(2, 'Locaux sociaux / circulation', 'fa-users'),
-(3, 'Structure / Annexes (Mezz...)', 'fa-bed'),
-(4, 'Local / Armoire', 'fa-columns'),
-(5, 'Salle', 'fa-arrows-alt'),
-(6, 'Administratif (bureau...)', 'fa-desktop'),
-(7, 'Eau / Assainissement / Déchets', 'fa-trash'),
-(8, 'Engins / Véhicules (tracteur...)', 'fa-truck'),
-(9, '# Structure globale #', 'fa-university'),
-(10, 'Restauration', 'fa-cutlery');
+(1, 'Atelier / Service (voirie...)', NULL),
+(2, 'Locaux sociaux / circulation', NULL),
+(3, 'Structure / Annexes (Mezz...)', NULL),
+(4, 'Local / Armoire', NULL),
+(5, 'Salle', NULL),
+(6, 'Administratif (bureau...)', NULL),
+(7, 'Eau / Assainissement / Déchets', NULL),
+(8, 'Engins / Véhicules (tracteur...)', NULL),
+(9, '# Structure globale #', NULL),
+(10, 'Restauration', NULL);
 
 --
 -- Déclencheurs `groupe_lieu`
@@ -1223,7 +1249,7 @@ INSERT INTO `observation` (`NUM_OBSERVATION`, `NUM_CRITERE`, `LIBELLE_OBSERVATIO
 (84, 29, 'L\'ACFI n\'a pas effectué un contrôle des conditions d\'application des règles d\'hygiène et de sécurité.', 2, NULL),
 (85, 30, 'L\'autorité territoriale a informé l\'ACFI des suites données à ses propositions.', 1, NULL),
 (86, 30, 'L\'autorité territoriale n\'a pas informé l\'ACFI des suites données à ses propositions.', 2, NULL),
-(88, 31, 'Le document unique d\'évaluation des risques professionnels a été réalisé.', 1, NULL),
+(88, 31, 'Le document unique d\'évaluation des risques à été réalisé.', 1, NULL),
 (89, 31, 'Le document unique d\'évaluation des risques n\'a pas été réalisé.', 2, NULL),
 (90, 31, 'Il a été indiqué que le document unique d\'évaluation des risques (DU-EvRP) est en cours de réalisation.', 2, NULL),
 (92, 32, 'Le document est mis à jour chaque fois que nécessaire et au moins tous les ans.', 1, NULL),
@@ -2018,7 +2044,8 @@ INSERT INTO `observation` (`NUM_OBSERVATION`, `NUM_CRITERE`, `LIBELLE_OBSERVATIO
 (1017, 254, 'Il existe une procédure à mettre en oeuvre sans règlement intérieur pour les cas d\'agent en état d\'ébriété.', 1, NULL),
 (1018, 254, 'Il n\'existe pas de règlement intérieur  ni de note de service qui définit l\'ensemble des postes à risque et qui contient un protocole d\'action (procédure de gestion immédiate de ces situations)', 2, NULL),
 (1023, 94, 'ENCOMBREMENT: \r\nLes locaux de travail sont exempts de tout encombrement.', 1, NULL),
-(1024, 1, 'L’Autorité Territoriale a désigné au moins un agent sur la mission d’Assistant de Prévention.', 1, NULL);
+(1024, 1, 'L’Autorité Territoriale a désigné au moins un agent sur la mission d’Assistant de Prévention.', 1, NULL),
+(1025, 4, 'abcd', 2, NULL);
 
 --
 -- Déclencheurs `observation`
@@ -2072,11 +2099,7 @@ CREATE TABLE `participant` (
 INSERT INTO `participant` (`NUM_PARTICIPANT`, `NUM_STRUCTURE`, `NOM_PARTICIPANT`, `PRENOM_PARTICIPANT`, `CODE_CIVILITE_PARTICIPANT`, `NOM_FONCTION_PARTICIPANT`) VALUES
 (4, 93, 'HUBERT', 'Frédéric', 0, 'Deuxième adjoint'),
 (10, 153, 'PARAUD', 'Pierre', 0, 'élu-adjoint au Maire'),
-(11, 153, 'MUHLEBACH', 'Aude', 1, 'Assistant de prévention'),
-(12, 231, 'LAMANT', 'Didier', 0, 'Conseiller de prévention'),
-(13, 231, 'bla', 'v', 0, ''),
-(14, 231, 'bla', 'v', 0, ''),
-(15, 231, 'bla', 'v', 0, '');
+(11, 153, 'MUHLEBACH', 'Aude', 1, 'Assistant de prévention');
 
 --
 -- Déclencheurs `participant`
@@ -2101,16 +2124,6 @@ CREATE TABLE `participer` (
   `NUM_AUDIT` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `participer`
---
-
-INSERT INTO `participer` (`NUM_PARTICIPANT`, `NUM_AUDIT`) VALUES
-(12, 1),
-(13, 1),
-(14, 1),
-(15, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -2128,12 +2141,12 @@ CREATE TABLE `pole` (
 --
 
 INSERT INTO `pole` (`CODE_POLE`, `LIBELLE_POLE`, `PICTOS`) VALUES
-(1, 'Administratif', 'fa-at'),
-(2, 'Technique', 'fa-gavel'),
+(1, 'Administratif', NULL),
+(2, 'Technique', NULL),
 (4, 'Enfance', 'fa-smile-o'),
 (5, 'Culture / Animation / Sport', 'fa-futbol-o'),
-(6, 'Santé / Social', 'fa-heartbeat'),
-(7, 'Police / Secours', 'fa-ambulance');
+(6, 'Santé / Social', NULL),
+(7, 'Police / Secours', NULL);
 
 --
 -- Déclencheurs `pole`
@@ -2538,7 +2551,8 @@ INSERT INTO `preconisation` (`NUM_PRECONISATION`, `NUM_CRITERE`, `LIBELLE_PRECON
 (413, 254, 'Mette en place une démarche de prévention s\'appuyant sur une sensibilisation /information des agents', NULL),
 (414, 253, 'Si la structure est soumise à un règlement intérieur, il est important que celui-ci rappelle les obligations et interdictions en matière de risque alcool.', NULL),
 (415, 254, 'L\'Autorité territoriale affirme et affiche une politique de prévention et de gestion du risque alcool claire en fixant les limités, en les rappelant régulièrement , en intervenant de manière graduée et en disposant de procédures permettant de gérer les situations.', NULL),
-(416, 254, 'M^me si(il n\'est pas obligatoire  dans la fonction publique territoriale, le règlement intérieur peut être un bon moyen de fixer les règles d\'organisation et de fonctionnement de la collectivité en matière d’hygiène et sécurité et notamment dans le cadre de la gestion des situations d’alcoolisation. \r\n ', NULL);
+(416, 254, 'M^me si(il n\'est pas obligatoire  dans la fonction publique territoriale, le règlement intérieur peut être un bon moyen de fixer les règles d\'organisation et de fonctionnement de la collectivité en matière d’hygiène et sécurité et notamment dans le cadre de la gestion des situations d’alcoolisation. \r\n ', NULL),
+(417, 77, 'a', NULL);
 
 --
 -- Déclencheurs `preconisation`
@@ -2569,7 +2583,7 @@ CREATE TABLE `resume_article` (
 --
 
 INSERT INTO `resume_article` (`NUM_RESUME_ARTICLE`, `DESCRIPTION_RESUME_ARTICLE`, `DATE_ARTICLE`) VALUES
-(1, 'Art 108-3 de la Loi 84-53 du 26 janvier 1984 Art.4 du Décret 85-603 modifié (circulaire du 12 octobre 2012 pour application) ...des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions.  \r\nLes agents mentionnés au premier alinéa peuvent être mis à disposition, pour tout ou partie de leur temps par une commune, l’établissement public de coopération intercommunale dont est membre la commune, ou le centre de gestion, dans les conditions prévues à l’article 108-3 de la loi du 26 janvier 1984 susvisée.', '2018-01-22'),
+(1, 'Art 108-3 de la Loi 84-53 du 26 janvier 1984 Art.4 du Décret 85-603 modifié (circulaire du 12 octobre 2012 pour application) ...des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions.  \r\nLes agents mentionnés au premier alinéa peuvent être mis à disposition, pour tout ou partie de leur temps par une commune, l’établissement public de coopération intercommunale dont est membre la commune, ou le centre de gestion, dans les conditions prévues à l’article 108-3 de la loi du 26 janvier 1984 susvisée.', '2018-01-23'),
 (2, 'Art.4 du Décret 85-603 modifié du 10 juin 1985:   "Dans le champ de compétence du comité mentionné à l’article 37, des assistants de prévention et, le cas échéant, des conseillers de prévention sont désignés par l’autorité territoriale sous l’autorité de laquelle ils exercent leurs fonctions....."', NULL),
 (3, 'Art.4 du Décret du 10 juin 1985  modifié:\r\nL’autorité territoriale adresse aux agents mentionnés au premier alinéa une lettre de cadrage qui définit les moyens mis à leur disposition pour l’exercice de leurs missions. Une copie de cette lettre est communiquée au comité, mentionné à l’article 37, dans le champ duquel l’agent est placé.', NULL),
 (4, 'Arrêté du 29 janvier 2015 relatif à la formation obligatoire des assistants de prévention, des conseillers de prévention et des agents chargés des fonctions d\'inspection dans le domaine de la santé et de la sécurité:\r\nLes assistants de prévention n\'ayant pas suivi la formation préalable prévue par l\'arrêté du 3 mai 2002 cité à l\'article 10 ainsi que les conseillers de prévention, désignés en application des dispositions de l\'article 4 du décret du 10 juin 1985 susvisé, reçoivent une formation préalable à leur prise de fonction d\'une durée de :\r\n- cinq jours pour les assistants de prévention ;\r\n- sept jours pour les conseillers de prévention.\r\nLa formation prévue à l\'article précédent porte notamment :\r\nPour les assistants de prévention, sur l\'acquisition des bases et repères nécessaires au premier exercice de la fonction et la capacité d\'intervenir dans le cadre d\'une démarche de prévention des risques professionnels ;\r\nPour les conseillers de prévention, sur l\'acquisition d\'une bonne compréhension de son rôle et de ses missions de conseiller de prévention et la capacité à animer une démarche de prévention des risques professionnels.\r\nLa formation doit aussi faciliter le transfert des acquis en situation professionnelle par la définition, par chaque participant, d\'un plan d\'action opérationnel adapté à son contexte d\'intervention.\r\nLa durée de la formation continue au profit des assistants de prévention et des conseillers de prévention est fixée à deux journées l\'année suivant leur prise de fonctions et au minimum à un module de formation les années suivantes.\r\nCette formation a pour but notamment de permettre aux intéressés de parfaire leurs compétences et d\'actualiser leurs connaissances en matière de santé et de sécurité.', NULL),
@@ -2646,7 +2660,7 @@ INSERT INTO `resume_article` (`NUM_RESUME_ARTICLE`, `DESCRIPTION_RESUME_ARTICLE`
 (74, 'Art.R.4227-28, 29, 39 et 45 du CdT:\r\nL\'employeur prend les mesures nécessaires pour que tout commencement d\'incendie puisse être rapidement et efficacement combattu dans l\'intérêt du sauvetage des travailleurs.\r\nLe premier secours contre l\'incendie est assuré par des extincteurs en nombre suffisant et maintenus en bon état de fonctionnement.\r\nIl existe au moins un extincteur portatif à eau pulvérisée d\'une capacité minimale de 6 litres pour 200 mètres carrés de plancher.\r\nIl existe au moins un appareil par niveau.\r\nLorsque les locaux présentent des risques d\'incendie particuliers, notamment des risques électriques, ils sont dotés d\'extincteurs dont le nombre et le type sont appropriés aux risques.\r\n\r\nL’arrêté du 2 mars 1995 relatif à l\'équipement en extincteurs des véhicules de transport de marchandises définit les obligations en la matière.\r\nEn France, seuls les véhicules d’un PTAC supérieur à 3,5 tonnes, ainsi que l’ensemble des véhicules affectés au transport de matières dangereuses, doivent être munis d’extincteurs. Il reste pourtant le seul accessoire salvateur en cas d\'incendie. \r\n\r\nArt.R.4324-45 du CdT:\r\nLes équipements de travail mobiles automoteurs qui, par eux-mêmes ou du fait de leurs remorques ou de leur chargement, présentent des risques d\'incendie sont munis de dispositifs de lutte contre l\'incendie, sauf si le lieu d\'utilisation en est équipé à des endroits suffisamment rapprochés.', NULL),
 (75, 'Art.R.4543-20 du CdT:\r\n" Un travailleur isolé ne peut réaliser des interventions ou travaux qui : \r\n1° Comportent le port manuel d\'une masse supérieure à 30 kg, la pose ou la dépose manuelle d\'éléments d\'appareils d\'une masse supérieure à 50 kg, ou la pose ou la dépose des câbles de traction d\'ascenseur ;  \r\n2° Exigent le port d\'un équipement de protection individuelle respiratoire isolant ou filtrant à ventilation assistée" , Art.R4543-21: "...." )\r\n\r\nArt.R.4543-19 du CdT:\r\nUn travailleur isolé doit pouvoir signaler toute situation de détresse et être secouru dans les meilleurs délais.\r\n\r\nLa notion de travailleur isolé n’est pas définie réglementairement. Nous pouvons néanmoins nous appuyer sur la définition suivante : « un agent est considéré comme travailleur isolé lorsqu’il est hors de vue ou de portée de voix des autres, dans la plupart des cas pour des durées de plus d’une heure. Cependant, pour des travaux dangereux, la notion de travailleur isolé sera prise en compte même pour quelques minutes »', NULL),
 (76, 'Art.R.4543-19 du CdT:\r\n " Un travailleur isolé doit pouvoir signaler toute situation de détresse et être secouru dans les meilleurs délais."\r\n', NULL),
-(77, 'Décret n° 2009-1272 du 21 octobre 2009 relatif à l\'accessibilité des lieux de travail aux travailleurs handicapés:\r\n« Art.R. 4214-26.-Les lieux de travail, y compris les locaux annexes, aménagés dans un bâtiment neuf ou dans la partie neuve d\'un bâtiment existant sont accessibles aux personnes handicapées, quel que soit leur type de handicap. \r\n« Les lieux de travail sont considérés comme accessibles aux personnes handicapées lorsque celles-ci peuvent accéder à ces lieux, y circuler, les évacuer, se repérer, communiquer, avec la plus grande autonomie possible. \r\n« Les lieux de travail sont conçus de manière à permettre l\'adaptation des postes de travail aux personnes handicapées ou à rendre ultérieurement possible l\'adaptation des postes de travail.', NULL),
+(77, 'Décret n° 2009-1272 du 21 octobre 2009 relatif à l\'accessibilité des lieux de travail aux travailleurs handicapés:\r\n« Art.R. 4214-26.-Les lieux de travail, y compris les locaux annexes, aménagés dans un bâtiment neuf ou dans la partie neuve d\'un bâtiment existant sont accessibles aux personnes handicapées, quel que soit leur type de handicap. \r\n« Les lieux de travail sont considérés comme accessibles aux personnes handicapées lorsque celles-ci peuvent accéder à ces lieux, y circuler, les évacuer, se repérer, communiquer, avec la plus grande autonomie possible. \r\n« Les lieux de travail sont conçus de manière à permettre l\'adaptation des postes de travail aux personnes handicapées ou à rendre ultérieurement possible l\'adaptation des postes de travail.', '2018-01-23'),
 (78, 'Art.R.4321-1 à 4 du CdT:\r\n -  L\'employeur met à la disposition des travailleurs les équipements de travail nécessaires, appropriés au travail à réaliser ou convenablement adaptés à cet effet, en vue de préserver leur santé et leur sécurité.\r\n -  L\'employeur choisit les équipements de travail en fonction des conditions et des caractéristiques particulières du travail. Il tient compte des caractéristiques de l\'établissement susceptibles d\'être à l\'origine de risques lors de l\'utilisation de ces équipements.\r\n -  L\'employeur met à la disposition des travailleurs, en tant que de besoin, les équipements de protection individuelle appropriés et, lorsque le caractère particulièrement insalubre ou salissant des travaux l\'exige, les vêtements de travail appropriés. Il veille à leur utilisation effective.', NULL),
 (79, 'Art.R.4321-4 du CdT:\r\nL\'employeur met à la disposition des travailleurs, en tant que de besoin, les équipements de protection individuelle appropriés et, lorsque le caractère particulièrement insalubre ou salissant des travaux l\'exige, les vêtements de travail appropriés. Il veille à leur utilisation effective.\r\n\r\nArt.L.4122-1 du CdT:\r\n - Conformément aux instructions qui lui sont données par l\'employeur, dans les conditions prévues au règlement intérieur pour les entreprises tenues d’en élaborer un, il incombe à chaque travailleur de prendre soin, en fonction de sa formation et selon ses possibilités, de sa santé et de sa sécurité ainsi que de celles des autres personnes concernées par ses actes ou ses omissions au travail.\r\nLes instructions de l’employeur précisent, en particulier lorsque la nature des risques le justifie, les conditions d\'utilisation des équipements de travail, des moyens de protection, des substances et préparations dangereuses. Elles sont adaptées à la nature des tâches à accomplir.\r\n - Les dispositions du premier alinéa sont sans incidence sur le principe de la responsabilité de l’employeur.', NULL),
 (80, 'Art.R.4323-95 du CdT:\r\nLes équipements de protection individuelle et les vêtements de travail mentionnés à l\'article R.4321-4 sont fournis gratuitement par l\'employeur qui assure leur bon fonctionnement et leur maintien dans un état hygiénique satisfaisant par les entretiens, réparations et remplacements nécessaires. \r\nCes dispositions ne font pas obstacle aux conditions de fournitures des équipements de protection individuelle prévues par l\'article L.1251-23, pour les salariés temporaires.\r\nArt.R.4323-96 du CdT:\r\nLes équipements de protection individuelle sont réservés à un usage personnel dans le cadre des activités professionnelles de leur attributaire.\r\nToutefois, si la nature de l\'équipement ainsi que les circonstances exigent l\'utilisation successive de cet équipement de protection individuelle par plusieurs personnes, les mesures appropriées sont prises pour qu\'une telle utilisation ne pose aucun problème de santé ou d\'hygiène aux différents utilisateurs.\r\nArt.R.4323-97 du CdT:\r\nL\'employeur détermine, après consultation du comité d\'hygiène, de sécurité et des conditions de travail, les conditions dans lesquelles les équipements de protection individuelle sont mis à disposition et utilisés, notamment celles concernant la durée de leur port. Il prend en compte la gravité du risque, la fréquence de l\'exposition au risque, les caractéristiques du poste de travail de chaque travailleur, et les performances des équipements de protection individuelle en cause.\r\n\r\n\r\n\r\n', NULL),

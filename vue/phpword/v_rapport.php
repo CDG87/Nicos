@@ -419,6 +419,7 @@ if(isset($_SESSION['choix_creation'])) {
 			$section->addText('Organisationnel', 'title_partie', 'center');
 			
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
+				
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$sstheme='';
 				foreach($lesSTCr as $unSTCr) {
@@ -427,6 +428,7 @@ if(isset($_SESSION['choix_creation'])) {
 							$sstheme=$unSTCr['LIBELLE_SOUS_THEME'];
 					}
 				}
+				
 				if($sstheme!=''){
 					$section->addText(htmlspecialchars($uneInfoCritereCoOrg['NOM_THEME']." - ".$sstheme), $menu2, 'st1');
 					$section->addText(htmlspecialchars("► ".$uneInfoCritereCoOrg['LIBELLE_CRITERE']), $menu2, 'st1');
@@ -448,7 +450,8 @@ if(isset($_SESSION['choix_creation'])) {
 					}else if($uneInfoCritereCoOrg['VALEUR_CRITERE'] == "SA") {
 						$valeur_cr = "Sans avis";
 					}
-					
+				
+				
 					if($valeur_cr != "Sans avis" and $uneInfoStructure['LIBELLE_AUDIT']!="Visite de locaux"){
 						$table = $section->addTable();
 						$table->addRow();
@@ -478,7 +481,7 @@ if(isset($_SESSION['choix_creation'])) {
 				foreach($lesArticlesCrCoOrg as $unArticleCrCoOrg) {
 					if($unArticleCrCoOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
 						$unArticleCrCoOrgDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoOrg['DESCRIPTION_RESUME_ARTICLE']);
-						$section->addText($unArticleCrCoOrgDescriptionResume, $textBase);
+						$section->addText( htmlspecialchars($unArticleCrCoOrgDescriptionResume), $textBase);
 					}
 				}				
 				
@@ -488,6 +491,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$nb=0;
 				$section->addText(htmlspecialchars("Observations : "), $menu, 'st1');
 				$textrun = $section->addTextRun('center');
+				
 				if($uneInfoCritereCoOrg['PHOTO_CRITERE'] == NULL){
 					//Illustration critere
 					foreach($lesImgCrCo as $uneImgCrCo) {
@@ -507,6 +511,7 @@ if(isset($_SESSION['choix_creation'])) {
 					//Image téléchargée		
 					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
+				
 				foreach($lesObservationsOrg as $uneObservationOrg) {
 					if($uneObservationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
 						if($uneObservationOrg['CODE_COULEUR_OBSERVATION'] == 1) { //vert
@@ -519,12 +524,13 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 				
 				//Préconisations
+				
 				if($nb!=0){
 					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
 					foreach($lesPreconisationsOrg as $unePreconisationOrg) {
 						if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
 							$unePreconisationOrgLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationOrg['LIBELLE_PRECONISATION']);
-							$section->addText($unePreconisationOrgLibellePreconisation, $textBase);
+							$section->addText(htmlspecialchars($unePreconisationOrgLibellePreconisation), $textBase);
 							
 						}
 					}
@@ -532,6 +538,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addText(htmlspecialchars($uneInfoCritereCoOrg['PRECONISATION_CRITERE']), $textBase);	
 				
 				$section->addTextBreak(2);	
+				
 			}
 			$section->addPageBreak(); //saut de page	
 			
@@ -606,7 +613,7 @@ if(isset($_SESSION['choix_creation'])) {
 				foreach($lesArticlesCrCoSite as $unArticleCrCoSite) {
 					if($unArticleCrCoSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $unArticleCrCoSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $unArticleCrCoSite['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
 						$unArticleCrCoSiteDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoSite['DESCRIPTION_RESUME_ARTICLE']);
-						$section->addText($unArticleCrCoSiteDescriptionResume, $textBase);
+						$section->addText(htmlspecialchars($unArticleCrCoSiteDescriptionResume), $textBase);
 					}
 				}	
 				
@@ -652,7 +659,7 @@ if(isset($_SESSION['choix_creation'])) {
 					foreach($lesPreconisationsSite as $unePreconisationSite) {
 						if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
 							$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationSite['LIBELLE_PRECONISATION']);
-							$section->addText($unePreconisationSiteLibellePreconisation, $textBase);
+							$section->addText(htmlspecialchars($unePreconisationSiteLibellePreconisation), $textBase);
 						}
 						
 					}
