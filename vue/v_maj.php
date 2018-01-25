@@ -19,7 +19,11 @@
 							<button type="submit" class="btn btn-warning btn-lg" name="select_critere">Sélection du critère</button>
 						</form>
 					</td>
-					
+					<td class="espart">
+					<form method="post" action="index.php?uc=maj&action=majBd">
+						<button type="submit" class="btn btn-primary btn-lg" name="majBd">Mise à jour de la BD</button>
+					</form>
+				</td>
 				</tr>
 			<?php } ?>
 			

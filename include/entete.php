@@ -83,6 +83,15 @@
 			<?php
             echo "<h1>Version</h1>";
         }
+		if($_SESSION['entpied']=="majBD"){
+			?>
+			<div class="logoCdg">
+			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>" sizes="(max-height: 100px)"/>
+			</div>
+			<?php
+            echo "<h1>Mise à jour de la base de données</h1>";
+        }
+		
 		if($_SESSION['entpied'] == 'identification'){
 			?>
 			<div class="logoCdg">
