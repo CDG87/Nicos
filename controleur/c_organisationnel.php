@@ -323,7 +323,7 @@ switch($action){
 						if($j==-1){
 							array_push($_SESSION['tabobs'],$_POST['btnobs']);
 						}else{
-							//unset($_SESSION['tabobs'][$j]);
+							unset($_SESSION['tabobs'][$j]);
 							$_SESSION['tabobs'][$j]=null;
 						}
 					}

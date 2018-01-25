@@ -106,7 +106,7 @@ if(isset($_SESSION['choix_creation'])) {
 	foreach($lesInfosStructure as $uneInfoStructure) {
 		$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 	}
-	$section->addTextBreak(10);
+	$section->addTextBreak(8);
 	$section->addText(htmlspecialchars($infoCentre['NOM']), 'coord_contr', 'center');
 		$section->addText(htmlspecialchars($infoCentre['ADRESSE']." - ".$infoCentre['CP']." ".$infoCentre['VILLE']." Cedex"), 'coord_contr','center');
 		$section->addText(htmlspecialchars("Tel : ".$infoCentre['TEL']." - Fax : ".$infoCentre['FAX']." - Site internet : ".$infoCentre['SITE']),'coord_contr','center');

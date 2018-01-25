@@ -90,10 +90,18 @@ if(isset($_SESSION['choix_creation'])) {
 		
 		$section->addText("Art-5: En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
 		
+		$section->addTextBreak(2);
+		
+		
+			
 		foreach($lesInfosStructure as $uneInfoStructure) {
 			$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 		}
 			$section->addTextBreak(1);
+			$section->addTitle(htmlspecialchars('Le relevé de mesures urgentes '), 3);
+			$section->addText(htmlspecialchars("Rétrospective des non conformités nécessitant la mise en oeuvre de mesures immédiates (un document sera envoyé à l'autorité territoriale à l'issue de l'inspection"));
+			
+			$section->addTextBreak(2);
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
 				
 				if($uneInfoCritereCoOrg['VALEUR_IMPORTANT'] == 1 && ( $uneInfoCritereCoOrg['VALEUR_CRITERE'] == 'NC' || $uneInfoCritereCoOrg['VALEUR_CRITERE'] == '<C')) {$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
