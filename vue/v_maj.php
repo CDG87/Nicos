@@ -7,8 +7,8 @@
 	<div class="col-xs-12 col-sm-6 col-md-8">
 		
 		<table>
+			<tr>
 			<?php if($_SESSION['isAdmin']==1){ ?>
-				<tr>
 					<td class="espart">
 						<form method="post" action="index.php?uc=maj&action=charge_version">
 							<button type="submit" class="btn btn-warning btn-lg-rond" name="maj_version">Version</button>
@@ -19,13 +19,14 @@
 							<button type="submit" class="btn btn-warning btn-lg" name="select_critere">Sélection du critère</button>
 						</form>
 					</td>
+				<?php } ?>
 					<td class="espart">
 					<form method="post" action="index.php?uc=maj&action=majBd">
 						<button type="submit" class="btn btn-primary btn-lg" name="majBd">Mise à jour de la BD</button>
 					</form>
 				</td>
 				</tr>
-			<?php } ?>
+			
 			
 			<tr>
 				<td class="espart">

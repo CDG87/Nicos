@@ -17,6 +17,8 @@ switch($action) {
 		$version=$pdo->get_version();
 		$_SESSION['entpied']="majVersion";
 		include("vue/v_maj_version.php");
+		
+		
 		break;
 		
 	case 'version' :
@@ -25,8 +27,6 @@ switch($action) {
 		}
 		$_SESSION['entpied'] = 'maj';		
 		include("vue/v_maj.php");
-		
-		$pdo->CREATE_DATABASE();
 		break;
 		
 	case 'choixActionCritere':
@@ -415,14 +415,56 @@ switch($action) {
 	break;
 	
 	case 'majBd':
+		$filename="";
+		$host="localhost";
+		$user="root";
+		$pass="";
+		$verif = 'disabled';
+		$name="base_inspection_cdg";
+		$verif=null;
+		$tables=false;
+		$backup_name="base_inspection_cdg.sql";
 		if(isset($_POST['majBd'])){
 			$_SESSION['entpied']="majBD";
+			$_SESSION['choixTable']="";
 			include('vue/v_maj_bd.php');
 		}
+		
 		if(isset($_POST['retour'])){
 			$_SESSION['entpied']="maj";
 			include('vue/v_maj.php');
 		}
+		if(isset($_POST['exportBd'])){
+			$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
+		}
+		if(isset($_POST['importBd'])){
+			$tables='version, centre, type_structure, structure, identifiant, participer, observation, sous_theme, theme, se_trouver, resume_article, preconisation, posseder, participant, lieu, inscrire, image_critere, groupe_lieu, disposer, date_maj, critere, controle_critere, controleur, controler, contenir, comprendre, batiment, audit, parametres_diffusion_rapport, pole';
+			$pdo->DROP_TABLE($tables);
+			$pdo->IMPORT_TABLES('base_inspection_cdg.sql', $host, $user, $pass, $name);
+			include('vue/v_maj_bd.php');
+		}
+		if(isset($_POST['exportTable']) && $_POST['choixTable']!=""){
+			$tables=array($_POST['choixTable']);
+			$backup_name=$_POST['choixTable'].'.sql';
+			$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
+		}
+		if(isset($_POST['choixTable']) && !isset($_POST['retour'])){
+			$verif=1;
+			$_SESSION['choixTable']=$_POST['choixTable'];
+			include('vue/v_maj_bd.php');
+		}
+		if($verif==1){
+			if(isset($_POST['fichierBd'])){
+				if($_POST['fichierBd']!=""){
+					$tables=$_POST['choixTable'];
+					$filename=$_POST['fichierBd'];
+					$pdo->DROP_TABLE($tables);
+					$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
+					echo "modification reussi";
+				}
+			}
+		}
+		
 	break;
 }
 ?>
