@@ -7,6 +7,7 @@
     session_start();
     $estConnecte = estConnecte();
     $pdo = new Pdo_Inspection();
+	//$pdo->CREATE_DATABASE();
     if(!isset($_REQUEST['uc']) || !$estConnecte){
         $_REQUEST['uc'] = 'connexion';
     }

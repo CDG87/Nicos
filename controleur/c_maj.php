@@ -444,7 +444,7 @@ switch($action) {
 			include('vue/v_maj_bd.php');
 		}
 		if(isset($_POST['exportTable']) && $_POST['choixTable']!=""){
-			$tables=array($_POST['choixTable']);
+			$tables=array($_POST['choixTable'], "version");
 			$backup_name=$_POST['choixTable'].'.sql';
 			$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
 		}
@@ -459,6 +459,7 @@ switch($action) {
 					$tables=$_POST['choixTable'];
 					$filename=$_POST['fichierBd'];
 					$pdo->DROP_TABLE($tables);
+					$pdo->DROP_TABLE("version");
 					$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
 					echo "modification reussi";
 				}

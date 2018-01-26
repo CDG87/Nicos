@@ -3355,7 +3355,34 @@ class Pdo_Inspection {
 		// Create database
 		$sql = "CREATE DATABASE IF NOT EXISTS base_inspection_cdg";
 		if ($conn->query($sql) === TRUE) {
-			echo "Database created successfully";		
+			echo "Database created successfully";	
+
+
+						
+					$filename = 'base_inspection_cdg.sql';
+					$mysql_host = 'localhost';
+					$mysql_username = 'root';
+					$mysql_password = '';
+					$mysql_database = 'base_inspection_cdg';
+					$pdo->IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database);
+					@mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+					mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
+					$templine = '';
+					$lines = file($filename);
+					foreach ($lines as $line)
+					{
+					if (substr($line, 0, 2) == '--' || $line == '')
+						continue;
+					$templine .= $line;
+					if (substr(trim($line), -1, 1) == ';')
+					{
+						mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+						$templine = '';
+					}
+					}
+
+
+				
 		} else {
 			echo "Error creating database: " . $conn->error;
 		}
