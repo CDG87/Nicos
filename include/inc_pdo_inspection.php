@@ -1577,15 +1577,22 @@ class Pdo_Inspection {
 		
 	}
     
-    /**
-	* Ajout d'un lien entre audit et observation
+	
+	/**
+	*Supression d'un lien entre audit et observation (si on modif un critere existant)
 	**/
-	public function add_Comprendre_Obs($numaudit, $numobs, $numcritere) {
+	public function suppr_Comprendre_Obs($numaudit, $numobs, $numcritere) {
 		$req1 = "DELETE FROM COMPRENDRE WHERE NUM_OBSERVATION IN(SELECT NUM_OBSERVATION FROM OBSERVATION WHERE NUM_CRITERE=:numcritere)";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numcritere' => $numcritere
         ));
+	}
+	
+    /**
+	* Ajout d'un lien entre audit et observation
+	**/
+	public function add_Comprendre_Obs($numaudit, $numobs, $numcritere) {
 		$req = "INSERT INTO COMPRENDRE (NUM_AUDIT, NUM_OBSERVATION) VALUES(:numaudit, :numobs)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1595,15 +1602,21 @@ class Pdo_Inspection {
 		
 	}
     
-    /**
-	* Ajout d'un lien entre audit et preconisation
+	/**
+	* Suppression d'un lien entre audit et preconisation (dans le cas d'une modif de critere)
 	**/
-	public function add_Disposer_Preco($numaudit, $numpreco, $numcritere) {
+	public function suppr_Disposer_Preco($numaudit, $numpreco, $numcritere) {
 		$req1 = "DELETE FROM DISPOSER WHERE NUM_PRECONISATION IN(SELECT NUM_PRECONISATION FROM PRECONISATION WHERE NUM_CRITERE=:numcritere)";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numcritere' => $numcritere
         ));
+	}
+	
+    /**
+	* Ajout d'un lien entre audit et preconisation
+	**/
+	public function add_Disposer_Preco($numaudit, $numpreco, $numcritere) {
 		$req = "INSERT INTO DISPOSER (NUM_AUDIT, NUM_PRECONISATION) VALUES(:numaudit, :numpreco)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1641,10 +1654,10 @@ class Pdo_Inspection {
 		
 	}
     
-    /**
-	* Ajout d'un lien entre audit, lieu et observation
+	/**
+	* Supression d'un lien entre audit, lieu et observation (dans le cas de la modif d'un critere)
 	**/
-	public function add_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
+	public function suppr_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
 		$req1 = "DELETE FROM POSSEDER WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
@@ -1657,6 +1670,12 @@ class Pdo_Inspection {
             'numaudit' => $numaudit,
 			'numcritere' => $numCritere
 		));
+	}
+	
+    /**
+	* Ajout d'un lien entre audit, lieu et observation
+	**/
+	public function add_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
 		$req = "INSERT INTO POSSEDER (NUM_AUDIT, NUM_POLE_C, NUM_BATIMENT_C, NUM_GROUPE_LIEU_C, NUM_LIEU, NUM_THEME_C, NUM_CRITERE_C, NUM_OBSERVATION) VALUES(:numaudit, :numPole, :numBatiment, :numGrpLieu, :numlieu, :numTheme, :numCritere, :numobs)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
@@ -1672,16 +1691,23 @@ class Pdo_Inspection {
 		
 	}
     
-    /**
-	* Ajout d'un lien entre audit, lieu et preconisation
+	
+	/**
+	* Suppression d'un lien entre audit, lieu et preconisation (dans le cas de la modif d'un critere)
 	**/
-	public function add_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere, $numpreco) {
+	public function suppr_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere, $numpreco) {
 		$req1 = "DELETE FROM CONTENIR WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numaudit' => $numaudit,
 			'numcritere' => $numcritere
 		));
+	}
+	
+    /**
+	* Ajout d'un lien entre audit, lieu et preconisation
+	**/
+	public function add_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere, $numpreco) {
 		$req = "INSERT INTO CONTENIR (NUM_AUDIT, NUM_BATIMENT_C, NUM_LIEU, NUM_CRITERE_C, NUM_PRECONISATION) VALUES(:numaudit, :numbatiment, :numlieu, :numcritere, :numpreco)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(

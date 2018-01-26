@@ -480,8 +480,6 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addText(htmlspecialchars("Réglementation applicable : "), $menu, 'st1');
 				foreach($lesArticlesCrCoOrg as $unArticleCrCoOrg) {
 					if($unArticleCrCoOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-						$unArticleCrCoOrgDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoOrg['DESCRIPTION_RESUME_ARTICLE']);
-						$section->addText( htmlspecialchars($unArticleCrCoOrgDescriptionResume), $textBase);
 						$unArticleCrCoOrgDescriptionResume = str_replace("\n", "<w:br/>", htmlspecialchars($unArticleCrCoOrg['DESCRIPTION_RESUME_ARTICLE']));
 						$section->addText($unArticleCrCoOrgDescriptionResume, $textBase);
 					}
@@ -531,8 +529,6 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
 					foreach($lesPreconisationsOrg as $unePreconisationOrg) {
 						if($unePreconisationOrg['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
-							$unePreconisationOrgLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationOrg['LIBELLE_PRECONISATION']);
-							$section->addText(htmlspecialchars($unePreconisationOrgLibellePreconisation), $textBase);
 							$unePreconisationOrgLibellePreconisation = str_replace("\n", "<w:br/>", htmlspecialchars($unePreconisationOrg['LIBELLE_PRECONISATION']));
 							$section->addText($unePreconisationOrgLibellePreconisation, $textBase);
 							
@@ -616,8 +612,6 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addText(htmlspecialchars("Réglementation applicable : "), $menu, 'st1');
 				foreach($lesArticlesCrCoSite as $unArticleCrCoSite) {
 					if($unArticleCrCoSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $unArticleCrCoSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $unArticleCrCoSite['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-						$unArticleCrCoSiteDescriptionResume = str_replace("\n", "<w:br/>", $unArticleCrCoSite['DESCRIPTION_RESUME_ARTICLE']);
-						$section->addText(htmlspecialchars($unArticleCrCoSiteDescriptionResume), $textBase);
 						$unArticleCrCoSiteDescriptionResume = str_replace("\n", "<w:br/>", htmlspecialchars($unArticleCrCoSite['DESCRIPTION_RESUME_ARTICLE']));
 						$section->addText($unArticleCrCoSiteDescriptionResume, $textBase);
 					}
@@ -664,8 +658,6 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addText(htmlspecialchars("Propositions : "), $menu, 'st1');
 					foreach($lesPreconisationsSite as $unePreconisationSite) {
 						if($unePreconisationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] && $unePreconisationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
-							$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", $unePreconisationSite['LIBELLE_PRECONISATION']);
-							$section->addText(htmlspecialchars($unePreconisationSiteLibellePreconisation), $textBase);
 							$unePreconisationSiteLibellePreconisation = str_replace("\n", "<w:br/>", htmlspecialchars($unePreconisationSite['LIBELLE_PRECONISATION']));
 							$section->addText($unePreconisationSiteLibellePreconisation, $textBase);
 						}
