@@ -3278,7 +3278,7 @@ class Pdo_Inspection {
 		*/
 
 		// Connect to MySQL server
-		mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+		@mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
 		// Select database
 		mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
 
@@ -3304,7 +3304,6 @@ class Pdo_Inspection {
 			$templine = '';
 		}
 		}
-		echo "Tables imported successfully";
 	}
     
 	/*Supprime la table passé en paramètre*/
