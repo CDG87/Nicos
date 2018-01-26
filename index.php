@@ -1,11 +1,12 @@
 <?php
+
+
     require_once("include/inc_pdo_inspection.php");
     require_once("include/inc_fonctions.php");
 
     session_start();
     $estConnecte = estConnecte();
     $pdo = new Pdo_Inspection();
-
     if(!isset($_REQUEST['uc']) || !$estConnecte){
         $_REQUEST['uc'] = 'connexion';
     }

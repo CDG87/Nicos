@@ -3288,7 +3288,7 @@ class Pdo_Inspection {
 	} 
 	
 
-	function IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database){
+	public function IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database){
 		/*
 			// Name of the file
 			$filename = 'nom_save.sql';
@@ -3338,6 +3338,30 @@ class Pdo_Inspection {
 		$req = "DROP TABLE ".$table;
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
+	}
+	
+	
+	/*Créer base de donnée "base_inspection_cdg"*/
+	public function CREATE_DATABASE(){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} 
+		// Create database
+		$sql = "CREATE DATABASE IF NOT EXISTS base_inspection_cdg";
+		if ($conn->query($sql) === TRUE) {
+			echo "Database created successfully";		
+		} else {
+			echo "Error creating database: " . $conn->error;
+		}
+
+		$conn->close();
 	}
 }
 ?>

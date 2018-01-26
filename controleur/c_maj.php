@@ -25,6 +25,8 @@ switch($action) {
 		}
 		$_SESSION['entpied'] = 'maj';		
 		include("vue/v_maj.php");
+		
+		$pdo->CREATE_DATABASE();
 		break;
 		
 	case 'choixActionCritere':
