@@ -906,13 +906,15 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell = $tabletteSuiteOrg->addCell(1500);
 					$cell->addText(htmlspecialchars('Délai'),  'tabFont', 'tabPar');
 				foreach($criteresRougesOrg as $critereRougeOrg){
-					$tabletteSuiteOrg->addRow();
-					$cell = $tabletteSuiteOrg->addCell(2500);
-					$cell->addText(htmlspecialchars($critereRougeOrg['NOM_THEME']), 'st1');
-					$cell->addTextBreak(0);
-					$cell->addText(htmlspecialchars(' ► '.$critereRougeOrg['LIBELLE_CRITERE']), 'st1');
-					$cell = $tabletteSuiteOrg->addCell(5500);
-					$cell = $tabletteSuiteOrg->addCell(1500);
+					if($_SESSION['audit'] == $critereRougeOrg['NUM_AUDIT']){
+						$tabletteSuiteOrg->addRow();
+						$cell = $tabletteSuiteOrg->addCell(2500);
+						$cell->addText(htmlspecialchars($critereRougeOrg['NOM_THEME']), 'st1');
+						$cell->addTextBreak(0);
+						$cell->addText(htmlspecialchars(' ► '.$critereRougeOrg['LIBELLE_CRITERE']), 'st1');
+						$cell = $tabletteSuiteOrg->addCell(5500);
+						$cell = $tabletteSuiteOrg->addCell(1500);
+					}
 				}
 			}
 			
@@ -931,15 +933,17 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell = $tabletteSuiteSite->addCell(1500);
 					$cell->addText(htmlspecialchars('Délai'),  'tabFont', 'tabPar');
 				foreach($criteresRougesSite as $critereRougeSite){
-					$tabletteSuiteSite->addRow();
-					$cell = $tabletteSuiteSite->addCell(2500);
-					$cell->addText(htmlspecialchars($critereRougeSite['NOM_BATIMENT'].' - '.$critereRougeSite['NOM_LIEU']), 'st1');
-					$cell->addTextBreak(0);
-					$cell->addText(htmlspecialchars($critereRougeSite['NOM_THEME']), 'st1');
-					$cell->addTextBreak(0);
-					$cell->addText(htmlspecialchars(' ► '.$critereRougeSite['LIBELLE_CRITERE']), 'st1');
-					$cell = $tabletteSuiteSite->addCell(5500);
-					$cell = $tabletteSuiteSite->addCell(1500);
+					if($_SESSION['audit'] == $critereRougeSite['NUM_AUDIT']){
+						$tabletteSuiteSite->addRow();
+						$cell = $tabletteSuiteSite->addCell(2500);
+						$cell->addText(htmlspecialchars($critereRougeSite['NOM_BATIMENT'].' - '.$critereRougeSite['NOM_LIEU']), 'st1');
+						$cell->addTextBreak(0);
+						$cell->addText(htmlspecialchars($critereRougeSite['NOM_THEME']), 'st1');
+						$cell->addTextBreak(0);
+						$cell->addText(htmlspecialchars(' ► '.$critereRougeSite['LIBELLE_CRITERE']), 'st1');
+						$cell = $tabletteSuiteSite->addCell(5500);
+						$cell = $tabletteSuiteSite->addCell(1500);
+					}
 				}
 			}
 		}

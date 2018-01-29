@@ -21,7 +21,7 @@ include("include/entete.php");
             $i = 0;
         }
 		if($numGL == 9){
-			$style = "btn-warning";
+			$style = "btn-warning btn-lg-arrondi";
 		}else{
 			$style = "btn-danger";
 		}
