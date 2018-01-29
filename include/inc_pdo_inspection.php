@@ -3078,7 +3078,7 @@ class Pdo_Inspection {
 	* Recupere les criteres (et theme) controler rouges en fonction d'un theme ORGANISATIONNEL
 	*/
 	public function get_critereRouge_theme_Org(){
-		$req = "SELECT c.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM CONTROLE_CRITERE cc 
+		$req = "SELECT c.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME, cc.NUM_AUDIT FROM CONTROLE_CRITERE cc 
 		INNER JOIN CRITERE c ON cc.NUM_CRITERE=c.NUM_CRITERE
 		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
 		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
@@ -3093,7 +3093,7 @@ class Pdo_Inspection {
 	* Recupere les criteres (et theme) controler rouges en fonction d'un theme SUR SITE
 	*/
 	public function get_critereRouge_theme_Site(){
-		$req = "SELECT i.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME, b.NOM_BATIMENT, l.NOM_LIEU FROM INSCRIRE i 
+		$req = "SELECT i.NUM_CRITERE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME, b.NOM_BATIMENT, l.NOM_LIEU, i.NUM_AUDIT FROM INSCRIRE i 
 		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
 		INNER JOIN BATIMENT b ON b.NUM_BATIMENT=i.NUM_BATIMENT_C
 		INNER JOIN LIEU l ON l.NUM_LIEU=i.NUM_LIEU
@@ -3354,32 +3354,32 @@ class Pdo_Inspection {
 		} 
 		// Create database
 		$sql = "CREATE DATABASE IF NOT EXISTS base_inspection_cdg";
-		if ($conn->query($sql) === TRUE) {
+		if ($conn->query($sql) == TRUE) {
 			echo "Database created successfully";	
 
 
 						
-					$filename = 'base_inspection_cdg.sql';
-					$mysql_host = 'localhost';
-					$mysql_username = 'root';
-					$mysql_password = '';
-					$mysql_database = 'base_inspection_cdg';
-					$pdo->IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database);
-					@mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
-					mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
-					$templine = '';
-					$lines = file($filename);
-					foreach ($lines as $line)
-					{
-					if (substr($line, 0, 2) == '--' || $line == '')
-						continue;
-					$templine .= $line;
-					if (substr(trim($line), -1, 1) == ';')
-					{
-						mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
-						$templine = '';
-					}
-					}
+					// $filename = 'base_inspection_cdg.sql';
+					// $mysql_host = 'localhost';
+					// $mysql_username = 'root';
+					// $mysql_password = '';
+					// $mysql_database = 'base_inspection_cdg';
+					// IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database);
+					// @mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+					// mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
+					// $templine = '';
+					// $lines = file($filename);
+					// foreach ($lines as $line)
+					// {
+					// if (substr($line, 0, 2) == '--' || $line == '')
+						// continue;
+					// $templine .= $line;
+					// if (substr(trim($line), -1, 1) == ';')
+					// {
+						// mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+						// $templine = '';
+					// }
+					// }
 
 
 				
