@@ -3364,7 +3364,7 @@ class Pdo_Inspection {
 					$mysql_username = 'root';
 					$mysql_password = '';
 					$mysql_database = 'base_inspection_cdg';
-					$pdo->IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database);
+					IMPORT_TABLES($filename, $mysql_host, $mysql_username, $mysql_password, $mysql_database);
 					@mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
 					mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
 					$templine = '';
