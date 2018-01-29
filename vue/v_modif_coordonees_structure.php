@@ -28,7 +28,7 @@
 			<br/><br/><br/><br/>
 			
 			
-			<input type="submit" class="btn btn-default" name="choix" value="choisir"> </input>
+			<input type="submit" class="btn btn-default" name="choix" value="Choisir"> </input>
 			
 			
 			<?php if($_SESSION['modifStructure']!=""){ ?>

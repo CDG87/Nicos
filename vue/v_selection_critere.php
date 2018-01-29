@@ -65,7 +65,7 @@ include("include/entete.php");
 	</div>
 	</br></br>
 	<div class="form-group">
-		<label class="col-sm-3">critere :</label>
+		<label class="col-sm-3">Critere :</label>
 		<div class="col-sm-4">
 			<select name="critere" class="form-control form-control2" onchange="submit()" required>
 			<?php if($_SESSION['majcritere']==""){ ?>
@@ -85,7 +85,7 @@ include("include/entete.php");
 	</br></br>
 </form>
 <form action="index.php?uc=maj&action=pageMenuCrit" method="POST">
-	<button type="submit" class="btn btn-default" name="selection" <?php echo $verou ; ?> > Selectionner</button>
+	<button type="submit" class="btn btn-default" name="selection" <?php echo $verou ; ?> > Sélectionner</button>
 	<button type="submit" class="btn btn-default" name="retour">Retour</button>
 </form>
 

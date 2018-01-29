@@ -162,7 +162,7 @@
 		<h3>Modification d'un participant</h3><br/>
 		<label class="col-sm-3" for="participants">Participants :</label>
 			<select class="form-control" name="choix_participants_modif">
-				<option selected disabled>choisir ...</option>
+				<option selected disabled>Choisir ...</option>
 				<?php foreach($infosparticipant as $unParticipant){ ?>
 					<option value="<?php echo $unParticipant['NUM_PARTICIPANT'] ?>"> <?php echo $unParticipant['NOM_FONCTION_PARTICIPANT']." ".$unParticipant['NOM_PARTICIPANT']." ".$unParticipant['PRENOM_PARTICIPANT'] ?></option>
 				<?php } ?>
@@ -223,7 +223,7 @@
 		<tr>
 		<td>
 			<select class="form-control" name="lst_participant">
-				<option disabled selected>choisir ....</option>
+				<option disabled selected>Choisir ....</option>
 				<?php
 					foreach($infosparticipant as $unParticipant){
 						?>

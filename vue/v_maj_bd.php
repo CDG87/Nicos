@@ -8,10 +8,10 @@ include("include/entete.php");
 	<table>
         <tr>
             <td>
-                <button type="submit" class="btn btn-warning btn-lg" name="exportBd">Exporter la BD</button>
+                <button type="submit" class="btn btn-warning btn-lg" name="exportBd">Exporter la base de données</button>
             </td>
 			 <td>
-                <button type="submit" class="btn btn-warning btn-lg" name="importBd">Importer la BD</button>
+                <button type="submit" class="btn btn-warning btn-lg" name="importBd">Importer la base de données</button>
             </td>
         </tr>
 	</table></br>
@@ -21,56 +21,56 @@ include("include/entete.php");
 			<td>
 				<label >Table : </label>
 				<select class="form-control" name="choixTable" onchange="submit()">
-					<option selected disabled value="">choisir ...</option>
+					<option selected disabled value="">Choisir ...</option>
 					<?php if($_SESSION['choixTable']=='observation'){ ?>
-					<option selected value="observation">observations</option>
+					<option selected value="observation">Observations</option>
 					<?php }else{ ?>
-					<option value="observation">observations</option>
+					<option value="observation">Observations</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='preconisation'){ ?>
-					<option selected value="preconisation">propositions</option>
+					<option selected value="preconisation">Propositions</option>
 					<?php }else{ ?>
-					<option value="preconisation">propositions</option>
+					<option value="preconisation">Propositions</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='resume_article'){ ?>
-					<option selected value="resume_article">articles</option>
+					<option selected value="resume_article">Articles</option>
 					<?php }else{ ?>
-					<option value="resume_article">articles</option>
+					<option value="resume_article">Articles</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='critere'){ ?>
-					<option selected value="critere">criteres</option>
+					<option selected value="critere">Criteres</option>
 					<?php }else{ ?>
-					<option value="critere">criteres</option>
+					<option value="critere">Criteres</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='groupe_lieu'){ ?>
-					<option selected value="groupe_lieu">groupes de lieux</option>
+					<option selected value="groupe_lieu">Groupes de lieux</option>
 					<?php }else{ ?>
-					<option value="groupe_lieu">groupes de lieux</option>
+					<option value="groupe_lieu">Groupes de lieux</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='image_critere'){ ?>
-					<option selected value="image_critere">images des criteres</option>
+					<option selected value="image_critere">Images des criteres</option>
 					<?php }else{ ?>
-					<option value="image_critere">images des criteres</option>
+					<option value="image_critere">Images des criteres</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='lieu'){ ?>
-					<option selected value="lieu">lieux</option>
+					<option selected value="lieu">Lieux</option>
 					<?php }else{ ?>
-					<option value="lieu">lieux</option>
+					<option value="lieu">Lieux</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='pole'){ ?>
-					<option selected value="pole">poles</option>
+					<option selected value="pole">Poles</option>
 					<?php }else{ ?>
-					<option value="pole">poles</option>
+					<option value="pole">Poles</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='sous_theme'){ ?>
-					<option selected value="sous_theme">sous-themes</option>
+					<option selected value="sous_theme">Sous-themes</option>
 					<?php }else{ ?>
-					<option value="sous_theme">sous-themes</option>
+					<option value="sous_theme">Sous-themes</option>
 					<?php } ?>
 					<?php if($_SESSION['choixTable']=='theme'){ ?>
-					<option selected value="theme">themes</option>
+					<option selected value="theme">Themes</option>
 					<?php }else{ ?>
-					<option value="theme">themes</option>
+					<option value="theme">Themes</option>
 					<?php } ?>
 				</select>
 			</td>
@@ -99,7 +99,7 @@ button.addEventListener( "click", function( event ) {
 		
 <div class="input-file-container">
   <input class="input-file" id="my-file" type="file" name="fichierBd" value="" onchange="submit()">
-  <label for="my-file"  class="fa fa-file input-file-trigger" tabindex="0" > importer une table (.sql)</label>
+  <label for="my-file"  class="fa fa-file input-file-trigger" tabindex="0" > Importer une table (.sql)</label>
 </div></td></tr>
 
 		<?php } ?>

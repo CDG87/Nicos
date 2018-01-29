@@ -22,7 +22,7 @@
 				<?php } ?>
 					<td class="espart">
 					<form method="post" action="index.php?uc=maj&action=majBd">
-						<button type="submit" class="btn btn-primary btn-lg" name="majBd">Mise à jour de la BD</button>
+						<button type="submit" class="btn btn-primary btn-lg" name="majBd">Mise à jour de la base de données</button>
 					</form>
 				</td>
 				</tr>
