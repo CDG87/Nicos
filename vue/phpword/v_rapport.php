@@ -745,6 +745,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
 				}
+				$section->addPageBreak();
 				//------------------------------------------------------------------
 				if(sizeof($statsSITE)>0){
 				//statistique site
@@ -811,6 +812,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
 				$section->addTextBreak(1);
 				}
+				$section->addPageBreak();
 				//------------------------------------------------------------------
 				if(sizeof($statsFamille)>0){
 				//stats par theme
