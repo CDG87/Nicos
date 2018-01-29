@@ -101,7 +101,7 @@ button.addEventListener( "click", function( event ) {
   <input class="input-file" id="my-file" type="file" name="fichierBd" value="" onchange="submit()">
   <label for="my-file"  class="fa fa-file input-file-trigger" tabindex="0" > importer une table (.sql)</label>
 </div></td></tr>
-				
+
 		<?php } ?>
 			
 			<tr>

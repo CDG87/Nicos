@@ -206,9 +206,8 @@ if(isset($_SESSION['choix_creation'])) {
 		//Diffusion du rapport
 		$section->addTitle(htmlspecialchars('Diffusion du rapport'), 3);
 
-		foreach($lesPersonnesDiff as $unePersonneDiff) {
-			$section->addText(htmlspecialchars($unePersonneDiff['LIBELLE_PERSONNE']), 'coord_audit');
-		}
+			$section->addText(htmlspecialchars("Autorité territoriale de la structure"), 'coord_audit');
+			$section->addText(htmlspecialchars("Président du CDG"), 'coord_audit');
 
 		$section->addPageBreak(); //saut de page
 		
@@ -223,7 +222,7 @@ if(isset($_SESSION['choix_creation'])) {
 		}
 		
 		//Objectifs visés par le CDG87
-		$section->addTitle(htmlspecialchars('Objectifs visés par le CDG87'), 3);
+		$section->addTitle(htmlspecialchars('Objectifs visés par le CDG'), 3);
 		$section->addText(htmlspecialchars("Il s'agit d'un diagnostic permettant d'apporter une appréciation extérieure et objective des difficultés rencontrées. Il n'a cependant pas pour objectif de recenser tous les risques de façon exhaustive, l'ensemble des activités ne pouvant être observé."));
 		$section->addText(htmlspecialchars("Ce rapport vise à constituer un véritable outil d'aide à la décision permettant de planifier les investissements matériels et les ajustements organisationnels à réaliser."));
 		$section->addText(htmlspecialchars("En effet, au-delà de l’aspect de conformité réglementaire ou de non-conformité, l’ensemble des points analysés est complété de diverses propositions et de pistes de réflexion destinées aux acteurs de la prévention au sein de la structure."));
@@ -739,13 +738,9 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addTextBreak(1);
 					$section->addImage('graph/graph1'.$today.'.png', array('height' => 300,'align' => 'center'));
 				}
-
-
-				$section->addTextBreak(1);
-				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-				$section->addTextBreak(1);
-				}
 				$section->addPageBreak();
+				}
+				
 				//------------------------------------------------------------------
 				if(sizeof($statsSITE)>0){
 				//statistique site
@@ -805,14 +800,9 @@ if(isset($_SESSION['choix_creation'])) {
 					$section->addTextBreak(1);
 					$section->addImage('graph/graph2'.$today.'.png', array('height' => 300,'align' => 'center'));
 				}
-					
-				
-				
-				$section->addTextBreak(1);
-				$section->addLine(['weight' => 2, 'width' => 600, 'height' => 0]);
-				$section->addTextBreak(1);
-				}
 				$section->addPageBreak();
+				}
+				
 				//------------------------------------------------------------------
 				if(sizeof($statsFamille)>0){
 				//stats par theme
@@ -879,13 +869,12 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addTextBreak(5); //saut de page
 			}
 		
-		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion de la Haute-Vienne au :"),'conclu');
-		$section->addText(htmlspecialchars("	- 05.55.30.08.54"),'conclu');
-		$section->addText(htmlspecialchars("	- 05.55.30.08.69"),'conclu');
-		$section->addText(htmlspecialchars("	- 05.55.30.08.63 "),'conclu');
+		$section->addText(htmlspecialchars("Pour tout renseignement complémentaire, vous pouvez contacter le Service Prévention des Risques Professionnels du Pôle Santé et Sécurité au Travail du Centre Départemental de Gestion au :"),'conclu');
+		$section->addText(htmlspecialchars("    tel : ".$infoCentre['TEL']),'conclu');
+		$section->addText(htmlspecialchars("    fax : ".$infoCentre['FAX']),'conclu');
 		$section->addText(htmlspecialchars("Et accéder au R.U.S.S.T (Registre Unique Santé et Sécurité au Travail) en ligne : "),'conclu');
 		$section->addText(htmlspecialchars("	- https://www.cdc.retraites.fr/outils/RUSST/"),'conclu');
-		$section->addText(htmlspecialchars("	- http://www.cdg87.com/"),'conclu');
+		$section->addText(htmlspecialchars("	-  ".$infoCentre['SITE']),'conclu');
 
 		if(($NBcritereRougeOrg['NBCRITEREROUGEORG']>0 || $NBcritereRougeSite['NBCRITEREROUGESITE']>0 ) && $infosaudit['LIBELLE_AUDIT']=="Inspection"){
 			$section->addPageBreak();
