@@ -3359,7 +3359,6 @@ class Pdo_Inspection {
 
 
 						
-<<<<<<< HEAD
 					$filename = 'base_inspection_cdg.sql';
 					$mysql_host = 'localhost';
 					$mysql_username = 'root';
@@ -3381,7 +3380,6 @@ class Pdo_Inspection {
 						$templine = '';
 					}
 					}
-=======
 					// $filename = 'base_inspection_cdg.sql';
 					// $mysql_host = 'localhost';
 					// $mysql_username = 'root';
@@ -3403,7 +3401,6 @@ class Pdo_Inspection {
 						// $templine = '';
 					// }
 					// }
->>>>>>> 55079372522345eed53e796dc641696f97e7e31d
 
 
 				
