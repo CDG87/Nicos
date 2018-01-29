@@ -422,6 +422,7 @@ switch($action) {
 		$verif = 'disabled';
 		$name="base_inspection_cdg";
 		$verif=null;
+		$disabled="disabled";
 		$tables=false;
 		$backup_name="base_inspection_cdg.sql";
 		if(isset($_POST['majBd'])){
@@ -450,6 +451,7 @@ switch($action) {
 		}
 		if(isset($_POST['choixTable']) && !isset($_POST['retour'])){
 			$verif=1;
+			 $disabled="";
 			$_SESSION['choixTable']=$_POST['choixTable'];
 			include('vue/v_maj_bd.php');
 		}

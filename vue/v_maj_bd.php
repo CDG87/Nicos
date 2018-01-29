@@ -107,7 +107,7 @@ button.addEventListener( "click", function( event ) {
 			<td>
 				<button type="submit" name="retour" class="btn btn-default">Retour</button>
 				<?php if($_SESSION['isAdmin']==1){ ?>
-					<button type="submit" name="exportTable" class="btn btn-default" >Exporter</button>
+					<button type="submit" name="exportTable" class="btn btn-default" <?php echo $disabled ?> >Exporter</button>
 				<?php } ?>
 			</td>
 		</tr>
