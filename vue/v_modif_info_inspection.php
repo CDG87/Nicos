@@ -146,7 +146,7 @@
 					</datalist>
 				</td>
 				<td>
-					<input class="btn btn-default" type="submit" name="ajouter_participant" value="ajouter" />
+					<input class="btn btn-default" type="submit" name="ajouter_participant" value="Ajouter" />
 				</td>
 			</tr>
 		</table><br/>

@@ -64,7 +64,7 @@ include("include/entete.php");
                 <div class="radio">
                     <label>
                         <input type="radio" name="cdobs" id="cdobs1" value="1">
-                            Vert
+                            Verte
                     </label>
                  </div>
                 <div class="radio">
@@ -74,8 +74,8 @@ include("include/entete.php");
                     </label>
                 </div>
             </td>
-                    </tr>
-                </table>
-            </div>
-            </form>
+		</tr>
+	</table>
+</div>
+</form>
 			
