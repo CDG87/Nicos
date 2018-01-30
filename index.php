@@ -1,4 +1,4 @@
-<?php
+<?php 
 		$servername = "localhost";
 		$username = "root";
 		$mysql_database = 'base_inspection_cdg';
@@ -45,7 +45,7 @@
 						// Perform the query
 						mysql_query($templine) /*or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />')*/;
 						// Reset temp variable to empty
-						$templine = '';
+					$templine = '';
 					}
 				}
 			}
