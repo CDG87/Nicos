@@ -203,10 +203,9 @@ button.addEventListener( "click", function( event ) {
 		
 		
 <div class="input-file-container">
-  <input class="input-file" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
-  <label for="my-file"  class=" input-file-trigger fa fa-camera btn-primary" tabindex="0"> Valider avec une photo</label>
+  <input class="input-file btn btn-primary btn-art" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
+  <label for="my-file"  class=" input-file-trigger fa fa-camera btn btn-primary btn-art" tabindex="0"> Valider</label>
 </div>
-<p class="file-return"></p>
 				</td>
                 <td> 
                     <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Vous ne pourrez plus ajouter de photo par la suite.')) return false;"; }?>" autofocus> Valider</button>
