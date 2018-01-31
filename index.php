@@ -67,7 +67,6 @@
         $_REQUEST['uc'] = 'connexion';
     }
     $uc = $_REQUEST['uc'];
-
     switch($uc) {
         
         case 'connexion' :

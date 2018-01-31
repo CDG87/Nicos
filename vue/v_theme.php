@@ -17,7 +17,7 @@ else{
     <?php
         foreach ($listeThemePartie as $ltp){
             $choef = '';
-            $cou = 'btn-info';
+            $cou = 'purple';
             $numtheme = $ltp['NUM_THEME'];
             $nomtheme = $ltp['NOM_THEME'];
 			if($ltp['PICTOS'] != NULL){
@@ -40,7 +40,7 @@ else{
                         foreach ($tab_t_eff as $te){
                             if($te['NUM_THEME'] == $numtheme){
                                 //$choef = 'disabled="disabled"';
-                                $cou = 'btn-default';
+                                $cou = 'purple';
                             }
                         }
                     }

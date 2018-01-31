@@ -159,3 +159,24 @@
   background: #2f73aa;
 }
 
+.purple,.purple:hover,.purple:focus{
+	
+	color:white;
+	background-color: #c493c3;
+}
+
+
+
+
+
+
+.js2 .input-file-trigger2 {
+  display: block;
+  cursor: pointer;
+}
+.js2 .input-file2 {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+

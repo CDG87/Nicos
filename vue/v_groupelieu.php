@@ -23,7 +23,7 @@ include("include/entete.php");
 		if($numGL == 9){
 			$style = "btn-warning btn-lg-arrondi";
 		}else{
-			$style = "btn-danger";
+			$style = "purple ";
 		}
 ?>
         <td class="esrest">

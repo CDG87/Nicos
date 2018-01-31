@@ -235,6 +235,7 @@
 			</form>
             <?php
 		}
+
         if($_SESSION['entpied'] == 'batiment') {
 			?>
             <h1>Choisir un bâtiment</h1>
@@ -502,5 +503,5 @@
             }
         }
     ?>
-    <hr/>
+	</br></br></br>
 </header>

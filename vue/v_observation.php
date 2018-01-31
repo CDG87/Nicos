@@ -186,7 +186,7 @@ else{
 				<td>
 					<script>
 	// ajout de la classe JS à HTML
-document.querySelector("html").classList.add('js');
+document.querySelector("html").classList.add('js2');
  
 // initialisation des variables
 var fileInput  = document.querySelector( ".input-file" ),  
@@ -203,8 +203,8 @@ button.addEventListener( "click", function( event ) {
 		
 		
 <div class="input-file-container">
-  <input class="input-file btn btn-primary btn-art" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
-  <label for="my-file"  class=" input-file-trigger fa fa-camera btn btn-primary btn-art" tabindex="0"> Valider</label>
+  <input class="input-file2 btn btn-primary btn-art" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
+  <label for="my-file"  class=" input-file-trigger2 fa fa-camera btn btn-primary btn-art" tabindex="0"> Valider</label>
 </div>
 				</td>
                 <td> 
