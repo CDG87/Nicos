@@ -11,7 +11,7 @@ include("include/entete.php");
                 <button type="submit" class="btn btn-warning btn-lg" name="exportBd">Exporter la base de données</button>
             </td>
 			 <td>
-                <button type="submit" class="btn btn-warning btn-lg" name="importBd">Importer la base de données</button>
+                <button type="submit" class="btn btn-warning btn-lg" name="importBd" onclick="<?php echo "if(!confirm('Attention, vous allez perdre vos anciennes données, voulez vous continuer ?')) return false;" ?>" >Importer la base de données</button>
             </td>
         </tr>
 	</table></br>

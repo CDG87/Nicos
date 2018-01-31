@@ -162,7 +162,7 @@ if(isset($_SESSION['choix_creation'])) {
 			
 			for($i = 2; $i < 5; $i++) {
 				
-				if($uneDate["DATE_AUDIT_$i"] != null) {
+				if($uneDate["DATE_AUDIT_$i"] != '0000-00-00' && $uneDate["DATE_AUDIT_$i"] != null) {
 					$section->addText(htmlspecialchars(dateAnglaisVersFrancais($uneDate["DATE_AUDIT_$i"])), 'coord_audit');
 				}	
 			}			
@@ -665,7 +665,7 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 				$section->addText(htmlspecialchars($uneInfoCritereCoSite['PRECONISATION_CRITERE']), $textBase);
 				
-				$section->addTextBreak(2);
+				$section->addTextBreak(1);
 				
 			}
 			$section->addPageBreak();
@@ -905,11 +905,11 @@ if(isset($_SESSION['choix_creation'])) {
 						$cell = $tabletteSuiteOrg->addCell(1500);
 					}
 				}
+				$section->addPageBreak();
 			}
 			
 
 			if($NBcritereRougeSite['NBCRITEREROUGESITE']>0){
-				$section->addPageBreak();
 				$section->addTitle(htmlspecialchars('Sur site'), 3);
 
 				// Add table
