@@ -573,7 +573,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Observation_Critere($numcritere,$num) {
 		
-		$req = "SELECT NUM_OBSERVATION, LIBELLE_OBSERVATION, CODE_COULEUR_OBSERVATION FROM OBSERVATION WHERE NUM_CRITERE = :numcritere AND (code_obs= :numAudit OR code_obs IS NULL) ORDER BY CODE_COULEUR_OBSERVATION";
+		$req = "SELECT NUM_OBSERVATION, LIBELLE_OBSERVATION, CODE_COULEUR_OBSERVATION FROM OBSERVATION WHERE NUM_CRITERE = :numcritere AND (code_obs= :numAudit OR code_obs=0 OR code_obs IS NULL) ORDER BY CODE_COULEUR_OBSERVATION";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numcritere' => $numcritere,
@@ -634,7 +634,7 @@ class Pdo_Inspection {
 	**/
 	public function get_Preconisation_Critere($numcritere,$num) {
 		
-		$req = "SELECT NUM_PRECONISATION, LIBELLE_PRECONISATION, code_Preco FROM PRECONISATION WHERE NUM_CRITERE = :numcritere AND (code_Preco=:numAudit OR code_Preco IS NULL)";
+		$req = "SELECT NUM_PRECONISATION, LIBELLE_PRECONISATION, code_Preco FROM PRECONISATION WHERE NUM_CRITERE = :numcritere AND (code_Preco=:numAudit OR code_Preco=0 OR code_Preco IS NULL)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array(
 			'numcritere' => $numcritere,
@@ -884,7 +884,7 @@ class Pdo_Inspection {
 	* Récupère tous les batiments d'un pole
 	**/
 	public function get_Batiments_Pole($numPole, $num) {
-		$req = "SELECT NUM_BATIMENT, CODE_POLE, NOM_BATIMENT, PICTOS FROM BATIMENT WHERE CODE_POLE = ? and (CODE_BATIMENT=? OR CODE_BATIMENT IS NULL)";
+		$req = "SELECT NUM_BATIMENT, CODE_POLE, NOM_BATIMENT, PICTOS FROM BATIMENT WHERE CODE_POLE = ? and (CODE_BATIMENT=? OR CODE_BATIMENT=0 OR CODE_BATIMENT IS NULL)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numPole, $num));
 		$ligne = $rs->fetchAll();
@@ -906,7 +906,7 @@ class Pdo_Inspection {
 	* Récupère tous les lieux pour un groupe lieu 
 	**/
 	public function get_Lieux($numGroupeLieu, $num) {
-		$req = "SELECT NUM_LIEU, NOM_LIEU, PICTOS FROM LIEU WHERE NUM_GROUPE_LIEU = ? AND (code_lieu=? OR code_Lieu IS NULL)";
+		$req = "SELECT NUM_LIEU, NOM_LIEU, PICTOS FROM LIEU WHERE NUM_GROUPE_LIEU = ? AND (code_lieu=? OR code_Lieu=0 OR code_Lieu IS NULL)";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute(array($numGroupeLieu, $num));
 		$ligne = $rs->fetchAll();
@@ -3029,12 +3029,10 @@ class Pdo_Inspection {
 	* recupere le nombre de rouge dans organisation
 	**/
 	public function get_nbRougeORG($num) {
-		$req = "SELECT DISTINCT NOM_THEME, COUNT(VALEUR_CRITERE) AS NBROUGE FROM THEME th
+		$req = "SELECT DISTINCT th.NOM_THEME, COUNT(coc.VALEUR_CRITERE) AS NBROUGE FROM THEME th
 		INNER JOIN CRITERE cr ON cr.NUM_THEME=th.NUM_THEME
-		INNER JOIN OBSERVATION ob ON ob.NUM_CRITERE=cr.NUM_CRITERE
-		INNER JOIN COMPRENDRE co ON co.NUM_OBSERVATION=ob.NUM_OBSERVATION
 		INNER JOIN controle_critere coc ON cr.NUM_CRITERE=coc.NUM_CRITERE
-		WHERE co.NUM_AUDIT=? AND (VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C')
+		WHERE coc.NUM_AUDIT=? AND (VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C')
 		GROUP BY NOM_THEME
 		ORDER BY NBROUGE DESC";
 		$rs = $this->monPdoInspection->prepare($req);
@@ -3109,15 +3107,12 @@ class Pdo_Inspection {
 	/**
 	* Recupere les criteres (et theme) controler rouges en fonction d'un theme ORGANISATIONNEL
 	*/
-	public function get_NBcritereRouge_theme_Org(){
-		$req = "SELECT COUNT(c.NUM_CRITERE) AS NBCRITEREROUGEORG, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM CONTROLE_CRITERE cc 
-		INNER JOIN CRITERE c ON cc.NUM_CRITERE=c.NUM_CRITERE
-		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
-		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
-        GROUP BY c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME
-        ORDER BY t.NOM_THEME";
+	public function get_NBcritereRouge_theme_Org($num){
+		$req = "SELECT COUNT(NUM_CRITERE) AS NBCRITEREROUGEORG, cc.NUM_AUDIT FROM CONTROLE_CRITERE cc 
+		WHERE (VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C') AND cc.NUM_AUDIT=?
+        GROUP BY cc.NUM_AUDIT";
 		$rs = $this->monPdoInspection->prepare($req);
-		$rs->execute();
+		$rs->execute(array($num));
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
@@ -3125,15 +3120,15 @@ class Pdo_Inspection {
 	/**
 	* Recupere les criteres (et theme) controler rouges en fonction d'un theme SUR SITE
 	*/
-	public function get_NBcritereRouge_theme_Site(){
-		$req = "SELECT COUNT(i.NUM_CRITERE) AS NBCRITEREROUGESITE, c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME FROM INSCRIRE i 
+	public function get_NBcritereRouge_theme_Site($num){
+		$req = "SELECT COUNT(i.NUM_CRITERE) AS NBCRITEREROUGESITE, i.NUM_AUDIT FROM INSCRIRE i 
 		INNER JOIN CRITERE c ON i.NUM_CRITERE=c.NUM_CRITERE
 		INNER JOIN THEME t ON t.NUM_THEME=c.NUM_THEME
-		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C'
-		GROUP BY c.LIBELLE_CRITERE, t.NOM_THEME, t.NUM_THEME
-		ORDER BY NOM_THEME";
+		WHERE VALEUR_CRITERE='NC' OR VALEUR_CRITERE='<C' AND NUM_AUDIT=?
+		GROUP BY i.NUM_AUDIT
+		ORDER BY i.NUM_AUDIT";
 		$rs = $this->monPdoInspection->prepare($req);
-		$rs->execute();
+		$rs->execute(array($num));
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
@@ -3282,9 +3277,10 @@ class Pdo_Inspection {
 			} $content .="\n\n\n";
 		}
 		$content .= "\r\n\r\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\r\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\r\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;";
+		$bon=str_replace('""',"null",$content);
 		$backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).".sql";
 		ob_get_clean(); header('Content-Type: application/octet-stream');   header("Content-Transfer-Encoding: Binary"); header("Content-disposition: attachment; filename=\"".$backup_name."\"");
-		echo $content; exit;
+		echo $bon; exit;
 	} 
 	
 

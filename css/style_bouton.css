@@ -106,8 +106,7 @@
 }
 
 
-
-/* styles de base si JS est activé */
+-/* styles de base si JS est activé */
 .js .input-file-container {
   position: relative;
   width: 280px;
