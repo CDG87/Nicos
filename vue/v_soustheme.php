@@ -13,7 +13,7 @@ $i = 0;
 <?php
     foreach ($listeSousThemeNum as $lstn){
         $choef = '';
-        $cou = 'btn-success';
+        $cou = 'purple3';
         $numsoustheme = $lstn['NUM_SOUS_THEME'];
         $libsoustheme = $lstn['LIBELLE_SOUS_THEME'];
 		if($lstn['PICTOS'] != NULL){
@@ -61,6 +61,3 @@ $i = 0;
 ?>
     </tr>
 </table>
-<?php
-include("vue/v_generer.php");
-?>

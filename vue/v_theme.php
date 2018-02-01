@@ -17,7 +17,7 @@ else{
     <?php
         foreach ($listeThemePartie as $ltp){
             $choef = '';
-            $cou = 'purple';
+            $cou = 'btn-success';
             $numtheme = $ltp['NUM_THEME'];
             $nomtheme = $ltp['NOM_THEME'];
 			if($ltp['PICTOS'] != NULL){
@@ -68,5 +68,4 @@ else{
     </table>
 <?php
 }
-include("vue/v_generer.php");
 ?>
