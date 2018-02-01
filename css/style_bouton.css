@@ -159,15 +159,22 @@
   background: #2f73aa;
 }
 
-.purple,.purple:hover,.purple:focus{
+
+.purple2,.purple2:hover,.purple2:focus,.purple2:active,.purple2:active:hover,.purple2:active:focus{
 	
 	color:white;
-	background-color: #c493c3;
+	background-color: #7c7c7c;
+	background:linear-gradient(to bottom,#a0a0a0,#7c7c7c);
+	border-color:#606060;
 }
 
-
-
-
+.purple3,.purple3:hover,.purple3:focus,.purple3:active,.purple3:active:hover,.purple3:active:focus{
+	
+	color:white;
+	background-color: #44a4f6;
+	background:linear-gradient(to bottom,#44a4f6,#2c76b2);
+	border-color:#3482c1;
+}
 
 
 .js2 .input-file-trigger2 {
