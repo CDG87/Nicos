@@ -98,7 +98,7 @@ button.addEventListener( "click", function( event ) {
 		
 		
 <div class="input-file-container">
-  <input class="input-file" id="my-file" type="file" name="fichierBd" value="" onchange="submit()">
+  <input class="input-file" id="my-file" type="file" name="fichierBd" onchange="submit()">
   <label for="my-file"  class="fa fa-file input-file-trigger" tabindex="0" > Importer une table (.sql)</label>
 </div></td></tr>
 

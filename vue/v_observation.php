@@ -10,7 +10,7 @@ else{
         <tr>
             <td>
                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=article&nt=oui&aft=non&mo=non&entpied=article'>
-                    <button type="submit" class="btn btn-primary btn-art btn-article" name="article" >Articles</button>
+                    <button type="submit" class="btn btn-generer-rond btn-primary fa fa-graduation-cap " name="article" > Articles</button>
                 </form>
             </td>
         </tr>
@@ -105,7 +105,7 @@ else{
             <table>
                 <tr>
                     <td>
-                        <button type="submit" class="btn btn-primary btn-art" name="valider" autofocus>Valider</button>
+                        <button type="submit" class="btn btn-generer-rond btn-primary" name="valider" autofocus>Valider</button>
                     </td>
                 </tr>
             </table>
@@ -203,12 +203,12 @@ button.addEventListener( "click", function( event ) {
 		
 		
 <div class="input-file-container">
-  <input class="input-file2 btn btn-primary btn-art" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
-  <label for="my-file"  class=" input-file-trigger2 fa fa-camera btn btn-primary btn-art" tabindex="0"> Valider</label>
+  <input class="input-file2" id="my-file" type="file" name="photoprise" id="photoprise" onchange="submit()">
+  <label for="my-file"  class=" input-file-trigger2 fa fa-camera btn btn-generer-rond btn-primary" tabindex="0"> Valider</label>
 </div>
 				</td>
                 <td> 
-                    <button type="submit" class="btn btn-primary btn-art" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Vous ne pourrez plus ajouter de photo par la suite.')) return false;"; }?>" autofocus> Valider</button>
+                    <button type="submit" class="btn btn-generer-rond btn-primary" name="valider" onclick="<?php if($couleur!=true){ echo "if(!confirm('Vous ne pourrez plus ajouter de photo par la suite.')) return false;"; }?>" autofocus> Valider</button>
                 </td>
             </tr>
         </table>

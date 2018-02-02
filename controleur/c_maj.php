@@ -421,11 +421,11 @@ switch($action) {
 		$pass="";
 		$verif = 'disabled';
 		$name="base_inspection_cdg";
-		$verif=null;
 		$disabled="disabled";
 		$tables=false;
 		$backup_name="base_inspection_cdg.sql";
 		if(isset($_POST['majBd'])){
+			$verif=null;
 			$_SESSION['entpied']="majBD";
 			$_SESSION['choixTable']="";
 			include('vue/v_maj_bd.php');
@@ -434,39 +434,48 @@ switch($action) {
 		if(isset($_POST['retour'])){
 			$_SESSION['entpied']="maj";
 			include('vue/v_maj.php');
-		}
-		if(isset($_POST['exportBd'])){
-			$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
-		}
-		if(isset($_POST['importBd'])){
-			$tables='version, centre, type_structure, structure, identifiant, participer, observation, sous_theme, theme, se_trouver, resume_article, preconisation, posseder, participant, lieu, inscrire, image_critere, groupe_lieu, disposer, date_maj, critere, controle_critere, controleur, controler, contenir, comprendre, batiment, audit, parametres_diffusion_rapport, pole';
-			$pdo->DROP_TABLE($tables);
-			$pdo->IMPORT_TABLES('base_inspection_cdg.sql', $host, $user, $pass, $name);
-			include('vue/v_maj_bd.php');
-		}
-		if(isset($_POST['exportTable']) && $_POST['choixTable']!=""){
-			$tables=array($_POST['choixTable'], "version");
-			$backup_name=$_POST['choixTable'].'.sql';
-			$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
-		}
-		if(isset($_POST['choixTable']) && !isset($_POST['retour'])){
-			$verif=1;
-			 $disabled="";
-			$_SESSION['choixTable']=$_POST['choixTable'];
-			include('vue/v_maj_bd.php');
-		}
-		if($verif==1){
-			if(isset($_POST['fichierBd'])){
-				if($_POST['fichierBd']!=""){
-					$tables=$_POST['choixTable'];
-					$filename=$_POST['fichierBd'];
+		}else{
+			if(isset($_POST['exportBd'])){
+				$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
+			}else{
+				if(isset($_POST['importBd'])){
+					$tables='version, centre, type_structure, structure, identifiant, participer, observation, sous_theme, theme, se_trouver, resume_article, preconisation, posseder, participant, lieu, inscrire, image_critere, groupe_lieu, disposer, date_maj, critere, controle_critere, controleur, controler, contenir, comprendre, batiment, audit, parametres_diffusion_rapport, pole';
 					$pdo->DROP_TABLE($tables);
-					$pdo->DROP_TABLE("version");
-					$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
-					echo "modification reussi";
+					$pdo->IMPORT_TABLES('base_inspection_cdg.sql', $host, $user, $pass, $name);
+					include('vue/v_maj_bd.php');
+				}else{
+					if(isset($_POST['exportTable'])){
+						$tables=array($_POST['choixTable'], "version");
+						$backup_name=$_POST['choixTable'].'.sql';
+						$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
+					}else{
+						if(isset($_POST['fichierBd'])){
+							$tables=$_POST['choixTable'];
+							$filename=$_POST['fichierBd'];
+							if($tables.".sql"==$filename){
+								$pdo->DROP_TABLE($tables);
+								$pdo->DROP_TABLE("version");
+								$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
+							}else{
+								echo "le nom du fichier ou de la table choisi ne correspond pas";
+							}
+							include('vue/v_maj.php');
+						}else{
+							if(isset($_POST['choixTable'])){
+								$disabled="";
+								$verif=1;
+								$_SESSION['choixTable']=$_POST['choixTable'];
+								include('vue/v_maj_bd.php');
+							}
+						}
+					}
 				}
 			}
 		}
+		
+		
+		
+		
 		
 	break;
 }
