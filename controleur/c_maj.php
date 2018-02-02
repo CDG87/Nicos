@@ -443,6 +443,7 @@ switch($action) {
 					$pdo->DROP_TABLE($tables);
 					$pdo->IMPORT_TABLES('base_inspection_cdg.sql', $host, $user, $pass, $name);
 					include('vue/v_maj_bd.php');
+					echo "importation réussi";
 				}else{
 					if(isset($_POST['exportTable'])){
 						$tables=array($_POST['choixTable'], "version");
