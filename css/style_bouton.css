@@ -35,7 +35,7 @@
 	padding:10px 16px;
     font-size: 28px;
     line-height: 1.3333333;
-    border-radius: 60000px;
+    border-radius: 50%;
     width: 300px;
     white-space: normal;
 }
@@ -61,7 +61,6 @@
     padding: 10px 16px;
     font-size: 38px;
     line-height: 1.3333333;
-    border-radius: 6px;
     width: 300px;
 }
 .btn-ret {
@@ -143,6 +142,32 @@
 }
 
  
+/* styles de base si JS est activé */
+.js .input-file-container {
+  position: relative;
+  width: 280px;
+}
+.js .input-file-trigger {
+  display: block;
+  padding: 27px 45px 29px;
+  border-radius:6px;
+  background: #337ab7;
+  color: #fff;
+  font-size: 1.2em;
+  transition: all .4s;
+  cursor: pointer;
+}
+.js .input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 225px;
+  padding: 18px 0;
+  opacity: 0;
+  cursor: pointer;
+
+}
+
+ 
 /* styles du retour visuel */
 .file-return {
   margin: 0;
@@ -170,7 +195,6 @@
 .js .input-file-trigger:focus {
   background: #2f73aa;
 }
-
 
 .purple2,.purple2:hover,.purple2:focus,.purple2:active,.purple2:active:hover,.purple2:active:focus{
 	

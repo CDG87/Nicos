@@ -40,7 +40,7 @@
 		<?php } ?>
 		<?php if($action=='modif_audit'){ ?>
 		<form method="POST" action="index.php?uc=identification&action=participant">
-			<button class="btn btn-primary btnMenu glyphicon glyphicon-log-out" type="submit" name="retour"> RETOUR PARTIE </button>
+			<button class="btn btn-default btnMenu glyphicon glyphicon-log-out" type="submit" name="retour"> RETOUR PARTIE </button>
 		</form>
 		<?php } ?>
 	</div>
