@@ -10,7 +10,7 @@ else{
         <tr>
             <td>
                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=article&nt=oui&aft=non&mo=non&entpied=article'>
-                    <button type="submit" class="btn btn-generer-rond btn-primary fa fa-graduation-cap " name="article" > Articles</button>
+                    <button type="submit" class="btn btn-generer-rond btn-primary fa fa-graduation-cap " name="article" > Réglementation</button>
                 </form>
             </td>
         </tr>
