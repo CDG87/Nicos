@@ -88,7 +88,7 @@ if(isset($_SESSION['choix_creation'])) {
 		$section->addText("Releve", 'title_p_garde', 'center'); //titre page de garde
 		$section->addText("De mesures urgentes", 'title_p_garde', 'center'); //titre page de garde
 		
-		$section->addText("Art-5: En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
+		$section->addText("Ce relevé des non-conformités susceptibles de porter atteinte à l'intégrité physique et/ou morale des agents, nécessitant la mise en oeuvre de mesures correctives immédiates.",  'introFstyle', 'introPstyle');
 		
 		$section->addTextBreak(2);
 		
@@ -215,10 +215,6 @@ if(isset($_SESSION['choix_creation'])) {
 				
 			}
 			}
-			
-			
-			
-			$section->addPageBreak();
 			$tablette = $section->addTable('myOwnTableStyle');
 				$tablette->addRow();
 					$cell = $tablette->addCell(5000);

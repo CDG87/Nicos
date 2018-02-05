@@ -5,7 +5,7 @@ include("include/entete.php");
 	<table>
 		<tr>
 			<td>
-				<button type="submit" name="article" class="btn btn-primary btn-lg">Article </br> 
+				<button type="submit" name="article" class="btn btn-primary btn-lg">Réglementation </br> 
 					<div class="btn_date"><?php 
 						if($_SESSION['listearticle']['Jour']<10 && $_SESSION['listearticle']['Jour']>0){echo '0';} 
 						echo $_SESSION['listearticle']['Jour']; 

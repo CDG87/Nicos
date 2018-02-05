@@ -5,7 +5,6 @@ if($listeObservation == null){
 }
 else{
 ?>
-	 </br>
     <table>
         <tr>
             <td>

@@ -167,7 +167,7 @@
 			<img class="logo" src="<?php echo $path.$infoCentre['LOGO'];?>"  />
 			</div>
 			<?php
-            echo "<h1>Article</h1>";
+            echo "<h1>Réglementation</h1>";
         }
 		
 		if($_SESSION['entpied']=='modifOservation'){
@@ -466,7 +466,7 @@
         }
         if($_SESSION['entpied'] == 'article'){
             ?>
-            <h1>Résumé d'articles du critère : <br/>"<?php echo $_SESSION['libcritere']; ?>"</h1>
+            <h1>Résumé de la réglementation du critère : <br/>"<?php echo $_SESSION['libcritere']; ?>"</h1>
             <?php
         }
         if($_SESSION['entpied'] == 'preconisation'){
