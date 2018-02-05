@@ -37,9 +37,9 @@ include("include/entete.php");
 									</tr>
 									<tr>
                                     <td>
-                                        <textarea class="form-control" rows="7" name='nomobs' cols='150' maxlength='500' autofocus><?php echo $_SESSION['textObs'] ?></textarea>
+                                        <textarea class="form-control" rows="7" name='nomobs' cols='150' maxlength='500' <?php echo $verou; ?> autofocus><?php echo $_SESSION['textObs'] ?></textarea>
                                     </td>
-                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette observation ?"));'/></td>
+                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" <?php echo $verou; ?> onclick='return(confirm("Voulez-vous vraiment modifier cette observation ?"));'/></td>
 									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
                     </tr>
                 </table>

@@ -74,14 +74,11 @@
 					?>
 					
 					<script>
-							
 								var liste = <?php echo json_encode($liste); ?>;
 								$("#nom_structure").autocomplete({
 									source : liste,
 									autoFocus:true								
 								});
-								
-								
 					</script>
 						
 						<input class="btn btn-default" type="submit" name="generer_adr" value="Générer adresse" />

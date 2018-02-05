@@ -35,9 +35,9 @@ include("include/entete.php");
 									</tr>
 									<tr>
                                     <td>
-                                        <textarea class="form-control" rows="7" name='nomprop' cols='150' maxlength='500' ><?php echo $_SESSION['textPropo']; ?></textarea>
+                                        <textarea class="form-control" rows="7" name='nomprop' cols='150' maxlength='500' <?php echo $verou; ?> ><?php echo $_SESSION['textPropo']; ?></textarea>
                                     </td>
-                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" onclick='return(confirm("Voulez-vous vraiment modifier cette proposition ?"));'/></td>
+                                    <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default" <?php echo $verou; ?> onclick='return(confirm("Voulez-vous vraiment modifier cette proposition ?"));'/></td>
 									<td><button type="submit" class="btn btn-default" name="retour">Retour</button></td>
                                 
                     </tr>
