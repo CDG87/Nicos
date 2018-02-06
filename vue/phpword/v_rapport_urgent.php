@@ -76,9 +76,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$table->addRow();
 	$cell = $table->addCell(4500);
 	$textrun = $cell->addTextRun();
-	$textrun->addText("Pôle Santé et Sécurité au Travail", 'pole');
-	$textrun->addTextBreak(1);
-	$textrun->addText("Service Prévention des Risques Professionnels");
+	$textrun->addText($infoCentre['ENTETE'], 'pole');
 	$table->addCell(4500)->addImage(
 		$infoCentre['LOGO'],
 		array('height' => 100, 'align' => 'right')
@@ -87,8 +85,7 @@ if(isset($_SESSION['choix_creation'])) {
 	$section->addTextBreak(5);
 		$section->addText("Releve", 'title_p_garde', 'center'); //titre page de garde
 		$section->addText("De mesures urgentes", 'title_p_garde', 'center'); //titre page de garde
-		
-		$section->addText("Ce relevé des non-conformités susceptibles de porter atteinte à l'intégrité physique et/ou morale des agents, nécessitant la mise en oeuvre de mesures correctives immédiates.",  'introFstyle', 'introPstyle');
+		$section->addText("Art-5 : En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
 		
 		$section->addTextBreak(2);
 		
@@ -97,6 +94,7 @@ if(isset($_SESSION['choix_creation'])) {
 		foreach($lesInfosStructure as $uneInfoStructure) {
 			$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 		}
+		$section->addText("Ce relevé concerne des non-conformités susceptibles de porter atteinte à l'intégrité physique et/ou morale des agents, nécessitant la mise en oeuvre de mesures correctives immédiates.",  'introFstyle', 'introPstyle');
 			$section->addTextBreak(1);
 			$section->addTitle(htmlspecialchars('Le relevé de mesures urgentes '), 3);
 			$section->addText(htmlspecialchars("Rétrospective des non conformités nécessitant la mise en oeuvre de mesures immédiates (un document sera envoyé à l'autorité territoriale à l'issue de l'inspection"));
