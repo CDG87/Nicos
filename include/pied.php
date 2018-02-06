@@ -2,7 +2,7 @@
     <hr/>
     <?php
         if($_SESSION['entpied'] == 'accueil') {
-            echo "<h3>© Copyright 2017 - BTS SIO Lycée Valadon</h3>";
+            echo "<h3>© Copyright 2018 - BTS SIO Lycée Valadon</h3>";
         }
         if($_SESSION['entpied'] == 'pole') { 
 			if($_SESSION['isAdmin']==1){ ?>
@@ -15,7 +15,7 @@
                         </tr>
                         <tr>
                             <td>
-								<input type="text" name="newnompole" size="45" maxlength="100" required="required" class="form-control" placeholder="Nom du pôle" />
+								<input type="text" name="newnompole" size="45" maxlength="100" required="required" class="form-control form-control3" placeholder="Nom du pôle" />
 							</td>
                             <td>
 								<input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/>
@@ -37,7 +37,7 @@
                             } 
                         ?>
                         <th>Modifier un pôle :</th>
-                        <td><select name="idpole" size="1" onchange="submit()" class="form-control">
+                        <td><select name="idpole" size="1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($lesPoles as $untole){
@@ -70,7 +70,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numpole" value="<?php echo $_SESSION['idpole']; ?>"/>
-                                        <input type='text' name='nompole' size='45' maxlength='60' required="required" class="form-control" value="<?php echo $_SESSION['libpole']; ?>" autofocus/>
+                                        <input type='text' name='nompole' size='45' maxlength='60' required="required" class="form-control form-control3" value="<?php echo $_SESSION['libpole']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -95,7 +95,7 @@
                             <th>Ajouter un bâtiment :</th>
                         </tr>
                         <tr>
-                            <td><input type='text' name='newnombatiment' size='45' maxlength='60' required="required" class="form-control" placeholder="Nom du bâtiment" /></td>
+                            <td><input type='text' name='newnombatiment' size='45' maxlength='60' required="required" class="form-control form-control3" placeholder="Nom du bâtiment" /></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                     </table>
@@ -114,7 +114,7 @@
                             } 
                         ?>
                         <th>Modifier un bâtiment :</th>
-                        <td><select name="idbatiment" size="1" onchange="submit()" class="form-control">
+                        <td><select name="idbatiment" size="1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($lesBatiments as $unBatiment){
@@ -147,7 +147,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numbatiment" value="<?php echo $_SESSION['idbatiment']; ?>"/>
-                                        <input type='text' name='nombatiment' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['nombatiment']; ?>" autofocus/>
+                                        <input type='text' name='nombatiment' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['nombatiment']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -171,7 +171,7 @@
                             <th>Ajouter un groupe de lieux :</th>
                         </tr>
                         <tr>
-                            <td><input type='text' name='newgroupelieu' size='45' maxlength='100' required="required" class="form-control" placeholder="Nom du groupe de lieu" /></td>
+                            <td><input type='text' name='newgroupelieu' size='45' maxlength='100' required="required" class="form-control form-control3" placeholder="Nom du groupe de lieu" /></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                     </table>
@@ -190,7 +190,7 @@
                             } 
                         ?>
                         <th>Modifier un groupe de lieux :</th>
-                        <td><select name="idgroupelieu" size="1" onchange="submit()" class="form-control">
+                        <td><select name="idgroupelieu" size="1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($lesGroupesLieux as $unGroupeLieu){
@@ -223,7 +223,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numgroupelieu" value="<?php echo $_SESSION['idgroupelieu']; ?>"/>
-                                        <input type='text' name='groupelieu' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['groupelieu']; ?>" autofocus/>
+                                        <input type='text' name='groupelieu' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['groupelieu']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -247,7 +247,7 @@
                             <th>Ajouter un lieu :</th>
                         </tr>
                         <tr>
-                            <td><input type='text' name='newlieu' size='45' maxlength='100' required="required" class="form-control" placeholder="Nom du lieu" /></td>
+                            <td><input type='text' name='newlieu' size='45' maxlength='100' required="required" class="form-control form-control3" placeholder="Nom du lieu" /></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                     </table>
@@ -266,7 +266,7 @@
                             } 
                         ?>
                         <th>Modifier un lieu :</th>
-                        <td><select name="idlieu" size="1" onchange="submit()" class="form-control">
+                        <td><select name="idlieu" size="1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($lesLieux as $unLieu){
@@ -299,7 +299,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numlieu" value="<?php echo $_SESSION['idlieu']; ?>"/>
-                                        <input type='text' name='nomlieu' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['nomlieu']; ?>" autofocus/>
+                                        <input type='text' name='nomlieu' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['nomlieu']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -323,7 +323,7 @@
                             <th>Ajouter un thème :</th>
                         </tr>
                         <tr>
-                            <td><input  type='text' name='newnomtheme' size='45' maxlength='100' required="required" class="form-control" placeholder="Nom du thème" /></td>
+                            <td><input  type='text' name='newnomtheme' size='45' maxlength='100' required="required" class="form-control form-control3" placeholder="Nom du thème" /></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                         <tr>
@@ -357,7 +357,7 @@
                             } 
                         ?>
                         <th>Modifier un thème :</th>
-                        <td><select name = "idtheme" size = "1" onchange="submit()" class="form-control">
+                        <td><select name = "idtheme" size = "1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($listeThemePartie as $ltp){
@@ -390,7 +390,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numtheme" value="<?php echo $_SESSION['idtheme']; ?>"/>
-                                        <input  type='text' name='nomtheme' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['libtheme']; ?>" autofocus/>
+                                        <input  type='text' name='nomtheme' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['libtheme']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -413,7 +413,7 @@
                             <th>Ajouter un sous-thème :</th>
                         </tr>
                         <tr>
-                            <td><input  type='text' name='newnomsoustheme' size='45' maxlength='100' required="required" class="form-control" placeholder="Nom du sous-thème"/></td>
+                            <td><input  type='text' name='newnomsoustheme' size='45' maxlength='100' required="required" class="form-control form-control3" placeholder="Nom du sous-thème"/></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                     </table>
@@ -430,7 +430,7 @@
                             } 
                         ?>
                         <th>Modifier un sous-thème :</th>
-                        <td><select name = "idsoustheme" size = "1" onchange="submit()" class="form-control">
+                        <td><select name = "idsoustheme" size = "1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($listeSousThemeNum as $lstn){
@@ -463,7 +463,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numsoustheme" value="<?php echo $_SESSION['idsoustheme']; ?>"/>
-                                         <input  type='text' name='nomsoustheme' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['libsoustheme']; ?>" autofocus/>
+                                         <input  type='text' name='nomsoustheme' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['libsoustheme']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -487,7 +487,7 @@
                             <th>Ajouter un critère :</th>
                         </tr>
                         <tr>
-                            <td><input  type='text' name='newnomcritere' size='45' maxlength='100' required="required" class="form-control" placeholder="Nom du critère"/></td>
+                            <td><input  type='text' name='newnomcritere' size='45' maxlength='100' required="required" class="form-control form-control3" placeholder="Nom du critère"/></td>
                             <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </tr>
                     </table>
@@ -504,7 +504,7 @@
                             } 
                         ?>
                         <th>Modifier un critère :</th>
-                        <td><select name = "idcritere" size = "1" onchange="submit()" class="form-control">
+                        <td><select name = "idcritere" size = "1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($listeCritereTheme as $lct){
@@ -537,7 +537,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numcritere" value="<?php echo $_SESSION['idcritere']; ?>"/>
-                                         <input  type='text' name='nomcritere' size='45' maxlength='100' required="required" class="form-control" value="<?php echo $_SESSION['libcritere']; ?>" autofocus/>
+                                         <input  type='text' name='nomcritere' size='45' maxlength='100' required="required" class="form-control form-control3" value="<?php echo $_SESSION['libcritere']; ?>" autofocus/>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
@@ -561,7 +561,7 @@
                         <th>Ajouter une observation :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control" rows="7" name='newnomobservation' cols='150' maxlength='370' required="required" placeholder="Nom de l'observation"></textarea></td>
+                        <td><textarea class="form-control " rows="7" name='newnomobservation' cols='150' maxlength='370' required="required" placeholder="Nom de l'observation"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                     </tr>
                 </table>
@@ -669,7 +669,7 @@
                         <th>Ajouter une proposition :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
+                        <td><textarea class="form-control form-control3" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </form>
                     </tr>
@@ -686,7 +686,7 @@
                             } 
                         ?>
                         <th>Modifier une proposition :</th>
-                        <td><select name = "idpreconisation" size = "1" onchange="submit()" class="form-control">
+                        <td><select name = "idpreconisation" size = "1" onchange="submit()" class="form-control form-control3">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($listepreconisation as $lp){
@@ -719,7 +719,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numpreco" value="<?php echo $_SESSION['idpreconisation']; ?>"/>
-                                        <textarea class="form-control" rows="10" name='nompreco' cols='150' maxlength='1000' required="required" autofocus><?php echo $_SESSION['libpreco']; ?></textarea>
+                                        <textarea class="form-control form-control3" rows="10" name='nompreco' cols='150' maxlength='1000' required="required" autofocus><?php echo $_SESSION['libpreco']; ?></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>

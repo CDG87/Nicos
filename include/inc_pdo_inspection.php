@@ -1043,6 +1043,31 @@ class Pdo_Inspection {
 		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
+	
+	
+	/**
+	* compte le nombre de valeur_important dans inscrire
+	* 
+	**/
+	public function get_nb_valeur_critere_inscrire($numAudit) {
+		$req = "SELECT COUNT(i.VALEUR_IMPORTANT) AS nb_valeur FROM INSCRIRE i WHERE i.NUM_AUDIT = ? AND VALEUR_IMPORTANT=1";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($numAudit));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* compte le nombre de valeur_important dans controle_critere
+	* 
+	**/
+	public function get_nb_valeur_critere_controle_critere($numAudit) {
+		$req = "SELECT COUNT(VALEUR_IMPORTANT) AS nb_valeur FROM CONTROLE_CRITERE WHERE NUM_AUDIT = ? AND VALEUR_IMPORTANT=1";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute(array($numAudit));
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
 
 	/**
 	* Récupère les numéros de thème et les infos des critère pour un audit dans 

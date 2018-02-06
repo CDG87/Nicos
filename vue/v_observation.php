@@ -111,7 +111,6 @@ else{
         <?php
         }
         ?>
-    </form>
     <?php
     if($_SESSION['cacheva'] == false){
         if($_SESSION['obsR'] == false){

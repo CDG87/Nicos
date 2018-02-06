@@ -92,7 +92,7 @@ else{
             <table>
                 <tr>
                     <td>
-                        <button type="submit" class="btn btn-default btn-art btn-primary" name="valider" onclick="if(!confirm('Voulez-vous vraiment sauvegarder ? ')) return false;" autofocus>Valider</button>
+                        <button type="submit" class="btn btn-default btn-art btn-primary btn-generer-rond" name="valider" onclick="if(!confirm('Voulez-vous vraiment sauvegarder ? ')) return false;" autofocus>Valider</button>
                     </td>
                 </tr>
             </table>
