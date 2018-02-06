@@ -3406,5 +3406,29 @@ class Pdo_Inspection {
 
 		$conn->close();
 	}
+	
+	
+	
+	public function formatString($lines){
+	 
+		$maChaine=$lines;
+		$NB_MAX=20; $i=0; $index =-1;
+	 
+		while($i+$NB_MAX < $lines.strlen()-1){
+			$index = $maChaine.substr($i, $i+$NB_MAX).lastIndexOf(' ');
+	 
+			if($index != -1)
+				$maChaine = $maChaine.substr(0, ($index+$i)+1) + '\n' + $maChaine.substr(($index+$i)+1);
+	 
+			else
+				$maChaine = $maChaine.substr(0, $i+1) + '\n' + $maChaine.substr($i+1);
+	 
+	 
+			$i+= $index+1;
+		}
+	 
+	 
+		return $maChaine;
+	  }
 }
 ?>

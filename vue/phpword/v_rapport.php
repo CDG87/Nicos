@@ -835,7 +835,7 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph = new RadarGraph (1000,500); //taille du graph
 					$max = max($data);
 					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
-	 
+					$pdo->formatString($titles);
 					$graph->SetTitles($titles);
 					$graph->SetCenter(0.5,0.55);
 					$graph->HideTickMarks();
@@ -845,9 +845,9 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph->grid->Show();
 					 
 					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
-					$graph->axis->title->SetMargin(5);
+					$graph->axis->title->SetMargin(3); //marge entre legende et graph
 					$graph->SetGridDepth(DEPTH_BACK);
-					$graph->SetSize(0.6);
+					$graph->SetSize(0.5);
 					 
 					$plot = new RadarPlot($data);
 					$plot->SetColor('red@0.2');
