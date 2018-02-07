@@ -51,7 +51,7 @@ $i = 0;
 ?>
         <td class="esrest">
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=critere&nt=oui&entpied=critere'>
-                <input type='hidden' name='libsoustheme' value='<?php echo $libsoustheme; ?>'/>
+                <input type='hidden' name='libsoustheme' value="<?php echo $libsoustheme; ?>"/>
                 <button type="submit" class="btn <?php echo $cou; ?> btn-lg <?php echo $pictos; ?>" name="numsoustheme" value="<?php echo $numsoustheme; ?>" <?php echo $choef; ?>> <?php echo $libsoustheme; ?></button>
             </form>
         </td>

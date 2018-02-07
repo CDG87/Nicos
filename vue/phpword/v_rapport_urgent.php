@@ -51,8 +51,8 @@ if(isset($_SESSION['choix_creation'])) {
 
 
 	// Define table style arrays
-	$styleTable = array('borderSize'=>0, 'borderColor'=>'ffffff', 'cellMargin'=>80);
-	$styleTable2 = array('borderSize'=>6, 'borderColor'=>'000000', 'cellMargin'=>800,'borderCollapse'=>'separate', 'borderSpacing'=>300);
+	$styleTable = array('borderSize'=>0, 'borderColor'=>'ffffff',);
+	$styleTable2 = array('borderSize'=>6, 'borderColor'=>'000000', 'cellMarginBottom'=>900);
 	// Define cell style arrays
 	$styleCell = array('valign'=>'center');
 	// Add table style
@@ -214,15 +214,18 @@ if(isset($_SESSION['choix_creation'])) {
 				$tablette->addRow();
 					$cell = $tablette->addCell(5000);
 					$cell->addText(htmlspecialchars("Nom et signature de l'ACFI : "));
+					$cell = $tablette->addCell(1500);
+					$cell->addText(htmlspecialchars(" "));
 					$cell = $tablette->addCell(5000);
 					$cell->addText(htmlspecialchars("Nom et signature de l'Autorité territoriale ou de son représentant le jour de l'inspection :"));
 			$tablette2 = $section->addTable('myOwnTableStyle2');
 				$tablette2->addRow();
-					$cell = $tablette2->addCell(4400);
+					$cell = $tablette2->addCell(5000);
 					$cell->addText(htmlspecialchars(" "));
-
-					$cell = $tablette2->addCell(4600);
-					$cell->addText(htmlspecialchars(" "));	
+					$cell = $tablette2->addCell(1500, $styleTable);
+					$cell->addText(htmlspecialchars(" "));
+					$cell = $tablette2->addCell(5000);
+					$cell->addText(htmlspecialchars(" "));
 }
 	
 	/*************************** FOOTER ***************************/

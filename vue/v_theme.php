@@ -56,7 +56,7 @@ else{
     ?>
             <td class="esrest">
                 <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=soustheme&nt=oui'>
-                    <input type='hidden' name='nomtheme' value='<?php echo $nomtheme; ?>'/>
+                    <input type='hidden' name='nomtheme' value="<?php echo $nomtheme; ?>"/>
                     <button type="submit" class="btn <?php echo $cou; ?> btn-lg <?php echo $pictos; ?>" name="numtheme" value="<?php echo $numtheme; ?>" <?php echo $choef; ?>> <?php echo $nomtheme; ?></button>
                 </form>
             </td>

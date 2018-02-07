@@ -42,7 +42,7 @@ $i = 0;
 ?>
         <td class="esrest">
             <form method='POST' action='index.php?uc=<?php echo $uc_choix; ?>&action=observation&nt=oui&entpied=observation'>
-                <input type='hidden' name='libcritere' value='<?php echo $libcritere; ?>'/>
+                <input type='hidden' name='libcritere' value="<?php echo $libcritere; ?>"/>
                 <button type="submit" class="btn <?php echo $cou; ?> btn-lg <?php echo $pictos; ?>" name="numcritere" value="<?php echo $numcritere; ?>" <?php echo $choef; ?>> <?php echo $libcritere; ?></button>
             </form>
         </td>

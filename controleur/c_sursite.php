@@ -288,7 +288,7 @@ switch($action) {
             $_SESSION['cachemo'] = true;
             if($_REQUEST['nt'] == 'oui'){
                 $_SESSION['numtheme'] = $_POST['numtheme'];
-                $_SESSION['theme'] = $_POST['nomtheme'];
+                $_SESSION["theme"] = $_POST["nomtheme"];
             }
             else{
                 $_SESSION['entpied'] = 'soustheme';
