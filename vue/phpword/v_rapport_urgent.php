@@ -23,6 +23,7 @@ if(isset($_SESSION['choix_creation'])) {
 
 	
 	$document->addFontStyle('introFstyle', array('bold'=>true, 'italic'=>false, 'size'=>12));
+	$document->addFontStyle('articleFstyle', array('bold'=>false, 'italic'=>true, 'size'=>12));
 	$document->addParagraphStyle('introPstyle', array('align'=>'center', 'spaceAfter'=>100));
 	
 	$document->addFontStyle('tabFont', array('bold'=>true, 'italic'=>false, 'size'=>12));
@@ -83,9 +84,9 @@ if(isset($_SESSION['choix_creation'])) {
 	);
 	
 	$section->addTextBreak(5);
-		$section->addText("Releve", 'title_p_garde', 'center'); //titre page de garde
+		$section->addText("Relevé", 'title_p_garde', 'center'); //titre page de garde
 		$section->addText("De mesures urgentes", 'title_p_garde', 'center'); //titre page de garde
-		$section->addText("Art-5 : En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'introFstyle', 'introPstyle');
+		$section->addText("Art-5 : En cas d'urgence l'ACFI propose à l'autorité territoriale les mesures immédiates qu'il juge nécessaire",  'articleFstyle', 'introPstyle');
 		
 		$section->addTextBreak(2);
 		
