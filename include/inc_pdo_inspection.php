@@ -3435,22 +3435,39 @@ class Pdo_Inspection {
 	
 	
 	public function formatString($lines){
+		// $espace=0;
+		// for($i=0;$i<$lines.strlen();$i++){
+			// if ($lines[i]==' '){
+				// $espace=$espace+1;
+				// if($espace=3){
+					// $part1=$lines.substr($lines, 0, $i);
+					// $part2=$lines.substr($lines, $i+1, $lines.strlen());
+					// $maChaine=$part1.'\n'.$part2;
+				// }
+				// if($espace<3){
+					// $maChaine=$lines;
+				// }
+			// }
+		// }
+		
+		$maChaine = $lines.' \n'.$lines;
+		
+		
+		// $maChaine=$lines;
+		// $NB_MAX=20; $i=0; $index =-1;
 	 
-		$maChaine=$lines;
-		$NB_MAX=20; $i=0; $index =-1;
+		// while($i+$NB_MAX < $lines.strlen()-1){
+			// $index = $maChaine.substr($i, $i+$NB_MAX).lastIndexOf(' ');
 	 
-		while($i+$NB_MAX < $lines.strlen()-1){
-			$index = $maChaine.substr($i, $i+$NB_MAX).lastIndexOf(' ');
+			// if($index != -1)
+				// $maChaine = $maChaine.substr(0, ($index+$i)+1) + '\n' + $maChaine.substr(($index+$i)+1);
 	 
-			if($index != -1)
-				$maChaine = $maChaine.substr(0, ($index+$i)+1) + '\n' + $maChaine.substr(($index+$i)+1);
-	 
-			else
-				$maChaine = $maChaine.substr(0, $i+1) + '\n' + $maChaine.substr($i+1);
+			// else
+				// $maChaine = $maChaine.substr(0, $i+1) + '\n' + $maChaine.substr($i+1);
 	 
 	 
-			$i+= $index+1;
-		}
+			// $i+= $index+1;
+		// }
 	 
 	 
 		return $maChaine;
