@@ -94,10 +94,7 @@ if(isset($_SESSION['choix_creation'])) {
 		foreach($lesInfosStructure as $uneInfoStructure) {
 			$section->addText(htmlspecialchars($uneInfoStructure['NOM_STRUCTURE']), 'title_partie', 'center');
 		}
-		$section->addText("Ce relevé concerne des non-conformités susceptibles de porter atteinte à l'intégrité physique et/ou morale des agents, nécessitant la mise en oeuvre de mesures correctives immédiates.",  'introFstyle', 'introPstyle');
-			$section->addTextBreak(1);
-			$section->addTitle(htmlspecialchars('Le relevé de mesures urgentes '), 3);
-			$section->addText(htmlspecialchars("Rétrospective des non conformités nécessitant la mise en oeuvre de mesures immédiates (un document sera envoyé à l'autorité territoriale à l'issue de l'inspection"));
+		$section->addText("Ce relevé concerne des non-conformités susceptibles de porter atteinte à l'intégrité physique et/ou morale des agents, nécessitant la mise en œuvre de mesures correctives immédiates.",  'introFstyle', 'introPstyle');
 			
 			$section->addTextBreak(2);
 			foreach($lesInfosCriteresCoOrg as $uneInfoCritereCoOrg) {
@@ -227,7 +224,6 @@ if(isset($_SESSION['choix_creation'])) {
 					$cell = $tablette2->addCell(4600);
 					$cell->addText(htmlspecialchars(" "));	
 }
-		
 	
 	/*************************** FOOTER ***************************/
 
