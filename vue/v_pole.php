@@ -23,7 +23,7 @@ include("include/entete.php");
 ?>
         <td class="esrest">
             <form method='POST' action='index.php?uc=sursite&action=batiment&nt=oui&entpied=batiment'>
-                <input type='hidden' name='nompole' value='<?php echo $nomPole; ?>'/>
+                <input type='hidden' name='nompole' value="<?php echo $nomPole; ?>"/>
                 <button type="submit" class="btn btn-lg btn-success <?php echo $pictos; ?>" name="numpole" value="<?php echo $numPole; ?>"> <?php echo $nomPole; ?></button>
             </form>
         </td>
