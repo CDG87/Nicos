@@ -19,7 +19,7 @@ $i = 0;
 		if($lstn['PICTOS'] != NULL){
 				$pictos = 'fa '.$lstn['PICTOS'];
 			}else{
-				$pictos = '';
+				$pictos = 'fa';
 			}
         if($_SESSION['codepartie'] == 1){
             foreach ($tab_st_eff as $tse){

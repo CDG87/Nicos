@@ -14,7 +14,7 @@ $i = 0;
 		if($lc['PICTOS'] != NULL){
 				$pictos = 'fa '.$lc['PICTOS'];
 			}else{
-				$pictos = '';
+				$pictos = 'fa';
 			}
         if($_SESSION['codepartie'] == 1){
             foreach ($listecritereeff as $lcf){
