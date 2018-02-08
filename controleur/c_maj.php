@@ -450,25 +450,25 @@ switch($action) {
 						$backup_name=$_POST['choixTable'].'.sql';
 						$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
 					}else{
-						if(isset($_POST['fichierBd'])){
-							$tables=$_POST['choixTable'];
-							$filename=$_POST['fichierBd'];
-							if($tables.".sql"==$filename){
-								$pdo->DROP_TABLE($tables);
-								$pdo->DROP_TABLE("version");
-								$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
+						if(isset($_POST['fichierBd']) && $_POST['fichierBd']!=""){
+								$tables=$_POST['choixTable'];
+								$filename=$_POST['fichierBd'];
+								if($tables.".sql"==$filename){
+									$pdo->DROP_TABLE($tables);
+									$pdo->DROP_TABLE("version");
+									$pdo->IMPORT_TABLES($filename, $host, $user, $pass, $name);
+								}else{
+									echo "le nom du fichier ou de la table choisi ne correspond pas";
+								}
+								include('vue/v_maj.php');
 							}else{
-								echo "le nom du fichier ou de la table choisi ne correspond pas";
+								if(isset($_POST['choixTable'])){
+									$disabled="";
+									$verif=1;
+									$_SESSION['choixTable']=$_POST['choixTable'];
+									include('vue/v_maj_bd.php');
+								}
 							}
-							include('vue/v_maj.php');
-						}else{
-							if(isset($_POST['choixTable'])){
-								$disabled="";
-								$verif=1;
-								$_SESSION['choixTable']=$_POST['choixTable'];
-								include('vue/v_maj_bd.php');
-							}
-						}
 					}
 				}
 			}

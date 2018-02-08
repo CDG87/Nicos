@@ -24,7 +24,6 @@
 			<input required class="form-control" required="required" type="text" name="cp_structure" id="cp_structure" value="<?php echo $adresseStructure['CP_STRUCTURE'];?>" />
 			
 		</div>
-		</br></br>
 		<input type="submit" class="btn btn-default" name="modifier_adr" value="Modifier l'adresse" />
 	</div>
 	

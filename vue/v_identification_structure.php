@@ -80,8 +80,7 @@
 									autoFocus:true								
 								});
 					</script>
-						</br></br>
-						<input class="btn btn-default btn-generer" type="submit" name="generer_adr" value="Générer adresse" />
+						<input class="btn btn-default" type="submit" name="generer_adr" value="Générer adresse" />
 					
 					</div>
 			

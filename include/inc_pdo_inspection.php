@@ -1655,10 +1655,11 @@ class Pdo_Inspection {
 	* Ajout d'un nouveau controle critere sur inscrire pour sursite
 	**/
 	public function add_ControleCR_Inscrire($numaudit, $numpole, $numBatiment, $numgrplieu, $numlieu, $numtheme, $numcritere, $valeurCR, $valeurIM, $precoCR, $phoCR) {
-		$req1 = "DELETE FROM INSCRIRE WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE=:numcritere";
+		$req1 = "DELETE FROM INSCRIRE WHERE NUM_AUDIT=:numaudit AND NUM_BATIMENT_C=:numBatiment AND NUM_CRITERE=:numcritere";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numaudit' => $numaudit,
+			'numBatiment'=>$numBatiment,
 			'numcritere' => $numcritere
 		));
 		$req = "INSERT INTO INSCRIRE (NUM_AUDIT, NUM_POLE_C, NUM_BATIMENT_C, NUM_GROUPE_LIEU_C, NUM_LIEU, NUM_THEME_C, NUM_CRITERE, VALEUR_CRITERE, VALEUR_IMPORTANT, PRECONISATION_CRITERE, PHOTO_CRITERE) VALUES(:numaudit, :numpole, :numBatiment, :numgrplieu, :numlieu, :numtheme,  :numcritere, :valeurCR, :valeurIM, :precoCR, :phoCR)";
