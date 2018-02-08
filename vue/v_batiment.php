@@ -11,7 +11,7 @@ include("include/entete.php");
 		if($unBatiment['PICTOS'] != NULL){
 				$pictos = 'fa '.$unBatiment['PICTOS'];
 			}else{
-				$pictos = '';
+				$pictos = 'fa';
 			}
         if($i == 3){
             ?>

@@ -11,7 +11,7 @@ include("include/entete.php");
 		if($unGroupeLieu['PICTOS'] != NULL){
 				$pictos = 'fa '.$unGroupeLieu['PICTOS'];
 			}else{
-				$pictos = '';
+				$pictos = 'fa';
 			}
         if($i == 3){
             ?>

@@ -669,7 +669,7 @@
                         <th>Ajouter une proposition :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control form-control3" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
+                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </form>
                     </tr>
@@ -686,7 +686,7 @@
                             } 
                         ?>
                         <th>Modifier une proposition :</th>
-                        <td><select name = "idpreconisation" size = "1" onchange="submit()" class="form-control form-control3">
+                        <td><select name = "idpreconisation" size = "1" onchange="submit()" class="form-control ">
                                 <option <?php echo $dis; ?>>Choisir</option>
                                 <?php
                                     foreach ($listepreconisation as $lp){
@@ -719,7 +719,7 @@
                                     <th>Nouveau nom :</th>
                                     <td>
                                         <input type="hidden" name="numpreco" value="<?php echo $_SESSION['idpreconisation']; ?>"/>
-                                        <textarea class="form-control form-control3" rows="10" name='nompreco' cols='150' maxlength='1000' required="required" autofocus><?php echo $_SESSION['libpreco']; ?></textarea>
+                                        <textarea class="form-control " rows="10" name='nompreco' cols='150' maxlength='1000' required="required" autofocus><?php echo $_SESSION['libpreco']; ?></textarea>
                                     </td>
                                     <td><input type='submit' value='Modifier' name='modifier' class="btn btn-default"/></td>
                                 </form>
