@@ -809,6 +809,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
 				
 				$titles=array(); //legende des sommets
+				$titres=array();
 				$data=array(); //valeur du graph
 				$nbFamille = 0;
 				
@@ -829,14 +830,16 @@ if(isset($_SESSION['choix_creation'])) {
 				
 					array_push($titles, $stat['NOM_THEME']); //ajout d'un nouveau sommets legende
 					array_push($data, $stat['NBROUGE']); //ajout d'une nouvelle valeur dans le graph
+					array_push($titres, $pdo->formatString($stat['NOM_THEME']));
 					$nbFamille = $nbFamille + 1 ;
 				}
 				if($nbFamille >=3 ){
 					$graph = new RadarGraph (1000,500); //taille du graph
 					$max = max($data);
 					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
-					$pdo->formatString($titles);
-					$graph->SetTitles($titles);
+					
+					
+					$graph->SetTitles($titres);
 					$graph->SetCenter(0.5,0.55);
 					$graph->HideTickMarks();
 					$graph->SetColor('white'); // couleur de fond
