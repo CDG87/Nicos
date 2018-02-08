@@ -3435,22 +3435,27 @@ class Pdo_Inspection {
 	
 	
 	public function formatString($lines){
-		// $espace=0;
-		// for($i=0;$i<$lines.strlen();$i++){
-			// if ($lines[i]==' '){
+		$espace=0;
+		$maChaine = "Début";
+		for($i=0;$i<strlen($lines);$i++){
+		if ($lines{$i}==" "){
+				$maChaine = "Espace";
 				// $espace=$espace+1;
 				// if($espace=3){
-					// $part1=$lines.substr($lines, 0, $i);
-					// $part2=$lines.substr($lines, $i+1, $lines.strlen());
-					// $maChaine=$part1.'\n'.$part2;
+					// $part1=substr($lines, 0, $i);
+					// $part2=substr($lines, $i+1, $lines.strlen());
+					// $maChaine=$part1."\r\n".$part2;
 				// }
 				// if($espace<3){
 					// $maChaine=$lines;
 				// }
-			// }
-		// }
+			}else{
+				$maChaine = "Pas d'espace";
+			}
+		}
 		
-		$maChaine = $lines.' \n'.$lines;
+		// $maChaine = $lines."\r\n".$lines;
+		// $maChaine = substr($lines, 0, 3)."\r\n".substr($lines, 5, 20);
 		
 		
 		// $maChaine=$lines;
