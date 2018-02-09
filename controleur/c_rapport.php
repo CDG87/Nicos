@@ -23,7 +23,6 @@ switch($action) {
 		$menu1 = array('Color' => '17202a', 'Size'=>14, '_bold'=> true, 'underline' => 'single' );
 		$menu2 = array('Color' => '17202a', 'Size'=>12, '_bold'=> true,'bgcolor' =>'cacfd2');
 		$textBase=array('Size'=>9);
-		$lesPersonnesDiff = $pdo->get_Diffusion_Rapport(); //diffusion rapport
 		$lesParticipants = $pdo->get_Infos_Participants($_SESSION['audit']); //infos participants
 		$lesInfosCriteresCoOrg = $pdo->get_Infos_Cr_Th_Co_Org($_SESSION['audit']); //infos criteres controlés organisationnel
 		$lesObservationsOrg = $pdo->get_Liste_Obs_Org($_SESSION['audit']); //les observations organisationnel

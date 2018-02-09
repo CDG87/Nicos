@@ -137,8 +137,12 @@ class Pdo_Inspection {
 			$liste[] = $nom;
 			
 		}
+		if(isset($liste)){
+			return $liste;
+		}else{
+			return "";
+		}
 		
-		return $liste;
 	
 	}
 
@@ -1008,18 +1012,6 @@ class Pdo_Inspection {
 		$ligne = $rs->fetchAll();
 		return $ligne;
 	}
-	
-	/**
-	* Récupère données diffusions rapport
-	**/
-	public function get_Diffusion_Rapport() {
-		$req = "SELECT LIBELLE_PERSONNE FROM PARAMETRES_DIFFUSION_RAPPORT";
-		$rs = $this->monPdoInspection->prepare($req);
-		$rs->execute();
-		$ligne = $rs->fetchAll();
-		return $ligne;
-	}
-	
 	
 	/**
 	* Récupère le nom du thème à partir de son numéro

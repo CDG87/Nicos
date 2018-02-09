@@ -330,9 +330,8 @@ if(isset($_SESSION['choix_creation'])) {
 		//Diffusion du rapport
 		$section->addTitle(htmlspecialchars('Diffusion du rapport'), 3);
 
-		foreach($lesPersonnesDiff as $unePersonneDiff) {
-			$section->addText(htmlspecialchars($unePersonneDiff['LIBELLE_PERSONNE']));
-		}
+			$section->addText(htmlspecialchars("Autorité territoriale de la structure"), 'coord_audit');
+			$section->addText(htmlspecialchars("Président du CDG"), 'coord_audit');
 
 		$section->addPageBreak(); //saut de page
 			
