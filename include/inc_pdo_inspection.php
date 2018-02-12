@@ -3152,6 +3152,28 @@ class Pdo_Inspection {
 	}
 	
 	/**
+	* Vérifie la présence d'inspecteur
+	**/
+	public function nb_inspecteur(){
+		$req = "SELECT COUNT(NUM_CONTROLEUR) AS NbControlleur FROM CONTROLEUR";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
+	* Vérifie la présence de structure
+	**/
+	public function nb_structure(){
+		$req = "SELECT COUNT(NUM_STRUCTURE) AS NbStructure FROM STRUCTURE";
+		$rs = $this->monPdoInspection->prepare($req);
+		$rs->execute();
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+	
+	/**
 	* Ajout d'un batiment manuel
 	**/
 	public function add_Batiment_manu($numPole, $nomBatiment, $num) {

@@ -6,6 +6,11 @@
     else{
         $cachechoi = '';
     }
+	if($pdo->nb_inspecteur()["NbControlleur"]<1 || $pdo->nb_structure()["NbStructure"]<1){
+		$creation = 'disabled="disabled"';;
+	}else{
+		$creation = '';
+	}
 ?>
 
 <div class="row">
@@ -16,7 +21,7 @@
     <tr>
         <td class="espart">
             <form method="post" action="index.php?uc=creation&action=new_audit&act_creation=creer">
-                <button type="submit" class="btn btn-warning btn-partie" name="new_audit">Créer un rapport</button>
+                <button type="submit" class="btn btn-warning btn-partie" name="new_audit" <?php echo $creation; ?>>Créer un rapport</button>
             </form>
         </td>
         <td class="espart">
