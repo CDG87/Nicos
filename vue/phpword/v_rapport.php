@@ -670,6 +670,7 @@ if(isset($_SESSION['choix_creation'])) {
 			$section->addPageBreak();
 			}
 		/*************************** CONCLUSION ***************************/
+			
 			if(sizeof($statsORG)>0 || sizeof($statsSITE)>0 || sizeof($statsFamille)>0){
 			$section->addText(htmlspecialchars("Bilan des non-conformités :"),'subtitle_p_garde');
 			$section->addTextBreak(1);
@@ -685,7 +686,7 @@ if(isset($_SESSION['choix_creation'])) {
 				$titles=array(); //legende des sommets
 				$data=array(); //valeur du graph
 				$nbTheme =0;
-				
+				$tableTitres=array();
 				// Add table
 				$tablette1 = $section->addTable('myOwnTableStyle');
 				$tablette1->addRow();
@@ -709,8 +710,22 @@ if(isset($_SESSION['choix_creation'])) {
 					
 					$max = max($data);
 					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
-	 
-					$graph->SetTitles($titles);
+					
+					for($i=0;$i<sizeof($titles);$i++){
+						$saut=0;
+						for($j=(strlen($titles[$i])/2);$j<strlen($titles[$i]);$j++){
+							$mot=$titles[$i];
+							if(substr($mot,$j,1)==" " && $saut==0){
+								$saut=$j;
+							} 
+						}
+						$espace=substr($titles[$i],0,$saut)."\n".substr($titles[$i],$saut,strlen($titles[$i]));
+						array_push($tableTitres,$espace);
+					}
+					
+					
+					
+					$graph->SetTitles($tableTitres);
 					$graph->SetCenter(0.5,0.55);
 					$graph->HideTickMarks();
 					$graph->SetColor('white'); // couleur de fond
@@ -719,7 +734,7 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph->grid->Show();
 					 
 					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
-					$graph->axis->title->SetMargin(5);
+					$graph->axis->title->SetMargin(20);
 					$graph->SetGridDepth(DEPTH_BACK);
 					$graph->SetSize(0.6);
 					 
@@ -745,6 +760,7 @@ if(isset($_SESSION['choix_creation'])) {
 				//statistique site
 				$section->addText(htmlspecialchars("Nombre de non-conformités par bâtiment "), $menu1,'st1');
 				
+				$tableTitres=array();
 				$titles=array(); //legende des sommets
 				$data=array(); //valeur du graph
 				$nbBatiment = 0;
@@ -772,7 +788,22 @@ if(isset($_SESSION['choix_creation'])) {
 					$max = max($data);
 					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
 	 
-					$graph->SetTitles($titles);
+	 
+					for($i=0;$i<sizeof($titles);$i++){
+						$saut=0;
+						for($j=(strlen($titles[$i])/2);$j<strlen($titles[$i]);$j++){
+							$mot=$titles[$i];
+							if(substr($mot,$j,1)==" " && $saut==0){
+								$saut=$j;
+							} 
+						}
+						$espace=substr($titles[$i],0,$saut)."\n".substr($titles[$i],$saut,strlen($titles[$i]));
+						array_push($tableTitres,$espace);
+					}
+	 
+	 
+	 
+					$graph->SetTitles($tableTitres);
 					$graph->SetCenter(0.5,0.55);
 					$graph->HideTickMarks();
 					$graph->SetColor('white'); // couleur de fond
@@ -781,7 +812,7 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph->grid->Show();
 					 
 					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
-					$graph->axis->title->SetMargin(5);
+					$graph->axis->title->SetMargin(20);
 					$graph->SetGridDepth(DEPTH_BACK);
 					$graph->SetSize(0.6);
 					 
@@ -806,7 +837,7 @@ if(isset($_SESSION['choix_creation'])) {
 				if(sizeof($statsFamille)>0){
 				//stats par theme
 				$section->addText(htmlspecialchars("Nombre de non-conformités par famille de risques "), $menu1,'st1');
-				
+				$tableTitres=array();
 				$titles=array(); //legende des sommets
 				$titres=array();
 				$data=array(); //valeur du graph
@@ -829,7 +860,6 @@ if(isset($_SESSION['choix_creation'])) {
 				
 					array_push($titles, $stat['NOM_THEME']); //ajout d'un nouveau sommets legende
 					array_push($data, $stat['NBROUGE']); //ajout d'une nouvelle valeur dans le graph
-					array_push($titres, $pdo->formatString($stat['NOM_THEME']));
 					$nbFamille = $nbFamille + 1 ;
 				}
 				if($nbFamille >=3 ){
@@ -838,7 +868,22 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph->SetScale('lin',0,$max); // min et max sur l'echelle
 					
 					
-					$graph->SetTitles($titres);
+					for($i=0;$i<sizeof($titles);$i++){
+						$saut=0;
+						for($j=(strlen($titles[$i])/2);$j<strlen($titles[$i]);$j++){
+							$mot=$titles[$i];
+							if(substr($mot,$j,1)==" " && $saut==0){
+								$saut=$j;
+							} 
+						}
+						$espace=substr($titles[$i],0,$saut)."\n".substr($titles[$i],$saut,strlen($titles[$i]));
+						array_push($tableTitres,$espace);
+					}
+					
+					
+					
+					
+					$graph->SetTitles($tableTitres);
 					$graph->SetCenter(0.5,0.55);
 					$graph->HideTickMarks();
 					$graph->SetColor('white'); // couleur de fond
@@ -847,7 +892,7 @@ if(isset($_SESSION['choix_creation'])) {
 					$graph->grid->Show();
 					 
 					$graph->axis->title->SetFont(FF_ARIAL,FS_NORMAL,12);
-					$graph->axis->title->SetMargin(3); //marge entre legende et graph
+					$graph->axis->title->SetMargin(20); //marge entre legende et graph
 					$graph->SetGridDepth(DEPTH_BACK);
 					$graph->SetSize(0.5);
 					 
