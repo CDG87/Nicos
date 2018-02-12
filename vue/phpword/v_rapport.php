@@ -498,6 +498,9 @@ if(isset($_SESSION['choix_creation'])) {
 						}
 					}
 				}else{
+					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
+					//Image téléchargée		
+					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 					//Illustration critere
 					foreach($lesImgCrCo as $uneImgCrCo) {
 						if($uneImgCrCo['NUM_CRITERE'] == $uneInfoCritereCoOrg['NUM_CRITERE']) {
@@ -505,9 +508,6 @@ if(isset($_SESSION['choix_creation'])) {
 							
 						}
 					}
-					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
-					//Image téléchargée		
-					$textrun->addImage('photos/' . $uneInfoCritereCoOrg['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
 				
 				foreach($lesObservationsOrg as $uneObservationOrg) {
@@ -628,15 +628,15 @@ if(isset($_SESSION['choix_creation'])) {
 						}
 					}
 				}else{
+					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
+					//Image téléchargée		
+					$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 					//Illustration critere
 					foreach($lesImgCr as $uneImgCr) {
 						if($uneImgCr['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneImgCr['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU'] and $uneImgCr['NUM_CRITERE'] == $uneInfoCritereCoSite['NUM_CRITERE']) {
 							$textrun->addImage('images/' . $uneImgCr['LIBELLE_IMAGE_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 						}
 					}
-					$textrun->addText('   ', array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
-					//Image téléchargée		
-					$textrun->addImage('photos/' . $uneInfoCritereCoSite['PHOTO_CRITERE'], array('height' => 100,'align' => 'center', 'wrappingStyle' => 'infront'));
 				}
 				
 				foreach($lesObservationsSite as $uneObservationSite) {
