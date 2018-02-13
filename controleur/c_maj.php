@@ -439,7 +439,7 @@ switch($action) {
 				$pdo->EXPORT_TABLES($host,$user,$pass,$name,$tables,$backup_name);
 			}else{
 				if(isset($_POST['importBd'])){
-					$tables='version, centre, type_structure, structure, identifiant, participer, observation, sous_theme, theme, se_trouver, resume_article, preconisation, posseder, participant, lieu, inscrire, image_critere, groupe_lieu, disposer, date_maj, critere, controle_critere, controleur, controler, contenir, comprendre, batiment, audit, parametres_diffusion_rapport, pole';
+					$tables='version, centre, type_structure, structure, identifiant, participer, observation, sous_theme, theme, se_trouver, resume_article, preconisation, posseder, participant, lieu, inscrire, image_critere, groupe_lieu, disposer, date_maj, critere, controle_critere, controleur, controler, contenir, comprendre, batiment, audit, pole';
 					$pdo->DROP_TABLE($tables);
 					$pdo->IMPORT_TABLES('base_inspection_cdg.sql', $host, $user, $pass, $name);
 					include('vue/v_maj_bd.php');
