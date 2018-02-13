@@ -8,11 +8,11 @@
 						<input  class="form-control form-control2" name="logo" value="<?php  echo $infoCentre['LOGO']; ?>"  />
 					</div>
 					<br/><br/>
-					<label class="col-sm-3" for="nom_inspecteur">Entete du rapport : * </label>
+					<label class="col-sm-3" for="nom_inspecteur">Entete du rapport (pour un retour à la ligne insérer un #) : * </label>
 					<div class="col-sm-4">
 						<input  class="form-control form-control2" name="entete" value="<?php  echo $infoCentre['ENTETE']; ?>"  />
 					</div>
-					<br/><br/>
+					<br/><br/></br>
 					<label class="col-sm-3" for="nom_inspecteur">Nom : * </label>
 					<div class="col-sm-4">
 						<input  class="form-control form-control2" name="nom" value="<?php  echo $infoCentre['NOM']; ?>"  />

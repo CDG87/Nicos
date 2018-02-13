@@ -69,15 +69,24 @@ if(isset($_SESSION['choix_creation'])) {
 
 	/*************************** HEADER ***************************/
 
-
+	$entete="";
 	// Add first page header
 	$header = $section->addHeader();
 	$header->firstPage();
 	$table = $header->addTable();
 	$table->addRow();
 	$cell = $table->addCell(4500);
+	
+	for($j=0;$j<strlen($infoCentre['ENTETE']);$j++){
+		if(substr($infoCentre['ENTETE'],$j,1)=="#"){
+			$entete=$entete."<w:br/>";
+		}else{
+			$entete=$entete.substr($infoCentre['ENTETE'],$j,1);
+		}
+	}
+	
 	$textrun = $cell->addTextRun();
-	$textrun->addText($infoCentre['ENTETE'], 'pole');
+	$textrun->addText($entete, 'pole');
 	$table->addCell(4500)->addImage(
 		$infoCentre['LOGO'],
 		array('height' => 100, 'align' => 'right')
