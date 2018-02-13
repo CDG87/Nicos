@@ -1906,18 +1906,6 @@ INSERT INTO observation VALUES
 
 
 
-CREATE TABLE `parametres_diffusion_rapport` (
-  `LIBELLE_PERSONNE` varchar(500) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-
-INSERT INTO parametres_diffusion_rapport VALUES
-("Autorité territoriale de la structure"),
-("Président du CDG87");
-
-
-
-
 CREATE TABLE `participant` (
   `NUM_PARTICIPANT` smallint(6) NOT NULL AUTO_INCREMENT,
   `NUM_STRUCTURE` smallint(6) NOT NULL,
@@ -3051,13 +3039,13 @@ INSERT INTO type_structure VALUES
 
 CREATE TABLE `version` (
   `NUM_VERSION` int(11) NOT NULL,
-  `VALEUR_VERSION` float NOT NULL,
+  `VALEUR_VERSION` varchar(10) NOT NULL,
   PRIMARY KEY (`NUM_VERSION`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 INSERT INTO version VALUES
-("1","0.98");
+("1","1.00");
 
 
 
