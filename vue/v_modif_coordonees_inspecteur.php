@@ -29,61 +29,61 @@
 					<h3>Coordonnées inspecteur</h3><br/>
 					<label class="col-sm-3" for="nom_inspecteur">Nom : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Fourgeaud" name="nom_inspecteur" value="<?php  if(isset($_POST['lst_controleur'])){echo $controleur['NOM_CONTROLEUR'];} ?>" required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : Demaison" name="nom_inspecteur" value="<?php  if(isset($_POST['lst_controleur'])){echo $controleur['NOM_CONTROLEUR'];} ?>" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="prenom_inspecteur">Prénom : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Thomas" name="prenom_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['PRENOM_CONTROLEUR'];} ?>"required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : Jean" name="prenom_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['PRENOM_CONTROLEUR'];} ?>"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fonction_inspecteur">Fonction : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Preventeur" name="fonction_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FONCTION_CONTROLEUR'];} ?>"required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : Preventeur" name="fonction_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FONCTION_CONTROLEUR'];} ?>"required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="affectation_inspecteur">Affectation : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Service Prévention" name="affectation_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['AFFECTATION_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : Service Prévention" name="affectation_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['AFFECTATION_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="centre_inspecteur">Centre : * </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Centre de Gestion" name="centre_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['CENTRE_CONTROLEUR'];} ?>" required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : Centre de Gestion" name="centre_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['CENTRE_CONTROLEUR'];} ?>" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="adresse_inspecteur">Adresse du centre : *</label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="39 Rue François Perrin" name="adresse_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['ADRESSE_CONTROLEUR'];} ?>" required />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : 39 Rue François Perrin" name="adresse_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['ADRESSE_CONTROLEUR'];} ?>" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_fixe_inspecteur">Téléphone fixe : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="0512345678" name="tel_fixe_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_FIXE_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : 0512345678" name="tel_fixe_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_FIXE_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="tel_portable_inspecteur">Téléphone portable : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="0612345678" name="tel_portable_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_MOBILE_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : 0612345678" name="tel_portable_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['TEL_MOBILE_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="fax_inspecteur">Fax : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="0512345678" name="fax_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FAX_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : 0512345678" name="fax_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['FAX_CONTROLEUR'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" for="email_inspecteur">E-mail : </label>
 					<div class="col-sm-4">
-						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="personne@exemple.fr" name="email_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['EMAIL_CONTROLEUR'];} ?>" />
+						<input <?php echo $dispo; ?> class="form-control form-control2" placeholder="Ex : personne@exemple.fr" name="email_inspecteur" value="<?php if(isset($_POST['lst_controleur'])){echo $controleur['EMAIL_CONTROLEUR'];} ?>" />
 					</div>
 
 					<br/><br/> <br/><br/>

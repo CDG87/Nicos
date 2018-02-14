@@ -7,7 +7,7 @@
 		<?php
 		
 			if($_SESSION['participant_saisi'] == false) { ?>
-				<input required="required" class="form-control" type="text" placeholder="2" name="nb_participants" value="<?php echo ($_SESSION['participant_saisi'] == false) ? '' : $_SESSION['nbParticipants'] ?>" autofocus/>
+				<input required="required" class="form-control" type="text" placeholder="Nombre de participants" name="nb_participants" value="<?php echo ($_SESSION['participant_saisi'] == false) ? '' : $_SESSION['nbParticipants'] ?>" autofocus/>
 				</div>
 			</br></br>
 			<input class="btn btn-default" type="submit" name="saisie_participants" id="add" value="Effectuer la saisie" />

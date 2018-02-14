@@ -8,7 +8,7 @@
 			<label class="col-sm-3" >Structure : </label>
 			<div class="col-sm-4">
 				
-                        <input required class="form-control form-control2" placeholder="Rechercher" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
+                        <input required class="form-control form-control2" placeholder="Rechercher..." type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
 					<?php
 						$liste = $pdo->get_Structures_total();
 					?>
@@ -60,37 +60,37 @@
 					
 					<label class="col-sm-3" >Nom : *</label>
 					<div class="col-sm-4">
-						<input required class="form-control form-control2" placeholder="Mairie" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>"/>
+						<input required class="form-control form-control2" placeholder="Ex : Mairie" name="nomStructure" value="<?php  if($_SESSION['modifStructure']!=""){echo $maStructure['NOM_STRUCTURE'];} ?>"/>
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Adresse : * </label>
 					<div class="col-sm-4">
-						<input required class="form-control form-control2" placeholder="39 Rue François Perrin" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
+						<input required class="form-control form-control2" placeholder="Ex : 39 Rue François Perrin" name="adresseStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['ADRESSE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Ville : * </label>
 					<div class="col-sm-4">
-						<input required class="form-control form-control2"  name="villeStructure" placeholder="Limoges" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
+						<input required class="form-control form-control2"  name="villeStructure" placeholder="Ex : Limoges" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['VILLE_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >CP : * </label>
 					<div class="col-sm-4">
-						<input required type="number" placeholder="87000" class="form-control form-control2" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
+						<input required type="number" placeholder="Ex : 87000" class="form-control form-control2" name="cpStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['CP_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3">Tel : </label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" placeholder="0512345678" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
+						<input class="form-control form-control2" placeholder="Ex : 0512345678" name="telStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['TELEPHONE_STRUCTURE'];} ?>"  />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Email : </label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" placeholder="personne@exemple.com" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
+						<input class="form-control form-control2" placeholder="Ex : personne@exemple.com" name="mailStructure" value="<?php if($_SESSION['modifStructure']!=""){echo $maStructure['EMAIL_STRUCTURE'];} ?>" />
 					</div>
 					<br/><br/>
 		
