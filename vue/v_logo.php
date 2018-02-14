@@ -48,6 +48,16 @@
 						<input  class="form-control form-control2" name="site" placeholder="Ex : http://www.exemple.com" value="<?php  echo $infoCentre['SITE']; ?>"  />
 					</div>
 					<br/><br/>
-					<input class="btn btn-default" type="submit" name="modifier" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier les informations du centre ?"));' /></td>
-					<button type="submit" class="btn btn-default" >Retour</button>
+					<table>
+						<tr>
+							<td>
+								<input class="btn btn-default" type="submit" name="modifier" value="Modifier" onclick='return(confirm("Voulez-vous vraiment modifier les informations du centre ?"));' />
+							</td>
 	</form>
+							<td>
+								<form method="post" name="choix_modif_suppr_inspecteur" action="index.php?uc=maj&action=modif_logo">
+									<button type="submit" class="btn btn-default" >Retour</button>
+								</form>
+							</td>
+						</tr>
+					</table>
