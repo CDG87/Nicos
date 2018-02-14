@@ -68,7 +68,7 @@ else{
             <table>
                 <tr>
                     <td>
-                        <textarea rows="5" name='precomanu' cols='50' maxlength='10000'></textarea>
+                        <textarea rows="5" name='precomanu' cols='50' placeholder="Nom de la proposition" maxlength='10000'></textarea>
                     </td>
                 </tr>
                 <tr>

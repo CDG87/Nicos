@@ -39,7 +39,7 @@ include("include/entete.php");
 		<table>
             <tr>
                 <td>
-                    <textarea rows="5" name='lieumanu' cols='50' maxlength='60'></textarea>
+                    <textarea rows="5" name='lieumanu' placeholder="Nom du lieu" cols='50' maxlength='60'></textarea>
                 </td>
             </tr>
             <tr>

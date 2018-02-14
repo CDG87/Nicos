@@ -8,7 +8,7 @@ include("include/entete.php");
             <td>
                 <div class="container_obs">
 					<label>Version : </label>
-                    <input  class="form-control" name="version" value="<?php  echo $version[0]; ?>"  />
+                    <input type="text" placeholder="1.00" class="form-control" name="version" value="<?php  echo $version[0]; ?>"  />
                 </div>
             </td>
         </tr>

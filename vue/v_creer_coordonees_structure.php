@@ -23,39 +23,39 @@
 					</div> 
 					<br/><br/>
 					
-					<label class="col-sm-3" >Nom : </label>
+					<label class="col-sm-3" >Nom : * </label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" name="nom" />
+						<input required class="form-control form-control2" placeholder="Mairie" name="nom" />
 					</div>
 					<br/><br/>
 					
-					<label class="col-sm-3" >Adresse : </label>
+					<label class="col-sm-3" >Adresse : *</label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" name="adresse" />
+						<input required class="form-control form-control2" placeholder="39 Rue François Perrin" name="adresse" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Ville : *</label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" name="ville" required />
+						<input class="form-control form-control2" placeholder="Limoges" name="ville" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >CP : * </label>
 					<div class="col-sm-4">
-						<input type="number" class="form-control form-control2" name="cp" required />
+						<input type="number" placeholder="87000" class="form-control form-control2" name="cp" required />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Tel : </label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" name="tel" />
+						<input placeholder="0512345678" class="form-control form-control2" name="tel" />
 					</div>
 					<br/><br/>
 					
 					<label class="col-sm-3" >Email : </label>
 					<div class="col-sm-4">
-						<input class="form-control form-control2" name="mail" />
+						<input class="form-control form-control2" placeholder="personne@exemple.com" name="mail" />
 					</div>
 					<br/><br/>
 					
