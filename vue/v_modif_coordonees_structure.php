@@ -8,7 +8,7 @@
 			<label class="col-sm-3" >Structure : </label>
 			<div class="col-sm-4">
 				
-                        <input required class="form-control form-control2" placeholder="Rechercher" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
+                        <input class="form-control form-control2" placeholder="Rechercher" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
 					<?php
 						$liste = $pdo->get_Structures_total();
 					?>
@@ -105,5 +105,5 @@
 	</form>
 	<td>
 			<?php } ?>
-		<button type="submit" name="retour" class="btn btn-default" >Retour</button>
+		<button name="retour" class="btn btn-default" >Retour</button>
 	</td></tr></table>
