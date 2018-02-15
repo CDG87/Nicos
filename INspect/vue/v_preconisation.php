@@ -8,10 +8,17 @@ if($listepreconisation == null){
 }
 else{
     for($i = 0;$i < count($_SESSION['tabobsR']);$i++){
+		if($i<count($_SESSION['tabobsR'])-1){
+		if($_SESSION['tabobsR'][$i]!=$_SESSION['tabobsR'][$i+1]){
         ?>
             <button type="button" class="btn btn-danger btn-obs" disabled="disabled"><?php echo $_SESSION['tabobsR'][$i]; ?></button>
 			</br></br>
         <?php
+		}
+		}else{ ?>
+			<button type="button" class="btn btn-danger btn-obs" disabled="disabled"><?php echo $_SESSION['tabobsR'][$i]; ?></button>
+			</br></br>
+	<?php	}
     }
     ?>
     <hr/>
