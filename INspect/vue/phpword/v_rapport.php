@@ -649,8 +649,15 @@ if(isset($_SESSION['choix_creation'])) {
 				}
 				
 				foreach($lesObservationsSite as $uneObservationSite) {
-					
+					$section->addText(htmlspecialchars("NUM_BATIMENT_C ".$uneObservationSite['NUM_BATIMENT_C']), 'obs_color_v');
+					$section->addText(htmlspecialchars("NUM_BATIMENT_C 2 ".$uneInfoCritereCoSite['NUM_BATIMENT_C']), 'obs_color_v');
+					$section->addText(htmlspecialchars("NUM_CRITERE_C ".$uneObservationSite['NUM_CRITERE_C']), 'obs_color_v');
+					$section->addText(htmlspecialchars("NUM_CRITERE ".$uneInfoCritereCoSite['NUM_CRITERE']), 'obs_color_v');
+					$section->addText(htmlspecialchars("NUM_LIEU ".$uneObservationSite['NUM_LIEU']), 'obs_color_v');
+					$section->addText(htmlspecialchars("NUM_LIEU 2 ".$uneInfoCritereCoSite['NUM_LIEU']), 'obs_color_v');
+					$section->addText(htmlspecialchars("--------------------"), 'obs_color_r');
 					if($uneObservationSite['NUM_BATIMENT_C'] == $uneInfoCritereCoSite['NUM_BATIMENT_C'] and $uneObservationSite['NUM_CRITERE_C'] == $uneInfoCritereCoSite['NUM_CRITERE'] and $uneObservationSite['NUM_LIEU'] == $uneInfoCritereCoSite['NUM_LIEU']) {
+						
 						if($uneObservationSite['CODE_COULEUR_OBSERVATION'] == 1) { //vert
 							$section->addText(htmlspecialchars($uneObservationSite['LIBELLE_OBSERVATION']), 'obs_color_v');
 						}else { //rouge

@@ -1676,10 +1676,15 @@ class Pdo_Inspection {
 	* Supression d'un lien entre audit, lieu et observation (dans le cas de la modif d'un critere)
 	**/
 	public function suppr_Posseder_Obs($numaudit, $numPole, $numBatiment, $numGrpLieu, $numlieu, $numTheme, $numCritere, $numobs) {
-		$req1 = "DELETE FROM POSSEDER WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
+		$req1 = "DELETE FROM POSSEDER WHERE NUM_AUDIT=:numaudit AND NUM_POLE_C=:numpole AND NUM_BATIMENT_C=:numbatiment AND NUM_GROUPE_LIEU_C=:numgroupelieu AND NUM_LIEU=:numlieu AND NUM_THEME_C=:numtheme AND NUM_CRITERE_C=:numcritere"; 
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numaudit' => $numaudit,
+			'numpole' => $numPole,
+			'numbatiment' => $numBatiment,
+			'numgroupelieu' => $numGrpLieu,
+			'numlieu' => $numlieu,
+			'numtheme' => $numTheme,
 			'numcritere' => $numCritere
 		));
 		$req2 = "DELETE FROM CONTROLE_CRITERE WHERE NUM_CRITERE=:numcritere AND NUM_AUDIT=:numaudit";
