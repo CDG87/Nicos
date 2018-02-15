@@ -1,6 +1,19 @@
 <?php
 	include("include/entete.php");
-    if($listeAudit == null){
+	
+	
+	$a=0;
+	$b=0;
+	foreach($listeAudit as $audit){
+		if($audit['LIBELLE_AUDIT']=="Inspection"){
+			$a++;
+		}else{
+			$b++;
+		}
+	}
+	
+    if($listeAudit == null || ($a==0 && $b>0)){
+		
         $cachechoi = 'disabled="disabled"';
     }
     else{

@@ -66,7 +66,7 @@ class Pdo_Inspection {
 	**/
 	public function get_NumAudit() {
 		
-		$req = "SELECT NUM_AUDIT FROM AUDIT";
+		$req = "SELECT NUM_AUDIT, LIBELLE_AUDIT FROM AUDIT";
 		$rs = $this->monPdoInspection->prepare($req);
 		$rs->execute();
 		$ligne = $rs->fetchAll();

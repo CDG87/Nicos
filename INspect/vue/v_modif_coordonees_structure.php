@@ -9,7 +9,6 @@
 			<div class="col-sm-4">
 				
                         <input required class="form-control form-control2" placeholder="Rechercher..." type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
-                        <input class="form-control form-control2" placeholder="Rechercher" type="text" id="nom_structure" name="nom_structure" value="<?php if($_SESSION['modifStructure']!=""){ echo $_SESSION['nomStructure'];} ?>" /> 
 					<?php
 						$liste = $pdo->get_Structures_total();
 					?>
@@ -103,8 +102,11 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	<?php } ?>
 	<td>
-			<?php } ?>
-		<button name="retour" class="btn btn-default" >Retour</button>
+			
+			</form>
+			<form method="post" action="index.php?uc=maj&action=modif_coordonees_structure">
+				<button type="submit" name="retour" class="btn btn-default" >Retour</button>
+			</form>
 	</td></tr></table>
