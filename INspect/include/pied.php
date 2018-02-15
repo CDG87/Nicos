@@ -561,7 +561,7 @@
                         <th>Ajouter une observation :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control " rows="7" name='newnomobservation' cols='150' maxlength='370' required="required" placeholder="Nom de l'observation"></textarea></td>
+                        <td><textarea class="form-control " rows="7" name='newnomobservation' cols='150' maxlength='370' required="required" placeholder="Observation ?"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                     </tr>
                 </table>
@@ -669,7 +669,7 @@
                         <th>Ajouter une proposition :</th>
                     </tr>
                     <tr>
-                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Nom de la proposition"></textarea></td>
+                        <td><textarea class="form-control" rows="10" name='newnompreco' cols='150' maxlength='750' required="required" placeholder="Proposition ?"></textarea></td>
                         <td><input type='submit' value='Ajouter' name='ajouter' class="btn btn-default"/></td>
                         </form>
                     </tr>

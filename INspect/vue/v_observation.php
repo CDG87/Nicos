@@ -65,7 +65,7 @@ else{
 		<table>
             <tr>
                 <td>
-                    <textarea rows="5" name='obsmanu' cols='50' placeholder="Nom de l'observation" maxlength='1000'></textarea>
+                    <textarea rows="5" name='obsmanu' cols='50' placeholder="Observation ?" maxlength='1000'></textarea>
                 </td>
             </tr>
             <tr>
