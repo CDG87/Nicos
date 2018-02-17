@@ -1718,11 +1718,13 @@ class Pdo_Inspection {
 	/**
 	* Suppression d'un lien entre audit, lieu et preconisation (dans le cas de la modif d'un critere)
 	**/
-	public function suppr_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere, $numpreco) {
-		$req1 = "DELETE FROM CONTENIR WHERE NUM_AUDIT=:numaudit AND NUM_CRITERE_C=:numcritere";
+	public function suppr_Contenir_Preco($numaudit, $numBatiment, $numlieu, $numcritere) {
+		$req1 = "DELETE FROM CONTENIR WHERE NUM_AUDIT=:numaudit AND NUM_BATIMENT_C=:numbat AND NUM_LIEU=:numlieu AND NUM_CRITERE_C=:numcritere";
 		$rs1 = $this->monPdoInspection->prepare($req1);
 		$rs1->execute(array(
             'numaudit' => $numaudit,
+			'numbat' => $numBatiment,
+			'numlieu' => $numlieu,
 			'numcritere' => $numcritere
 		));
 	}

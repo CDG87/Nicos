@@ -392,15 +392,17 @@ switch($action) {
                         else{
                             $_SESSION['photoCR'] = null;
                         }
+						$pdo->suppr_Contenir_Preco($_SESSION['audit'], $_SESSION['idbatiment'] , $_SESSION['idlieu'], $_SESSION['numcritere']);
                     }
                     else{
-						for($j = 0;$j < count($_SESSION['tabpreco']);$j++){
-							$pdo->suppr_Contenir_Preco($_SESSION['audit'], $_SESSION['idbatiment'] , $_SESSION['idlieu'], $_SESSION['numcritere'], $_SESSION['tabpreco'][$j]);
-						}
+						
+							$pdo->suppr_Contenir_Preco($_SESSION['audit'], $_SESSION['idbatiment'] , $_SESSION['idlieu'], $_SESSION['numcritere']);
+						
                         for($j = 0;$j < count($_SESSION['tabpreco']);$j++){
                             $pdo->add_Contenir_Preco($_SESSION['audit'], $_SESSION['idbatiment'] , $_SESSION['idlieu'], $_SESSION['numcritere'], $_SESSION['tabpreco'][$j]);
                         }
                     }
+					
 					for($i = 0;$i < count($_SESSION['tabobs']);$i++){
 						$pdo->suppr_Posseder_Obs($_SESSION['audit'], $_SESSION['idpole'], $_SESSION['idbatiment'], $_SESSION['idgroupelieu'], $_SESSION['idlieu'], $_SESSION['numtheme'], $_SESSION['numcritere'], $_SESSION['tabobs'][$i]);
 					}
