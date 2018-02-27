@@ -11,14 +11,25 @@
 			$b++;
 		}
 	}
+	if($_SESSION['isAdmin']==1){
+		if($listeAudit == null){
+			
+			$cachechoi = 'disabled="disabled"';
+		}
+		else{
+			$cachechoi = '';
+		}
+	}else{
+		if($listeAudit == null || ($a==0 && $b>0)){
+			
+			$cachechoi = 'disabled="disabled"';
+		}
+		else{
+			$cachechoi = '';
+		}
+	}
 	
-    if($listeAudit == null || ($a==0 && $b>0)){
-		
-        $cachechoi = 'disabled="disabled"';
-    }
-    else{
-        $cachechoi = '';
-    }
+	
 	if($pdo->nb_inspecteur()["NbControlleur"]<1 || $pdo->nb_structure()["NbStructure"]<1){
 		$creation = 'disabled="disabled"';;
 	}else{
